@@ -1,0 +1,1033 @@
+
+
+<!DOCTYPE html>
+
+
+<html lang="en" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+    <title>5. Generation of Pseudo-Random Numbers &#8212; Laboratorio di Calcolo e Statistica</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=ac02cc09edc035673794" rel="stylesheet" />
+<link href="../../_static/styles/bootstrap.css?digest=ac02cc09edc035673794" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=ac02cc09edc035673794" rel="stylesheet" />
+
+  
+  <link href="../../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=ac02cc09edc035673794" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
+    <link rel="stylesheet" href="../../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=ac02cc09edc035673794" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=ac02cc09edc035673794" />
+  <script src="../../_static/vendor/fontawesome/6.1.2/js/all.min.js?digest=ac02cc09edc035673794"></script>
+
+    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/clipboard.min.js"></script>
+    <script src="../../_static/copybutton.js"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../../_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'lectures/Lecture_05/pseudorandom';</script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="5.6. Examples: Lecture 5" href="EXAMPLES.html" />
+    <link rel="prev" title="4.6. Solutions: Lecture 4" href="../Lecture_04/SOLUTIONS.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>
+    Back to top
+  </button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+  
+
+<a class="navbar-brand logo" href="../../intro.html">
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../../_static/logo_unimib.png" class="logo__image only-light" alt="Logo image"/>
+    <script>document.write(`<img src="../../_static/logo_unimib.png" class="logo__image only-dark" alt="Logo image"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../../intro.html">
+                    Laboratory of Statistics
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Prerequisites</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../prerequisites/README.html">Prerequisites of this Course</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Lectures</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../Lecture_01/basics_python.html">1. Basics of Python Programming</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../Lecture_01/EXAMPLES.html">1.10. Examples: Lecture 1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Lecture_01/EXERCISES.html">1.11. Exercises for Lecture 1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Lecture_01/SOLUTIONS.html">1.12. Solutions: Lecture 1</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../python_libraries.html">2. Notable Python Libraries</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../Lecture_03/data_visualisation.html">3. Data Visualisation with Python</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../Lecture_03/EXAMPLES.html">3.6. Examples: Lecture 3</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Lecture_03/EXERCISES.html">3.7. Exercises for Lecture 3</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Lecture_03/SOLUTIONS.html">3.8. Solutions: Lecture 3</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../Lecture_04/classes_lambda.html">4. Some python insight: classes, <code class="docutils literal notranslate"><span class="pre">lambda</span></code> functions, functional programming</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../Lecture_04/EXAMPLES.html">4.4. Examples: Lecture 4</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Lecture_04/EXERCISES.html">4.5. Exercises for Lecture 4</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Lecture_04/SOLUTIONS.html">4.6. Solutions: Lecture 4</a></li>
+</ul>
+</li>
+<li class="toctree-l1 current active has-children"><a class="current reference internal" href="#">5. Generation of Pseudo-Random Numbers</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-4"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="EXAMPLES.html">5.6. Examples: Lecture 5</a></li>
+<li class="toctree-l2"><a class="reference internal" href="EXERCISES.html">5.7. Exercises for Lecture 5</a></li>
+<li class="toctree-l2"><a class="reference internal" href="SOLUTIONS.html">5.8. Solutions: Lecture 5</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../Lecture_06/zero_and_extrema.html">6. Finding Zeros and Extrema</a><input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-5"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../Lecture_06/EXAMPLES.html">6.4. Examples: Lecture 6</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Lecture_06/EXERCISES.html">6.5. Exercises for Lecture 6</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Lecture_06/SOLUTIONS.html">6.6. Solutions: Lecture 6</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../Lecture_07/poisson.html">7. The Poisson Distribution</a><input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-6"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../Lecture_07/EXERCISES.html">7.5. Exercises for Lecture 7</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Lecture_07/SOLUTIONS.html">7.6. Solutions: Lezione 7</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../Lecture_08/toys_integration.html">8. Toy Experiments and Integration using Pseudorandom Numbers</a><input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-7"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../Lecture_08/EXAMPLES.html">8.3. Examples: Lecture 8</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Lecture_08/EXERCISES.html">8.4. Exercises for Lecture 8</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Lecture_08/SOLUTIONS.html">8.5. Solutions: Lecture 8</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../Lecture_09/likelihood.html">9. The likelihood</a><input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-8"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../Lecture_09/examples/notebook_01.html">9.7. This is a notebook example</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Lecture_09/examples/notebook_02.html">9.8. Drawing of a function</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Lecture_09/examples/notebook_03.html">9.9. Accessing files on disk</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Lecture_09/EXERCISES.html">9.10. Exercises for Lecture 9</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Lecture_09/exercises/likelihood_solutions.html">9.11. Likelihood exercise solutions</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../Lecture_10/likelihood_fit.html">10. Parameter Estimate using the Maximum Likelihood Method</a><input class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-9"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../Lecture_10/EXERCISES.html">10.10. Exercises for Lecture 10</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Lecture_10/exercises/likelihood_fit_solutions.html">10.11. Maximum likelihood exercise solutions</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../Lecture_11/least_squares.html">11. Least-Squares Fitting</a><input class="toctree-checkbox" id="toctree-checkbox-10" name="toctree-checkbox-10" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-10"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../Lecture_11/EXERCISES.html">11.5. Exercises for Lecture 11</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Lecture_11/exercises/least_squares_solutions.html">11.6. Least squares solutions</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../Lecture_12/fit_binned.html">12. Fit of Binned Distributions</a><input class="toctree-checkbox" id="toctree-checkbox-11" name="toctree-checkbox-11" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-11"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../Lecture_12/EXERCISES.html">12.8. Exercises for Lecture 12</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Lecture_12/exercises/es_12.1_solutions.html">12.9. Binned fits solutions: Exercise 12.1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Lecture_12/exercises/es_12.2_solutions.html">12.10. Binned fits solutions: Exercise 12.2</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Lecture_12/exercises/es_12.3_solutions.html">12.11. Binned fits solutions: exercise 12.3</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Lecture_12/exercises/es_12.4_solutions.html">12.12. cost functions comparison: exercise 12.4</a></li>
+</ul>
+</li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/UnimibFisicaLaboratori/UnimibFisicaLabStatPython" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/UnimibFisicaLaboratori/UnimibFisicaLabStatPython/issues/new?title=Issue%20on%20page%20%2Flectures/Lecture_05/pseudorandom.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../../_sources/lectures/Lecture_05/pseudorandom.md" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.md</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  </button>
+`);
+</script>
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Generation of Pseudo-Random Numbers</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pseudo-random-numbers">5.1. Pseudo-Random Numbers</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#random-sequences">5.1.1. Random Sequences</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pseudo-random-sequences">5.1.2. Pseudo-Random Sequences</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#linear-congruential-generator">5.1.3. Linear Congruential Generator</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#issues-with-pseudo-random-number-generators">5.1.4. Issues with Pseudo-Random Number Generators</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#a-random-number-generator-in-python">5.1.5. A Random Number Generator in <code class="docutils literal notranslate"><span class="pre">Python</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#characteristics-of-random">5.1.6. Characteristics of <code class="docutils literal notranslate"><span class="pre">random</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#generating-integer-random-numbers">5.1.7. Generating integer random-numbers</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#generating-pseudo-random-numbers-with-uniform-distribution">5.2. Generating Pseudo-Random Numbers with Uniform Distribution</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#uniform-distribution-of-pseudo-random-rational-numbers">5.2.1. Uniform Distribution of Pseudo-Random Rational Numbers</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#other-probability-distributions-try-and-catch">5.3. Other Probability Distributions: Try-and-Catch</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-try-and-catch-tac-algorithm">5.3.1. The Try-and-Catch (TAC) Algorithm</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#implementation-of-the-try-and-catch-algorithm">5.3.2. Implementation of the Try-and-Catch Algorithm</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#other-probability-distributions-inverse-function">5.4. Other Probability Distributions: Inverse Function</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-inverse-function-algorithm">5.4.1. The Inverse Function Algorithm</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#gaussian-probability-distributions-central-limit-theorem">5.5. Gaussian Probability Distributions: Central Limit Theorem</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#implementation-of-the-algorithm">5.5.1. Implementation of the Algorithm</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#advantages-and-disadvantages-of-the-gaussian-distribution-algorithm">5.5.2. Advantages and Disadvantages of the Gaussian Distribution Algorithm</a></li>
+</ul>
+</li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="generation-of-pseudo-random-numbers">
+<h1><span class="section-number">5. </span>Generation of Pseudo-Random Numbers<a class="headerlink" href="#generation-of-pseudo-random-numbers" title="Permalink to this heading">#</a></h1>
+<section id="pseudo-random-numbers">
+<h2><span class="section-number">5.1. </span>Pseudo-Random Numbers<a class="headerlink" href="#pseudo-random-numbers" title="Permalink to this heading">#</a></h2>
+<ul class="simple">
+<li><p>When performing any measurements,
+the <strong>comparison between collected data and a model of nature</strong> is carried out</p>
+<ul>
+<li><p>To <strong>falsify the model</strong>, or</p></li>
+<li><p>To <strong>determine the value (and associated uncertainty)</strong> of one of its parameters</p></li>
+</ul>
+</li>
+<li><p>It is therefore crucial to be able to <strong>calculate model predictions</strong></p>
+<ul>
+<li><p>Often the model is <strong>not known</strong> in an alytical form
+and alternative computational methods are used to obtain predictions
+for comparison with measurements</p></li>
+</ul>
+</li>
+<li><p>Many calculation techniques are based on <strong>generating random numbers</strong></p>
+<ul>
+<li><p>To reproduce the <strong>random nature</strong> of measurements</p></li>
+<li><p>Or to uniformly populate phase spaces defined within <strong>sophisticated boundaries</strong></p></li>
+</ul>
+</li>
+</ul>
+<section id="random-sequences">
+<h3><span class="section-number">5.1.1. </span>Random Sequences<a class="headerlink" href="#random-sequences" title="Permalink to this heading">#</a></h3>
+<ul class="simple">
+<li><p>A <strong>random process or stochastic process</strong> produces a sequence of numbers randomly distributed
+according to a fixed probability distribution</p></li>
+<li><p>The probability that a particular number appears at any point in the sequence
+<strong>does not depend on the numbers that precede or follow it</strong></p></li>
+<li><p>For example:</p>
+<ul>
+<li><p><strong>Arrival time of cosmic rays</strong> on a muon detector</p></li>
+<li><p>The result of a <strong>coin toss</strong> or dice roll</p></li>
+</ul>
+</li>
+<li><p>Since they depend on the timing of natural processes,
+these are typically sequences that <strong>take a long time</strong> to construct,
+which becomes a limiting factor in calculations</p></li>
+</ul>
+</section>
+<section id="pseudo-random-sequences">
+<h3><span class="section-number">5.1.2. </span>Pseudo-Random Sequences<a class="headerlink" href="#pseudo-random-sequences" title="Permalink to this heading">#</a></h3>
+<ul class="simple">
+<li><p>Programs and libraries exist,
+generally called <strong>pseudo-random number generators</strong>,
+that produce sequences of numbers that <strong>appear</strong> random</p></li>
+<li><p>The sequence of numbers in these sequences is deterministic,
+and the functions used for generation are designed to
+<strong>mimic the behavior of random sequences</strong></p></li>
+<li><p>The first number in a sequence (or sequence) of pseudo-random numbers
+is called the <em>seed</em>,
+because that number is known and, along with the generation algorithm,
+the entire sequence can be reproduced</p>
+<ul>
+<li><p>Clearly, different seeds will start different sequences of pseudo-random numbers</p></li>
+</ul>
+</li>
+</ul>
+</section>
+<section id="linear-congruential-generator">
+<h3><span class="section-number">5.1.3. </span>Linear Congruential Generator<a class="headerlink" href="#linear-congruential-generator" title="Permalink to this heading">#</a></h3>
+<ul>
+<li><p>An example of a formula to <strong>calculate the next element</strong>
+of a pseudo-random sequence given any number is as follows:</p>
+<div class="math notranslate nohighlight">
+\[
+      x_{n+1} = (A \cdot x_n + C) \mod M 
+      \]</div>
+</li>
+<li><p>With:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+      M &amp;&gt; 0       \\
+      0 &lt;~&amp;A &lt; M   \\
+      0 &lt;~&amp;x_0 &lt; M \\
+      M &amp;\sim 10^{32}
+      \end{split}\]</div>
+</li>
+<li><p>The <strong>first element of the sequence</strong>, with index zero, is the seed</p></li>
+<li><p>This algorithm generates by construction <strong>numbers between 0 and M</strong></p></li>
+</ul>
+</section>
+<section id="issues-with-pseudo-random-number-generators">
+<h3><span class="section-number">5.1.4. </span>Issues with Pseudo-Random Number Generators<a class="headerlink" href="#issues-with-pseudo-random-number-generators" title="Permalink to this heading">#</a></h3>
+<ul class="simple">
+<li><p>The functional dependence between two consecutive pseudo-random numbers <strong>should not be visible</strong></p></li>
+<li><p>If a repeated number reappears in a pseudo-random sequence,
+the sequence starts repeating from that point:
+this is the <strong>periodicity of the generator</strong></p></li>
+<li><p>The period must be <strong>much greater</strong> than the quantity of generated pseudo-random numbers
+and should not depend on the seed choice</p></li>
+<li><p>Typically, random number generators follow a uniform distribution:
+<strong>non-uniformity</strong> of the distribution is another common defect
+that one wants to avoid</p></li>
+<li><p>An <strong>example</strong> of the result of a poorly performing pseudo-random number generator
+can be found <a class="reference external" href="https://boallen.com/random-numbers.html">here</a>
+<img alt="pseudo_fail" src="../../_images/pseudo_random.png" /></p></li>
+</ul>
+</section>
+<section id="a-random-number-generator-in-python">
+<h3><span class="section-number">5.1.5. </span>A Random Number Generator in <code class="docutils literal notranslate"><span class="pre">Python</span></code><a class="headerlink" href="#a-random-number-generator-in-python" title="Permalink to this heading">#</a></h3>
+<ul>
+<li><p>The <code class="docutils literal notranslate"><span class="pre">random</span></code> library contains a pseudo-random number generator <code class="docutils literal notranslate"><span class="pre">rand()</span></code>:</p>
+<div class="highlight-py notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">random</span>
+
+<span class="n">randlistint</span> <span class="o">=</span> <span class="p">[]</span> 
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span> <span class="p">(</span><span class="mi">5</span><span class="p">):</span>
+    <span class="c1"># Return the next random floating point number in the range 0.0 &lt;= X &lt; 1.0</span>
+    <span class="n">randlist</span><span class="o">.</span><span class="n">append</span> <span class="p">(</span><span class="n">random</span><span class="o">.</span><span class="n">random</span> <span class="p">())</span>
+    <span class="nb">print</span> <span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="n">randlist</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span>
+</pre></div>
+</div>
+<p>The code above produces the following output:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="mi">0</span> <span class="mf">0.9773950056543294</span>
+<span class="mi">1</span> <span class="mf">0.6500404225224424</span>
+<span class="mi">2</span> <span class="mf">0.042647579579998096</span>
+<span class="mi">3</span> <span class="mf">0.8110944794319123</span>
+<span class="mi">4</span> <span class="mf">0.6975819042310242</span>
+</pre></div>
+</div>
+</li>
+</ul>
+</section>
+<section id="characteristics-of-random">
+<h3><span class="section-number">5.1.6. </span>Characteristics of <code class="docutils literal notranslate"><span class="pre">random</span></code><a class="headerlink" href="#characteristics-of-random" title="Permalink to this heading">#</a></h3>
+<ul>
+<li><p>It is a generator of pseudo-random integers uniformly distributed between <code class="docutils literal notranslate"><span class="pre">0</span></code> and <code class="docutils literal notranslate"><span class="pre">1</span></code></p></li>
+<li><p>The default <code class="docutils literal notranslate"><span class="pre">seed</span></code> of the <code class="docutils literal notranslate"><span class="pre">random</span></code> function is set
+based on the current time as known by the operating system</p></li>
+<li><p>To have the generator starting from a given <code class="docutils literal notranslate"><span class="pre">seed</span></code>,
+so that the same sequence is produced ad every run of the script,
+the following instruction has to be used:</p>
+<div class="highlight-py notranslate"><div class="highlight"><pre><span></span><span class="n">random</span><span class="o">.</span><span class="n">seed</span> <span class="p">(</span><span class="nb">float</span> <span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">[</span><span class="mi">2</span><span class="p">]))</span>
+</pre></div>
+</div>
+</li>
+<li><p>It’s in fact important to be able to reproduce the same sequence of pseudo-random numbers
+<strong>for testing purposes</strong>.</p></li>
+<li><p>Unless there are important reasons to do otherwise,
+the seed is <strong>initialized only once</strong>
+during the execution of a program.</p>
+<!-- <div style="text-align: right"> (example <a href="EXAMPLES.html#usage-of-srand">4.1</a>) </div> -->
+</li>
+</ul>
+</section>
+<section id="generating-integer-random-numbers">
+<h3><span class="section-number">5.1.7. </span>Generating integer random-numbers<a class="headerlink" href="#generating-integer-random-numbers" title="Permalink to this heading">#</a></h3>
+<ul>
+<li><p>The <code class="docutils literal notranslate"><span class="pre">random</span></code> library may be used to <strong>generate integer numbers</strong> as well:</p>
+<div class="highlight-py notranslate"><div class="highlight"><pre><span></span><span class="n">randlistint</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span> <span class="p">(</span><span class="mi">5</span><span class="p">):</span>
+    <span class="c1"># Return the next random floating point number in the range 0.0 &lt;= X &lt; 1.0</span>
+    <span class="n">randlistint</span><span class="o">.</span><span class="n">append</span> <span class="p">(</span><span class="n">random</span><span class="o">.</span><span class="n">randint</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">100</span><span class="p">))</span>
+    <span class="nb">print</span> <span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="n">randlistint</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>The <code class="docutils literal notranslate"><span class="pre">randint</span></code> function generates numbers <strong>within a range</strong>
+specified in its arguments</p></li>
+</ul>
+</li>
+</ul>
+</section>
+</section>
+<section id="generating-pseudo-random-numbers-with-uniform-distribution">
+<h2><span class="section-number">5.2. </span>Generating Pseudo-Random Numbers with Uniform Distribution<a class="headerlink" href="#generating-pseudo-random-numbers-with-uniform-distribution" title="Permalink to this heading">#</a></h2>
+<ul class="simple">
+<li><p>The <code class="docutils literal notranslate"><span class="pre">random</span></code> library may be used to produce sequences of pseudo-random numbers
+following different distributions using appropriate algorithms.</p></li>
+<li><p>In general, the probability density functions of pseudo-random numbers generated with a computer
+will always have a <strong>limited range</strong>, due to intrinsic limitations of computers.</p></li>
+<li><p>The uniform distribution of random numbers is a special case, as it is <strong>defined on a limited set</strong>
+by construction (otherwise its integral would be divergent).</p></li>
+</ul>
+<section id="uniform-distribution-of-pseudo-random-rational-numbers">
+<h3><span class="section-number">5.2.1. </span>Uniform Distribution of Pseudo-Random Rational Numbers<a class="headerlink" href="#uniform-distribution-of-pseudo-random-rational-numbers" title="Permalink to this heading">#</a></h3>
+<ul>
+<li><p>The goal is to produce random numbers within the interval <code class="docutils literal notranslate"><span class="pre">min,</span> <span class="pre">max</span></code>,
+<strong>using the resources at hand</strong>, i.e., <code class="docutils literal notranslate"><span class="pre">random</span></code>.</p>
+<ol class="arabic">
+<li><p><strong>Uniform distribution between <code class="docutils literal notranslate"><span class="pre">0</span></code> and <code class="docutils literal notranslate"><span class="pre">1</span></code></strong>:</p>
+<div class="highlight-py notranslate"><div class="highlight"><pre><span></span><span class="n">random</span><span class="o">.</span><span class="n">random</span> <span class="p">()</span>
+</pre></div>
+</div>
+</li>
+<li><p><strong>Scaling</strong> between <code class="docutils literal notranslate"><span class="pre">0</span></code> and <code class="docutils literal notranslate"><span class="pre">max-min</span></code>:</p>
+<div class="highlight-py notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="nb">max</span> <span class="o">-</span> <span class="nb">min</span><span class="p">)</span> <span class="o">*</span> <span class="n">random</span><span class="o">.</span><span class="n">random</span> <span class="p">()</span> 
+</pre></div>
+</div>
+</li>
+<li><p><strong>Translation</strong> by <code class="docutils literal notranslate"><span class="pre">min</span></code>:</p>
+<div class="highlight-py notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">rand_range</span> <span class="p">(</span><span class="n">xMin</span><span class="p">,</span> <span class="n">xMax</span><span class="p">)</span> <span class="p">:</span>
+<span class="w">    </span><span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">    generazione di un numero pseudo-casuale distribuito fra xMin ed xMax</span>
+<span class="sd">    &#39;&#39;&#39;</span>
+    <span class="k">return</span> <span class="n">xMin</span> <span class="o">+</span> <span class="n">random</span><span class="o">.</span><span class="n">random</span> <span class="p">()</span> <span class="o">*</span> <span class="p">(</span><span class="n">xMax</span> <span class="o">-</span> <span class="n">xMin</span><span class="p">)</span>
+</pre></div>
+</div>
+</li>
+</ol>
+<!-- <div style="text-align: right"> (example <a href="EXAMPLES.html#generation-of-uniform-pdf">4.2</a>) </div> -->
+</li>
+</ul>
+</section>
+</section>
+<section id="other-probability-distributions-try-and-catch">
+<h2><span class="section-number">5.3. </span>Other Probability Distributions: Try-and-Catch<a class="headerlink" href="#other-probability-distributions-try-and-catch" title="Permalink to this heading">#</a></h2>
+<ul class="simple">
+<li><p>In the case of the uniform probability density function (PDF),
+the probability that pseudo-random events are generated in a given interval
+<strong>does not depend on the position</strong> of the interval.</p></li>
+<li><p>For non-uniform PDFs, this <strong>is not true</strong>.</p></li>
+</ul>
+<p><img alt="non_uniform_distribution" src="../../_images/try_and_catch.png" /></p>
+<section id="the-try-and-catch-tac-algorithm">
+<h3><span class="section-number">5.3.1. </span>The Try-and-Catch (TAC) Algorithm<a class="headerlink" href="#the-try-and-catch-tac-algorithm" title="Permalink to this heading">#</a></h3>
+<ul class="simple">
+<li><p>Generate pseudo-random events in a way <strong>proportional to the area under the PDF</strong>.</p></li>
+</ul>
+<p><img alt="non_uniform_distribution" src="../../_images/try_and_catch_areas.png" /></p>
+<ul class="simple">
+<li><p>Populate the plane with pairs of pseudo-random numbers <code class="docutils literal notranslate"><span class="pre">x,y</span></code>,
+each generated uniformly with <code class="docutils literal notranslate"><span class="pre">rand_range()</span></code>,
+and use <code class="docutils literal notranslate"><span class="pre">x</span></code> only if <code class="docutils literal notranslate"><span class="pre">y</span> <span class="pre">&lt;</span> <span class="pre">f(x)</span></code>.</p></li>
+</ul>
+<p><img alt="non_uniform_distribution" src="../../_images/try_and_catch_2.png" /></p>
+</section>
+<section id="implementation-of-the-try-and-catch-algorithm">
+<h3><span class="section-number">5.3.2. </span>Implementation of the Try-and-Catch Algorithm<a class="headerlink" href="#implementation-of-the-try-and-catch-algorithm" title="Permalink to this heading">#</a></h3>
+<ul>
+<li><p>To repeat generation until the condition <code class="docutils literal notranslate"><span class="pre">y</span> <span class="pre">&lt;</span> <span class="pre">f(x)</span></code> is satisfied,
+a loop is used:</p>
+<div class="highlight-py notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">rand_TAC</span> <span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">xMin</span><span class="p">,</span> <span class="n">xMax</span><span class="p">,</span> <span class="n">yMax</span><span class="p">)</span> <span class="p">:</span>
+<span class="w">    </span><span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">    generazione di un numero pseudo-casuale </span>
+<span class="sd">    con il metodo try and catch</span>
+<span class="sd">    &#39;&#39;&#39;</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="n">rand_range</span> <span class="p">(</span><span class="n">xMin</span><span class="p">,</span> <span class="n">xMax</span><span class="p">)</span>
+    <span class="n">y</span> <span class="o">=</span> <span class="n">rand_range</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">yMax</span><span class="p">)</span>
+    <span class="k">while</span> <span class="p">(</span><span class="n">y</span> <span class="o">&gt;</span> <span class="n">f</span> <span class="p">(</span><span class="n">x</span><span class="p">))</span> <span class="p">:</span>
+        <span class="n">x</span> <span class="o">=</span> <span class="n">rand_range</span> <span class="p">(</span><span class="n">xMin</span><span class="p">,</span> <span class="n">xMax</span><span class="p">)</span>
+        <span class="n">y</span> <span class="o">=</span> <span class="n">rand_range</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">yMax</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">x</span>
+</pre></div>
+</div>
+</li>
+<li><p>The function <code class="docutils literal notranslate"><span class="pre">rand_TAC</span></code> needs more arguments than <code class="docutils literal notranslate"><span class="pre">rand_range</span></code>:</p>
+<ul class="simple">
+<li><p>an <strong>upper limit for the vertical axis</strong>: <code class="docutils literal notranslate"><span class="pre">yMax</span></code></p></li>
+<li><p>the <strong>functional form</strong> to be used as the PDF:
+as you can see, a function can also be passed as an argument
+to another function simply by name.</p></li>
+</ul>
+</li>
+</ul>
+  <!-- <div style="text-align: right"> (example <a href="EXAMPLES.html#generating-pdf-using-the-try-and-catch-method">4.3</a>) </div> -->
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Advantages</p></th>
+</tr>
+</thead>
+</table>
+<ul class="simple">
+<li><p><strong>Knowing the functional form</strong> of the PDF, the algorithm works.</p></li>
+<li><p>It’s <strong>not necessary for the PDF to be known analytically</strong>,
+it’s sufficient that it can be written as a <code class="docutils literal notranslate"><span class="pre">python</span></code> function.</p></li>
+<li><p>Easily <strong>generalizable to N dimensions</strong>.</p></li>
+</ul>
+<table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Disadvantages</p></th>
+</tr>
+</thead>
+</table>
+<ul class="simple">
+<li><p>One must be sure to <strong>know the maximum</strong> (<code class="docutils literal notranslate"><span class="pre">yMax</span></code>) of the function.</p></li>
+<li><p>It has <strong>low efficiency</strong>:</p>
+<ul>
+<li><p>To obtain a random number, at least <strong>two</strong> are generated.</p></li>
+<li><p>Often <strong>many more</strong>, because many points on the plane are discarded.</p></li>
+</ul>
+</li>
+</ul>
+</div>
+</section>
+</section>
+<section id="other-probability-distributions-inverse-function">
+<h2><span class="section-number">5.4. </span>Other Probability Distributions: Inverse Function<a class="headerlink" href="#other-probability-distributions-inverse-function" title="Permalink to this heading">#</a></h2>
+<ul class="simple">
+<li><p>Let <em>x</em> be a random variable with continuous PDF <em>f(x)</em>.</p></li>
+<li><p>Let <em>F(x)</em> be the PDF cumulative distribution function (CDF).</p></li>
+<li><p><strong>If <em>F(x)</em> is strictly increasing, then the variable <em>y = F(x)</em> has a uniform distribution</strong>.
+(This is proved using the chain rule when changing variables in a PDF.)</p></li>
+<li><p>Generating pseudo-random events <strong>with uniform distribution in <em>y</em></strong>
+is therefore equivalent to generating pseudo-random events along <em>x</em> with distribution <em>f(x)</em>.</p></li>
+</ul>
+<section id="the-inverse-function-algorithm">
+<h3><span class="section-number">5.4.1. </span>The Inverse Function Algorithm<a class="headerlink" href="#the-inverse-function-algorithm" title="Permalink to this heading">#</a></h3>
+<ul class="simple">
+<li><p><strong>Calculate analytically</strong> <em>F(x)</em> and its inverse function <em>F <sup>-1</sup>(y)</em>.</p></li>
+</ul>
+<p><img alt="inverse_function" src="../../_images/inverse_function.png" /></p>
+<ul class="simple">
+<li><p>Generate <strong>pseudo-random numbers y<sub>i</sub> with uniform distribution</strong> between <code class="docutils literal notranslate"><span class="pre">0</span></code> and <code class="docutils literal notranslate"><span class="pre">1</span></code> along the <em>y</em> axis.</p></li>
+<li><p>For each generated event, calculate <em>x<sub>i</sub> = F <sup>-1</sup>(y<sub>i</sub>)</em>
+and use that value as the generated random number.</p></li>
+<li><p>Where <em>f(x)</em> is higher, <em>F(x)</em> is steeper,
+so the number of pseudo-random numbers generated in the two intervals
+<em>Δy<sub>1<sub></em> and <em>Δy<sub>2<sub></em>
+is proportional to the area under the curve <em>f(x)</em>
+above the two intervals with width <em>Δx</em>, respectively,
+which is the goal to achieve.</p></li>
+</ul>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Advantages</p></th>
+</tr>
+</thead>
+</table>
+<ul class="simple">
+<li><p>It’s <strong>efficient</strong> in generating pseudo-random numbers,
+as each number is used.</p></li>
+</ul>
+<table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Disadvantages</p></th>
+</tr>
+</thead>
+</table>
+<ul class="simple">
+<li><p>One must <strong>know the analytical form</strong> of <em>f(x)</em> and <em>F(x)</em> and <strong>be able to invert</strong>
+the cumulative function to obtain <em>F <sup>-1</sup>(y)</em>.</p></li>
+<li><p>Calculating a function <strong>adds time</strong> to event generation.</p></li>
+</ul>
+</div>
+</section>
+</section>
+<section id="gaussian-probability-distributions-central-limit-theorem">
+<h2><span class="section-number">5.5. </span>Gaussian Probability Distributions: Central Limit Theorem<a class="headerlink" href="#gaussian-probability-distributions-central-limit-theorem" title="Permalink to this heading">#</a></h2>
+<ul>
+<li><p>The <strong>central limit theorem</strong> can be used
+to generate probability distributions with Gaussian shape.</p>
+<div class="tip admonition">
+<p class="admonition-title">The central limit theorem</p>
+<p>Let <em>N</em> be given independent and identically distributed random variables <em>x<sub>i</sub></em>
+with probability distribution <em>f(x)</em> having finite mean μ and variance σ<sup>2</sup>.
+Then, for large <em>N</em>, the variable <em>y = ⟨x<sub>i</sub>⟩</em>
+is distributed as a Gaussian with mean μ and variance σ<sup>2</sup>.</p>
+</div>
+</li>
+</ul>
+<section id="implementation-of-the-algorithm">
+<h3><span class="section-number">5.5.1. </span>Implementation of the Algorithm<a class="headerlink" href="#implementation-of-the-algorithm" title="Permalink to this heading">#</a></h3>
+<ul class="simple">
+<li><p>In this case as well,
+we start with a <strong>known pseudo-random number generator</strong> - the uniform distribution.</p></li>
+<li><p>To produce a single pseudo-random number distributed according to a Gaussian,
+it’s necessary to <strong>generate <em>N</em> pseudo-random numbers</strong> according to the uniform distribution
+and calculate their average.</p></li>
+<li><p>As <em>N</em> <strong>increases</strong>, the final distribution gets closer and closer to the Gaussian limit:</p></li>
+</ul>
+<p><img alt="inverse_function" src="../../_images/central_limit_theorem.png" /></p>
+  <!-- <div style="text-align: right"> (example <a href="EXAMPLES.html#generating-pdf-using-the-central-limit-theorem-method">4.4</a>) </div> -->
+</section>
+<section id="advantages-and-disadvantages-of-the-gaussian-distribution-algorithm">
+<h3><span class="section-number">5.5.2. </span>Advantages and Disadvantages of the Gaussian Distribution Algorithm<a class="headerlink" href="#advantages-and-disadvantages-of-the-gaussian-distribution-algorithm" title="Permalink to this heading">#</a></h3>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Advantages</p></th>
+</tr>
+</thead>
+</table>
+<ul class="simple">
+<li><p>It’s based on a <strong>well-known theorem</strong> and allows for (within the numerical approximations of a computer)
+verification that the theorem works.</p></li>
+<li><p>It’s <strong>not necessary</strong> to analytically describe the functional form of the Gaussian.</p></li>
+</ul>
+<table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Disadvantages</p></th>
+</tr>
+</thead>
+</table>
+<ul class="simple">
+<li><p>To achieve good precision,
+<strong>many uniform pseudo-random numbers</strong> need to be generated
+to obtain one distributed according to a Gaussian distribution.</p></li>
+</ul>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<ul class="simple">
+<li><p>The examples for the lecture may be found <a class="reference internal" href="EXAMPLES.html"><span class="doc std std-doc">here</span></a></p></li>
+<li><p>The exercises for the lecture may be found <a class="reference internal" href="EXERCISES.html"><span class="doc std std-doc">here</span></a></p></li>
+</ul>
+</div>
+</section>
+</section>
+<div class="toctree-wrapper compound">
+</div>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./lectures/Lecture_05"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer">
+                  <!-- Previous / next buttons -->
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="../Lecture_04/SOLUTIONS.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title"><span class="section-number">4.6. </span>Solutions: Lecture 4</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="EXAMPLES.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title"><span class="section-number">5.6. </span>Examples: Lecture 5</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pseudo-random-numbers">5.1. Pseudo-Random Numbers</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#random-sequences">5.1.1. Random Sequences</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pseudo-random-sequences">5.1.2. Pseudo-Random Sequences</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#linear-congruential-generator">5.1.3. Linear Congruential Generator</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#issues-with-pseudo-random-number-generators">5.1.4. Issues with Pseudo-Random Number Generators</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#a-random-number-generator-in-python">5.1.5. A Random Number Generator in <code class="docutils literal notranslate"><span class="pre">Python</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#characteristics-of-random">5.1.6. Characteristics of <code class="docutils literal notranslate"><span class="pre">random</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#generating-integer-random-numbers">5.1.7. Generating integer random-numbers</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#generating-pseudo-random-numbers-with-uniform-distribution">5.2. Generating Pseudo-Random Numbers with Uniform Distribution</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#uniform-distribution-of-pseudo-random-rational-numbers">5.2.1. Uniform Distribution of Pseudo-Random Rational Numbers</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#other-probability-distributions-try-and-catch">5.3. Other Probability Distributions: Try-and-Catch</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-try-and-catch-tac-algorithm">5.3.1. The Try-and-Catch (TAC) Algorithm</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#implementation-of-the-try-and-catch-algorithm">5.3.2. Implementation of the Try-and-Catch Algorithm</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#other-probability-distributions-inverse-function">5.4. Other Probability Distributions: Inverse Function</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-inverse-function-algorithm">5.4.1. The Inverse Function Algorithm</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#gaussian-probability-distributions-central-limit-theorem">5.5. Gaussian Probability Distributions: Central Limit Theorem</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#implementation-of-the-algorithm">5.5.1. Implementation of the Algorithm</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#advantages-and-disadvantages-of-the-gaussian-distribution-algorithm">5.5.2. Advantages and Disadvantages of the Gaussian Distribution Algorithm</a></li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By The Jupyter Book community
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  <p class="copyright">
+    
+      © Copyright 2022.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../_static/scripts/bootstrap.js?digest=ac02cc09edc035673794"></script>
+<script src="../../_static/scripts/pydata-sphinx-theme.js?digest=ac02cc09edc035673794"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

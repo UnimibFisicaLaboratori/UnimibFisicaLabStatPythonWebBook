@@ -1,0 +1,955 @@
+
+
+<!DOCTYPE html>
+
+
+<html lang="en" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+    <title>10. Parameter Estimate using the Maximum Likelihood Method &#8212; Laboratorio di Calcolo e Statistica</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=ac02cc09edc035673794" rel="stylesheet" />
+<link href="../../_static/styles/bootstrap.css?digest=ac02cc09edc035673794" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=ac02cc09edc035673794" rel="stylesheet" />
+
+  
+  <link href="../../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=ac02cc09edc035673794" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
+    <link rel="stylesheet" href="../../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=ac02cc09edc035673794" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=ac02cc09edc035673794" />
+  <script src="../../_static/vendor/fontawesome/6.1.2/js/all.min.js?digest=ac02cc09edc035673794"></script>
+
+    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/clipboard.min.js"></script>
+    <script src="../../_static/copybutton.js"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../../_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'lectures/Lecture_10/likelihood_fit';</script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="10.10. Exercises for Lecture 10" href="EXERCISES.html" />
+    <link rel="prev" title="9.11. Likelihood exercise solutions" href="../Lecture_09/exercises/likelihood_solutions.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>
+    Back to top
+  </button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+  
+
+<a class="navbar-brand logo" href="../../intro.html">
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../../_static/logo_unimib.png" class="logo__image only-light" alt="Logo image"/>
+    <script>document.write(`<img src="../../_static/logo_unimib.png" class="logo__image only-dark" alt="Logo image"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../../intro.html">
+                    Laboratory of Statistics
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Prerequisites</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../prerequisites/README.html">Prerequisites of this Course</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Lectures</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../Lecture_01/basics_python.html">1. Basics of Python Programming</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../Lecture_01/EXAMPLES.html">1.10. Examples: Lecture 1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Lecture_01/EXERCISES.html">1.11. Exercises for Lecture 1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Lecture_01/SOLUTIONS.html">1.12. Solutions: Lecture 1</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../python_libraries.html">2. Notable Python Libraries</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../Lecture_03/data_visualisation.html">3. Data Visualisation with Python</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../Lecture_03/EXAMPLES.html">3.6. Examples: Lecture 3</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Lecture_03/EXERCISES.html">3.7. Exercises for Lecture 3</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Lecture_03/SOLUTIONS.html">3.8. Solutions: Lecture 3</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../Lecture_04/classes_lambda.html">4. Some python insight: classes, <code class="docutils literal notranslate"><span class="pre">lambda</span></code> functions, functional programming</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../Lecture_04/EXAMPLES.html">4.4. Examples: Lecture 4</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Lecture_04/EXERCISES.html">4.5. Exercises for Lecture 4</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Lecture_04/SOLUTIONS.html">4.6. Solutions: Lecture 4</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../Lecture_05/pseudorandom.html">5. Generation of Pseudo-Random Numbers</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-4"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../Lecture_05/EXAMPLES.html">5.6. Examples: Lecture 5</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Lecture_05/EXERCISES.html">5.7. Exercises for Lecture 5</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Lecture_05/SOLUTIONS.html">5.8. Solutions: Lecture 5</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../Lecture_06/zero_and_extrema.html">6. Finding Zeros and Extrema</a><input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-5"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../Lecture_06/EXAMPLES.html">6.4. Examples: Lecture 6</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Lecture_06/EXERCISES.html">6.5. Exercises for Lecture 6</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Lecture_06/SOLUTIONS.html">6.6. Solutions: Lecture 6</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../Lecture_07/poisson.html">7. The Poisson Distribution</a><input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-6"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../Lecture_07/EXERCISES.html">7.5. Exercises for Lecture 7</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Lecture_07/SOLUTIONS.html">7.6. Solutions: Lezione 7</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../Lecture_08/toys_integration.html">8. Toy Experiments and Integration using Pseudorandom Numbers</a><input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-7"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../Lecture_08/EXAMPLES.html">8.3. Examples: Lecture 8</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Lecture_08/EXERCISES.html">8.4. Exercises for Lecture 8</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Lecture_08/SOLUTIONS.html">8.5. Solutions: Lecture 8</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../Lecture_09/likelihood.html">9. The likelihood</a><input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-8"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../Lecture_09/examples/notebook_01.html">9.7. This is a notebook example</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Lecture_09/examples/notebook_02.html">9.8. Drawing of a function</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Lecture_09/examples/notebook_03.html">9.9. Accessing files on disk</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Lecture_09/EXERCISES.html">9.10. Exercises for Lecture 9</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Lecture_09/exercises/likelihood_solutions.html">9.11. Likelihood exercise solutions</a></li>
+</ul>
+</li>
+<li class="toctree-l1 current active has-children"><a class="current reference internal" href="#">10. Parameter Estimate using the Maximum Likelihood Method</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-9"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="EXERCISES.html">10.10. Exercises for Lecture 10</a></li>
+<li class="toctree-l2"><a class="reference internal" href="exercises/likelihood_fit_solutions.html">10.11. Maximum likelihood exercise solutions</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../Lecture_11/least_squares.html">11. Least-Squares Fitting</a><input class="toctree-checkbox" id="toctree-checkbox-10" name="toctree-checkbox-10" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-10"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../Lecture_11/EXERCISES.html">11.5. Exercises for Lecture 11</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Lecture_11/exercises/least_squares_solutions.html">11.6. Least squares solutions</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../Lecture_12/fit_binned.html">12. Fit of Binned Distributions</a><input class="toctree-checkbox" id="toctree-checkbox-11" name="toctree-checkbox-11" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-11"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../Lecture_12/EXERCISES.html">12.8. Exercises for Lecture 12</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Lecture_12/exercises/es_12.1_solutions.html">12.9. Binned fits solutions: Exercise 12.1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Lecture_12/exercises/es_12.2_solutions.html">12.10. Binned fits solutions: Exercise 12.2</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Lecture_12/exercises/es_12.3_solutions.html">12.11. Binned fits solutions: exercise 12.3</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Lecture_12/exercises/es_12.4_solutions.html">12.12. cost functions comparison: exercise 12.4</a></li>
+</ul>
+</li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/UnimibFisicaLaboratori/UnimibFisicaLabStatPython" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/UnimibFisicaLaboratori/UnimibFisicaLabStatPython/issues/new?title=Issue%20on%20page%20%2Flectures/Lecture_10/likelihood_fit.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../../_sources/lectures/Lecture_10/likelihood_fit.md" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.md</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  </button>
+`);
+</script>
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Parameter Estimate using the Maximum Likelihood Method</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#parameter-determination">10.1. Parameter Determination</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#maximum-likelihood">10.2. Maximum Likelihood</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#logarithm-of-the-likelihood">10.3. Logarithm of the Likelihood</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#uncertainty-of-the-parameter-estimate">10.4. Uncertainty of the Parameter Estimate</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#properties-of-the-maximum-likelihood-parameter-estimates">10.5. Properties of the Maximum Likelihood Parameter Estimates</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#building-a-likelihood-and-determining-a-parameter">10.6. Building a Likelihood and Determining a Parameter</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#finding-the-maximum-of-the-logarithm-of-the-likelihood">10.6.1. Finding the Maximum of the Logarithm of the Likelihood</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#coding-example">10.6.2. Coding Example</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#uncertainty-of-the-tau-estimate">10.7. Uncertainty of the <span class="math notranslate nohighlight">\(\tau\)</span> Estimate</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#visualizing-the-likelihood">10.7.1. Visualizing the Likelihood</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#finding-the-intersection-points">10.7.2. Finding the Intersection Points</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#use-in-the-main-program">10.8. Use in the Main Program</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#comparison-to-the-analytical-estimate">10.8.1. Comparison to the Analytical Estimate</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#probability-distribution-of-the-estimators">10.9. Probability Distribution of the Estimators</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#generating-a-toy-experiment">10.9.1. Generating a Toy Experiment</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#finding-the-parameter-with-the-maximum-likelihood">10.9.2. Finding the Parameter with the Maximum Likelihood</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-results">10.9.3. Exercise Results</a></li>
+</ul>
+</li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="parameter-estimate-using-the-maximum-likelihood-method">
+<h1><span class="section-number">10. </span>Parameter Estimate using the Maximum Likelihood Method<a class="headerlink" href="#parameter-estimate-using-the-maximum-likelihood-method" title="Permalink to this heading">#</a></h1>
+<section id="parameter-determination">
+<h2><span class="section-number">10.1. </span>Parameter Determination<a class="headerlink" href="#parameter-determination" title="Permalink to this heading">#</a></h2>
+<ul class="simple">
+<li><p>Often, the goal of an experiment is the <strong>estimation of parameters</strong> of a model.</p></li>
+<li><p>To achieve this result, a dataset <span class="math notranslate nohighlight">\(x_i\)</span> is collected and used as input to algorithms called <strong>estimators</strong>,
+which estimate the parameters of interest.</p></li>
+<li><p>The <strong>estimates</strong> produced by an estimator are <strong>random variables</strong>
+because estimators are functions of random numbers (the data).</p>
+<ul>
+<li><p>They have their own probability distribution.
+<img alt="estimates" src="../../_images/estimates.png" /></p></li>
+</ul>
+</li>
+<li><p>There are libraries that perform this task for us.
+Among them, <a class="reference external" href="https://iminuit.readthedocs.io/en/stable/index.html"><code class="docutils literal notranslate"><span class="pre">iminuit</span></code></a>
+contains various algorithms for this purpose.
+In jargon, <strong>the parameter determination operation is called <em>fitting</em></strong>.</p></li>
+</ul>
+</section>
+<section id="maximum-likelihood">
+<h2><span class="section-number">10.2. </span>Maximum Likelihood<a class="headerlink" href="#maximum-likelihood" title="Permalink to this heading">#</a></h2>
+<ul>
+<li><p>The technique of maximum likelihood is based on the assumption that
+the estimate of the sought-after parameters corresponds to the <strong>value that maximizes the <em>likelihood</em></strong>,
+defined as the product of the value of the probability density distribution calculated for each measurement:</p>
+<div class="math notranslate nohighlight">
+\[
+    \mathcal{L}(\theta)= \mathcal{L}(\theta, x)= f(x_1,\theta) \times \ldots \times f(x_N,\theta) = \prod_{i=1}^{N} f(x_{i},\theta)
+    \]</div>
+</li>
+</ul>
+<!-- ![likelihood](../../figs/likelihood.png) -->
+<ul>
+<li><p>The <em>likelihood</em> is a function of both the measurements and the parameters,
+but we emphasize the dependence on the parameters because the data are fixed for finite measurements.</p></li>
+<li><p>The function that estimates the parameters is obtained from the equation:</p>
+<div class="math notranslate nohighlight">
+\[
+    \frac{\partial \mathcal{L}(\theta)}{\partial\;\theta} = 0
+    \]</div>
+</li>
+</ul>
+<!-- ![maxLikelihood](../../figs/maxLikelihood.png) -->
+</section>
+<section id="logarithm-of-the-likelihood">
+<h2><span class="section-number">10.3. </span>Logarithm of the Likelihood<a class="headerlink" href="#logarithm-of-the-likelihood" title="Permalink to this heading">#</a></h2>
+<ul class="simple">
+<li><p>Usually, the <strong>logarithm of the likelihood function</strong> is used,
+indicated with a lowercase italic letter:</p></li>
+</ul>
+<div class="math notranslate nohighlight">
+\[
+\ell(\theta) =  \log (\mathcal{L}(\theta))
+\]</div>
+<!-- ![loglikelihood](../../figs/loglikelihood.png) -->
+<ul>
+<li><p>In fact, since the logarithm is a <strong>monotonically increasing function</strong>,
+the extrema of a function and its logarithm are found at the same point.</p></li>
+<li><p>The logarithm of a product of terms is equal to the sum of the logarithms of the individual terms.
+Therefore, taking the derivative of the logarithm of the likelihood function
+is <strong>simpler</strong> than taking the derivative of the likelihood function:</p>
+<div class="math notranslate nohighlight">
+\[
+    \frac{\partial l(\theta)}{\partial\theta} = \frac{\partial\log(\mathcal{L}(\theta))}{\partial\theta} = \frac{\partial\log\left(\prod_{i=1}^N f(x_i,\theta)\right)}{\partial\theta} = \sum_{i=1}^N \frac{\partial\log\left(f(x_i,\theta)\right)}{\partial\theta}
+    \]</div>
+</li>
+</ul>
+</section>
+<section id="uncertainty-of-the-parameter-estimate">
+<h2><span class="section-number">10.4. </span>Uncertainty of the Parameter Estimate<a class="headerlink" href="#uncertainty-of-the-parameter-estimate" title="Permalink to this heading">#</a></h2>
+<ul>
+<li><p>It is known that there is a <strong>graphical method</strong>
+for determining the sigma associated with the parameters estimated using the maximum likelihood method.</p></li>
+<li><p>This involves finding the points of intersection between the log-likelihood function
+and the horizontal line with a coordinate equal to the <strong>maximum of log-likelihood - 0.5</strong>
+and calculating their half-distance.</p>
+<div class="note admonition">
+<p class="admonition-title">Why <span class="math notranslate nohighlight">\(-0.5\)</span>?</p>
+<p>To demonstrate that the points corresponding to <span class="math notranslate nohighlight">\(x\pm\sigma\)</span> can be obtained under the condition <span class="math notranslate nohighlight">\(l(\theta) = l(\theta)^{\text{max}} - 0.5\)</span>,
+expand the function <span class="math notranslate nohighlight">\(l(\theta)\)</span> in a Taylor series around the estimator of the expected value <span class="math notranslate nohighlight">\(\hat{\theta}\)</span>,
+approximate the expected value of the second derivative of <span class="math notranslate nohighlight">\(\ell(\theta)\)</span> with its value at the maximum,
+and substitute it with the variance of the estimator, applying the Rao-Cramér theorem.</p>
+</div>
+</li>
+</ul>
+</section>
+<section id="properties-of-the-maximum-likelihood-parameter-estimates">
+<h2><span class="section-number">10.5. </span>Properties of the Maximum Likelihood Parameter Estimates<a class="headerlink" href="#properties-of-the-maximum-likelihood-parameter-estimates" title="Permalink to this heading">#</a></h2>
+<ul class="simple">
+<li><p>They are <strong>consistent</strong></p></li>
+<li><p>They are <strong>asymptotically unbiased</strong>,
+meaning they have zero bias as the number of measurements <em>N</em> tends to infinity</p></li>
+<li><p>They are <strong>asymptotically efficient</strong>,
+implying they have the minimum possible variance
+for the number of measurements <em>N</em> tending to infinity</p></li>
+</ul>
+</section>
+<section id="building-a-likelihood-and-determining-a-parameter">
+<h2><span class="section-number">10.6. </span>Building a Likelihood and Determining a Parameter<a class="headerlink" href="#building-a-likelihood-and-determining-a-parameter" title="Permalink to this heading">#</a></h2>
+<ul>
+<li><p>We will use the example of the exponential distribution
+to determine its sole parameter τ using the maximum likelihood method:</p>
+<div class="math notranslate nohighlight">
+\[
+    f(x,\tau) = \frac{1}{\tau}e^{-\frac{x}{\tau}}
+    \]</div>
+</li>
+</ul>
+<!-- ![exponential](../../figs/exponential.png) -->
+<ul class="simple">
+<li><p><strong>It is analytically proven</strong>
+that the arithmetic mean of the data is an estimator of the parameter τ,</p></li>
+<li><p>In this case, we want to <strong>construct a numerical estimator</strong>
+of the parameter,
+as an example of a general case where analytical calculation is not feasible.</p></li>
+</ul>
+<section id="finding-the-maximum-of-the-logarithm-of-the-likelihood">
+<h3><span class="section-number">10.6.1. </span>Finding the Maximum of the Logarithm of the Likelihood<a class="headerlink" href="#finding-the-maximum-of-the-logarithm-of-the-likelihood" title="Permalink to this heading">#</a></h3>
+<ul>
+<li><p>The <strong>golden ratio algorithm</strong> developed during Lecture 6 can be used
+to find the maximum of the log-likelihood:</p>
+<div class="highlight-py notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">sezioneAureaMax_LL</span> <span class="p">(</span>
+    <span class="n">g</span><span class="p">,</span>              <span class="c1"># funzione di likelihood trovare il massimo</span>
+    <span class="n">pdf</span><span class="p">,</span>            <span class="c1"># probability density function of the events</span>
+    <span class="n">sample</span><span class="p">,</span>         <span class="c1"># sample of the events</span>
+    <span class="n">x0</span><span class="p">,</span>             <span class="c1"># estremo dell&#39;intervallo          </span>
+    <span class="n">x1</span><span class="p">,</span>             <span class="c1"># altro estremo dell&#39;intervallo         </span>
+    <span class="n">prec</span> <span class="o">=</span> <span class="mf">0.0001</span><span class="p">):</span> <span class="c1"># precisione della funzione        </span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>The program should be written to <strong>find the maximum</strong> of a function</p></li>
+<li><p>The <strong>input parameters</strong> are</p>
+<ul>
+<li><p>the function to find the extremum of (<code class="docutils literal notranslate"><span class="pre">g</span></code>),</p></li>
+<li><p>the single measurement probability density function (<code class="docutils literal notranslate"><span class="pre">pdf</span></code>),</p></li>
+<li><p>the interval to search for the maximum <strong>for the parameter τ</strong>,</p></li>
+<li><p>the list containing the data,</p></li>
+<li><p>and the precision at which to stop the calculation, with a default value.</p></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</section>
+<section id="coding-example">
+<h3><span class="section-number">10.6.2. </span>Coding Example<a class="headerlink" href="#coding-example" title="Permalink to this heading">#</a></h3>
+<ul class="simple">
+<li><p>After generating pseudo-random numbers distributed according to an exponential probability density,
+which can be visualized with a histogram, the developed functions can be used
+starting from a reasonably chosen interval to search for the maximum</p></li>
+<li><p>The result of this algorithm can be <strong>compared with the arithmetic mean</strong>
+of the numbers, which for this particular probability distribution
+is an estimator of τ</p></li>
+</ul>
+</section>
+</section>
+<section id="uncertainty-of-the-tau-estimate">
+<h2><span class="section-number">10.7. </span>Uncertainty of the <span class="math notranslate nohighlight">\(\tau\)</span> Estimate<a class="headerlink" href="#uncertainty-of-the-tau-estimate" title="Permalink to this heading">#</a></h2>
+<ul>
+<li><p>The estimator of τ is a random variable,
+meaning it has <strong>its own probability distribution</strong></p></li>
+<li><p>Therefore, in addition to having a point estimate obtained by maximizing
+the logarithm of the likelihood,
+it also <strong>has a sigma</strong></p></li>
+<li><p>A <strong>graphical method</strong> is often used to determine this sigma,
+based on the fact that the likelihood is asymptotically a Gaussian function with respect to the parameter,
+so the log-likelihood function is parabolic</p></li>
+<li><p>It is demonstrated that <strong>the two points <em>τ - σ<sub>τ</sub></em> and <em>τ + σ<sub>τ</sub></em></strong>
+are found by nullifying the following function:</p>
+<div class="math notranslate nohighlight">
+\[
+    h(\tau) = \ell(\tau) - \ell(\tau_{\textrm{max}}) + \frac{1}{2}
+    \]</div>
+</li>
+</ul>
+<!-- ![graphical_method_equation](../../figs/graphical_method_equation.png) -->
+<section id="visualizing-the-likelihood">
+<h3><span class="section-number">10.7.1. </span>Visualizing the Likelihood<a class="headerlink" href="#visualizing-the-likelihood" title="Permalink to this heading">#</a></h3>
+<ul class="simple">
+<li><p><strong>Plotting the function <em>h(τ)</em></strong> results in the following outcome,
+when varying the number of events used to calculate the log-likelihood function:
+<img alt="loglikelihood_profile" src="../../_images/loglikelihood_profile.png" /></p></li>
+<li><p>As the number of used events increases,
+the function <em>h(τ)</em> becomes narrower,
+meaning <strong>the sigma of the estimator decreases</strong></p></li>
+<li><p>As the number of used events increases,
+the function <em>h(τ)</em> becomes more symmetric,
+indicating its <strong>asymptotic behavior</strong></p></li>
+</ul>
+</section>
+<section id="finding-the-intersection-points">
+<h3><span class="section-number">10.7.2. </span>Finding the Intersection Points<a class="headerlink" href="#finding-the-intersection-points" title="Permalink to this heading">#</a></h3>
+<ul>
+<li><p>The <strong>bisection method</strong> can be used to find
+<em>τ - σ<sub>τ</sub></em> and <em>τ + σ<sub>τ</sub></em></p>
+<div class="highlight-py notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">intersect_LLR</span> <span class="p">(</span>
+    <span class="n">g</span><span class="p">,</span>              <span class="c1"># funzione di cui trovare lo zero</span>
+    <span class="n">pdf</span><span class="p">,</span>            <span class="c1"># probability density function of the events</span>
+    <span class="n">sample</span><span class="p">,</span>         <span class="c1"># sample of the events</span>
+    <span class="n">xMin</span><span class="p">,</span>           <span class="c1"># minimo dell&#39;intervallo          </span>
+    <span class="n">xMax</span><span class="p">,</span>           <span class="c1"># massimo dell&#39;intervallo </span>
+    <span class="n">ylevel</span><span class="p">,</span>         <span class="c1"># value of the horizontal intersection    </span>
+    <span class="n">theta_hat</span><span class="p">,</span>      <span class="c1"># maximum of the likelihood    </span>
+    <span class="n">prec</span> <span class="o">=</span> <span class="mf">0.0001</span><span class="p">):</span> <span class="c1"># precisione della funzione        </span>
+<span class="w">    </span><span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">    Funzione che calcola zeri</span>
+<span class="sd">    con il metodo della bisezione</span>
+<span class="sd">    &#39;&#39;&#39;</span>
+    <span class="k">def</span> <span class="nf">gprime</span> <span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="p">:</span>
+        <span class="k">return</span> <span class="n">g</span> <span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">pdf</span><span class="p">,</span> <span class="n">sample</span><span class="p">,</span> <span class="n">theta_hat</span><span class="p">)</span> <span class="o">-</span> <span class="n">ylevel</span>
+
+    <span class="n">xAve</span> <span class="o">=</span> <span class="n">xMin</span> 
+    <span class="k">while</span> <span class="p">((</span><span class="n">xMax</span> <span class="o">-</span> <span class="n">xMin</span><span class="p">)</span> <span class="o">&gt;</span> <span class="n">prec</span><span class="p">)</span> <span class="p">:</span>
+        <span class="n">xAve</span> <span class="o">=</span> <span class="mf">0.5</span> <span class="o">*</span> <span class="p">(</span><span class="n">xMax</span> <span class="o">+</span> <span class="n">xMin</span><span class="p">)</span> 
+        <span class="k">if</span> <span class="p">(</span><span class="n">gprime</span> <span class="p">(</span><span class="n">xAve</span><span class="p">)</span> <span class="o">*</span> <span class="n">gprime</span> <span class="p">(</span><span class="n">xMin</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mf">0.</span><span class="p">)</span> <span class="p">:</span> <span class="n">xMin</span> <span class="o">=</span> <span class="n">xAve</span> 
+        <span class="k">else</span>                                    <span class="p">:</span> <span class="n">xMax</span> <span class="o">=</span> <span class="n">xAve</span> 
+    <span class="k">return</span> <span class="n">xAve</span> 
+</pre></div>
+</div>
+</li>
+</ul>
+</section>
+</section>
+<section id="use-in-the-main-program">
+<h2><span class="section-number">10.8. </span>Use in the Main Program<a class="headerlink" href="#use-in-the-main-program" title="Permalink to this heading">#</a></h2>
+<ul>
+<li><p>Within a relatively narrow interval around the maximum
+of the log-likelihood function, it is known that
+<strong>the function <em>h(τ)</em> has two zeros</strong>,
+one to the right and one to the left of its maximum</p></li>
+<li><p>By invoking the <code class="docutils literal notranslate"><span class="pre">bisection</span></code> function <strong>twice</strong>,
+the desired points can be calculated:</p>
+<div class="highlight-py notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">likelihood</span> <span class="kn">import</span> <span class="n">sezioneAureaMax_LL</span><span class="p">,</span> <span class="n">intersect_LLR</span>
+<span class="c1"># ...</span>
+<span class="n">tau_hat</span> <span class="o">=</span> <span class="n">sezioneAureaMax_LL</span> <span class="p">(</span><span class="n">loglikelihood</span><span class="p">,</span> <span class="n">exp_pdf</span><span class="p">,</span> <span class="n">sample</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">,</span> <span class="mf">5.</span><span class="p">,</span> <span class="mf">0.0001</span><span class="p">)</span>    
+<span class="n">tau_hat_minusS</span> <span class="o">=</span> <span class="n">intersect_LLR</span> <span class="p">(</span><span class="n">loglikelihood_ratio</span><span class="p">,</span> <span class="n">exp_pdf</span><span class="p">,</span> <span class="n">sample</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">,</span> <span class="n">tau_hat</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">tau_hat</span><span class="p">)</span>
+<span class="n">tau_hat_plusS</span> <span class="o">=</span> <span class="n">intersect_LLR</span> <span class="p">(</span><span class="n">loglikelihood_ratio</span><span class="p">,</span> <span class="n">exp_pdf</span><span class="p">,</span> <span class="n">sample</span><span class="p">,</span> <span class="n">tau_hat</span><span class="p">,</span> <span class="mf">5.</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">tau_hat</span><span class="p">)</span>
+</pre></div>
+</div>
+</li>
+<li><p>The interval between the two intersection points <code class="docutils literal notranslate"><span class="pre">tau_hat_minusS</span></code> and <code class="docutils literal notranslate"><span class="pre">tau_hat_plusS</span></code>
+is the <strong>confidence interval</strong> associated with the obtained estimator</p></li>
+</ul>
+<section id="comparison-to-the-analytical-estimate">
+<h3><span class="section-number">10.8.1. </span>Comparison to the Analytical Estimate<a class="headerlink" href="#comparison-to-the-analytical-estimate" title="Permalink to this heading">#</a></h3>
+<ul>
+<li><p>In the case of the exponential distribution,
+it is known that the <strong>variance is the square of the mean</strong></p></li>
+<li><p>The <strong>uncertainty on the mean</strong> is the square root of the variance,
+divided by the square root of the number of events</p></li>
+<li><p>Thus, the <strong>uncertainty on the estimator of τ</strong>,
+denoted with a circumflex accent,
+can be estimated in this case as:</p>
+<div class="math notranslate nohighlight">
+\[
+    \sigma_{\tau} = \frac{\sigma}{\sqrt {N}} = \frac{\tau}{\sqrt {N}} 
+    \]</div>
+</li>
+</ul>
+<!-- ![calculated_sigma](../../figs/calculated_sigma.png) -->
+<ul class="simple">
+<li><p>Therefore, the value obtained from the graphical method
+can be compared with the one calculated from the arithmetic mean.</p></li>
+</ul>
+</section>
+</section>
+<section id="probability-distribution-of-the-estimators">
+<h2><span class="section-number">10.9. </span>Probability Distribution of the Estimators<a class="headerlink" href="#probability-distribution-of-the-estimators" title="Permalink to this heading">#</a></h2>
+<ul class="simple">
+<li><p>The probability distribution of estimators can be <strong>reconstructed in a frequentist manner</strong>,
+simulating the experiment of collecting events many times,
+using the <em>toy experiment</em> technique</p></li>
+<li><p>To generate a <em>toy experiment</em>, the <strong>true value of the parameter</strong> (<code class="docutils literal notranslate"><span class="pre">mu_true</span></code> in the present case)
+and the <strong>number of collected events</strong> (<code class="docutils literal notranslate"><span class="pre">number_events</span></code>) need to be hypothesized</p></li>
+<li><p>To construct the distribution of the estimator of τ,
+two procedures need to be repeated many times (<code class="docutils literal notranslate"><span class="pre">N_toys</span></code>):</p>
+<ul>
+<li><p><strong>Generation</strong> of a toy experiment</p></li>
+<li><p><strong>Calculation of the estimator</strong> given that generation, as if they were the measured events</p></li>
+</ul>
+</li>
+</ul>
+<section id="generating-a-toy-experiment">
+<h3><span class="section-number">10.9.1. </span>Generating a Toy Experiment<a class="headerlink" href="#generating-a-toy-experiment" title="Permalink to this heading">#</a></h3>
+<ul>
+<li><p>To generate a <em>toy experiment</em>, <strong>pseudo-random numbers</strong> are usually used,
+employing existing algorithms adapted to the case at hand</p></li>
+<li><p>To generate pseudo-random numbers according to an exponential distribution,
+the technique of the <strong>inverse of the cumulative function</strong> can be used:</p>
+<div class="highlight-py notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">myrand</span> <span class="kn">import</span> <span class="n">generate_exp</span>
+<span class="c1"># ...</span>
+<span class="n">singleToy</span> <span class="o">=</span> <span class="n">generate_exp</span> <span class="p">(</span><span class="n">tau_true</span><span class="p">,</span> <span class="n">sample_size</span><span class="p">)</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>The function takes the true value of τ as input and returns a list of pseudo-random numbers
+distributed according to the corresponding exponential probability distribution</p></li>
+</ul>
+</li>
+</ul>
+</section>
+<section id="finding-the-parameter-with-the-maximum-likelihood">
+<h3><span class="section-number">10.9.2. </span>Finding the Parameter with the Maximum Likelihood<a class="headerlink" href="#finding-the-parameter-with-the-maximum-likelihood" title="Permalink to this heading">#</a></h3>
+<ul>
+<li><p>The maximum likelihood method can be applied
+as developed earlier, obtaining a result for each <em>toy experiment</em></p>
+<div class="highlight-py notranslate"><div class="highlight"><pre><span></span><span class="n">tau_hats</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="k">for</span> <span class="n">iToy</span> <span class="ow">in</span> <span class="nb">range</span> <span class="p">(</span><span class="n">N_toys</span><span class="p">)</span> <span class="p">:</span>
+    <span class="n">singleToy</span> <span class="o">=</span> <span class="n">generate_exp</span> <span class="p">(</span><span class="n">tau_true</span><span class="p">,</span> <span class="n">N_evt</span><span class="p">)</span>
+    <span class="n">tau_hat_toy</span> <span class="o">=</span> <span class="n">sezioneAureaMax_LL</span> <span class="p">(</span><span class="n">loglikelihood</span><span class="p">,</span> <span class="n">exp_pdf</span><span class="p">,</span> <span class="n">singleToy</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">,</span> <span class="mf">5.</span><span class="p">,</span> <span class="mf">0.0001</span><span class="p">)</span>
+    <span class="n">tau_hats</span><span class="o">.</span><span class="n">append</span> <span class="p">(</span><span class="n">tau_hat_toy</span><span class="p">)</span>
+</pre></div>
+</div>
+</li>
+</ul>
+</section>
+<section id="exercise-results">
+<h3><span class="section-number">10.9.3. </span>Exercise Results<a class="headerlink" href="#exercise-results" title="Permalink to this heading">#</a></h3>
+<ul class="simple">
+<li><p>Both steps are <strong>incorporated into a general loop</strong>,
+where an histogram (or other statistical tools) can be populated</p></li>
+<li><p>The result clearly shows the <strong>evolution of the probability distribution</strong>
+of the estimator as the number of available measurements increases:
+<img alt="estimator_pdf_2.png" src="../../_images/pdf_stimatore_2.png" /></p></li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<ul class="simple">
+<li><p>The exercises for the lecture can be found <a class="reference internal" href="EXERCISES.html"><span class="doc std std-doc">here</span></a></p></li>
+</ul>
+</div>
+</section>
+</section>
+<div class="toctree-wrapper compound">
+</div>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./lectures/Lecture_10"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer">
+                  <!-- Previous / next buttons -->
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="../Lecture_09/exercises/likelihood_solutions.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title"><span class="section-number">9.11. </span>Likelihood exercise solutions</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="EXERCISES.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title"><span class="section-number">10.10. </span>Exercises for Lecture 10</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#parameter-determination">10.1. Parameter Determination</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#maximum-likelihood">10.2. Maximum Likelihood</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#logarithm-of-the-likelihood">10.3. Logarithm of the Likelihood</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#uncertainty-of-the-parameter-estimate">10.4. Uncertainty of the Parameter Estimate</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#properties-of-the-maximum-likelihood-parameter-estimates">10.5. Properties of the Maximum Likelihood Parameter Estimates</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#building-a-likelihood-and-determining-a-parameter">10.6. Building a Likelihood and Determining a Parameter</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#finding-the-maximum-of-the-logarithm-of-the-likelihood">10.6.1. Finding the Maximum of the Logarithm of the Likelihood</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#coding-example">10.6.2. Coding Example</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#uncertainty-of-the-tau-estimate">10.7. Uncertainty of the <span class="math notranslate nohighlight">\(\tau\)</span> Estimate</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#visualizing-the-likelihood">10.7.1. Visualizing the Likelihood</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#finding-the-intersection-points">10.7.2. Finding the Intersection Points</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#use-in-the-main-program">10.8. Use in the Main Program</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#comparison-to-the-analytical-estimate">10.8.1. Comparison to the Analytical Estimate</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#probability-distribution-of-the-estimators">10.9. Probability Distribution of the Estimators</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#generating-a-toy-experiment">10.9.1. Generating a Toy Experiment</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#finding-the-parameter-with-the-maximum-likelihood">10.9.2. Finding the Parameter with the Maximum Likelihood</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-results">10.9.3. Exercise Results</a></li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By The Jupyter Book community
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  <p class="copyright">
+    
+      © Copyright 2022.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../_static/scripts/bootstrap.js?digest=ac02cc09edc035673794"></script>
+<script src="../../_static/scripts/pydata-sphinx-theme.js?digest=ac02cc09edc035673794"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

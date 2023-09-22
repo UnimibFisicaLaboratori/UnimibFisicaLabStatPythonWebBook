@@ -1,0 +1,934 @@
+
+
+<!DOCTYPE html>
+
+
+<html lang="en" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+    <title>11. Least-Squares Fitting &#8212; Laboratorio di Calcolo e Statistica</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=ac02cc09edc035673794" rel="stylesheet" />
+<link href="../../_static/styles/bootstrap.css?digest=ac02cc09edc035673794" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=ac02cc09edc035673794" rel="stylesheet" />
+
+  
+  <link href="../../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=ac02cc09edc035673794" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
+    <link rel="stylesheet" href="../../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=ac02cc09edc035673794" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=ac02cc09edc035673794" />
+  <script src="../../_static/vendor/fontawesome/6.1.2/js/all.min.js?digest=ac02cc09edc035673794"></script>
+
+    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/clipboard.min.js"></script>
+    <script src="../../_static/copybutton.js"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../../_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'lectures/Lecture_11/least_squares';</script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="11.5. Exercises for Lecture 11" href="EXERCISES.html" />
+    <link rel="prev" title="10.11. Maximum likelihood exercise solutions" href="../Lecture_10/exercises/likelihood_fit_solutions.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>
+    Back to top
+  </button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+  
+
+<a class="navbar-brand logo" href="../../intro.html">
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../../_static/logo_unimib.png" class="logo__image only-light" alt="Logo image"/>
+    <script>document.write(`<img src="../../_static/logo_unimib.png" class="logo__image only-dark" alt="Logo image"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../../intro.html">
+                    Laboratory of Statistics
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Prerequisites</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../prerequisites/README.html">Prerequisites of this Course</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Lectures</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../Lecture_01/basics_python.html">1. Basics of Python Programming</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../Lecture_01/EXAMPLES.html">1.10. Examples: Lecture 1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Lecture_01/EXERCISES.html">1.11. Exercises for Lecture 1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Lecture_01/SOLUTIONS.html">1.12. Solutions: Lecture 1</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../python_libraries.html">2. Notable Python Libraries</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../Lecture_03/data_visualisation.html">3. Data Visualisation with Python</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../Lecture_03/EXAMPLES.html">3.6. Examples: Lecture 3</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Lecture_03/EXERCISES.html">3.7. Exercises for Lecture 3</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Lecture_03/SOLUTIONS.html">3.8. Solutions: Lecture 3</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../Lecture_04/classes_lambda.html">4. Some python insight: classes, <code class="docutils literal notranslate"><span class="pre">lambda</span></code> functions, functional programming</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../Lecture_04/EXAMPLES.html">4.4. Examples: Lecture 4</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Lecture_04/EXERCISES.html">4.5. Exercises for Lecture 4</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Lecture_04/SOLUTIONS.html">4.6. Solutions: Lecture 4</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../Lecture_05/pseudorandom.html">5. Generation of Pseudo-Random Numbers</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-4"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../Lecture_05/EXAMPLES.html">5.6. Examples: Lecture 5</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Lecture_05/EXERCISES.html">5.7. Exercises for Lecture 5</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Lecture_05/SOLUTIONS.html">5.8. Solutions: Lecture 5</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../Lecture_06/zero_and_extrema.html">6. Finding Zeros and Extrema</a><input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-5"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../Lecture_06/EXAMPLES.html">6.4. Examples: Lecture 6</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Lecture_06/EXERCISES.html">6.5. Exercises for Lecture 6</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Lecture_06/SOLUTIONS.html">6.6. Solutions: Lecture 6</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../Lecture_07/poisson.html">7. The Poisson Distribution</a><input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-6"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../Lecture_07/EXERCISES.html">7.5. Exercises for Lecture 7</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Lecture_07/SOLUTIONS.html">7.6. Solutions: Lezione 7</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../Lecture_08/toys_integration.html">8. Toy Experiments and Integration using Pseudorandom Numbers</a><input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-7"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../Lecture_08/EXAMPLES.html">8.3. Examples: Lecture 8</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Lecture_08/EXERCISES.html">8.4. Exercises for Lecture 8</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Lecture_08/SOLUTIONS.html">8.5. Solutions: Lecture 8</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../Lecture_09/likelihood.html">9. The likelihood</a><input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-8"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../Lecture_09/examples/notebook_01.html">9.7. This is a notebook example</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Lecture_09/examples/notebook_02.html">9.8. Drawing of a function</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Lecture_09/examples/notebook_03.html">9.9. Accessing files on disk</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Lecture_09/EXERCISES.html">9.10. Exercises for Lecture 9</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Lecture_09/exercises/likelihood_solutions.html">9.11. Likelihood exercise solutions</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../Lecture_10/likelihood_fit.html">10. Parameter Estimate using the Maximum Likelihood Method</a><input class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-9"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../Lecture_10/EXERCISES.html">10.10. Exercises for Lecture 10</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Lecture_10/exercises/likelihood_fit_solutions.html">10.11. Maximum likelihood exercise solutions</a></li>
+</ul>
+</li>
+<li class="toctree-l1 current active has-children"><a class="current reference internal" href="#">11. Least-Squares Fitting</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-10" name="toctree-checkbox-10" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-10"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="EXERCISES.html">11.5. Exercises for Lecture 11</a></li>
+<li class="toctree-l2"><a class="reference internal" href="exercises/least_squares_solutions.html">11.6. Least squares solutions</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../Lecture_12/fit_binned.html">12. Fit of Binned Distributions</a><input class="toctree-checkbox" id="toctree-checkbox-11" name="toctree-checkbox-11" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-11"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../Lecture_12/EXERCISES.html">12.8. Exercises for Lecture 12</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Lecture_12/exercises/es_12.1_solutions.html">12.9. Binned fits solutions: Exercise 12.1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Lecture_12/exercises/es_12.2_solutions.html">12.10. Binned fits solutions: Exercise 12.2</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Lecture_12/exercises/es_12.3_solutions.html">12.11. Binned fits solutions: exercise 12.3</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Lecture_12/exercises/es_12.4_solutions.html">12.12. cost functions comparison: exercise 12.4</a></li>
+</ul>
+</li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/UnimibFisicaLaboratori/UnimibFisicaLabStatPython" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/UnimibFisicaLaboratori/UnimibFisicaLabStatPython/issues/new?title=Issue%20on%20page%20%2Flectures/Lecture_11/least_squares.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../../_sources/lectures/Lecture_11/least_squares.md" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.md</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  </button>
+`);
+</script>
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Least-Squares Fitting</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-method-of-least-squares">11.1. The method of Least Squares</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#an-immediate-example">11.1.1. An immediate example</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-y-phi-x-case">11.1.2. The <span class="math notranslate nohighlight">\(y=\phi(x)\)</span> case</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#determination-of-the-fit-parameters-theta">11.1.3. Determination of the fit parameters <span class="math notranslate nohighlight">\(\theta\)</span></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#properties-of-the-least-squares-method">11.1.4. Properties of the Least-Squares method</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#least-squares-for-linear-functions">11.1.5. Least-Squares for linear functions</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#a-regression-exercise">11.2. A Regression exercise</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#plotting-the-data">11.2.1. Plotting the data</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#parameters-determination">11.2.2. Parameters determination</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#analyzing-the-result-of-the-regression">11.3. Analyzing the result of the regression</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#fit-convergence">11.3.1. Fit convergence</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#fit-quality">11.3.2. Fit quality</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#parameter-values-and-uncertainty">11.3.3. Parameter values and uncertainty</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#covariance-matrix-of-the-fit-parameters">11.3.4. Covariance matrix of the fit parameters</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#quick-inspection-of-the-fit-results">11.3.5. Quick inspection of the fit results</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#measurement-uncertainties-and-the-least-squares-method">11.4. Measurement uncertainties and the least-squares method</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="least-squares-fitting">
+<h1><span class="section-number">11. </span>Least-Squares Fitting<a class="headerlink" href="#least-squares-fitting" title="Permalink to this heading">#</a></h1>
+<section id="the-method-of-least-squares">
+<h2><span class="section-number">11.1. </span>The method of Least Squares<a class="headerlink" href="#the-method-of-least-squares" title="Permalink to this heading">#</a></h2>
+<ul class="simple">
+<li><p>The method of <strong>least squares</strong> is based on a principle independent
+of that of maximum likelihood</p></li>
+<li><p>Parameters θ are chosen to make the <strong>distance minimal</strong>
+between the model and the data,
+according to a metric defined by the average standard deviation
+of the measurements with respect to the model</p></li>
+</ul>
+<section id="an-immediate-example">
+<h3><span class="section-number">11.1.1. </span>An immediate example<a class="headerlink" href="#an-immediate-example" title="Permalink to this heading">#</a></h3>
+<ul>
+<li><p>To determine the mean <span class="math notranslate nohighlight">\(\mu\)</span> of a set of measurements <span class="math notranslate nohighlight">\(x_i\)</span>,
+the following function can be minimized:</p>
+<div class="math notranslate nohighlight">
+\[
+    Q^2 = \sum_{i=1}^N \left( \frac{x_i-\mu}{\sigma}\right)^2
+    \]</div>
+</li>
+</ul>
+<!-- ![Q_media](../../figs/Q_media_2.png) -->
+</section>
+<section id="the-y-phi-x-case">
+<h3><span class="section-number">11.1.2. </span>The <span class="math notranslate nohighlight">\(y=\phi(x)\)</span> case<a class="headerlink" href="#the-y-phi-x-case" title="Permalink to this heading">#</a></h3>
+<ul class="simple">
+<li><p>The same metric is often used
+for <strong>data regression</strong>, also known as <em>fitting</em></p></li>
+<li><p>Let <em>N</em> pairs of independent measurements be given in the form <span class="math notranslate nohighlight">\((x_i,y_i)\)</span>,
+for which:</p>
+<ul>
+<li><p>the uncertainty on the value <span class="math notranslate nohighlight">\(x_i\)</span> is <strong>negligible or zero</strong></p></li>
+<li><p><strong>the uncertainty on the value <span class="math notranslate nohighlight">\(y_i\)</span></strong> is <span class="math notranslate nohighlight">\(\sigma_i\)</span></p></li>
+</ul>
+</li>
+<li><p>Assume that the two variables <span class="math notranslate nohighlight">\(x_i\)</span> and <span class="math notranslate nohighlight">\(y_i\)</span>
+are <strong>related to each other through a function <span class="math notranslate nohighlight">\(\phi\)</span></strong> such that <span class="math notranslate nohighlight">\(y=\phi(x,\theta)\)</span></p></li>
+<li><p>The <strong>function <span class="math notranslate nohighlight">\(Q^2(\theta)\)</span></strong> is defined as:</p></li>
+</ul>
+<div class="math notranslate nohighlight">
+\[
+  Q^2(\theta) = \sum_{i=1}^N \left( \frac{y_i-\phi(x_i,\theta)}{\sigma_i}\right)^2
+  \]</div>
+<!-- ![Q_funzione_2](../../figs/Q_funzione.png) -->
+</section>
+<section id="determination-of-the-fit-parameters-theta">
+<h3><span class="section-number">11.1.3. </span>Determination of the fit parameters <span class="math notranslate nohighlight">\(\theta\)</span><a class="headerlink" href="#determination-of-the-fit-parameters-theta" title="Permalink to this heading">#</a></h3>
+<ul>
+<li><p>In this case, the parameters <span class="math notranslate nohighlight">\(\theta\)</span> (<span class="math notranslate nohighlight">\(\theta\)</span> may be a vector)
+are determined by <strong>finding the minimum of the function <span class="math notranslate nohighlight">\(Q^2(\theta)\)</span></strong>:</p>
+<div class="math notranslate nohighlight">
+\[
+    \frac{\partial Q^2(\theta)}{\partial \theta_l} = 0
+    \]</div>
+</li>
+</ul>
+<!-- ![Q_funzione](../../figs/Q_derivata.png) -->
+<ul class="simple">
+<li><p>Various numerical techniques exist to find the minimum of the function</p></li>
+</ul>
+</section>
+<section id="properties-of-the-least-squares-method">
+<h3><span class="section-number">11.1.4. </span>Properties of the Least-Squares method<a class="headerlink" href="#properties-of-the-least-squares-method" title="Permalink to this heading">#</a></h3>
+<ul class="simple">
+<li><p>If the residuals <span class="math notranslate nohighlight">\(\epsilon_i\)</span> of <span class="math notranslate nohighlight">\(y_i\)</span> with respect to <span class="math notranslate nohighlight">\(\phi(x_i,\theta)\)</span>
+have a <strong>zero mean and finite, constant variance</strong>,
+that is, independent of <span class="math notranslate nohighlight">\(y\)</span>,
+and <span class="math notranslate nohighlight">\(\phi(x_i,\theta)\)</span> is linear in the <span class="math notranslate nohighlight">\(\theta)\)</span> parameters,
+then</p>
+<ul>
+<li><p>the least squares method is an <strong>unbiased estimator</strong> of the parameters <span class="math notranslate nohighlight">\(\theta\)</span></p></li>
+<li><p>and it has the <strong>minimum variance</strong> among all unbiased linear estimators (in <span class="math notranslate nohighlight">\(y\)</span>),
+regardless of the probability distribution of the residuals</p></li>
+</ul>
+</li>
+<li><p>If the residuals <span class="math notranslate nohighlight">\(\epsilon_i\)</span> are distributed according to a Gaussian probability density distribution,
+the minimum of the function <span class="math notranslate nohighlight">\(Q^2(\theta)\)</span>
+is distributed according to a <strong><span class="math notranslate nohighlight">\(\chi^2\)</span> distribution</strong>
+with <em>N-k</em> degrees of freedom,</p>
+<ul>
+<li><p>where <em>N</em> is the <strong>number of pairs</strong> <span class="math notranslate nohighlight">\((x_i,y_i)\)</span>*
+and <em>k</em> is the <strong>number of estimated parameters</strong></p></li>
+</ul>
+</li>
+</ul>
+</section>
+<section id="least-squares-for-linear-functions">
+<h3><span class="section-number">11.1.5. </span>Least-Squares for linear functions<a class="headerlink" href="#least-squares-for-linear-functions" title="Permalink to this heading">#</a></h3>
+<ul>
+<li><p>In the case where the function <em>g(x)</em> is <strong>linear in the parameters <span class="math notranslate nohighlight">\(\theta\)</span></strong>,
+the minimization equations can be solved analytically</p>
+<div class="math notranslate nohighlight">
+\[
+    \phi(x,\theta) = \sum_{i=1}^{k}\theta_i h_i(x)
+    \]</div>
+</li>
+</ul>
+<!-- ![g_lineare](../../figs/phi_lineare.png) -->
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<ul class="simple">
+<li><p>An example of a linear function is <strong>the line
+<span class="math notranslate nohighlight">\(\phi(x,\theta) = \theta_1 + \theta_2 x\)</span></strong>:</p>
+<ul>
+<li><p><span class="math notranslate nohighlight">\(h_1(x) = 1\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(h_2(x) = x\)</span></p></li>
+</ul>
+</li>
+<li><p>Another example of a linear function is <strong>a parabola
+<span class="math notranslate nohighlight">\(\phi(x,\theta) = \theta_1 + \theta_2 x + \theta_3 x^2\)</span></strong>:</p>
+<ul>
+<li><p><span class="math notranslate nohighlight">\(h_1(x) = 1\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(h_2(x) = x\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(h_3(x) = x^2\)</span></p></li>
+</ul>
+</li>
+</ul>
+</div>
+</section>
+</section>
+<section id="a-regression-exercise">
+<h2><span class="section-number">11.2. </span>A Regression exercise<a class="headerlink" href="#a-regression-exercise" title="Permalink to this heading">#</a></h2>
+<ul>
+<li><p>Using pseudo-random number generation,
+it is possible to <strong>simulate the collection of N independent measurements <span class="math notranslate nohighlight">\((x_i,y_i)\)</span></strong>
+based on an initial model <span class="math notranslate nohighlight">\(y=\phi(x,\theta)\)</span>,
+for example:</p>
+<div class="highlight-py notranslate"><div class="highlight"><pre><span></span><span class="n">epsilons</span> <span class="o">=</span> <span class="n">generate_TCL_ms</span> <span class="p">(</span><span class="mf">0.</span><span class="p">,</span> <span class="n">epsilon_sigma</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span>
+
+<span class="n">x_coord</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+<span class="n">y_coord</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span> <span class="p">(</span><span class="mi">10</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span> <span class="p">(</span><span class="n">x_coord</span><span class="o">.</span><span class="n">size</span><span class="p">)</span> <span class="p">:</span>
+    <span class="n">y_coord</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">func</span> <span class="p">(</span><span class="n">x_coord</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">m_true</span><span class="p">,</span> <span class="n">q_true</span><span class="p">)</span> <span class="o">+</span> <span class="n">epsilons</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
+</pre></div>
+</div>
+</li>
+<li><p>where pseudo-random number generation (<code class="docutils literal notranslate"><span class="pre">generate_TCL_ms</span></code>)
+is used to <strong>find the values of the terms <span class="math notranslate nohighlight">\(\epsilon_i\)</span></strong></p></li>
+<li><p>the <span class="math notranslate nohighlight">\(\x_i\)</span> points may also be generated is a pseudo-random manner</p></li>
+</ul>
+<section id="plotting-the-data">
+<h3><span class="section-number">11.2.1. </span>Plotting the data<a class="headerlink" href="#plotting-the-data" title="Permalink to this heading">#</a></h3>
+<ul>
+<li><p>The <code class="docutils literal notranslate"><span class="pre">iminuit</span></code> library provides tools that <strong>automatically apply
+the least squares method</strong> to find the parameters</p></li>
+<li><p>Pairs of measurements like those generated are usually represented
+in the form of scatter plots:</p>
+<div class="highlight-py notranslate"><div class="highlight"><pre><span></span><span class="n">sigma_y</span> <span class="o">=</span> <span class="n">epsilon_sigma</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">ones</span> <span class="p">(</span><span class="nb">len</span> <span class="p">(</span><span class="n">y_coord</span><span class="p">))</span>
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span> <span class="p">()</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_title</span> <span class="p">(</span><span class="s1">&#39;linear model&#39;</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">14</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span> <span class="p">(</span><span class="s1">&#39;x&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span> <span class="p">(</span><span class="s1">&#39;y&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">errorbar</span> <span class="p">(</span><span class="n">x_coord</span><span class="p">,</span> <span class="n">y_coord</span><span class="p">,</span> <span class="n">xerr</span> <span class="o">=</span> <span class="mf">0.0</span><span class="p">,</span> <span class="n">yerr</span> <span class="o">=</span> <span class="n">sigma_y</span><span class="p">,</span> <span class="n">linestyle</span> <span class="o">=</span> <span class="s1">&#39;None&#39;</span><span class="p">,</span> <span class="n">marker</span> <span class="o">=</span> <span class="s1">&#39;o&#39;</span><span class="p">)</span> 
+</pre></div>
+</div>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">sigma_y</span></code> is the <strong>expected</strong> uncertainty in this case</p></li>
+</ul>
+</li>
+</ul>
+</section>
+<section id="parameters-determination">
+<h3><span class="section-number">11.2.2. </span>Parameters determination<a class="headerlink" href="#parameters-determination" title="Permalink to this heading">#</a></h3>
+<ul>
+<li><p>The <strong>fit operation</strong> is performed with the following instructions:</p>
+<div class="highlight-py notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">iminuit</span> <span class="kn">import</span> <span class="n">Minuit</span>
+<span class="kn">from</span> <span class="nn">iminuit.cost</span> <span class="kn">import</span> <span class="n">LeastSquares</span>
+
+<span class="c1"># generate a least-squares cost function</span>
+<span class="n">least_squares</span> <span class="o">=</span> <span class="n">LeastSquares</span> <span class="p">(</span><span class="n">x_coord</span><span class="p">,</span> <span class="n">y_coord</span><span class="p">,</span> <span class="n">sigma_y</span><span class="p">,</span> <span class="n">func</span><span class="p">)</span>
+<span class="n">my_minuit</span> <span class="o">=</span> <span class="n">Minuit</span> <span class="p">(</span><span class="n">least_squares</span><span class="p">,</span> <span class="n">m</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="n">q</span> <span class="o">=</span> <span class="mi">0</span><span class="p">)</span>  <span class="c1"># starting values for m and q</span>
+<span class="n">my_minuit</span><span class="o">.</span><span class="n">migrad</span> <span class="p">()</span>  <span class="c1"># finds minimum of least_squares function</span>
+<span class="n">my_minuit</span><span class="o">.</span><span class="n">hesse</span> <span class="p">()</span>   <span class="c1"># accurately computes uncertainties</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>the <code class="docutils literal notranslate"><span class="pre">least_squares</span></code> object contains <strong>the cost function</strong> that will be minimized</p></li>
+<li><p>the <code class="docutils literal notranslate"><span class="pre">my_minuit</span></code> object will operate the actual minimization,
+<strong>starting the search from the initial point</strong> <code class="docutils literal notranslate"><span class="pre">m</span> <span class="pre">=</span> <span class="pre">0,</span> <span class="pre">q</span> <span class="pre">=</span> <span class="pre">0</span></code>
+in the parameter phase space</p></li>
+<li><p>the <code class="docutils literal notranslate"><span class="pre">my_minuit.migrad</span> <span class="pre">()</span></code> call <strong>performs the minimization</strong></p></li>
+<li><p>the <code class="docutils literal notranslate"><span class="pre">my_minuit.hesse</span> <span class="pre">()</span></code> <strong>evaluates parameter uncertainties</strong>
+by computing an approximation of the parameter covariance matrix</p></li>
+</ul>
+</li>
+</ul>
+</section>
+</section>
+<section id="analyzing-the-result-of-the-regression">
+<h2><span class="section-number">11.3. </span>Analyzing the result of the regression<a class="headerlink" href="#analyzing-the-result-of-the-regression" title="Permalink to this heading">#</a></h2>
+<section id="fit-convergence">
+<h3><span class="section-number">11.3.1. </span>Fit convergence<a class="headerlink" href="#fit-convergence" title="Permalink to this heading">#</a></h3>
+<ul>
+<li><p>Whether the minimization <strong>has been successful</strong> can be inquired:</p>
+<div class="highlight-py notranslate"><div class="highlight"><pre><span></span>  <span class="c1"># global characteristics of the fit</span>
+<span class="n">is_valid</span> <span class="o">=</span> <span class="n">my_minuit</span><span class="o">.</span><span class="n">valid</span>
+<span class="nb">print</span> <span class="p">(</span><span class="s1">&#39;success of the fit: &#39;</span><span class="p">,</span> <span class="n">is_valid</span><span class="p">)</span>
+</pre></div>
+</div>
+</li>
+<li><p>The value of <strong><span class="math notranslate nohighlight">\(Q^2\)</span> and the number of degrees of freedom</strong>
+may be obtained as well:</p>
+<div class="highlight-py notranslate"><div class="highlight"><pre><span></span><span class="n">Q_squared</span> <span class="o">=</span> <span class="n">my_minuit</span><span class="o">.</span><span class="n">fval</span>
+<span class="nb">print</span> <span class="p">(</span><span class="s1">&#39;value of the fit Q-squared&#39;</span><span class="p">,</span> <span class="n">Q_squared</span><span class="p">)</span>
+<span class="n">N_dof</span> <span class="o">=</span> <span class="n">my_minuit</span><span class="o">.</span><span class="n">ndof</span>
+<span class="nb">print</span> <span class="p">(</span><span class="s1">&#39;value of the number of degrees of freedom&#39;</span><span class="p">,</span> <span class="n">N_dof</span><span class="p">)</span>
+</pre></div>
+</div>
+</li>
+</ul>
+</section>
+<section id="fit-quality">
+<h3><span class="section-number">11.3.2. </span>Fit quality<a class="headerlink" href="#fit-quality" title="Permalink to this heading">#</a></h3>
+<ul>
+<li><p>In case the probability density distribution of the individual <span class="math notranslate nohighlight">\(y_i\)</span> follows a Gaussian
+probability density function,
+the <strong><span class="math notranslate nohighlight">\(Q^2_{\text{min}}\)</span> quantity follows the <span class="math notranslate nohighlight">\(\chi^2\)</span> distribution</strong>
+with <span class="math notranslate nohighlight">\(N-k\)</span> degrees of freedom,
+where <span class="math notranslate nohighlight">\(N\)</span> is the number of fitted bins and <span class="math notranslate nohighlight">\(k\)</span> is the number of determined parameters</p></li>
+<li><p>Under these conditions,
+the <strong><span class="math notranslate nohighlight">\(\chi^2\)</span> test</strong> can be used to determine the goodness of the fit
+by calculating the probability that the result could be worse than what was obtained,
+integrating the <span class="math notranslate nohighlight">\(\chi^2(N-k)\)</span> distribution from <span class="math notranslate nohighlight">\(Q^2_{\text{min}}\)</span> to infinity.</p></li>
+<li><p>The values of <span class="math notranslate nohighlight">\(Q^2_{\text{min}}\)</span> and the number of degrees of freedom
+can be obtained from the <code class="docutils literal notranslate"><span class="pre">Minuit</span></code> variable as well:</p>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span>print (&#39;Value of Q2: &#39;, my_minuit.fval)
+print (&#39;Number of degrees of freedom: &#39;, my_minuit.ndof)
+</pre></div>
+</div>
+</li>
+<li><p>The <strong>p-value</strong> associated to the fit result
+may be calculated from the cumulative distribution function
+of the <span class="math notranslate nohighlight">\(\chi{}^2\)</span> probability density function:</p>
+<div class="highlight-py notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">scipy.stats</span> <span class="kn">import</span> <span class="n">chi2</span>
+<span class="c1"># ...</span>
+<span class="nb">print</span> <span class="p">(</span><span class="s1">&#39;associated p-value: &#39;</span><span class="p">,</span> <span class="mf">1.</span> <span class="o">-</span> <span class="n">chi2</span><span class="o">.</span><span class="n">cdf</span> <span class="p">(</span><span class="n">my_minuit</span><span class="o">.</span><span class="n">fval</span><span class="p">,</span> <span class="n">df</span> <span class="o">=</span> <span class="n">my_minuit</span><span class="o">.</span><span class="n">ndof</span><span class="p">))</span>
+</pre></div>
+</div>
+</li>
+</ul>
+</section>
+<section id="parameter-values-and-uncertainty">
+<h3><span class="section-number">11.3.3. </span>Parameter values and uncertainty<a class="headerlink" href="#parameter-values-and-uncertainty" title="Permalink to this heading">#</a></h3>
+<ul>
+<li><p>The <strong>fit results</strong> are stored in the <code class="docutils literal notranslate"><span class="pre">my_minuit</span></code> oject:</p>
+<div class="highlight-py notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">par</span><span class="p">,</span> <span class="n">val</span><span class="p">,</span> <span class="n">err</span> <span class="ow">in</span> <span class="nb">zip</span> <span class="p">(</span><span class="n">my_minuit</span><span class="o">.</span><span class="n">parameters</span><span class="p">,</span> <span class="n">my_minuit</span><span class="o">.</span><span class="n">values</span><span class="p">,</span> <span class="n">my_minuit</span><span class="o">.</span><span class="n">errors</span><span class="p">)</span> <span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">par</span><span class="si">}</span><span class="s1"> = </span><span class="si">{</span><span class="n">val</span><span class="si">:</span><span class="s1">.3f</span><span class="si">}</span><span class="s1"> +/- </span><span class="si">{</span><span class="n">err</span><span class="si">:</span><span class="s1">.3f</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span> <span class="c1"># formatted output</span>
+    
+<span class="n">m_fit</span> <span class="o">=</span> <span class="n">my_minuit</span><span class="o">.</span><span class="n">values</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+<span class="n">q_fit</span> <span class="o">=</span> <span class="n">my_minuit</span><span class="o">.</span><span class="n">values</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>  
+</pre></div>
+</div>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">my_minuit.parameters</span></code> contains the parameter names</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">my_minuit.values</span></code> the parameter values</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">my_minuit.errors</span></code> the parameter uncertainty</p></li>
+</ul>
+</li>
+</ul>
+</section>
+<section id="covariance-matrix-of-the-fit-parameters">
+<h3><span class="section-number">11.3.4. </span>Covariance matrix of the fit parameters<a class="headerlink" href="#covariance-matrix-of-the-fit-parameters" title="Permalink to this heading">#</a></h3>
+<ul>
+<li><p>The covariance matrix of the resulting parameters <strong>can be printed to the screen</strong>:</p>
+<div class="highlight-py notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span> <span class="p">(</span><span class="n">my_minuit</span><span class="o">.</span><span class="n">covariance</span><span class="p">)</span>
+</pre></div>
+</div>
+</li>
+<li><p>Its <strong>individual values</strong> can be accessed as well,
+either by numerical index,
+or by unsing parameter names:</p>
+<div class="highlight-py notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span> <span class="p">(</span><span class="n">my_minuit</span><span class="o">.</span><span class="n">covariance</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">1</span><span class="p">])</span>
+<span class="nb">print</span> <span class="p">(</span><span class="n">my_minuit</span><span class="o">.</span><span class="n">covariance</span><span class="p">[</span><span class="s1">&#39;m&#39;</span><span class="p">][</span><span class="s1">&#39;q&#39;</span><span class="p">])</span>    
+</pre></div>
+</div>
+</li>
+<li><p>The parameter <strong>correlation matrix</strong> is easily calculated from the covariance one:</p>
+<div class="highlight-py notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span> <span class="p">(</span><span class="n">my_minuit</span><span class="o">.</span><span class="n">covariance</span><span class="o">.</span><span class="n">correlation</span> <span class="p">())</span>
+</pre></div>
+</div>
+</li>
+</ul>
+</section>
+<section id="quick-inspection-of-the-fit-results">
+<h3><span class="section-number">11.3.5. </span>Quick inspection of the fit results<a class="headerlink" href="#quick-inspection-of-the-fit-results" title="Permalink to this heading">#</a></h3>
+<ul>
+<li><p>The <strong>screen output</strong> of the fit sumamrises all the information above,
+and may be displayed with the call:</p>
+<div class="highlight-py notranslate"><div class="highlight"><pre><span></span><span class="n">display</span> <span class="p">(</span><span class="n">my_minuit</span><span class="p">)</span>
+</pre></div>
+</div>
+</li>
+</ul>
+</section>
+</section>
+<section id="measurement-uncertainties-and-the-least-squares-method">
+<h2><span class="section-number">11.4. </span>Measurement uncertainties and the least-squares method<a class="headerlink" href="#measurement-uncertainties-and-the-least-squares-method" title="Permalink to this heading">#</a></h2>
+<ul class="simple">
+<li><p>In the case where the random variables <span class="math notranslate nohighlight">\(\epsilon_i\)</span> have a Gaussian probability density distribution,
+<strong>the value of <span class="math notranslate nohighlight">\(Q^2\)</span> associated with the fit
+follows a <span class="math notranslate nohighlight">\(\chi^2\)</span> distribution</strong>
+with a number of degrees of freedom equal
+to the degrees of freedom of the fit</p>
+<ul>
+<li><p>the degrees of freedom of the fit is equal to the
+<strong>number of data points minus the number of estimated parameters</strong></p></li>
+</ul>
+</li>
+<li><p>This property of the least squares method allows,
+assuming that the random variables <span class="math notranslate nohighlight">\(\epsilon_i\)</span> are Gaussian,
+the estimation of uncertainties on the values <span class="math notranslate nohighlight">\(y_i\)</span></p></li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<ul class="simple">
+<li><p>The exercises for the lecture may be found <a class="reference internal" href="EXERCISES.html"><span class="doc std std-doc">here</span></a></p></li>
+</ul>
+</div>
+</section>
+<div class="toctree-wrapper compound">
+</div>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./lectures/Lecture_11"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer">
+                  <!-- Previous / next buttons -->
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="../Lecture_10/exercises/likelihood_fit_solutions.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title"><span class="section-number">10.11. </span>Maximum likelihood exercise solutions</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="EXERCISES.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title"><span class="section-number">11.5. </span>Exercises for Lecture 11</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-method-of-least-squares">11.1. The method of Least Squares</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#an-immediate-example">11.1.1. An immediate example</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-y-phi-x-case">11.1.2. The <span class="math notranslate nohighlight">\(y=\phi(x)\)</span> case</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#determination-of-the-fit-parameters-theta">11.1.3. Determination of the fit parameters <span class="math notranslate nohighlight">\(\theta\)</span></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#properties-of-the-least-squares-method">11.1.4. Properties of the Least-Squares method</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#least-squares-for-linear-functions">11.1.5. Least-Squares for linear functions</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#a-regression-exercise">11.2. A Regression exercise</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#plotting-the-data">11.2.1. Plotting the data</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#parameters-determination">11.2.2. Parameters determination</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#analyzing-the-result-of-the-regression">11.3. Analyzing the result of the regression</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#fit-convergence">11.3.1. Fit convergence</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#fit-quality">11.3.2. Fit quality</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#parameter-values-and-uncertainty">11.3.3. Parameter values and uncertainty</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#covariance-matrix-of-the-fit-parameters">11.3.4. Covariance matrix of the fit parameters</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#quick-inspection-of-the-fit-results">11.3.5. Quick inspection of the fit results</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#measurement-uncertainties-and-the-least-squares-method">11.4. Measurement uncertainties and the least-squares method</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By The Jupyter Book community
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  <p class="copyright">
+    
+      © Copyright 2022.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../_static/scripts/bootstrap.js?digest=ac02cc09edc035673794"></script>
+<script src="../../_static/scripts/pydata-sphinx-theme.js?digest=ac02cc09edc035673794"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

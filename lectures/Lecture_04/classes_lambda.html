@@ -1,0 +1,788 @@
+
+
+<!DOCTYPE html>
+
+
+<html lang="en" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+    <title>4. Some python insight: classes, lambda functions, functional programming &#8212; Laboratorio di Calcolo e Statistica</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=ac02cc09edc035673794" rel="stylesheet" />
+<link href="../../_static/styles/bootstrap.css?digest=ac02cc09edc035673794" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=ac02cc09edc035673794" rel="stylesheet" />
+
+  
+  <link href="../../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=ac02cc09edc035673794" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
+    <link rel="stylesheet" href="../../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=ac02cc09edc035673794" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=ac02cc09edc035673794" />
+  <script src="../../_static/vendor/fontawesome/6.1.2/js/all.min.js?digest=ac02cc09edc035673794"></script>
+
+    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/clipboard.min.js"></script>
+    <script src="../../_static/copybutton.js"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../../_static/sphinx-thebe.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'lectures/Lecture_04/classes_lambda';</script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="4.4. Examples: Lecture 4" href="EXAMPLES.html" />
+    <link rel="prev" title="3.8. Solutions: Lecture 3" href="../Lecture_03/SOLUTIONS.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>
+    Back to top
+  </button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+  
+
+<a class="navbar-brand logo" href="../../intro.html">
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../../_static/logo_unimib.png" class="logo__image only-light" alt="Logo image"/>
+    <script>document.write(`<img src="../../_static/logo_unimib.png" class="logo__image only-dark" alt="Logo image"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../../intro.html">
+                    Laboratory of Statistics
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Prerequisites</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../prerequisites/README.html">Prerequisites of this Course</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Lectures</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../Lecture_01/basics_python.html">1. Basics of Python Programming</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../Lecture_01/EXAMPLES.html">1.10. Examples: Lecture 1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Lecture_01/EXERCISES.html">1.11. Exercises for Lecture 1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Lecture_01/SOLUTIONS.html">1.12. Solutions: Lecture 1</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../python_libraries.html">2. Notable Python Libraries</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../Lecture_03/data_visualisation.html">3. Data Visualisation with Python</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../Lecture_03/EXAMPLES.html">3.6. Examples: Lecture 3</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Lecture_03/EXERCISES.html">3.7. Exercises for Lecture 3</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Lecture_03/SOLUTIONS.html">3.8. Solutions: Lecture 3</a></li>
+</ul>
+</li>
+<li class="toctree-l1 current active has-children"><a class="current reference internal" href="#">4. Some python insight: classes, <code class="docutils literal notranslate"><span class="pre">lambda</span></code> functions, functional programming</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="EXAMPLES.html">4.4. Examples: Lecture 4</a></li>
+<li class="toctree-l2"><a class="reference internal" href="EXERCISES.html">4.5. Exercises for Lecture 4</a></li>
+<li class="toctree-l2"><a class="reference internal" href="SOLUTIONS.html">4.6. Solutions: Lecture 4</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../Lecture_05/pseudorandom.html">5. Generation of Pseudo-Random Numbers</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-4"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../Lecture_05/EXAMPLES.html">5.6. Examples: Lecture 5</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Lecture_05/EXERCISES.html">5.7. Exercises for Lecture 5</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Lecture_05/SOLUTIONS.html">5.8. Solutions: Lecture 5</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../Lecture_06/zero_and_extrema.html">6. Finding Zeros and Extrema</a><input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-5"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../Lecture_06/EXAMPLES.html">6.4. Examples: Lecture 6</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Lecture_06/EXERCISES.html">6.5. Exercises for Lecture 6</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Lecture_06/SOLUTIONS.html">6.6. Solutions: Lecture 6</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../Lecture_07/poisson.html">7. The Poisson Distribution</a><input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-6"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../Lecture_07/EXERCISES.html">7.5. Exercises for Lecture 7</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Lecture_07/SOLUTIONS.html">7.6. Solutions: Lezione 7</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../Lecture_08/toys_integration.html">8. Toy Experiments and Integration using Pseudorandom Numbers</a><input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-7"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../Lecture_08/EXAMPLES.html">8.3. Examples: Lecture 8</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Lecture_08/EXERCISES.html">8.4. Exercises for Lecture 8</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Lecture_08/SOLUTIONS.html">8.5. Solutions: Lecture 8</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../Lecture_09/likelihood.html">9. The likelihood</a><input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-8"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../Lecture_09/examples/notebook_01.html">9.7. This is a notebook example</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Lecture_09/examples/notebook_02.html">9.8. Drawing of a function</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Lecture_09/examples/notebook_03.html">9.9. Accessing files on disk</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Lecture_09/EXERCISES.html">9.10. Exercises for Lecture 9</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Lecture_09/exercises/likelihood_solutions.html">9.11. Likelihood exercise solutions</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../Lecture_10/likelihood_fit.html">10. Parameter Estimate using the Maximum Likelihood Method</a><input class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-9"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../Lecture_10/EXERCISES.html">10.10. Exercises for Lecture 10</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Lecture_10/exercises/likelihood_fit_solutions.html">10.11. Maximum likelihood exercise solutions</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../Lecture_11/least_squares.html">11. Least-Squares Fitting</a><input class="toctree-checkbox" id="toctree-checkbox-10" name="toctree-checkbox-10" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-10"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../Lecture_11/EXERCISES.html">11.5. Exercises for Lecture 11</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Lecture_11/exercises/least_squares_solutions.html">11.6. Least squares solutions</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../Lecture_12/fit_binned.html">12. Fit of Binned Distributions</a><input class="toctree-checkbox" id="toctree-checkbox-11" name="toctree-checkbox-11" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-11"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../Lecture_12/EXERCISES.html">12.8. Exercises for Lecture 12</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Lecture_12/exercises/es_12.1_solutions.html">12.9. Binned fits solutions: Exercise 12.1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Lecture_12/exercises/es_12.2_solutions.html">12.10. Binned fits solutions: Exercise 12.2</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Lecture_12/exercises/es_12.3_solutions.html">12.11. Binned fits solutions: exercise 12.3</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Lecture_12/exercises/es_12.4_solutions.html">12.12. cost functions comparison: exercise 12.4</a></li>
+</ul>
+</li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/UnimibFisicaLaboratori/UnimibFisicaLabStatPython" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/UnimibFisicaLaboratori/UnimibFisicaLabStatPython/issues/new?title=Issue%20on%20page%20%2Flectures/Lecture_04/classes_lambda.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../../_sources/lectures/Lecture_04/classes_lambda.md" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.md</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  </button>
+`);
+</script>
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Some python insight: classes, lambda functions, functional programming</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#object-oriented-programming-in-python">4.1. Object-Oriented programming in python</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-logic-elements-needed-for-a-class">4.1.1. The logic elements needed for a class</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#a-class-for-handling-fractions">4.1.2. A class for handling fractions</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#using-the-class">4.1.3. Using the class</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#function-overloading">4.1.4. Function overloading</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#anonymous-functions-lambda">4.2. Anonymous functions: <code class="docutils literal notranslate"><span class="pre">lambda</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#functional-programming">4.3. Functional programming</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#map">4.3.1. <code class="docutils literal notranslate"><span class="pre">map</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#filter">4.3.2. <code class="docutils literal notranslate"><span class="pre">filter</span></code></a></li>
+</ul>
+</li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="some-python-insight-classes-lambda-functions-functional-programming">
+<h1><span class="section-number">4. </span>Some python insight: classes, <code class="docutils literal notranslate"><span class="pre">lambda</span></code> functions, functional programming<a class="headerlink" href="#some-python-insight-classes-lambda-functions-functional-programming" title="Permalink to this heading">#</a></h1>
+<section id="object-oriented-programming-in-python">
+<h2><span class="section-number">4.1. </span>Object-Oriented programming in python<a class="headerlink" href="#object-oriented-programming-in-python" title="Permalink to this heading">#</a></h2>
+<ul class="simple">
+<li><p>Basic python data types, like integers and float,
+may be used to <strong>build more sophisticated mathematical objects</strong>,
+such as complex numbers, fractions, matrices</p></li>
+<li><p>Such high-level objects do have <strong>their own behaviours and rules</strong>:
+how to perform sums, multiplications, subtractions, <em>et cetera</em></p></li>
+<li><p><strong>A python <code class="docutils literal notranslate"><span class="pre">class</span></code></strong> is a way to build high-level objects
+putting together the variables that define them
+and the functions that determine their behaviour</p></li>
+</ul>
+<section id="the-logic-elements-needed-for-a-class">
+<h3><span class="section-number">4.1.1. </span>The logic elements needed for a class<a class="headerlink" href="#the-logic-elements-needed-for-a-class" title="Permalink to this heading">#</a></h3>
+<ul class="simple">
+<li><p>For such a construct to work, <strong>some elements are necessary</strong>:</p></li>
+</ul>
+<table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p></p></th>
+<th class="head"><p></p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><strong>data members</strong></p></td>
+<td><p>all the variables that compose the high-level object</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>constructor</strong></p></td>
+<td><p>the function which builds each high-level object when initialized</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>methods</strong></p></td>
+<td><p>the functions that operate on the object variables to implement its high-level behaviour</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="a-class-for-handling-fractions">
+<h3><span class="section-number">4.1.2. </span>A class for handling fractions<a class="headerlink" href="#a-class-for-handling-fractions" title="Permalink to this heading">#</a></h3>
+<ul>
+<li><p>All these components need to be <strong>encased in a structure</strong>,
+which is called <code class="docutils literal notranslate"><span class="pre">class</span></code></p></li>
+<li><p>The following example shows a <strong>simple implementation of a class</strong>
+that may be used to handle numerical fractions as high-level objecs:</p>
+<div class="highlight-py notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Fraction</span> <span class="p">:</span>
+<span class="w">    </span><span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">    # a simple class implementing a high-level object</span>
+<span class="sd">    # to handle fractions and their operations</span>
+<span class="sd">    &#39;&#39;&#39;</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span> <span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">numerator</span><span class="p">,</span> <span class="n">denominator</span><span class="p">)</span> <span class="p">:</span>
+<span class="w">        </span><span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">        the constructor: initialises all the variables needed</span>
+<span class="sd">        for the high-level object functioning</span>
+<span class="sd">        &#39;&#39;&#39;</span>
+        <span class="k">if</span> <span class="n">denominator</span> <span class="o">==</span> <span class="mi">0</span> <span class="p">:</span>
+            <span class="nb">print</span> <span class="p">(</span><span class="s1">&#39;Denominator cannot be zero&#39;</span><span class="p">)</span>
+            <span class="n">sys</span><span class="o">.</span><span class="n">exit</span> <span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+        
+        <span class="c1"># this allows to avoid calculating the LCM in the sum and subtraction</span>
+        <span class="n">common_divisor</span> <span class="o">=</span> <span class="n">gcd</span> <span class="p">(</span><span class="n">numerator</span><span class="p">,</span> <span class="n">denominator</span><span class="p">)</span> <span class="c1"># greatest common divisor </span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">numerator</span> <span class="o">=</span> <span class="n">numerator</span> <span class="o">//</span> <span class="n">common_divisor</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">denominator</span> <span class="o">=</span> <span class="n">denominator</span> <span class="o">//</span> <span class="n">common_divisor</span>
+        
+    <span class="k">def</span> <span class="nf">print</span> <span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="p">:</span>
+<span class="w">        </span><span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">        prints the value of the fraction on screen</span>
+<span class="sd">        &#39;&#39;&#39;</span>
+        <span class="nb">print</span> <span class="p">(</span><span class="nb">str</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">numerator</span><span class="p">)</span> <span class="o">+</span> <span class="s1">&#39;/&#39;</span> <span class="o">+</span> <span class="nb">str</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">denominator</span><span class="p">))</span>
+</pre></div>
+</div>
+</li>
+</ul>
+</section>
+<section id="using-the-class">
+<h3><span class="section-number">4.1.3. </span>Using the class<a class="headerlink" href="#using-the-class" title="Permalink to this heading">#</a></h3>
+<ul>
+<li><p>The <code class="docutils literal notranslate"><span class="pre">__init__</span></code> function, called <strong>constructor</strong>, is necessary and operates all the necessary actions
+to <strong>initialize a new high-level object of the type <code class="docutils literal notranslate"><span class="pre">Fraction</span></code></strong></p></li>
+<li><p>The <code class="docutils literal notranslate"><span class="pre">print</span></code> function is a <strong>method</strong> of the class
+and is one of the operations one might want to do with a high-level object,</p>
+<div class="highlight-py notranslate"><div class="highlight"><pre><span></span><span class="n">frac1</span> <span class="o">=</span> <span class="n">Fraction</span> <span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">)</span>
+<span class="n">frac1</span><span class="o">.</span><span class="n">print</span> <span class="p">()</span>
+</pre></div>
+</div>
+</li>
+<li><p>The <strong><code class="docutils literal notranslate"><span class="pre">dot</span></code> operator</strong> allows to call class functions and access data members
+for a high-level object</p></li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The <strong>keyword <code class="docutils literal notranslate"><span class="pre">self</span></code></strong> identifies the high-level object.</p>
+<ul class="simple">
+<li><p>A high-level object always is an <strong>implicit argument of class functions</strong>,
+and is therefore always present as fist argument of all class methods</p></li>
+<li><p>The class <strong>variabiles</strong>, which characterise the high-level object, are identified
+with the preamble <code class="docutils literal notranslate"><span class="pre">self.</span></code></p></li>
+</ul>
+</div>
+</section>
+<section id="function-overloading">
+<h3><span class="section-number">4.1.4. </span>Function overloading<a class="headerlink" href="#function-overloading" title="Permalink to this heading">#</a></h3>
+<ul class="simple">
+<li><p>Since the <code class="docutils literal notranslate"><span class="pre">Fraction</span></code> class describes the field of the rational numbers,
+<strong>usual operations</strong> like the sum, subtraction, multiplication, division
+among fractions may be performed with specific rules</p></li>
+<li><p>The python syntax allows to <strong>define the behaviour of the usual symbols (<code class="docutils literal notranslate"><span class="pre">+</span></code>, <code class="docutils literal notranslate"><span class="pre">-</span></code>, <code class="docutils literal notranslate"><span class="pre">*</span></code>, <code class="docutils literal notranslate"><span class="pre">/</span></code>)</strong>
+for the high-level objects built with the <code class="docutils literal notranslate"><span class="pre">Fraction</span></code> class</p></li>
+<li><p>This property is called <strong>overloading</strong></p></li>
+</ul>
+<div class="highlight-py notranslate"><div class="highlight"><pre><span></span>  <span class="k">def</span> <span class="fm">__add__</span> <span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">)</span> <span class="p">:</span>
+<span class="w">      </span><span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">      implements the addition of two fractions.</span>
+<span class="sd">      This function will be callable with the + symbol</span>
+<span class="sd">      &#39;&#39;&#39;</span>
+      <span class="n">new_numerator</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">numerator</span> <span class="o">*</span> <span class="n">other</span><span class="o">.</span><span class="n">denominator</span> <span class="o">+</span> <span class="n">other</span><span class="o">.</span><span class="n">numerator</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">denominator</span>
+      <span class="n">new_denominator</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">denominator</span> <span class="o">*</span> <span class="n">other</span><span class="o">.</span><span class="n">denominator</span>
+      <span class="k">return</span> <span class="n">Fraction</span> <span class="p">(</span><span class="n">new_numerator</span><span class="p">,</span> <span class="n">new_denominator</span><span class="p">)</span>
+  
+  <span class="k">def</span> <span class="fm">__sub__</span> <span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">)</span> <span class="p">:</span> 
+      <span class="c1"># the - operator ...</span>
+  
+  <span class="k">def</span> <span class="fm">__mul__</span> <span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">)</span> <span class="p">:</span>
+      <span class="c1"># the * operator ...</span>
+  
+  <span class="k">def</span> <span class="fm">__truediv__</span> <span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">)</span> <span class="p">:</span>
+      <span class="c1"># the / operator ...</span>
+</pre></div>
+</div>
+</section>
+</section>
+<section id="anonymous-functions-lambda">
+<h2><span class="section-number">4.2. </span>Anonymous functions: <code class="docutils literal notranslate"><span class="pre">lambda</span></code><a class="headerlink" href="#anonymous-functions-lambda" title="Permalink to this heading">#</a></h2>
+<ul>
+<li><p>The usual functional definition syntax <strong>cannot be used within other instructions</strong>:
+a function shall be defined before being used</p>
+<div class="highlight-py notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">square</span> <span class="p">(</span><span class="n">a</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">a</span><span class="o">**</span><span class="mi">2</span>
+<span class="c1"># ...</span>
+<span class="nb">print</span> <span class="p">(</span><span class="n">square</span> <span class="p">(</span><span class="n">number</span><span class="p">))</span>
+</pre></div>
+</div>
+</li>
+<li><p>The <code class="docutils literal notranslate"><span class="pre">lambda</span></code> keyword allows to <strong>define functions directly where they may be used</strong>:</p>
+<div class="highlight-py notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span> <span class="p">((</span><span class="k">lambda</span> <span class="n">x</span> <span class="p">:</span> <span class="n">x</span><span class="o">**</span><span class="mi">2</span><span class="p">)(</span><span class="n">number</span><span class="p">))</span>
+</pre></div>
+</div>
+</li>
+<li><p>The result of a <code class="docutils literal notranslate"><span class="pre">lambda</span></code> function definition may also be assigned to a variable,
+since a function is a python object as well:</p>
+<div class="highlight-py notranslate"><div class="highlight"><pre><span></span><span class="n">func</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">x</span> <span class="p">:</span> <span class="n">x</span><span class="o">**</span><span class="mi">2</span>
+<span class="nb">print</span> <span class="p">(</span><span class="n">func</span> <span class="p">(</span><span class="n">number</span><span class="p">))</span>
+</pre></div>
+</div>
+</li>
+</ul>
+</section>
+<section id="functional-programming">
+<h2><span class="section-number">4.3. </span>Functional programming<a class="headerlink" href="#functional-programming" title="Permalink to this heading">#</a></h2>
+<ul class="simple">
+<li><p>When dealing with lists and other containers,
+python offers ways of <strong>acting on the whole collection of variables</strong>
+automatically building optimized loops</p></li>
+</ul>
+<section id="map">
+<h3><span class="section-number">4.3.1. </span><code class="docutils literal notranslate"><span class="pre">map</span></code><a class="headerlink" href="#map" title="Permalink to this heading">#</a></h3>
+<ul>
+<li><p>The built-in <code class="docutils literal notranslate"><span class="pre">map</span></code> function <strong>applies a passed-in function to all elements of a list</strong>:</p>
+<div class="highlight-py notranslate"><div class="highlight"><pre><span></span><span class="n">lista</span> <span class="o">=</span> <span class="nb">list</span> <span class="p">(</span><span class="nb">range</span> <span class="p">(</span><span class="o">-</span><span class="mi">5</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
+<span class="n">squared</span> <span class="o">=</span> <span class="nb">list</span> <span class="p">(</span><span class="nb">map</span> <span class="p">(</span><span class="n">square</span><span class="p">,</span> <span class="n">lista</span><span class="p">))</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>in this case, <code class="docutils literal notranslate"><span class="pre">squared</span></code> is a new list containing the square of the elements of <code class="docutils literal notranslate"><span class="pre">lista</span></code></p></li>
+</ul>
+</li>
+<li><p><strong><code class="docutils literal notranslate"><span class="pre">lambda</span></code> functions may be used</strong> with <code class="docutils literal notranslate"><span class="pre">map</span></code> for a more compact expression:</p>
+<div class="highlight-py notranslate"><div class="highlight"><pre><span></span><span class="n">squared</span> <span class="o">=</span> <span class="nb">list</span> <span class="p">(</span><span class="nb">map</span> <span class="p">(</span><span class="k">lambda</span> <span class="n">x</span> <span class="p">:</span> <span class="n">x</span><span class="o">**</span><span class="mi">2</span><span class="p">,</span> <span class="n">lista</span><span class="p">))</span>
+</pre></div>
+</div>
+</li>
+</ul>
+</section>
+<section id="filter">
+<h3><span class="section-number">4.3.2. </span><code class="docutils literal notranslate"><span class="pre">filter</span></code><a class="headerlink" href="#filter" title="Permalink to this heading">#</a></h3>
+<ul>
+<li><p>The built-in <code class="docutils literal notranslate"><span class="pre">filter</span></code> function <strong>applies a passed-in function to all elements of a list</strong>:</p>
+<div class="highlight-py notranslate"><div class="highlight"><pre><span></span><span class="n">lista</span> <span class="o">=</span> <span class="nb">list</span> <span class="p">(</span><span class="nb">filter</span> <span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">==</span> <span class="mi">0</span><span class="p">,</span> <span class="nb">range</span><span class="p">(</span><span class="o">-</span><span class="mi">5</span><span class="p">,</span> <span class="mi">5</span><span class="p">)))</span>
+</pre></div>
+</div>
+</li>
+</ul>
+</section>
+</section>
+<div class="toctree-wrapper compound">
+</div>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./lectures/Lecture_04"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer">
+                  <!-- Previous / next buttons -->
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="../Lecture_03/SOLUTIONS.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title"><span class="section-number">3.8. </span>Solutions: Lecture 3</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="EXAMPLES.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title"><span class="section-number">4.4. </span>Examples: Lecture 4</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#object-oriented-programming-in-python">4.1. Object-Oriented programming in python</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-logic-elements-needed-for-a-class">4.1.1. The logic elements needed for a class</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#a-class-for-handling-fractions">4.1.2. A class for handling fractions</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#using-the-class">4.1.3. Using the class</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#function-overloading">4.1.4. Function overloading</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#anonymous-functions-lambda">4.2. Anonymous functions: <code class="docutils literal notranslate"><span class="pre">lambda</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#functional-programming">4.3. Functional programming</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#map">4.3.1. <code class="docutils literal notranslate"><span class="pre">map</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#filter">4.3.2. <code class="docutils literal notranslate"><span class="pre">filter</span></code></a></li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By The Jupyter Book community
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  <p class="copyright">
+    
+      © Copyright 2022.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../_static/scripts/bootstrap.js?digest=ac02cc09edc035673794"></script>
+<script src="../../_static/scripts/pydata-sphinx-theme.js?digest=ac02cc09edc035673794"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
