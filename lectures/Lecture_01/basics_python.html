@@ -1285,21 +1285,32 @@ which is a set of instructions at the same logical level</p>
 </section>
 <section id="functions-with-arbitrary-number-of-arguments">
 <h3><span class="section-number">1.7.4. </span>Functions with arbitrary number of arguments<a class="headerlink" href="#functions-with-arbitrary-number-of-arguments" title="Permalink to this heading">#</a></h3>
-<p>It is possible to define a function with an arbitrary number of arguments by using the <code class="docutils literal notranslate"><span class="pre">*args</span></code> and <code class="docutils literal notranslate"><span class="pre">**kwargs</span></code> syntax.</p>
-<p>As mentioned before, the <code class="docutils literal notranslate"><span class="pre">*</span></code> operator can be used to unpack a list or a tuple into a function call, so that each element of the list is passed as a different argument to the function.</p>
-<p>Similarly, the <code class="docutils literal notranslate"><span class="pre">**</span></code> operator can be used to pass keyword arguments in the form of a dictionary.</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="k">def</span> <span class="nf">my_function</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
-<span class="gp">... </span>   <span class="nb">print</span><span class="p">(</span><span class="n">args</span><span class="p">)</span>
-<span class="gp">... </span>   <span class="nb">print</span><span class="p">(</span><span class="n">kwargs</span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">my_function</span><span class="p">(</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">),</span> <span class="n">a</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="n">b</span> <span class="o">=</span> <span class="s1">&#39;wow&#39;</span><span class="p">,</span> <span class="n">c</span><span class="o">=</span> <span class="p">(</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">6</span><span class="p">))</span>
-<span class="go">((1, 2, 3),)</span>
-<span class="go">{&#39;a&#39;: 1, &#39;b&#39;: &#39;wow&#39;, &#39;c&#39;: (4, 5, 6)}</span>
+<ul>
+<li><p>It is possible to define a function with an <strong>arbitrary number of arguments</strong>
+by using the <code class="docutils literal notranslate"><span class="pre">*args</span></code> and <code class="docutils literal notranslate"><span class="pre">**kwargs</span></code> syntax.</p></li>
+<li><p>In this case, <strong>the <code class="docutils literal notranslate"><span class="pre">*</span></code> operator is used to unpack a list or a tuple
+into a function call</strong>,
+so that each element of the list is passed as a different argument to the function.</p></li>
+<li><p>Similarly,
+<strong>the <code class="docutils literal notranslate"><span class="pre">**</span></code> operator can be used to pass keyword arguments in the form of a dictionary</strong>.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">my_function</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+   <span class="nb">print</span><span class="p">(</span><span class="n">args</span><span class="p">)</span>
+   <span class="nb">print</span><span class="p">(</span><span class="n">kwargs</span><span class="p">)</span>
+
+<span class="n">my_function</span><span class="p">(</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">),</span> <span class="n">a</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="n">b</span> <span class="o">=</span> <span class="s1">&#39;wow&#39;</span><span class="p">,</span> <span class="n">c</span><span class="o">=</span> <span class="p">(</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">6</span><span class="p">))</span>
+<span class="p">((</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">),)</span>
+<span class="p">{</span><span class="s1">&#39;a&#39;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="s1">&#39;b&#39;</span><span class="p">:</span> <span class="s1">&#39;wow&#39;</span><span class="p">,</span> <span class="s1">&#39;c&#39;</span><span class="p">:</span> <span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">)}</span>
 </pre></div>
 </div>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
-<p>Defining functions with an arbitrary number of arguments is a powerful feature, but it should be used with care. All the operations that are performed on the arguments inside the function body should be valid for all the possible types of arguments that the function can receive.</p>
+<p>Defining functions with an arbitrary number of arguments is a powerful feature,
+but it should be used with care.
+All the operations that are performed on the arguments inside the function body
+should be valid for all the possible types of arguments that the function can receive.</p>
 </div>
+</li>
+</ul>
 </section>
 <section id="functions-in-python-scripts">
 <h3><span class="section-number">1.7.5. </span>Functions in python scripts<a class="headerlink" href="#functions-in-python-scripts" title="Permalink to this heading">#</a></h3>

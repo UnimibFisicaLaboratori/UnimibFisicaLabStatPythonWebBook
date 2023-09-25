@@ -439,6 +439,9 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-1-4">1.12.4. Exercise 1.4</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-1-5">1.12.5. Exercise 1.5</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-1-6">1.12.6. Exercise 1.6</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-1-7">1.12.7. Exercise 1.7</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-1-8">1.12.8. Exercise 1.8</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-1-9">1.12.9. Exercise 1.9</a></li>
 </ul>
             </nav>
         </div>
@@ -718,8 +721,6 @@ document.write(`
 </ul>
 <div class="highlight-py notranslate"><div class="highlight"><pre><span></span><span class="ch">#!/usr/bin/python</span>
 <span class="sd">&#39;&#39;&#39;</span>
-<span class="sd">## Exercise 1.6</span>
-
 <span class="sd">  * By writing a suitable program and functions,</span>
 <span class="sd">    verify whether the value of variables passed to a function</span>
 <span class="sd">    get modified in the main program, </span>
@@ -747,7 +748,7 @@ document.write(`
 <span class="sd">    Funzione che implementa il programma principale</span>
 <span class="sd">    &#39;&#39;&#39;</span>
 
-    
+
     <span class="n">m_number</span> <span class="o">=</span> <span class="mf">3.</span>
     <span class="nb">print</span> <span class="p">(</span><span class="s1">&#39;outside before&#39;</span><span class="p">,</span> <span class="n">m_number</span><span class="p">)</span>
     <span class="n">double_it</span> <span class="p">(</span><span class="n">m_number</span><span class="p">)</span>
@@ -756,6 +757,152 @@ document.write(`
     <span class="n">test_list</span> <span class="o">=</span> <span class="p">[</span><span class="mi">3</span><span class="p">]</span>
     <span class="n">add_element</span> <span class="p">(</span><span class="n">test_list</span><span class="p">)</span>
     <span class="nb">print</span> <span class="p">(</span><span class="n">test_list</span><span class="p">)</span>
+
+
+<span class="c1"># ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- </span>
+
+
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&quot;__main__&quot;</span><span class="p">:</span>
+    <span class="n">main</span> <span class="p">()</span>
+
+</pre></div>
+</div>
+</section>
+<section id="exercise-1-7">
+<h2><span class="section-number">1.12.7. </span>Exercise 1.7<a class="headerlink" href="#exercise-1-7" title="Permalink to this heading">#</a></h2>
+<ul class="simple">
+<li><p><cite>ex_1.7.py</cite></p></li>
+</ul>
+<div class="highlight-py notranslate"><div class="highlight"><pre><span></span><span class="ch">#!/usr/bin/python</span>
+<span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">  * Write a python program that determines the solution of second-order</span>
+<span class="sd">    equations</span>
+<span class="sd">&#39;&#39;&#39;</span>
+
+<span class="kn">from</span> <span class="nn">math</span> <span class="kn">import</span> <span class="n">sqrt</span>
+<span class="kn">import</span> <span class="nn">sys</span>
+
+
+<span class="k">def</span> <span class="nf">main</span> <span class="p">()</span> <span class="p">:</span>
+<span class="w">    </span><span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">    Funzione che implementa il programma principale</span>
+<span class="sd">    &#39;&#39;&#39;</span>
+    <span class="nb">print</span> <span class="p">(</span><span class="s1">&#39;starting from the equation ax^2 + bx +c = 0 in the real domain&#39;</span><span class="p">)</span>
+    <span class="n">param_a</span> <span class="o">=</span> <span class="nb">float</span> <span class="p">(</span><span class="nb">input</span> <span class="p">(</span><span class="s1">&#39;insert the value of a: &#39;</span><span class="p">))</span>
+    <span class="n">param_b</span> <span class="o">=</span> <span class="nb">float</span> <span class="p">(</span><span class="nb">input</span> <span class="p">(</span><span class="s1">&#39;insert the value of b: &#39;</span><span class="p">))</span>
+    <span class="n">param_c</span> <span class="o">=</span> <span class="nb">float</span> <span class="p">(</span><span class="nb">input</span> <span class="p">(</span><span class="s1">&#39;insert the value of c: &#39;</span><span class="p">))</span>
+    <span class="nb">print</span> <span class="p">(</span><span class="s1">&#39;solving equation :&#39;</span><span class="p">)</span>
+    <span class="nb">print</span> <span class="p">(</span><span class="nb">str</span> <span class="p">(</span><span class="n">param_a</span><span class="p">)</span> <span class="o">+</span> <span class="s1">&#39;x^2 + &#39;</span> <span class="o">+</span> <span class="nb">str</span> <span class="p">(</span><span class="n">param_b</span><span class="p">)</span> <span class="o">+</span> <span class="s1">&#39;x + &#39;</span> <span class="o">+</span> <span class="nb">str</span> <span class="p">(</span><span class="n">param_c</span><span class="p">)</span> <span class="o">+</span> <span class="s1">&#39; = 0&#39;</span><span class="p">)</span>
+    <span class="n">delta</span> <span class="o">=</span> <span class="n">param_b</span> <span class="o">**</span> <span class="mi">2</span> <span class="o">-</span> <span class="mi">4</span> <span class="o">*</span> <span class="n">param_a</span> <span class="o">*</span> <span class="n">param_c</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">delta</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">)</span> <span class="p">:</span> 
+        <span class="nb">print</span> <span class="p">(</span><span class="s1">&#39;no real solutions exist&#39;</span><span class="p">)</span>
+        <span class="n">sys</span><span class="o">.</span><span class="n">exit</span> <span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+    <span class="n">x_1</span> <span class="o">=</span>  <span class="p">(</span><span class="o">-</span><span class="mi">1</span> <span class="o">*</span> <span class="n">param_b</span> <span class="o">-</span> <span class="n">sqrt</span> <span class="p">(</span><span class="n">delta</span><span class="p">))</span> <span class="o">/</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">param_a</span>
+    <span class="n">x_2</span> <span class="o">=</span>  <span class="p">(</span><span class="o">-</span><span class="mi">1</span> <span class="o">*</span> <span class="n">param_b</span> <span class="o">+</span> <span class="n">sqrt</span> <span class="p">(</span><span class="n">delta</span><span class="p">))</span> <span class="o">/</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">param_a</span>
+    <span class="nb">print</span> <span class="p">(</span><span class="s1">&#39;x1 = &#39;</span> <span class="o">+</span> <span class="nb">str</span> <span class="p">(</span><span class="n">x_1</span><span class="p">))</span>
+    <span class="nb">print</span> <span class="p">(</span><span class="s1">&#39;x2 = &#39;</span> <span class="o">+</span> <span class="nb">str</span> <span class="p">(</span><span class="n">x_2</span><span class="p">))</span>
+    <span class="n">message</span> <span class="o">=</span> <span class="nb">str</span> <span class="p">(</span><span class="n">param_a</span><span class="p">)</span> <span class="o">+</span> <span class="s1">&#39;x^2 + &#39;</span> <span class="o">+</span> <span class="nb">str</span> <span class="p">(</span><span class="n">param_b</span><span class="p">)</span> <span class="o">+</span> <span class="s1">&#39;x + &#39;</span> <span class="o">+</span> <span class="nb">str</span> <span class="p">(</span><span class="n">param_c</span><span class="p">)</span> <span class="o">+</span> <span class="s1">&#39; = &#39;</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">x_1</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">)</span> <span class="p">:</span> <span class="n">message</span> <span class="o">+=</span> <span class="s1">&#39;(x+&#39;</span> <span class="o">+</span> <span class="nb">str</span> <span class="p">(</span><span class="o">-</span><span class="n">x_1</span><span class="p">)</span> <span class="o">+</span> <span class="s1">&#39;)&#39;</span>
+    <span class="k">else</span>         <span class="p">:</span> <span class="n">message</span> <span class="o">+=</span> <span class="s1">&#39;(x&#39;</span> <span class="o">+</span> <span class="nb">str</span> <span class="p">(</span><span class="o">-</span><span class="n">x_1</span><span class="p">)</span> <span class="o">+</span> <span class="s1">&#39;)&#39;</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">x_2</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">)</span> <span class="p">:</span> <span class="n">message</span> <span class="o">+=</span> <span class="s1">&#39;(x+&#39;</span> <span class="o">+</span> <span class="nb">str</span> <span class="p">(</span><span class="o">-</span><span class="n">x_2</span><span class="p">)</span> <span class="o">+</span> <span class="s1">&#39;)&#39;</span>
+    <span class="k">else</span>         <span class="p">:</span> <span class="n">message</span> <span class="o">+=</span> <span class="s1">&#39;(x&#39;</span> <span class="o">+</span> <span class="nb">str</span> <span class="p">(</span><span class="o">-</span><span class="n">x_2</span><span class="p">)</span> <span class="o">+</span> <span class="s1">&#39;)&#39;</span>
+    <span class="nb">print</span> <span class="p">(</span><span class="n">message</span><span class="p">)</span>
+
+
+<span class="c1"># ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- </span>
+
+
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&quot;__main__&quot;</span><span class="p">:</span>
+    <span class="n">main</span> <span class="p">()</span>
+
+</pre></div>
+</div>
+</section>
+<section id="exercise-1-8">
+<h2><span class="section-number">1.12.8. </span>Exercise 1.8<a class="headerlink" href="#exercise-1-8" title="Permalink to this heading">#</a></h2>
+<ul class="simple">
+<li><p><cite>ex_1.8.py</cite></p></li>
+</ul>
+<div class="highlight-py notranslate"><div class="highlight"><pre><span></span><span class="ch">#!/usr/bin/python</span>
+<span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">  * Write a python program that finds the list of prime integer numbers</span>
+<span class="sd">    smaller than 100, starting by knowing that 2 is a prime number</span>
+<span class="sd">&#39;&#39;&#39;</span>
+
+<span class="kn">from</span> <span class="nn">math</span> <span class="kn">import</span> <span class="n">sqrt</span>
+<span class="kn">import</span> <span class="nn">sys</span>
+
+
+
+<span class="k">def</span> <span class="nf">check_ratio</span> <span class="p">(</span><span class="n">numerator</span><span class="p">,</span> <span class="n">denominator</span><span class="p">):</span>
+    <span class="k">return</span> <span class="p">(</span><span class="n">numerator</span> <span class="o">%</span> <span class="n">denominator</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span>
+
+
+<span class="c1"># ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- </span>
+
+
+<span class="k">def</span> <span class="nf">main</span> <span class="p">()</span> <span class="p">:</span>
+<span class="w">    </span><span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">    Funzione che implementa il programma principale</span>
+<span class="sd">    &#39;&#39;&#39;</span>
+    <span class="n">l_primes</span> <span class="o">=</span> <span class="p">[</span><span class="mi">2</span><span class="p">]</span>
+    <span class="k">for</span> <span class="n">num</span> <span class="ow">in</span> <span class="nb">range</span> <span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="mi">100</span><span class="p">)</span> <span class="p">:</span>
+        <span class="n">is_prime</span> <span class="o">=</span> <span class="kc">True</span>
+        <span class="k">for</span> <span class="n">prime</span> <span class="ow">in</span> <span class="n">l_primes</span> <span class="p">:</span>
+            <span class="k">if</span> <span class="n">check_ratio</span> <span class="p">(</span><span class="n">num</span><span class="p">,</span> <span class="n">prime</span><span class="p">)</span> <span class="p">:</span>
+                <span class="n">is_prime</span> <span class="o">=</span> <span class="kc">False</span>
+                <span class="k">break</span>
+        <span class="k">if</span> <span class="n">is_prime</span> <span class="p">:</span> <span class="n">l_primes</span><span class="o">.</span><span class="n">append</span> <span class="p">(</span><span class="n">num</span><span class="p">)</span>
+    <span class="nb">print</span> <span class="p">(</span><span class="n">l_primes</span><span class="p">)</span>
+
+
+<span class="c1"># ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- </span>
+
+
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&quot;__main__&quot;</span><span class="p">:</span>
+    <span class="n">main</span> <span class="p">()</span>
+
+</pre></div>
+</div>
+</section>
+<section id="exercise-1-9">
+<h2><span class="section-number">1.12.9. </span>Exercise 1.9<a class="headerlink" href="#exercise-1-9" title="Permalink to this heading">#</a></h2>
+<ul class="simple">
+<li><p><cite>ex_1.9.py</cite></p></li>
+</ul>
+<div class="highlight-py notranslate"><div class="highlight"><pre><span></span><span class="ch">#!/usr/bin/python</span>
+<span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">  * Write a python program that finds the decomposition in prime factors</span>
+<span class="sd">    of a positive integer number, implementing the algorithm </span>
+<span class="sd">    in a function encapsulated in a python module</span>
+<span class="sd">  * Write a test function, in the library, </span>
+<span class="sd">    that checks the correctness of the procedure for all numbers </span>
+<span class="sd">    from 1 to 100  </span>
+<span class="sd">&#39;&#39;&#39;</span>
+
+<span class="kn">from</span> <span class="nn">primes</span> <span class="kn">import</span> <span class="n">check_ratio</span><span class="p">,</span> <span class="n">decompose</span>
+<span class="kn">from</span> <span class="nn">math</span> <span class="kn">import</span> <span class="n">sqrt</span>
+<span class="kn">import</span> <span class="nn">sys</span>
+
+
+
+<span class="k">def</span> <span class="nf">check_ratio</span> <span class="p">(</span><span class="n">numerator</span><span class="p">,</span> <span class="n">denominator</span><span class="p">):</span>
+    <span class="k">return</span> <span class="p">(</span><span class="n">numerator</span> <span class="o">%</span> <span class="n">denominator</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span>
+
+
+<span class="c1"># ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- </span>
+
+
+<span class="k">def</span> <span class="nf">main</span> <span class="p">()</span> <span class="p">:</span>
+<span class="w">    </span><span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">    Funzione che implementa il programma principale</span>
+<span class="sd">    &#39;&#39;&#39;</span>
+    <span class="n">number</span> <span class="o">=</span> <span class="mi">1</span>
+    <span class="k">while</span> <span class="n">number</span> <span class="o">&gt;</span> <span class="mi">0</span> <span class="p">:</span>
+        <span class="n">number</span> <span class="o">=</span> <span class="nb">int</span> <span class="p">(</span><span class="nb">input</span> <span class="p">(</span><span class="s1">&#39;insert an integer number (-1 to quit): &#39;</span><span class="p">))</span>
+        <span class="k">if</span> <span class="n">number</span> <span class="o">&lt;</span> <span class="mi">0</span> <span class="p">:</span> <span class="k">break</span>
+        <span class="n">decomposition</span> <span class="o">=</span> <span class="n">decompose</span> <span class="p">(</span><span class="n">number</span><span class="p">)</span>
+        <span class="nb">print</span> <span class="p">(</span><span class="n">decomposition</span><span class="p">)</span>
 
 
 <span class="c1"># ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- </span>
@@ -838,6 +985,9 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-1-4">1.12.4. Exercise 1.4</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-1-5">1.12.5. Exercise 1.5</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-1-6">1.12.6. Exercise 1.6</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-1-7">1.12.7. Exercise 1.7</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-1-8">1.12.8. Exercise 1.8</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-1-9">1.12.9. Exercise 1.9</a></li>
 </ul>
   </nav></div>
 

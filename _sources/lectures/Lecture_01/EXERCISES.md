@@ -60,5 +60,22 @@
     if they are changed inside the function.
   * Perform the check for the various types described during the lecture.
 
+## Exercise 1.7
 
+  * Write a python program that determines the solution of second-order
+    equations
+
+## Exercise 1.8
+
+  * Write a python program that finds the list of prime integer numbers
+    smaller than 100, starting by knowing that 2 is a prime number
+
+## Exercise 1.9
+
+  * Write a python program that finds the decomposition in prime factors
+    of a positive integer number, implementing the algorithm 
+    in a function encapsulated in a python module
+  * Write a test function, in the library, 
+    that checks the correctness of the procedure for all numbers 
+    from 1 to 100  
 

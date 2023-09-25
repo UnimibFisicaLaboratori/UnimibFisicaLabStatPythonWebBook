@@ -41,3 +41,20 @@ Exercise 1.6
 .. literalinclude:: exercises/ex_1.6.py
   :language: py
 
+Exercise 1.7
+------------
+* `ex_1.7.py`
+.. literalinclude:: exercises/ex_1.7.py
+  :language: py
+
+Exercise 1.8
+------------
+* `ex_1.8.py`
+.. literalinclude:: exercises/ex_1.8.py
+  :language: py
+
+Exercise 1.9
+------------
+* `ex_1.9.py`
+.. literalinclude:: exercises/ex_1.9.py
+  :language: py

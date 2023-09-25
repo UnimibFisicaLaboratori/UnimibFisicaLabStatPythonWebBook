@@ -630,24 +630,30 @@ Python is an interpreted, object-oriented, high-level programming language with 
 
 ### Functions with arbitrary number of arguments
 
-It is possible to define a function with an arbitrary number of arguments by using the `*args` and `**kwargs` syntax.
+  * It is possible to define a function with an **arbitrary number of arguments** 
+    by using the `*args` and `**kwargs` syntax.
+  * In this case, **the `*` operator is used to unpack a list or a tuple 
+    into a function call**, 
+    so that each element of the list is passed as a different argument to the function.
+  * Similarly, 
+    **the `**` operator can be used to pass keyword arguments in the form of a dictionary**.
 
-As mentioned before, the `*` operator can be used to unpack a list or a tuple into a function call, so that each element of the list is passed as a different argument to the function.
+    ```python
+    def my_function(*args, **kwargs):
+       print(args)
+       print(kwargs)
+    
+    my_function( (1,2,3), a = 1, b = 'wow', c= (4,5,6))
+    ((1, 2, 3),)
+    {'a': 1, 'b': 'wow', 'c': (4, 5, 6)}
+    ```
 
-Similarly, the `**` operator can be used to pass keyword arguments in the form of a dictionary.
-
-```python
->>> def my_function(*args, **kwargs):
-...    print(args)
-...    print(kwargs)
->>> my_function( (1,2,3), a = 1, b = 'wow', c= (4,5,6))
-((1, 2, 3),)
-{'a': 1, 'b': 'wow', 'c': (4, 5, 6)}
-```
-
-```{warning}
-Defining functions with an arbitrary number of arguments is a powerful feature, but it should be used with care. All the operations that are performed on the arguments inside the function body should be valid for all the possible types of arguments that the function can receive.
-```
+    ```{warning}
+    Defining functions with an arbitrary number of arguments is a powerful feature, 
+    but it should be used with care. 
+    All the operations that are performed on the arguments inside the function body 
+    should be valid for all the possible types of arguments that the function can receive.
+    ```
 
 ### Functions in python scripts
 

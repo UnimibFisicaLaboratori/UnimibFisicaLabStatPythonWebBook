@@ -457,7 +457,7 @@ document.write(`
 <section id="exercise-5-1">
 <h2><span class="section-number">5.8.1. </span>Exercise 5.1<a class="headerlink" href="#exercise-5-1" title="Permalink to this heading">#</a></h2>
 <ul class="simple">
-<li><p><cite>es_5.1.py</cite></p></li>
+<li><p><cite>ex_5.1.py</cite></p></li>
 </ul>
 <div class="highlight-py notranslate"><div class="highlight"><pre><span></span><span class="ch">#!/usr/bin/python</span>
 
@@ -506,7 +506,7 @@ document.write(`
 <section id="exercise-5-2">
 <h2><span class="section-number">5.8.2. </span>Exercise 5.2<a class="headerlink" href="#exercise-5-2" title="Permalink to this heading">#</a></h2>
 <ul class="simple">
-<li><p><cite>es_5.2.py</cite></p></li>
+<li><p><cite>ex_5.2.py</cite></p></li>
 </ul>
 <div class="highlight-py notranslate"><div class="highlight"><pre><span></span><span class="ch">#!/usr/bin/python</span>
 
@@ -573,7 +573,7 @@ document.write(`
 <section id="exercise-5-3">
 <h2><span class="section-number">5.8.3. </span>Exercise 5.3<a class="headerlink" href="#exercise-5-3" title="Permalink to this heading">#</a></h2>
 <ul class="simple">
-<li><p><cite>es_5.3.py</cite></p></li>
+<li><p><cite>ex_5.3.py</cite></p></li>
 </ul>
 <div class="highlight-py notranslate"><div class="highlight"><pre><span></span><span class="ch">#!/usr/bin/python</span>
 
@@ -616,7 +616,7 @@ document.write(`
 <section id="exercise-5-4">
 <h2><span class="section-number">5.8.4. </span>Exercise 5.4<a class="headerlink" href="#exercise-5-4" title="Permalink to this heading">#</a></h2>
 <ul class="simple">
-<li><p><cite>es_5.4.py</cite></p></li>
+<li><p><cite>ex_5.4.py</cite></p></li>
 </ul>
 <div class="highlight-py notranslate"><div class="highlight"><pre><span></span><span class="ch">#!/usr/bin/python</span>
 <span class="sd">&#39;&#39;&#39;</span>
@@ -683,11 +683,166 @@ document.write(`
     <span class="n">main</span> <span class="p">()</span>
 </pre></div>
 </div>
+<ul class="simple">
+<li><p><cite>myrand.py</cite></p></li>
+</ul>
+<div class="highlight-py notranslate"><div class="highlight"><pre><span></span><span class="ch">#!/usr/bin/python</span>
+
+<span class="kn">import</span> <span class="nn">random</span>
+<span class="kn">from</span> <span class="nn">math</span> <span class="kn">import</span> <span class="n">sqrt</span>
+
+
+<span class="k">def</span> <span class="nf">generate_uniform</span> <span class="p">(</span><span class="n">N</span><span class="p">,</span> <span class="n">seed</span> <span class="o">=</span> <span class="mf">0.</span><span class="p">)</span> <span class="p">:</span>
+<span class="w">    </span><span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">    generazione di N numeri pseudo-casuali distribuiti fra 0 ed 1</span>
+<span class="sd">    a partire da un determinato seed</span>
+<span class="sd">    &#39;&#39;&#39;</span>
+    <span class="k">if</span> <span class="n">seed</span> <span class="o">!=</span> <span class="mf">0.</span> <span class="p">:</span> <span class="n">random</span><span class="o">.</span><span class="n">seed</span> <span class="p">(</span><span class="nb">float</span> <span class="p">(</span><span class="n">seed</span><span class="p">))</span>
+    <span class="n">randlist</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span> <span class="p">(</span><span class="n">N</span><span class="p">):</span>
+        <span class="c1"># Return the next random floating point number in the range 0.0 &lt;= X &lt; 1.0</span>
+        <span class="n">randlist</span><span class="o">.</span><span class="n">append</span> <span class="p">(</span><span class="n">random</span><span class="o">.</span><span class="n">random</span> <span class="p">())</span>
+    <span class="k">return</span> <span class="n">randlist</span>
+
+
+<span class="c1"># ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- </span>
+
+
+<span class="k">def</span> <span class="nf">rand_range</span> <span class="p">(</span><span class="n">xMin</span><span class="p">,</span> <span class="n">xMax</span><span class="p">)</span> <span class="p">:</span>
+<span class="w">    </span><span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">    generazione di un numero pseudo-casuale distribuito fra xMin ed xMax</span>
+<span class="sd">    &#39;&#39;&#39;</span>
+    <span class="k">return</span> <span class="n">xMin</span> <span class="o">+</span> <span class="n">random</span><span class="o">.</span><span class="n">random</span> <span class="p">()</span> <span class="o">*</span> <span class="p">(</span><span class="n">xMax</span> <span class="o">-</span> <span class="n">xMin</span><span class="p">)</span>
+
+
+<span class="c1"># ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- </span>
+
+
+<span class="k">def</span> <span class="nf">generate_range</span> <span class="p">(</span><span class="n">xMin</span><span class="p">,</span> <span class="n">xMax</span><span class="p">,</span> <span class="n">N</span><span class="p">,</span> <span class="n">seed</span> <span class="o">=</span> <span class="mf">0.</span><span class="p">)</span> <span class="p">:</span>
+<span class="w">    </span><span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">    generazione di N numeri pseudo-casuali distribuiti fra xMin ed xMax</span>
+<span class="sd">    a partire da un determinato seed</span>
+<span class="sd">    &#39;&#39;&#39;</span>
+    <span class="k">if</span> <span class="n">seed</span> <span class="o">!=</span> <span class="mf">0.</span> <span class="p">:</span> <span class="n">random</span><span class="o">.</span><span class="n">seed</span> <span class="p">(</span><span class="nb">float</span> <span class="p">(</span><span class="n">seed</span><span class="p">))</span>
+    <span class="n">randlist</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span> <span class="p">(</span><span class="n">N</span><span class="p">):</span>
+        <span class="c1"># Return the next random floating point number in the range 0.0 &lt;= X &lt; 1.0</span>
+        <span class="n">randlist</span><span class="o">.</span><span class="n">append</span> <span class="p">(</span><span class="n">rand_range</span> <span class="p">(</span><span class="n">xMin</span><span class="p">,</span> <span class="n">xMax</span><span class="p">))</span>
+    <span class="k">return</span> <span class="n">randlist</span>
+
+
+<span class="c1"># ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- </span>
+
+
+<span class="k">def</span> <span class="nf">rand_TAC</span> <span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">xMin</span><span class="p">,</span> <span class="n">xMax</span><span class="p">,</span> <span class="n">yMax</span><span class="p">)</span> <span class="p">:</span>
+<span class="w">    </span><span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">    generazione di un numero pseudo-casuale </span>
+<span class="sd">    con il metodo try and catch</span>
+<span class="sd">    &#39;&#39;&#39;</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="n">rand_range</span> <span class="p">(</span><span class="n">xMin</span><span class="p">,</span> <span class="n">xMax</span><span class="p">)</span>
+    <span class="n">y</span> <span class="o">=</span> <span class="n">rand_range</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">yMax</span><span class="p">)</span>
+    <span class="k">while</span> <span class="p">(</span><span class="n">y</span> <span class="o">&gt;</span> <span class="n">f</span> <span class="p">(</span><span class="n">x</span><span class="p">))</span> <span class="p">:</span>
+        <span class="n">x</span> <span class="o">=</span> <span class="n">rand_range</span> <span class="p">(</span><span class="n">xMin</span><span class="p">,</span> <span class="n">xMax</span><span class="p">)</span>
+        <span class="n">y</span> <span class="o">=</span> <span class="n">rand_range</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">yMax</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">x</span>
+
+
+<span class="c1"># ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- </span>
+
+
+<span class="k">def</span> <span class="nf">generate_TAC</span> <span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">xMin</span><span class="p">,</span> <span class="n">xMax</span><span class="p">,</span> <span class="n">yMax</span><span class="p">,</span> <span class="n">N</span><span class="p">,</span> <span class="n">seed</span> <span class="o">=</span> <span class="mf">0.</span><span class="p">)</span> <span class="p">:</span>
+<span class="w">    </span><span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">    generazione di N numeri pseudo-casuali</span>
+<span class="sd">    con il metodo try and catch, in un certo intervallo,</span>
+<span class="sd">    a partire da un determinato seed</span>
+<span class="sd">    &#39;&#39;&#39;</span>
+    <span class="k">if</span> <span class="n">seed</span> <span class="o">!=</span> <span class="mf">0.</span> <span class="p">:</span> <span class="n">random</span><span class="o">.</span><span class="n">seed</span> <span class="p">(</span><span class="nb">float</span> <span class="p">(</span><span class="n">seed</span><span class="p">))</span>
+    <span class="n">randlist</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span> <span class="p">(</span><span class="n">N</span><span class="p">):</span>
+        <span class="c1"># Return the next random floating point number in the range 0.0 &lt;= X &lt; 1.0</span>
+        <span class="n">randlist</span><span class="o">.</span><span class="n">append</span> <span class="p">(</span><span class="n">rand_TAC</span> <span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">xMin</span><span class="p">,</span> <span class="n">xMax</span><span class="p">,</span> <span class="n">yMax</span><span class="p">))</span>
+    <span class="k">return</span> <span class="n">randlist</span>
+
+
+<span class="c1"># ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- </span>
+
+
+<span class="k">def</span> <span class="nf">rand_TCL</span> <span class="p">(</span><span class="n">xMin</span><span class="p">,</span> <span class="n">xMax</span><span class="p">,</span> <span class="n">N_sum</span> <span class="o">=</span> <span class="mi">10</span><span class="p">)</span> <span class="p">:</span>
+<span class="w">    </span><span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">    generazione di un numero pseudo-casuale </span>
+<span class="sd">    con il metodo del teorema centrale del limite</span>
+<span class="sd">    su un intervallo fissato</span>
+<span class="sd">    &#39;&#39;&#39;</span>
+    <span class="n">y</span> <span class="o">=</span> <span class="mf">0.</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span> <span class="p">(</span><span class="n">N_sum</span><span class="p">)</span> <span class="p">:</span>
+        <span class="n">y</span> <span class="o">=</span> <span class="n">y</span> <span class="o">+</span> <span class="n">rand_range</span> <span class="p">(</span><span class="n">xMin</span><span class="p">,</span> <span class="n">xMax</span><span class="p">)</span>
+    <span class="n">y</span> <span class="o">/=</span> <span class="n">N_sum</span> <span class="p">;</span>
+    <span class="k">return</span> <span class="n">y</span> <span class="p">;</span>
+
+
+<span class="c1"># ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- </span>
+
+
+<span class="k">def</span> <span class="nf">generate_TCL</span> <span class="p">(</span><span class="n">xMin</span><span class="p">,</span> <span class="n">xMax</span><span class="p">,</span> <span class="n">N</span><span class="p">,</span> <span class="n">N_sum</span> <span class="o">=</span> <span class="mi">10</span><span class="p">,</span> <span class="n">seed</span> <span class="o">=</span> <span class="mf">0.</span><span class="p">)</span> <span class="p">:</span>
+<span class="w">    </span><span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">    generazione di N numeri pseudo-casuali</span>
+<span class="sd">    con il metodo del teorema centrale del limite, in un certo intervallo,</span>
+<span class="sd">    a partire da un determinato seed</span>
+<span class="sd">    &#39;&#39;&#39;</span>
+    <span class="k">if</span> <span class="n">seed</span> <span class="o">!=</span> <span class="mf">0.</span> <span class="p">:</span> <span class="n">random</span><span class="o">.</span><span class="n">seed</span> <span class="p">(</span><span class="nb">float</span> <span class="p">(</span><span class="n">seed</span><span class="p">))</span>
+    <span class="n">randlist</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span> <span class="p">(</span><span class="n">N</span><span class="p">):</span>
+        <span class="c1"># Return the next random floating point number in the range 0.0 &lt;= X &lt; 1.0</span>
+        <span class="n">randlist</span><span class="o">.</span><span class="n">append</span> <span class="p">(</span><span class="n">rand_TCL</span> <span class="p">(</span><span class="n">xMin</span><span class="p">,</span> <span class="n">xMax</span><span class="p">,</span> <span class="n">N_sum</span><span class="p">))</span>
+    <span class="k">return</span> <span class="n">randlist</span>
+
+
+<span class="c1"># ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- </span>
+
+
+<span class="k">def</span> <span class="nf">rand_TCL_ms</span> <span class="p">(</span><span class="n">mean</span><span class="p">,</span> <span class="n">sigma</span><span class="p">,</span> <span class="n">N_sum</span> <span class="o">=</span> <span class="mi">10</span><span class="p">)</span> <span class="p">:</span>
+<span class="w">    </span><span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">    generazione di un numero pseudo-casuale </span>
+<span class="sd">    con il metodo del teorema centrale del limite</span>
+<span class="sd">    note media e sigma della gaussiana</span>
+<span class="sd">    &#39;&#39;&#39;</span>
+    <span class="n">y</span> <span class="o">=</span> <span class="mf">0.</span>
+    <span class="n">delta</span> <span class="o">=</span> <span class="n">sqrt</span> <span class="p">(</span><span class="mi">3</span> <span class="o">*</span> <span class="n">N_sum</span><span class="p">)</span> <span class="o">*</span> <span class="n">sigma</span>
+    <span class="n">xMin</span> <span class="o">=</span> <span class="n">mean</span> <span class="o">-</span> <span class="n">delta</span>
+    <span class="n">xMax</span> <span class="o">=</span> <span class="n">mean</span> <span class="o">+</span> <span class="n">delta</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span> <span class="p">(</span><span class="n">N_sum</span><span class="p">)</span> <span class="p">:</span>
+        <span class="n">y</span> <span class="o">=</span> <span class="n">y</span> <span class="o">+</span> <span class="n">rand_range</span> <span class="p">(</span><span class="n">xMin</span><span class="p">,</span> <span class="n">xMax</span><span class="p">)</span>
+    <span class="n">y</span> <span class="o">/=</span> <span class="n">N_sum</span> <span class="p">;</span>
+    <span class="k">return</span> <span class="n">y</span> <span class="p">;</span>
+
+
+<span class="c1"># ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- </span>
+
+
+<span class="k">def</span> <span class="nf">generate_TCL_ms</span> <span class="p">(</span><span class="n">mean</span><span class="p">,</span> <span class="n">sigma</span><span class="p">,</span> <span class="n">N</span><span class="p">,</span> <span class="n">N_sum</span> <span class="o">=</span> <span class="mi">10</span><span class="p">,</span> <span class="n">seed</span> <span class="o">=</span> <span class="mf">0.</span><span class="p">)</span> <span class="p">:</span>
+<span class="w">    </span><span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">    generazione di N numeri pseudo-casuali</span>
+<span class="sd">    con il metodo del teorema centrale del limite, note media e sigma della gaussiana,</span>
+<span class="sd">    a partire da un determinato seed</span>
+<span class="sd">    &#39;&#39;&#39;</span>
+    <span class="k">if</span> <span class="n">seed</span> <span class="o">!=</span> <span class="mf">0.</span> <span class="p">:</span> <span class="n">random</span><span class="o">.</span><span class="n">seed</span> <span class="p">(</span><span class="nb">float</span> <span class="p">(</span><span class="n">seed</span><span class="p">))</span>
+    <span class="n">randlist</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="n">delta</span> <span class="o">=</span> <span class="n">sqrt</span> <span class="p">(</span><span class="mi">3</span> <span class="o">*</span> <span class="n">N_sum</span><span class="p">)</span> <span class="o">*</span> <span class="n">sigma</span>
+    <span class="n">xMin</span> <span class="o">=</span> <span class="n">mean</span> <span class="o">-</span> <span class="n">delta</span>
+    <span class="n">xMax</span> <span class="o">=</span> <span class="n">mean</span> <span class="o">+</span> <span class="n">delta</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span> <span class="p">(</span><span class="n">N</span><span class="p">):</span>
+        <span class="c1"># Return the next random floating point number in the range 0.0 &lt;= X &lt; 1.0</span>
+        <span class="n">randlist</span><span class="o">.</span><span class="n">append</span> <span class="p">(</span><span class="n">rand_TCL</span> <span class="p">(</span><span class="n">xMin</span><span class="p">,</span> <span class="n">xMax</span><span class="p">,</span> <span class="n">N_sum</span><span class="p">))</span>
+    <span class="k">return</span> <span class="n">randlist</span>
+
+
+</pre></div>
+</div>
 </section>
 <section id="exercise-5-5">
 <h2><span class="section-number">5.8.5. </span>Exercise 5.5<a class="headerlink" href="#exercise-5-5" title="Permalink to this heading">#</a></h2>
 <ul class="simple">
-<li><p><cite>es_5.5.py</cite></p></li>
+<li><p><cite>ex_5.5.py</cite></p></li>
 </ul>
 <div class="highlight-py notranslate"><div class="highlight"><pre><span></span><span class="ch">#!/usr/bin/python</span>
 <span class="sd">&#39;&#39;&#39;</span>
@@ -771,7 +926,7 @@ document.write(`
 <section id="exercise-5-6">
 <h2><span class="section-number">5.8.6. </span>Exercise 5.6<a class="headerlink" href="#exercise-5-6" title="Permalink to this heading">#</a></h2>
 <ul class="simple">
-<li><p><cite>es_5.6.py</cite></p></li>
+<li><p><cite>ex_5.6.py</cite></p></li>
 </ul>
 <div class="highlight-py notranslate"><div class="highlight"><pre><span></span><span class="ch">#!/usr/bin/python</span>
 <span class="sd">&#39;&#39;&#39;</span>
@@ -938,7 +1093,7 @@ document.write(`
 <section id="exercise-5-8">
 <h2><span class="section-number">5.8.8. </span>Exercise 5.8<a class="headerlink" href="#exercise-5-8" title="Permalink to this heading">#</a></h2>
 <ul class="simple">
-<li><p><cite>es_5.8.py</cite></p></li>
+<li><p><cite>ex_5.8.py</cite></p></li>
 </ul>
 <div class="highlight-py notranslate"><div class="highlight"><pre><span></span><span class="ch">#!/usr/bin/python</span>
 <span class="sd">&#39;&#39;&#39;</span>
