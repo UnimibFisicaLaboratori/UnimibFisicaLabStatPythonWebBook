@@ -2,7 +2,7 @@
 
 ## Exercise 2.1
 
-  * Create one-dimentional NumPy arrays using different generation techniques
+  * Create one-dimensional NumPy arrays using different generation techniques
 
 ## Exercise 2.2
 

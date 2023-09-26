@@ -526,81 +526,6 @@ for the cases of maximum likelihood, extended maximum likelihood, and least squa
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">KeyboardInterrupt</span><span class="g g-Whitespace">                         </span>Traceback (most recent call last)
-<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span> <span class="n">line</span> <span class="mi">24</span>
-<span class="g g-Whitespace">     </span><span class="mi">18</span> <span class="n">my_minuit_bin_LL</span> <span class="o">=</span> <span class="n">Minuit</span> <span class="p">(</span>
-<span class="g g-Whitespace">     </span><span class="mi">19</span>                         <span class="n">my_cost_func_bin_LL</span><span class="p">,</span> 
-<span class="g g-Whitespace">     </span><span class="mi">20</span>                         <span class="n">mu</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span> <span class="p">(</span><span class="n">subsample</span><span class="p">),</span> 
-<span class="g g-Whitespace">     </span><span class="mi">21</span>                         <span class="n">sigma</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">std</span> <span class="p">(</span><span class="n">subsample</span><span class="p">),</span>
-<span class="g g-Whitespace">     </span><span class="mi">22</span>                        <span class="p">)</span>
-<span class="g g-Whitespace">     </span><span class="mi">23</span> <span class="n">my_minuit_bin_LL</span><span class="o">.</span><span class="n">limits</span><span class="p">[</span><span class="s1">&#39;sigma&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>
-<span class="ne">---&gt; </span><span class="mi">24</span> <span class="n">my_minuit_bin_LL</span><span class="o">.</span><span class="n">migrad</span> <span class="p">()</span>
-<span class="g g-Whitespace">     </span><span class="mi">25</span> <span class="k">if</span> <span class="ow">not</span> <span class="n">my_minuit_bin_LL</span><span class="o">.</span><span class="n">valid</span> <span class="p">:</span> <span class="k">continue</span>
-<span class="g g-Whitespace">     </span><span class="mi">26</span> <span class="n">means_bin_LL</span><span class="o">.</span><span class="n">append</span> <span class="p">(</span><span class="n">my_minuit_bin_LL</span><span class="o">.</span><span class="n">values</span><span class="p">[</span><span class="s1">&#39;mu&#39;</span><span class="p">])</span>
-
-<span class="nn">File /opt/hostedtoolcache/Python/3.8.18/x64/lib/python3.8/site-packages/iminuit/minuit.py:756,</span> in <span class="ni">Minuit.migrad</span><span class="nt">(self, ncall, iterate)</span>
-<span class="g g-Whitespace">    </span><span class="mi">754</span> <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_precision</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
-<span class="g g-Whitespace">    </span><span class="mi">755</span>     <span class="n">migrad</span><span class="o">.</span><span class="n">precision</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_precision</span>
-<span class="ne">--&gt; </span><span class="mi">756</span> <span class="n">fm</span> <span class="o">=</span> <span class="n">migrad</span><span class="p">(</span><span class="n">ncall</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">_tolerance</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">757</span> <span class="k">if</span> <span class="n">fm</span><span class="o">.</span><span class="n">is_valid</span> <span class="ow">or</span> <span class="n">fm</span><span class="o">.</span><span class="n">has_reached_call_limit</span><span class="p">:</span>
-<span class="g g-Whitespace">    </span><span class="mi">758</span>     <span class="k">break</span>
-
-<span class="nn">File /opt/hostedtoolcache/Python/3.8.18/x64/lib/python3.8/site-packages/iminuit/cost.py:600,</span> in <span class="ni">Cost.__call__</span><span class="nt">(self, *args)</span>
-<span class="g g-Whitespace">    </span><span class="mi">585</span> <span class="k">def</span> <span class="fm">__call__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">:</span> <span class="nb">float</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">float</span><span class="p">:</span>
-<span class="g g-Whitespace">    </span><span class="mi">586</span><span class="w">     </span><span class="sd">&quot;&quot;&quot;</span>
-<span class="g g-Whitespace">    </span><span class="mi">587</span><span class="sd">     Evaluate the cost function.</span>
-<span class="g g-Whitespace">    </span><span class="mi">588</span><span class="sd"> </span>
-<span class="sd">   (...)</span>
-<span class="g g-Whitespace">    </span><span class="mi">598</span><span class="sd">     float</span>
-<span class="g g-Whitespace">    </span><span class="mi">599</span><span class="sd">     &quot;&quot;&quot;</span>
-<span class="ne">--&gt; </span><span class="mi">600</span>     <span class="n">r</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_call</span><span class="p">(</span><span class="n">args</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">601</span>     <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">verbose</span> <span class="o">&gt;=</span> <span class="mi">1</span><span class="p">:</span>
-<span class="g g-Whitespace">    </span><span class="mi">602</span>         <span class="nb">print</span><span class="p">(</span><span class="n">args</span><span class="p">,</span> <span class="s2">&quot;-&gt;&quot;</span><span class="p">,</span> <span class="n">r</span><span class="p">)</span>
-
-<span class="nn">File /opt/hostedtoolcache/Python/3.8.18/x64/lib/python3.8/site-packages/iminuit/cost.py:1618,</span> in <span class="ni">BinnedNLL._call</span><span class="nt">(self, args)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1617</span> <span class="k">def</span> <span class="nf">_call</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">args</span><span class="p">:</span> <span class="n">Sequence</span><span class="p">[</span><span class="nb">float</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="nb">float</span><span class="p">:</span>
-<span class="ne">-&gt; </span><span class="mi">1618</span>     <span class="n">mu</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_pred</span><span class="p">(</span><span class="n">args</span><span class="p">)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1619</span>     <span class="n">ma</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">mask</span>
-<span class="g g-Whitespace">   </span><span class="mi">1620</span>     <span class="k">if</span> <span class="n">ma</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
-
-<span class="nn">File /opt/hostedtoolcache/Python/3.8.18/x64/lib/python3.8/site-packages/iminuit/cost.py:1610,</span> in <span class="ni">BinnedNLL._pred</span><span class="nt">(self, args)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1609</span> <span class="k">def</span> <span class="nf">_pred</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">args</span><span class="p">:</span> <span class="n">Sequence</span><span class="p">[</span><span class="nb">float</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="n">NDArray</span><span class="p">:</span>
-<span class="ne">-&gt; </span><span class="mi">1610</span>     <span class="n">p</span> <span class="o">=</span> <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="n">_pred</span><span class="p">(</span><span class="n">args</span><span class="p">)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1611</span>     <span class="n">ma</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">mask</span>
-<span class="g g-Whitespace">   </span><span class="mi">1612</span>     <span class="k">if</span> <span class="n">ma</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
-
-<span class="nn">File /opt/hostedtoolcache/Python/3.8.18/x64/lib/python3.8/site-packages/iminuit/cost.py:1252,</span> in <span class="ni">BinnedCostWithModel._pred</span><span class="nt">(self, args)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1251</span> <span class="k">def</span> <span class="nf">_pred</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">args</span><span class="p">:</span> <span class="n">Sequence</span><span class="p">[</span><span class="nb">float</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="n">NDArray</span><span class="p">:</span>
-<span class="ne">-&gt; </span><span class="mi">1252</span>     <span class="n">d</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_model</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_model_xe</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1253</span>     <span class="n">d</span> <span class="o">=</span> <span class="n">_normalize_model_output</span><span class="p">(</span><span class="n">d</span><span class="p">)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1254</span>     <span class="n">expected_shape</span> <span class="o">=</span> <span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">prod</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_xe_shape</span><span class="p">),)</span>
-
-<span class="nn">Cell In[2], line 5,</span> in <span class="ni">mod_signal_bin_LL</span><span class="nt">(bin_edges, mu, sigma)</span>
-<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="k">def</span> <span class="nf">mod_signal_bin_LL</span> <span class="p">(</span><span class="n">bin_edges</span><span class="p">,</span> <span class="n">mu</span><span class="p">,</span> <span class="n">sigma</span><span class="p">)</span> <span class="p">:</span>
-<span class="g g-Whitespace">      </span><span class="mi">4</span><span class="w">     </span><span class="sd">&#39;&#39;&#39; fitting model for binned likelihood&#39;&#39;&#39;</span>
-<span class="ne">----&gt; </span><span class="mi">5</span>     <span class="k">return</span> <span class="n">norm</span><span class="o">.</span><span class="n">cdf</span> <span class="p">(</span><span class="n">bin_edges</span><span class="p">,</span> <span class="n">mu</span><span class="p">,</span> <span class="n">sigma</span><span class="p">)</span>
-
-<span class="nn">File /opt/hostedtoolcache/Python/3.8.18/x64/lib/python3.8/site-packages/scipy/stats/_distn_infrastructure.py:2182,</span> in <span class="ni">rv_continuous.cdf</span><span class="nt">(self, x, *args, **kwds)</span>
-<span class="g g-Whitespace">   </span><span class="mi">2180</span> <span class="n">cond</span> <span class="o">=</span> <span class="n">cond0</span> <span class="o">&amp;</span> <span class="n">cond1</span>
-<span class="g g-Whitespace">   </span><span class="mi">2181</span> <span class="n">output</span> <span class="o">=</span> <span class="n">zeros</span><span class="p">(</span><span class="n">shape</span><span class="p">(</span><span class="n">cond</span><span class="p">),</span> <span class="n">dtyp</span><span class="p">)</span>
-<span class="ne">-&gt; </span><span class="mi">2182</span> <span class="n">place</span><span class="p">(</span><span class="n">output</span><span class="p">,</span> <span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="n">cond0</span><span class="p">)</span><span class="o">+</span><span class="n">np</span><span class="o">.</span><span class="n">isnan</span><span class="p">(</span><span class="n">x</span><span class="p">),</span> <span class="bp">self</span><span class="o">.</span><span class="n">badvalue</span><span class="p">)</span>
-<span class="g g-Whitespace">   </span><span class="mi">2183</span> <span class="n">place</span><span class="p">(</span><span class="n">output</span><span class="p">,</span> <span class="n">cond2</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">)</span>
-<span class="g g-Whitespace">   </span><span class="mi">2184</span> <span class="k">if</span> <span class="n">np</span><span class="o">.</span><span class="n">any</span><span class="p">(</span><span class="n">cond</span><span class="p">):</span>  <span class="c1"># call only if at least 1 entry</span>
-
-<span class="nn">File &lt;__array_function__ internals&gt;:200,</span> in <span class="ni">place</span><span class="nt">(*args, **kwargs)</span>
-
-<span class="nn">File /opt/hostedtoolcache/Python/3.8.18/x64/lib/python3.8/site-packages/numpy/lib/function_base.py:1954,</span> in <span class="ni">place</span><span class="nt">(arr, mask, vals)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1950</span> <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">arr</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">):</span>
-<span class="g g-Whitespace">   </span><span class="mi">1951</span>     <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span><span class="s2">&quot;argument 1 must be numpy.ndarray, &quot;</span>
-<span class="g g-Whitespace">   </span><span class="mi">1952</span>                     <span class="s2">&quot;not </span><span class="si">{name}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="nb">type</span><span class="p">(</span><span class="n">arr</span><span class="p">)</span><span class="o">.</span><span class="vm">__name__</span><span class="p">))</span>
-<span class="ne">-&gt; </span><span class="mi">1954</span> <span class="k">return</span> <span class="n">_insert</span><span class="p">(</span><span class="n">arr</span><span class="p">,</span> <span class="n">mask</span><span class="p">,</span> <span class="n">vals</span><span class="p">)</span>
-
-<span class="ne">KeyboardInterrupt</span>: 
-</pre></div>
-</div>
-</div>
 </div>
 </section>
 <section id="extended-binned-likelihood">
@@ -637,6 +562,35 @@ for the cases of maximum likelihood, extended maximum likelihood, and least squa
     <span class="n">sigmas_bin_ext_LL</span><span class="o">.</span><span class="n">append</span> <span class="p">(</span><span class="n">my_minuit_bin_ext_LL</span><span class="o">.</span><span class="n">values</span><span class="p">[</span><span class="s1">&#39;sigma&#39;</span><span class="p">])</span>
     <span class="n">Q2_bin_ext_LL</span><span class="o">.</span><span class="n">append</span> <span class="p">(</span><span class="n">my_minuit_bin_ext_LL</span><span class="o">.</span><span class="n">fval</span><span class="p">)</span>
     <span class="k">if</span> <span class="p">(</span><span class="n">iToy</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span> <span class="p">:</span> <span class="n">N_dof_ext_LL</span> <span class="o">=</span> <span class="n">my_minuit_bin_ext_LL</span><span class="o">.</span><span class="n">ndof</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">KeyboardInterrupt</span><span class="g g-Whitespace">                         </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">3</span><span class="p">],</span> <span class="n">line</span> <span class="mi">13</span>
+<span class="g g-Whitespace">     </span><span class="mi">10</span> <span class="n">N_dof_ext_LL</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="g g-Whitespace">     </span><span class="mi">12</span> <span class="k">for</span> <span class="n">iToy</span> <span class="ow">in</span> <span class="nb">range</span> <span class="p">(</span><span class="n">N_toys</span><span class="p">)</span> <span class="p">:</span>
+<span class="ne">---&gt; </span><span class="mi">13</span>     <span class="n">subsample</span> <span class="o">=</span> <span class="n">generate_TCL_ms</span> <span class="p">(</span><span class="mf">1.</span><span class="p">,</span> <span class="mf">0.7</span><span class="p">,</span> <span class="n">sample_size</span><span class="p">)</span>
+<span class="g g-Whitespace">     </span><span class="mi">14</span>     <span class="n">bin_content</span><span class="p">,</span> <span class="n">bin_edges</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">histogram</span> <span class="p">(</span><span class="n">subsample</span><span class="p">,</span> <span class="n">bins</span><span class="p">,</span> 
+<span class="g g-Whitespace">     </span><span class="mi">15</span>                                            <span class="nb">range</span> <span class="o">=</span> <span class="p">(</span><span class="n">floor</span> <span class="p">(</span><span class="nb">min</span> <span class="p">(</span><span class="n">subsample</span><span class="p">)),</span> <span class="n">ceil</span> <span class="p">(</span><span class="nb">max</span> <span class="p">(</span><span class="n">subsample</span><span class="p">))))</span>
+<span class="g g-Whitespace">     </span><span class="mi">17</span>     <span class="n">my_cost_func_bin_ext_LL</span> <span class="o">=</span> <span class="n">ExtendedBinnedNLL</span> <span class="p">(</span><span class="n">bin_content</span><span class="p">,</span> <span class="n">bin_edges</span><span class="p">,</span> <span class="n">mod_signal_bin_ext_LL</span><span class="p">)</span>
+
+<span class="nn">File ~/work/UnimibFisicaLabStatPython/UnimibFisicaLabStatPython/book/lectures/Lecture_12/exercises/myrand.py:148,</span> in <span class="ni">generate_TCL_ms</span><span class="nt">(mean, sigma, N, N_sum, seed)</span>
+<span class="g g-Whitespace">    </span><span class="mi">145</span> <span class="n">xMax</span> <span class="o">=</span> <span class="n">mean</span> <span class="o">+</span> <span class="n">delta</span>
+<span class="g g-Whitespace">    </span><span class="mi">146</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span> <span class="p">(</span><span class="n">N</span><span class="p">):</span>
+<span class="g g-Whitespace">    </span><span class="mi">147</span>     <span class="c1"># Return the next random floating point number in the range 0.0 &lt;= X &lt; 1.0</span>
+<span class="ne">--&gt; </span><span class="mi">148</span>     <span class="n">randlist</span><span class="o">.</span><span class="n">append</span> <span class="p">(</span><span class="n">rand_TCL</span> <span class="p">(</span><span class="n">xMin</span><span class="p">,</span> <span class="n">xMax</span><span class="p">,</span> <span class="n">N_sum</span><span class="p">))</span>
+<span class="g g-Whitespace">    </span><span class="mi">149</span> <span class="k">return</span> <span class="n">randlist</span>
+
+<span class="nn">File ~/work/UnimibFisicaLabStatPython/UnimibFisicaLabStatPython/book/lectures/Lecture_12/exercises/myrand.py:91,</span> in <span class="ni">rand_TCL</span><span class="nt">(xMin, xMax, N_sum)</span>
+<span class="g g-Whitespace">     </span><span class="mi">89</span> <span class="n">y</span> <span class="o">=</span> <span class="mf">0.</span>
+<span class="g g-Whitespace">     </span><span class="mi">90</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span> <span class="p">(</span><span class="n">N_sum</span><span class="p">)</span> <span class="p">:</span>
+<span class="ne">---&gt; </span><span class="mi">91</span>     <span class="n">y</span> <span class="o">=</span> <span class="n">y</span> <span class="o">+</span> <span class="n">rand_range</span> <span class="p">(</span><span class="n">xMin</span><span class="p">,</span> <span class="n">xMax</span><span class="p">)</span>
+<span class="g g-Whitespace">     </span><span class="mi">92</span> <span class="n">y</span> <span class="o">/=</span> <span class="n">N_sum</span> <span class="p">;</span>
+<span class="g g-Whitespace">     </span><span class="mi">93</span> <span class="k">return</span> <span class="n">y</span>
+
+<span class="ne">KeyboardInterrupt</span>: 
 </pre></div>
 </div>
 </div>
