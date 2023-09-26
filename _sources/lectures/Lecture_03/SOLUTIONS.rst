@@ -45,3 +45,34 @@ Exercise 3.6
 .. literalinclude:: exercises/my_histo.py
   :language: py
 
+Exercise 3.7
+------------
+* `ex_3.7.py`
+.. literalinclude:: exercises/ex_3.7.py
+  :language: py
+
+Exercise 3.8
+------------
+* `ex_3.8.py`
+.. literalinclude:: exercises/ex_3.8.py
+  :language: py
+
+Exercise 3.9
+------------
+* `ex_3.9.py`
+.. literalinclude:: exercises/ex_3.9.py
+  :language: py
+
+Exercise 3.10
+-------------
+* `ex_3.10.py`
+.. literalinclude:: exercises/ex_3.10.py
+  :language: py
+
+Exercise 3.11
+-------------
+* `ex_3.11.py`
+.. literalinclude:: exercises/ex_3.11.py
+  :language: py
+
+

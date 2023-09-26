@@ -15,15 +15,14 @@ Read the text file [eventi_unif.txt](https://github.com/UnimibFisicaLaboratori/U
 ```{admonition} Instructions to download the file
 :class: tip
   To access the RAW version of the file, click on the ```Raw``` button at the top-right. 
-  TO download it, tou can use two methods:
+  To download it, one can use two methods:
   1. Open the link and use 'Save as' from your browser.
-  2. Use the command `wget <link>` in the directory where you want to save it (e.g.: `$ wget rawFileAddress`)
+  2. Use the command `wget <link>` in the directory where the file has to be saved (e.g.: `$ wget rawFileAddress`)
 ```
 
 ## Exercise 3.3
 
 Read the text file [```eventi_gauss.txt```](https://github.com/UnimibFisicaLaboratori/UnimibFisicaLabStatPython/blob/main/book/lectures/Lecture_03/exercises/eventi_gauss.txt):
-
   * Fill a histogram with the first N numbers contained in the file,
     where N is a command-line parameter during program execution.
   * Choose the histogram's definition range and its bin number

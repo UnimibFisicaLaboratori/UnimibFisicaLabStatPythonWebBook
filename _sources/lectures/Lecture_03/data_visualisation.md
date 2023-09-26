@@ -208,7 +208,7 @@
     print (ave, var, skew, kurt)
     ```
 
-## function integration
+## Function integration
 
   * The SciPy library also contains a module **dedicated to numerical integration**
     of functions
