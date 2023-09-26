@@ -51,3 +51,34 @@ calculate its mean, variance, standard deviation, standard deviation from the me
 display the sample in a histogram
 with an appropriately chosen definition range and bin number.
 Write a test program for the created class.
+
+## Exercise 3.
+
+Write a Python program to draw a Gaussian distribution and its cumulative function
+
+## Exercise 3.
+
+Write a Python program to draw an exponential distribution and its cumulative function
+
+## Exercise 3.
+
+Use the Python `scipy.stat.norm` object to determine the area of a normal distribution
+of its tails outside the range included within an interval of 1, 2, 3, 4, and 5 standard deviations around its mean
+
+## Exercise 3.
+
+Write a Python program to draw a binomial distribution and its cumulative function
+
+## Exercise 3.
+
+Write a Python program to draw a Poisson distribution for several values of its mean, overlapped
+
+## Exercise 3.
+
+Write a Python program to draw a Poisson distribution
+Show, by using the third and fourth central momenta calculations available in the `scipy.stat` library,
+that the momenta of a Poisson distribution asymptotically tend to the ones of a Gaussian
+
+## Exercise 3.
+
+QUALCHE ESERCIZIO DI PROBABILITA'

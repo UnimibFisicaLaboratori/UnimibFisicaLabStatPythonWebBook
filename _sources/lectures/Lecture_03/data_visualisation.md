@@ -158,20 +158,55 @@
     to obtain the following visualisation
    ![mean_drawing](../../figs/histo_mean.png)   
 
+## Data models
 
-## SciPy
+  * **Notable probability density function distributions**
+    exist in a pre-implemented for in the 
+    [`SciPy`](https://scipy.org) library,
+    which provides algorithms and data structures for scientific computing.
+  * The **full list of available models** may be found [here](https://docs.scipy.org/doc/scipy/tutorial/stats.html#)
+  * All continuous distributions take **`loc` and `scale` as keyword parameters**
+    to adjust the location and scale of the distribution
+    * for the standard normal distribution, the `loc` is the mean and the `scale` is the standard deviation
 
-[`SciPy`](https://scipy.org) is a library providing algorithms and data structures for scientific computing.
+### Using a continuous probability density function
 
-### Example: Calculate a p-value
+  * A pdf object needs to be **imported from the scipy library** to be used,
+    as for example for the Gaussian distribution:
+    ```py
+    from scipy.stats import norm
+    ``` 
+  * The actual values of the pdf may be accessed **through the `pdf` function**:
+    ```py
+    mean = 1.
+    sigma = 0.5
+    x = mean + sigma / 2.
+    print (norm.pdf (x, mean, sigma))
+    ```
+  * The values of the input parameters may be frozen once and for all:
+    ```py
+    norm_fix = norm (mean, sigma)
+    print (norm_fix.pdf (mean))
+    ```
 
-## Examples
+### The cumulative density function
 
-A notebook with the examples proposed in this lecture can be found [here](../examples/python_libraries_examples.ipynb)
+  * The function `cdf` gives access to the **cumulative density function** of the model,
+    for example in the case of a 
+    [Gaussian](https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.norm.html) distribution:
+    ```py
+    print ('the value of the Gaussian distribution cumulative at its mean is: ' +
+           str (norm.cdf (mean, mean, sigma))
+           )
+    ```
 
+### Distribution momenta
 
-
-
+  * The pdf objects provide functions for the **calculation of their momenta**:
+    ```py
+    ave, var, skew, kurt = norm_fix.stats (moments='mvsk')
+    print (ave, var, skew, kurt)
+    ```
 
 :::{note}
   * The examples for the lecture may be found [here](EXAMPLES.rst)
