@@ -67,7 +67,7 @@ const thebe_selector_output = ".output, .cell_output"
     <script>DOCUMENTATION_OPTIONS.pagename = 'lectures/Lecture_03/data_visualisation';</script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="3.5. Examples: Lecture 3" href="EXAMPLES.html" />
+    <link rel="next" title="3.6. Examples: Lecture 3" href="EXAMPLES.html" />
     <link rel="prev" title="2.5. Exercises for Lecture 2" href="../Lecture_02/EXERCISES.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
@@ -186,9 +186,9 @@ const thebe_selector_output = ".output, .cell_output"
 </ul>
 </li>
 <li class="toctree-l1 current active has-children"><a class="current reference internal" href="#">3. Data Visualisation with Python</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="EXAMPLES.html">3.5. Examples: Lecture 3</a></li>
-<li class="toctree-l2"><a class="reference internal" href="EXERCISES.html">3.6. Exercises for Lecture 3</a></li>
-<li class="toctree-l2"><a class="reference internal" href="SOLUTIONS.html">3.7. Solutions: Lecture 3</a></li>
+<li class="toctree-l2"><a class="reference internal" href="EXAMPLES.html">3.6. Examples: Lecture 3</a></li>
+<li class="toctree-l2"><a class="reference internal" href="EXERCISES.html">3.7. Exercises for Lecture 3</a></li>
+<li class="toctree-l2"><a class="reference internal" href="SOLUTIONS.html">3.8. Solutions: Lecture 3</a></li>
 </ul>
 </li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../Lecture_04/classes_lambda.html">4. Some python insight: classes, <code class="docutils literal notranslate"><span class="pre">lambda</span></code> functions, functional programming</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-4"><i class="fa-solid fa-chevron-down"></i></label><ul>
@@ -460,6 +460,11 @@ document.write(`
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#distribution-momenta">3.4.3. Distribution momenta</a></li>
 </ul>
 </li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#function-integration">3.5. function integration</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#definite-integral">3.5.1. Definite integral</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#integration-over-infinite-ranges">3.5.2. Integration over infinite ranges</a></li>
+</ul>
+</li>
 </ul>
             </nav>
         </div>
@@ -688,7 +693,7 @@ E[x] = \int_{-\infty}^\infty x\:f(x)\:dx ~ \to ~ \sum^N_{i=1} x_i / N
 exist in a pre-implemented for in the
 <a class="reference external" href="https://scipy.org"><code class="docutils literal notranslate"><span class="pre">SciPy</span></code></a> library,
 which provides algorithms and data structures for scientific computing.</p></li>
-<li><p>The <strong>full list of available models</strong> may be found <a class="reference external" href="https://docs.scipy.org/doc/scipy/tutorial/stats.html#">here</a></p></li>
+<li><p>The <strong>full list of available models</strong> may be found <a class="reference external" href="https://docs.scipy.org/doc/SciPy/tutorial/stats.html#">here</a></p></li>
 <li><p>All continuous distributions take <strong><code class="docutils literal notranslate"><span class="pre">loc</span></code> and <code class="docutils literal notranslate"><span class="pre">scale</span></code> as keyword parameters</strong>
 to adjust the location and scale of the distribution</p>
 <ul>
@@ -699,7 +704,7 @@ to adjust the location and scale of the distribution</p>
 <section id="using-a-continuous-probability-density-function">
 <h3><span class="section-number">3.4.1. </span>Using a continuous probability density function<a class="headerlink" href="#using-a-continuous-probability-density-function" title="Permalink to this heading">#</a></h3>
 <ul>
-<li><p>A pdf object needs to be <strong>imported from the scipy library</strong> to be used,
+<li><p>A pdf object needs to be <strong>imported from the SciPy library</strong> to be used,
 as for example for the Gaussian distribution:</p>
 <div class="highlight-py notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">scipy.stats</span> <span class="kn">import</span> <span class="n">norm</span>
 </pre></div>
@@ -726,7 +731,7 @@ as for example for the Gaussian distribution:</p>
 <ul>
 <li><p>The function <code class="docutils literal notranslate"><span class="pre">cdf</span></code> gives access to the <strong>cumulative density function</strong> of the model,
 for example in the case of a
-<a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.norm.html">Gaussian</a> distribution:</p>
+<a class="reference external" href="https://docs.scipy.org/doc/SciPy/reference/generated/scipy.stats.norm.html">Gaussian</a> distribution:</p>
 <div class="highlight-py notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span> <span class="p">(</span><span class="s1">&#39;the value of the Gaussian distribution cumulative at its mean is: &#39;</span> <span class="o">+</span>
        <span class="nb">str</span> <span class="p">(</span><span class="n">norm</span><span class="o">.</span><span class="n">cdf</span> <span class="p">(</span><span class="n">mean</span><span class="p">,</span> <span class="n">mean</span><span class="p">,</span> <span class="n">sigma</span><span class="p">))</span>
        <span class="p">)</span>
@@ -741,6 +746,47 @@ for example in the case of a
 <li><p>The pdf objects provide functions for the <strong>calculation of their momenta</strong>:</p>
 <div class="highlight-py notranslate"><div class="highlight"><pre><span></span><span class="n">ave</span><span class="p">,</span> <span class="n">var</span><span class="p">,</span> <span class="n">skew</span><span class="p">,</span> <span class="n">kurt</span> <span class="o">=</span> <span class="n">norm_fix</span><span class="o">.</span><span class="n">stats</span> <span class="p">(</span><span class="n">moments</span><span class="o">=</span><span class="s1">&#39;mvsk&#39;</span><span class="p">)</span>
 <span class="nb">print</span> <span class="p">(</span><span class="n">ave</span><span class="p">,</span> <span class="n">var</span><span class="p">,</span> <span class="n">skew</span><span class="p">,</span> <span class="n">kurt</span><span class="p">)</span>
+</pre></div>
+</div>
+</li>
+</ul>
+</section>
+</section>
+<section id="function-integration">
+<h2><span class="section-number">3.5. </span>function integration<a class="headerlink" href="#function-integration" title="Permalink to this heading">#</a></h2>
+<ul class="simple">
+<li><p>The SciPy library also contains a module <strong>dedicated to numerical integration</strong>
+of functions</p></li>
+</ul>
+<section id="definite-integral">
+<h3><span class="section-number">3.5.1. </span>Definite integral<a class="headerlink" href="#definite-integral" title="Permalink to this heading">#</a></h3>
+<ul>
+<li><p>The function <code class="docutils literal notranslate"><span class="pre">quad</span></code> <strong>calculates definite integrals</strong> given the function
+and the integration range</p>
+<div class="highlight-py notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">scipy.integrate</span> <span class="kn">import</span> <span class="n">quad</span>
+<span class="c1"># definition of a polinomial function</span>
+<span class="n">polin</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">x</span> <span class="p">:</span> <span class="n">x</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="n">x</span> <span class="o">+</span> <span class="mi">1</span>
+<span class="n">area</span> <span class="o">=</span> <span class="n">quad</span> <span class="p">(</span><span class="n">polin</span><span class="p">,</span> <span class="mf">0.</span><span class="p">,</span> <span class="mf">4.</span><span class="p">)</span>
+<span class="nb">print</span> <span class="p">(</span><span class="s1">&#39;area = &#39;</span><span class="p">,</span> <span class="n">area</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+<span class="nb">print</span> <span class="p">(</span><span class="s1">&#39;absolute error estimate = &#39;</span><span class="p">,</span> <span class="n">area</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>The <code class="docutils literal notranslate"><span class="pre">quad</span></code> function returns both the <strong>integral value</strong> and an estimate
+of the <strong>absolute error</strong> on the integral</p></li>
+</ul>
+</li>
+</ul>
+</section>
+<section id="integration-over-infinite-ranges">
+<h3><span class="section-number">3.5.2. </span>Integration over infinite ranges<a class="headerlink" href="#integration-over-infinite-ranges" title="Permalink to this heading">#</a></h3>
+<ul>
+<li><p>The <code class="docutils literal notranslate"><span class="pre">quad</span></code> function works with infinity extremes,
+which can be expressed thanks to the numpy object <code class="docutils literal notranslate"><span class="pre">np.inf</span></code>:</p>
+<div class="highlight-py notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">expon</span> <span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="p">:</span>
+    <span class="k">return</span> <span class="n">exp</span> <span class="p">(</span><span class="o">-</span><span class="mi">1</span> <span class="o">*</span> <span class="n">x</span><span class="p">)</span>
+<span class="c1">#...</span>
+<span class="n">area</span> <span class="o">=</span> <span class="n">quad</span> <span class="p">(</span><span class="n">expon</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">inf</span><span class="p">)</span>
 </pre></div>
 </div>
 </li>
@@ -802,7 +848,7 @@ for example in the case of a
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title"><span class="section-number">3.5. </span>Examples: Lecture 3</p>
+        <p class="prev-next-title"><span class="section-number">3.6. </span>Examples: Lecture 3</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -840,6 +886,11 @@ for example in the case of a
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#using-a-continuous-probability-density-function">3.4.1. Using a continuous probability density function</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-cumulative-density-function">3.4.2. The cumulative density function</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#distribution-momenta">3.4.3. Distribution momenta</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#function-integration">3.5. function integration</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#definite-integral">3.5.1. Definite integral</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#integration-over-infinite-ranges">3.5.2. Integration over infinite ranges</a></li>
 </ul>
 </li>
 </ul>

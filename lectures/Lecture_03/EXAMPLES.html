@@ -9,7 +9,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
-    <title>3.5. Examples: Lecture 3 &#8212; Laboratorio di Calcolo e Statistica</title>
+    <title>3.6. Examples: Lecture 3 &#8212; Laboratorio di Calcolo e Statistica</title>
   
   
   
@@ -65,7 +65,7 @@ const thebe_selector_output = ".output, .cell_output"
     <script>DOCUMENTATION_OPTIONS.pagename = 'lectures/Lecture_03/EXAMPLES';</script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="3.6. Exercises for Lecture 3" href="EXERCISES.html" />
+    <link rel="next" title="3.7. Exercises for Lecture 3" href="EXERCISES.html" />
     <link rel="prev" title="3. Data Visualisation with Python" href="data_visualisation.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
@@ -184,9 +184,9 @@ const thebe_selector_output = ".output, .cell_output"
 </ul>
 </li>
 <li class="toctree-l1 current active has-children"><a class="reference internal" href="data_visualisation.html">3. Data Visualisation with Python</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
-<li class="toctree-l2 current active"><a class="current reference internal" href="#">3.5. Examples: Lecture 3</a></li>
-<li class="toctree-l2"><a class="reference internal" href="EXERCISES.html">3.6. Exercises for Lecture 3</a></li>
-<li class="toctree-l2"><a class="reference internal" href="SOLUTIONS.html">3.7. Solutions: Lecture 3</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">3.6. Examples: Lecture 3</a></li>
+<li class="toctree-l2"><a class="reference internal" href="EXERCISES.html">3.7. Exercises for Lecture 3</a></li>
+<li class="toctree-l2"><a class="reference internal" href="SOLUTIONS.html">3.8. Solutions: Lecture 3</a></li>
 </ul>
 </li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../Lecture_04/classes_lambda.html">4. Some python insight: classes, <code class="docutils literal notranslate"><span class="pre">lambda</span></code> functions, functional programming</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-4"><i class="fa-solid fa-chevron-down"></i></label><ul>
@@ -437,15 +437,19 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#drawing-a-histogram">3.5.1. Drawing a histogram</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#drawing-a-histogram-with-predefined-binning">3.5.2. Drawing a histogram with predefined binning</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#drawing-a-histogram-and-choice-of-bin-number">3.5.3. Drawing a histogram and choice of bin number</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#comparing-different-binning-choices">3.5.4. Comparing different binning choices</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#testing-logarithmic-scales">3.5.5. Testing logarithmic scales</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#writing-data-into-text-files">3.5.6. Writing data into text files</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#reading-data-from-text-files">3.5.7. Reading data from text files</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#calculating-sample-moments">3.5.8. Calculating sample moments</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#visualising-sample-moments">3.5.9. Visualising sample moments</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#drawing-a-histogram">3.6.1. Drawing a histogram</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#drawing-a-histogram-with-predefined-binning">3.6.2. Drawing a histogram with predefined binning</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#drawing-a-histogram-and-choice-of-bin-number">3.6.3. Drawing a histogram and choice of bin number</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#comparing-different-binning-choices">3.6.4. Comparing different binning choices</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#testing-logarithmic-scales">3.6.5. Testing logarithmic scales</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#writing-data-into-text-files">3.6.6. Writing data into text files</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#reading-data-from-text-files">3.6.7. Reading data from text files</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#calculating-sample-moments">3.6.8. Calculating sample moments</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#visualising-sample-moments">3.6.9. Visualising sample moments</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#calculating-values-of-a-probability-density-function">3.6.10. Calculating values of a probability density function</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#calculating-the-first-four-moments-of-a-pdf">3.6.11. Calculating the first four moments of a pdf</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#calculating-values-of-a-cumulative-distribution-function">3.6.12. Calculating values of a cumulative distribution function</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#numerical-integration">3.6.13. Numerical integration</a></li>
 </ul>
             </nav>
         </div>
@@ -458,9 +462,9 @@ document.write(`
                 <article class="bd-article" role="main">
                   
   <section id="examples-lecture-3">
-<h1><span class="section-number">3.5. </span>Examples: Lecture 3<a class="headerlink" href="#examples-lecture-3" title="Permalink to this heading">#</a></h1>
+<h1><span class="section-number">3.6. </span>Examples: Lecture 3<a class="headerlink" href="#examples-lecture-3" title="Permalink to this heading">#</a></h1>
 <section id="drawing-a-histogram">
-<h2><span class="section-number">3.5.1. </span>Drawing a histogram<a class="headerlink" href="#drawing-a-histogram" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">3.6.1. </span>Drawing a histogram<a class="headerlink" href="#drawing-a-histogram" title="Permalink to this heading">#</a></h2>
 <ul class="simple">
 <li><p><cite>drawing_03.py</cite></p></li>
 </ul>
@@ -504,7 +508,7 @@ document.write(`
 </div>
 </section>
 <section id="drawing-a-histogram-with-predefined-binning">
-<h2><span class="section-number">3.5.2. </span>Drawing a histogram with predefined binning<a class="headerlink" href="#drawing-a-histogram-with-predefined-binning" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">3.6.2. </span>Drawing a histogram with predefined binning<a class="headerlink" href="#drawing-a-histogram-with-predefined-binning" title="Permalink to this heading">#</a></h2>
 <ul class="simple">
 <li><p><cite>drawing_04.py</cite></p></li>
 </ul>
@@ -555,7 +559,7 @@ document.write(`
 </div>
 </section>
 <section id="drawing-a-histogram-and-choice-of-bin-number">
-<h2><span class="section-number">3.5.3. </span>Drawing a histogram and choice of bin number<a class="headerlink" href="#drawing-a-histogram-and-choice-of-bin-number" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">3.6.3. </span>Drawing a histogram and choice of bin number<a class="headerlink" href="#drawing-a-histogram-and-choice-of-bin-number" title="Permalink to this heading">#</a></h2>
 <ul class="simple">
 <li><p><cite>drawing_05.py</cite></p></li>
 </ul>
@@ -614,7 +618,7 @@ document.write(`
 </div>
 </section>
 <section id="comparing-different-binning-choices">
-<h2><span class="section-number">3.5.4. </span>Comparing different binning choices<a class="headerlink" href="#comparing-different-binning-choices" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">3.6.4. </span>Comparing different binning choices<a class="headerlink" href="#comparing-different-binning-choices" title="Permalink to this heading">#</a></h2>
 <ul class="simple">
 <li><p><cite>drawing_06.py</cite></p></li>
 </ul>
@@ -687,7 +691,7 @@ document.write(`
 </div>
 </section>
 <section id="testing-logarithmic-scales">
-<h2><span class="section-number">3.5.5. </span>Testing logarithmic scales<a class="headerlink" href="#testing-logarithmic-scales" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">3.6.5. </span>Testing logarithmic scales<a class="headerlink" href="#testing-logarithmic-scales" title="Permalink to this heading">#</a></h2>
 <ul class="simple">
 <li><p><cite>drawing_07.py</cite></p></li>
 </ul>
@@ -747,7 +751,7 @@ document.write(`
 </div>
 </section>
 <section id="writing-data-into-text-files">
-<h2><span class="section-number">3.5.6. </span>Writing data into text files<a class="headerlink" href="#writing-data-into-text-files" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">3.6.6. </span>Writing data into text files<a class="headerlink" href="#writing-data-into-text-files" title="Permalink to this heading">#</a></h2>
 <ul class="simple">
 <li><p><cite>saving.py</cite></p></li>
 </ul>
@@ -780,7 +784,7 @@ document.write(`
 </div>
 </section>
 <section id="reading-data-from-text-files">
-<h2><span class="section-number">3.5.7. </span>Reading data from text files<a class="headerlink" href="#reading-data-from-text-files" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">3.6.7. </span>Reading data from text files<a class="headerlink" href="#reading-data-from-text-files" title="Permalink to this heading">#</a></h2>
 <ul class="simple">
 <li><p><cite>reading.py</cite></p></li>
 </ul>
@@ -817,7 +821,7 @@ document.write(`
 </div>
 </section>
 <section id="calculating-sample-moments">
-<h2><span class="section-number">3.5.8. </span>Calculating sample moments<a class="headerlink" href="#calculating-sample-moments" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">3.6.8. </span>Calculating sample moments<a class="headerlink" href="#calculating-sample-moments" title="Permalink to this heading">#</a></h2>
 <ul class="simple">
 <li><p><cite>stats_01.py</cite></p></li>
 </ul>
@@ -905,7 +909,7 @@ document.write(`
 </div>
 </section>
 <section id="visualising-sample-moments">
-<h2><span class="section-number">3.5.9. </span>Visualising sample moments<a class="headerlink" href="#visualising-sample-moments" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">3.6.9. </span>Visualising sample moments<a class="headerlink" href="#visualising-sample-moments" title="Permalink to this heading">#</a></h2>
 <ul class="simple">
 <li><p><cite>stats_02.py</cite></p></li>
 </ul>
@@ -977,6 +981,163 @@ document.write(`
 </pre></div>
 </div>
 </section>
+<section id="calculating-values-of-a-probability-density-function">
+<h2><span class="section-number">3.6.10. </span>Calculating values of a probability density function<a class="headerlink" href="#calculating-values-of-a-probability-density-function" title="Permalink to this heading">#</a></h2>
+<ul class="simple">
+<li><p><cite>pdf_01.py</cite></p></li>
+</ul>
+<div class="highlight-py notranslate"><div class="highlight"><pre><span></span><span class="ch">#!/usr/bin/python</span>
+<span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">example on the use of scipy</span>
+<span class="sd">&#39;&#39;&#39;</span>
+
+<span class="kn">from</span> <span class="nn">scipy.stats</span> <span class="kn">import</span> <span class="n">norm</span>
+
+
+<span class="k">def</span> <span class="nf">main</span> <span class="p">()</span> <span class="p">:</span>
+<span class="w">    </span><span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">    Funzione che implementa il programma principale</span>
+<span class="sd">    &#39;&#39;&#39;</span>
+    
+    <span class="n">mean</span> <span class="o">=</span> <span class="mf">1.</span>
+    <span class="n">sigma</span> <span class="o">=</span> <span class="mf">0.5</span>
+    <span class="nb">print</span> <span class="p">(</span><span class="s1">&#39;the maximum value of the Gaussian distribution with mean = &#39;</span> <span class="o">+</span>
+           <span class="nb">str</span> <span class="p">(</span><span class="n">mean</span><span class="p">)</span> <span class="o">+</span> 
+           <span class="s1">&#39; and sigma = &#39;</span> <span class="o">+</span>
+           <span class="nb">str</span> <span class="p">(</span><span class="n">sigma</span><span class="p">)</span> <span class="o">+</span> 
+           <span class="s1">&#39; is : &#39;</span> <span class="o">+</span>
+           <span class="nb">str</span> <span class="p">(</span><span class="n">norm</span><span class="o">.</span><span class="n">pdf</span> <span class="p">(</span><span class="n">mean</span><span class="p">,</span> <span class="n">mean</span><span class="p">,</span> <span class="n">sigma</span><span class="p">))</span>
+           <span class="p">)</span>
+
+    <span class="n">norm_fix</span> <span class="o">=</span> <span class="n">norm</span> <span class="p">(</span><span class="n">mean</span><span class="p">,</span> <span class="n">sigma</span><span class="p">)</span>
+    <span class="nb">print</span> <span class="p">(</span><span class="n">norm_fix</span><span class="o">.</span><span class="n">pdf</span> <span class="p">(</span><span class="n">mean</span><span class="p">))</span>
+
+    <span class="n">x</span> <span class="o">=</span> <span class="n">mean</span> <span class="o">+</span> <span class="n">sigma</span> <span class="o">/</span> <span class="mf">2.</span>
+    <span class="nb">print</span> <span class="p">(</span><span class="n">norm</span><span class="o">.</span><span class="n">pdf</span> <span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">mean</span><span class="p">,</span> <span class="n">sigma</span><span class="p">))</span>
+
+<span class="c1"># ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- </span>
+
+    
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&quot;__main__&quot;</span><span class="p">:</span>
+    <span class="n">main</span> <span class="p">()</span>
+
+</pre></div>
+</div>
+</section>
+<section id="calculating-the-first-four-moments-of-a-pdf">
+<h2><span class="section-number">3.6.11. </span>Calculating the first four moments of a pdf<a class="headerlink" href="#calculating-the-first-four-moments-of-a-pdf" title="Permalink to this heading">#</a></h2>
+<ul class="simple">
+<li><p><cite>pdf_02.py</cite></p></li>
+</ul>
+<div class="highlight-py notranslate"><div class="highlight"><pre><span></span><span class="ch">#!/usr/bin/python</span>
+<span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">example on the use of scipy</span>
+<span class="sd">&#39;&#39;&#39;</span>
+
+<span class="kn">from</span> <span class="nn">scipy.stats</span> <span class="kn">import</span> <span class="n">norm</span>
+
+
+<span class="k">def</span> <span class="nf">main</span> <span class="p">()</span> <span class="p">:</span>
+<span class="w">    </span><span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">    Funzione che implementa il programma principale</span>
+<span class="sd">    &#39;&#39;&#39;</span>
+    
+    <span class="n">mean</span> <span class="o">=</span> <span class="mf">1.</span>
+    <span class="n">sigma</span> <span class="o">=</span> <span class="mf">0.5</span>
+    <span class="n">norm_fix</span> <span class="o">=</span> <span class="n">norm</span> <span class="p">(</span><span class="n">mean</span><span class="p">,</span> <span class="n">sigma</span><span class="p">)</span>
+
+    <span class="n">ave</span><span class="p">,</span> <span class="n">var</span><span class="p">,</span> <span class="n">skew</span><span class="p">,</span> <span class="n">kurt</span> <span class="o">=</span> <span class="n">norm_fix</span><span class="o">.</span><span class="n">stats</span> <span class="p">(</span><span class="n">moments</span><span class="o">=</span><span class="s1">&#39;mvsk&#39;</span><span class="p">)</span>
+    <span class="nb">print</span> <span class="p">(</span><span class="n">ave</span><span class="p">,</span> <span class="n">var</span><span class="p">,</span> <span class="n">skew</span><span class="p">,</span> <span class="n">kurt</span><span class="p">)</span>
+
+
+
+<span class="c1"># ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- </span>
+
+    
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&quot;__main__&quot;</span><span class="p">:</span>
+    <span class="n">main</span> <span class="p">()</span>
+
+</pre></div>
+</div>
+</section>
+<section id="calculating-values-of-a-cumulative-distribution-function">
+<h2><span class="section-number">3.6.12. </span>Calculating values of a cumulative distribution function<a class="headerlink" href="#calculating-values-of-a-cumulative-distribution-function" title="Permalink to this heading">#</a></h2>
+<ul class="simple">
+<li><p><cite>cdf_01.py</cite></p></li>
+</ul>
+<div class="highlight-py notranslate"><div class="highlight"><pre><span></span><span class="ch">#!/usr/bin/python</span>
+<span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">example on the use of scipy</span>
+<span class="sd">&#39;&#39;&#39;</span>
+
+<span class="kn">from</span> <span class="nn">scipy.stats</span> <span class="kn">import</span> <span class="n">norm</span>
+
+
+<span class="k">def</span> <span class="nf">main</span> <span class="p">()</span> <span class="p">:</span>
+<span class="w">    </span><span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">    Funzione che implementa il programma principale</span>
+<span class="sd">    &#39;&#39;&#39;</span>
+    
+    <span class="n">mean</span> <span class="o">=</span> <span class="mf">1.</span>
+    <span class="n">sigma</span> <span class="o">=</span> <span class="mf">0.5</span>
+    <span class="nb">print</span> <span class="p">(</span><span class="s1">&#39;the value of the Gaussian distribution cumulative at its mean is: &#39;</span> <span class="o">+</span>
+           <span class="nb">str</span> <span class="p">(</span><span class="n">norm</span><span class="o">.</span><span class="n">cdf</span> <span class="p">(</span><span class="n">mean</span><span class="p">,</span> <span class="n">mean</span><span class="p">,</span> <span class="n">sigma</span><span class="p">))</span>
+           <span class="p">)</span>
+
+<span class="c1"># ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- </span>
+
+    
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&quot;__main__&quot;</span><span class="p">:</span>
+    <span class="n">main</span> <span class="p">()</span>
+
+</pre></div>
+</div>
+</section>
+<section id="numerical-integration">
+<h2><span class="section-number">3.6.13. </span>Numerical integration<a class="headerlink" href="#numerical-integration" title="Permalink to this heading">#</a></h2>
+<ul class="simple">
+<li><p><cite>integrate.py</cite></p></li>
+</ul>
+<div class="highlight-py notranslate"><div class="highlight"><pre><span></span><span class="ch">#!/usr/bin/python</span>
+<span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">example on the use of scipy.integrate</span>
+<span class="sd">&#39;&#39;&#39;</span>
+
+<span class="kn">from</span> <span class="nn">scipy.integrate</span> <span class="kn">import</span> <span class="n">quad</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">from</span> <span class="nn">math</span> <span class="kn">import</span> <span class="n">exp</span>
+
+<span class="k">def</span> <span class="nf">expon</span> <span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="p">:</span>
+    <span class="k">return</span> <span class="n">exp</span> <span class="p">(</span><span class="o">-</span><span class="mi">1</span> <span class="o">*</span> <span class="n">x</span><span class="p">)</span>
+    
+
+<span class="c1"># ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- </span>
+
+    
+<span class="k">def</span> <span class="nf">main</span> <span class="p">()</span> <span class="p">:</span>
+<span class="w">    </span><span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">    Funzione che implementa il programma principale</span>
+<span class="sd">    &#39;&#39;&#39;</span>
+    <span class="c1"># definition of a polinomial function</span>
+    <span class="n">polin</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">x</span> <span class="p">:</span> <span class="n">x</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="n">x</span> <span class="o">+</span> <span class="mi">1</span>
+    <span class="n">area</span> <span class="o">=</span> <span class="n">quad</span> <span class="p">(</span><span class="n">polin</span><span class="p">,</span> <span class="mf">0.</span><span class="p">,</span> <span class="mf">4.</span><span class="p">)</span>
+    <span class="nb">print</span> <span class="p">(</span><span class="s1">&#39;area = &#39;</span><span class="p">,</span> <span class="n">area</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+    <span class="nb">print</span> <span class="p">(</span><span class="s1">&#39;absolute error estimate = &#39;</span><span class="p">,</span> <span class="n">area</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+
+    <span class="n">area</span> <span class="o">=</span> <span class="n">quad</span> <span class="p">(</span><span class="n">expon</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">inf</span><span class="p">)</span>
+    <span class="nb">print</span> <span class="p">(</span><span class="s1">&#39;area = &#39;</span><span class="p">,</span> <span class="n">area</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+    <span class="nb">print</span> <span class="p">(</span><span class="s1">&#39;absolute error estimate = &#39;</span><span class="p">,</span> <span class="n">area</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+    
+
+<span class="c1"># ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- </span>
+
+    
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&quot;__main__&quot;</span><span class="p">:</span>
+    <span class="n">main</span> <span class="p">()</span>
+
+</pre></div>
+</div>
+</section>
 </section>
 
     <script type="text/x-thebe-config">
@@ -1023,7 +1184,7 @@ document.write(`
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title"><span class="section-number">3.6. </span>Exercises for Lecture 3</p>
+        <p class="prev-next-title"><span class="section-number">3.7. </span>Exercises for Lecture 3</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -1042,15 +1203,19 @@ document.write(`
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#drawing-a-histogram">3.5.1. Drawing a histogram</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#drawing-a-histogram-with-predefined-binning">3.5.2. Drawing a histogram with predefined binning</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#drawing-a-histogram-and-choice-of-bin-number">3.5.3. Drawing a histogram and choice of bin number</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#comparing-different-binning-choices">3.5.4. Comparing different binning choices</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#testing-logarithmic-scales">3.5.5. Testing logarithmic scales</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#writing-data-into-text-files">3.5.6. Writing data into text files</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#reading-data-from-text-files">3.5.7. Reading data from text files</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#calculating-sample-moments">3.5.8. Calculating sample moments</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#visualising-sample-moments">3.5.9. Visualising sample moments</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#drawing-a-histogram">3.6.1. Drawing a histogram</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#drawing-a-histogram-with-predefined-binning">3.6.2. Drawing a histogram with predefined binning</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#drawing-a-histogram-and-choice-of-bin-number">3.6.3. Drawing a histogram and choice of bin number</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#comparing-different-binning-choices">3.6.4. Comparing different binning choices</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#testing-logarithmic-scales">3.6.5. Testing logarithmic scales</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#writing-data-into-text-files">3.6.6. Writing data into text files</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#reading-data-from-text-files">3.6.7. Reading data from text files</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#calculating-sample-moments">3.6.8. Calculating sample moments</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#visualising-sample-moments">3.6.9. Visualising sample moments</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#calculating-values-of-a-probability-density-function">3.6.10. Calculating values of a probability density function</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#calculating-the-first-four-moments-of-a-pdf">3.6.11. Calculating the first four moments of a pdf</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#calculating-values-of-a-cumulative-distribution-function">3.6.12. Calculating values of a cumulative distribution function</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#numerical-integration">3.6.13. Numerical integration</a></li>
 </ul>
   </nav></div>
 

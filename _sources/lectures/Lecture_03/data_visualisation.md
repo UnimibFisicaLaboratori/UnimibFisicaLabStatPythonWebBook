@@ -164,14 +164,14 @@
     exist in a pre-implemented for in the 
     [`SciPy`](https://scipy.org) library,
     which provides algorithms and data structures for scientific computing.
-  * The **full list of available models** may be found [here](https://docs.scipy.org/doc/scipy/tutorial/stats.html#)
+  * The **full list of available models** may be found [here](https://docs.scipy.org/doc/SciPy/tutorial/stats.html#)
   * All continuous distributions take **`loc` and `scale` as keyword parameters**
     to adjust the location and scale of the distribution
     * for the standard normal distribution, the `loc` is the mean and the `scale` is the standard deviation
 
 ### Using a continuous probability density function
 
-  * A pdf object needs to be **imported from the scipy library** to be used,
+  * A pdf object needs to be **imported from the SciPy library** to be used,
     as for example for the Gaussian distribution:
     ```py
     from scipy.stats import norm
@@ -193,7 +193,7 @@
 
   * The function `cdf` gives access to the **cumulative density function** of the model,
     for example in the case of a 
-    [Gaussian](https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.norm.html) distribution:
+    [Gaussian](https://docs.scipy.org/doc/SciPy/reference/generated/scipy.stats.norm.html) distribution:
     ```py
     print ('the value of the Gaussian distribution cumulative at its mean is: ' +
            str (norm.cdf (mean, mean, sigma))
@@ -206,6 +206,37 @@
     ```py
     ave, var, skew, kurt = norm_fix.stats (moments='mvsk')
     print (ave, var, skew, kurt)
+    ```
+
+## function integration
+
+  * The SciPy library also contains a module **dedicated to numerical integration**
+    of functions
+
+### Definite integral
+
+  * The function `quad` **calculates definite integrals** given the function
+    and the integration range  
+    ```py
+    from scipy.integrate import quad
+    # definition of a polinomial function
+    polin = lambda x : x**2 + x + 1
+    area = quad (polin, 0., 4.)
+    print ('area = ', area[0])
+    print ('absolute error estimate = ', area[1])
+    ```
+    * The `quad` function returns both the **integral value** and an estimate 
+      of the **absolute error** on the integral
+
+### Integration over infinite ranges
+
+  * The `quad` function works with infinity extremes,
+    which can be expressed thanks to the numpy object `np.inf`:
+    ```py
+    def expon (x) :
+        return exp (-1 * x)
+    #...
+    area = quad (expon, 0, np.inf)
     ```
 
 :::{note}

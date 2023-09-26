@@ -59,3 +59,31 @@ Visualising sample moments
 .. literalinclude:: examples/stats_02.py
   :language: py
 
+Calculating values of a probability density function
+----------------------------------------------------
+* `pdf_01.py`
+.. literalinclude:: examples/pdf_01.py
+  :language: py
+
+
+Calculating the first four moments of a pdf
+-------------------------------------------
+* `pdf_02.py`
+.. literalinclude:: examples/pdf_02.py
+  :language: py
+
+
+Calculating values of a cumulative distribution function
+--------------------------------------------------------
+* `cdf_01.py`
+.. literalinclude:: examples/cdf_01.py
+  :language: py
+
+
+Numerical integration
+---------------------
+* `integrate.py`
+.. literalinclude:: examples/integrate.py
+  :language: py
+
+
