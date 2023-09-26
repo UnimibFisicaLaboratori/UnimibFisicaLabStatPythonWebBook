@@ -449,6 +449,8 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-3-10">3.8.10. Exercise 3.10</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-3-11">3.8.11. Exercise 3.11</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-3-12">3.8.12. Exercise 3.12</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-3-13">3.8.13. Exercise 3.13</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-3-14">3.8.14. Exercise 3.14</a></li>
 </ul>
             </nav>
         </div>
@@ -1199,6 +1201,81 @@ document.write(`
 </pre></div>
 </div>
 </section>
+<section id="exercise-3-13">
+<h2><span class="section-number">3.8.13. </span>Exercise 3.13<a class="headerlink" href="#exercise-3-13" title="Permalink to this heading">#</a></h2>
+<ul class="simple">
+<li><p><cite>ex_3.13.py</cite></p></li>
+</ul>
+<div class="highlight-py notranslate"><div class="highlight"><pre><span></span><span class="ch">#!/usr/bin/python</span>
+<span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">What is the probability that ten measurements of the same quantity</span>
+<span class="sd">expected to be Gaussian fall within an interval of 1 standard deviation width </span>
+<span class="sd">around the mean?</span>
+<span class="sd">&#39;&#39;&#39;</span>
+
+<span class="kn">from</span> <span class="nn">scipy.stats</span> <span class="kn">import</span> <span class="n">norm</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+
+<span class="k">def</span> <span class="nf">main</span> <span class="p">()</span> <span class="p">:</span>
+<span class="w">    </span><span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">    Funzione che implementa il programma principale</span>
+<span class="sd">    &#39;&#39;&#39;</span>
+
+    <span class="n">normal</span> <span class="o">=</span> <span class="n">norm</span> <span class="p">(</span><span class="mf">0.</span><span class="p">,</span> <span class="mf">1.</span><span class="p">)</span>
+    <span class="n">x_min</span> <span class="o">=</span> <span class="mf">0.</span> <span class="o">-</span> <span class="mf">0.5</span>
+    <span class="n">x_max</span> <span class="o">=</span> <span class="mf">0.</span> <span class="o">+</span> <span class="mf">0.5</span>
+    <span class="n">single_evt_prob</span> <span class="o">=</span> <span class="n">normal</span><span class="o">.</span><span class="n">cdf</span> <span class="p">(</span><span class="n">x_max</span><span class="p">)</span> <span class="o">-</span> <span class="n">normal</span><span class="o">.</span><span class="n">cdf</span> <span class="p">(</span><span class="n">x_min</span><span class="p">)</span>
+    <span class="nb">print</span> <span class="p">(</span><span class="s1">&#39;single event probability: &#39;</span><span class="p">,</span> <span class="n">single_evt_prob</span><span class="p">)</span>
+    <span class="nb">print</span> <span class="p">(</span><span class="s1">&#39;joint probability: &#39;</span><span class="p">,</span> <span class="n">single_evt_prob</span><span class="o">**</span><span class="mi">10</span><span class="p">)</span>
+
+
+<span class="c1"># ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- </span>
+
+    
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&quot;__main__&quot;</span><span class="p">:</span>
+    <span class="n">main</span> <span class="p">()</span>
+
+</pre></div>
+</div>
+</section>
+<section id="exercise-3-14">
+<h2><span class="section-number">3.8.14. </span>Exercise 3.14<a class="headerlink" href="#exercise-3-14" title="Permalink to this heading">#</a></h2>
+<ul class="simple">
+<li><p><cite>ex_3.14.py</cite></p></li>
+</ul>
+<div class="highlight-py notranslate"><div class="highlight"><pre><span></span><span class="ch">#!/usr/bin/python</span>
+<span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">What is the probability that ten measurements of the same counting experiment</span>
+<span class="sd">expected to be Poisson distributed are all larger than the expected average number </span>
+<span class="sd">of events?</span>
+<span class="sd">&#39;&#39;&#39;</span>
+
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">from</span> <span class="nn">scipy.stats</span> <span class="kn">import</span> <span class="n">poisson</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+
+
+<span class="k">def</span> <span class="nf">main</span> <span class="p">()</span> <span class="p">:</span>
+<span class="w">    </span><span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">    Funzione che implementa il programma principale</span>
+<span class="sd">    &#39;&#39;&#39;</span>
+
+    <span class="n">average</span> <span class="o">=</span> <span class="mf">4.</span>
+    <span class="n">poiss</span> <span class="o">=</span> <span class="n">poisson</span> <span class="p">(</span><span class="n">average</span><span class="p">)</span>
+    <span class="n">single_evt_prob</span> <span class="o">=</span> <span class="mf">1.</span> <span class="o">-</span> <span class="n">poiss</span><span class="o">.</span><span class="n">cdf</span> <span class="p">(</span><span class="n">average</span><span class="p">)</span>
+    <span class="nb">print</span> <span class="p">(</span><span class="s1">&#39;single event probability: &#39;</span><span class="p">,</span> <span class="n">single_evt_prob</span><span class="p">)</span>
+    <span class="nb">print</span> <span class="p">(</span><span class="s1">&#39;joint probability: &#39;</span><span class="p">,</span> <span class="n">single_evt_prob</span><span class="o">**</span><span class="mi">10</span><span class="p">)</span>
+
+
+<span class="c1"># ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- </span>
+
+
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&quot;__main__&quot;</span><span class="p">:</span>
+    <span class="n">main</span> <span class="p">()</span>
+
+</pre></div>
+</div>
+</section>
 </section>
 
     <script type="text/x-thebe-config">
@@ -1276,6 +1353,8 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-3-10">3.8.10. Exercise 3.10</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-3-11">3.8.11. Exercise 3.11</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-3-12">3.8.12. Exercise 3.12</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-3-13">3.8.13. Exercise 3.13</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-3-14">3.8.14. Exercise 3.14</a></li>
 </ul>
   </nav></div>
 

@@ -80,9 +80,11 @@ that the momenta of a Poisson distribution asymptotically tend to the ones of a 
 
 ## Exercise 3.13
 
-sexpected to be Gaussian fall within an interval of 1 standard deviation width around the mean?
+What is the probability that ten measurements of the same quantity
+expected to be Gaussian fall within an interval of 1 standard deviation width around the mean?
 
 ## Exercise 3.14
 
 What is the probability that ten measurements of the same counting experiment
-expected to be Poisson distributed are all larger than the expected average number of events?
+expected to be Poisson distributed are all larger than the expected average number 
+of events?

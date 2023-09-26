@@ -81,4 +81,16 @@ Exercise 3.12
 .. literalinclude:: exercises/ex_3.12.py
   :language: py
 
+Exercise 3.13
+-------------
+* `ex_3.13.py`
+.. literalinclude:: exercises/ex_3.13.py
+  :language: py
+
+Exercise 3.14
+-------------
+* `ex_3.14.py`
+.. literalinclude:: exercises/ex_3.14.py
+  :language: py
+
 
