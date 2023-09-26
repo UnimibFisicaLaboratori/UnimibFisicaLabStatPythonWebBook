@@ -1,80 +1,5 @@
 # Data Visualisation with Python
 
-## MatPlotLib
-
-  * A widely used **library for visualisation** is [MatPlotLib](https://matplotlib.org/),
-    which may be used to draw functions and histograms.
-  * The first Python object that will be used in the course as a starting point
-    is the [```matplotlib.pyplot```](https://matplotlib.org/stable/api/pyplot_summary.html) one, 
-    which usually gets imported at the script beginning:
-    ```py
-    import matplotlib.pyplot as plt
-    ```
-  * When using the library,
-    **two types of objects** will usually by created and handled:
-    * [```matplotlib.axes```](https://matplotlib.org/stable/api/axes_api.html): 
-      used for the plotting of the actual content of the figure
-    * [```matplotlib.figure```](https://matplotlib.org/stable/api/figure_api.html): 
-      used for axes creation and figure appearence
-  * The creation of an empty image starts from the ```matplotlib.pyplot``` object:
-    ```py
-    fig, ax = plt.subplots (nrows = 1, ncols = 1)
-    ```
-    where ```fig``` and ```ax``` are the usual names given 
-    to the ```matplotlib.figure``` and ```matplotlib.axes```
-    objects that have been created.
-    * The arguments of the ```subplots``` method indicate the **number of sub-plots**
-      that will be present in the image,
-      listed in rows and columns.
-    * In case more than one sub-plot is present, 
-      **the variable ```ax``` will be a container**: 
-      a single list if ```nrows = 1``` or ```ncols = 1```, 
-      a list of lists otherwise.
-  * Once an image is created,
-    it needs to be **visualised** on the screen with the call to the ```show``` function,
-    **or saved** on disk with the call to the ```savefig``` function 
-    of the object ```matplotlib.pyplot```:
-    ```py
-    plt.savefig ('example_01.png')
-    plt.show ()
-    ```
-
-## Drawing functions
-
-  * functions of the form *y = f(x)* are drawn as a **broken line joining a set of coordinates**:
-    ```py
-    # preparing the set of points to be drawn 
-    x_coord = np.linspace (0, 2 * np.pi, 10_000)
-    y_coord_1 = np.sin (x_coord)
-    ```
-    * the number of points, in this case ```10000```, sets the **smoothness of the drawing**
-    * the variable ```y_coord_1``` is a **```numpy``` container**, 
-      as it's the result of the action of a ```numpy``` function (hence vectorialised) to a ```numpy``` container
-    * ```x_coord``` and ```y_coord_1```; in this case,
-      their filling will have to be done, if needed, with loops
-  * coordinates are then **drawn on an axis**:
-    ```py
-    ax.plot (x_coord, y_coord_1, label='sin (x)')
-    ax.set_title ('Comparing trigonometric functions', size=14)
-    ax.set_xlabel ('x')
-    ax.set_ylabel ('y')
-    ax.legend ()
-    ```
-    * some **information is added** to the plot: the general title of the graph,
-      the title of the two axes,
-      and the legend of the plot.
-    * The **legend** uses the labels associated to a drawing as an argument to the ```ax.plot``` function
-  * **several functions or objects may be drawn on the same axis**
-    and the ```matplotlib``` libraries will take care of adapting the axis ranges accordingly:
-    ```py
-    def func (x) :
-        return np.cos (x - np.pi / 2.)
-
-    y_coord_2 = np.arange (0., x_coord.size)
-    for i in range (x_coord.size):
-        y_coord_2[i] = func (x_coord[i])
-    ax.plot (x_coord, y_coord_2, linestyle = 'dashed', label='cos (x) - pi/2')
-    ```
 
 ## Reading and writing text files with Python
 
@@ -232,6 +157,21 @@
     ```
     to obtain the following visualisation
    ![mean_drawing](../../figs/histo_mean.png)   
+
+
+## SciPy
+
+[`SciPy`](https://scipy.org) is a library providing algorithms and data structures for scientific computing.
+
+### Example: Calculate a p-value
+
+## Examples
+
+A notebook with the examples proposed in this lecture can be found [here](../examples/python_libraries_examples.ipynb)
+
+
+
+
 
 :::{note}
   * The examples for the lecture may be found [here](EXAMPLES.rst)
