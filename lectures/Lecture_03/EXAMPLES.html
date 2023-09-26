@@ -179,7 +179,8 @@ const thebe_selector_output = ".output, .cell_output"
 </ul>
 </li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../Lecture_02/python_libraries.html">2. Notable Python Libraries</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="../Lecture_02/EXERCISES.html">2.4. Exercises for Lecture 2</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Lecture_02/EXAMPLES.html">2.4. Examples: Lecture 2</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Lecture_02/EXERCISES.html">2.5. Exercises for Lecture 2</a></li>
 </ul>
 </li>
 <li class="toctree-l1 current active has-children"><a class="reference internal" href="data_visualisation.html">3. Data Visualisation with Python</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
@@ -436,17 +437,15 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#use-of-matplotlib-pyplot">3.6.1. Use of <code class="docutils literal notranslate"><span class="pre">`matplotlib.pyplot`</span></code></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#drawing-a-function">3.6.2. Drawing a function</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#drawing-a-histogram">3.6.3. Drawing a histogram</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#drawing-a-histogram-with-predefined-binning">3.6.4. Drawing a histogram with predefined binning</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#drawing-a-histogram-and-choice-of-bin-number">3.6.5. Drawing a histogram and choice of bin number</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#comparing-different-binning-choices">3.6.6. Comparing different binning choices</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#testing-logarithmic-scales">3.6.7. Testing logarithmic scales</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#writing-data-into-text-files">3.6.8. Writing data into text files</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#reading-data-from-text-files">3.6.9. Reading data from text files</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#calculating-sample-moments">3.6.10. Calculating sample moments</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#visualising-sample-moments">3.6.11. Visualising sample moments</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#drawing-a-histogram">3.6.1. Drawing a histogram</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#drawing-a-histogram-with-predefined-binning">3.6.2. Drawing a histogram with predefined binning</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#drawing-a-histogram-and-choice-of-bin-number">3.6.3. Drawing a histogram and choice of bin number</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#comparing-different-binning-choices">3.6.4. Comparing different binning choices</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#testing-logarithmic-scales">3.6.5. Testing logarithmic scales</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#writing-data-into-text-files">3.6.6. Writing data into text files</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#reading-data-from-text-files">3.6.7. Reading data from text files</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#calculating-sample-moments">3.6.8. Calculating sample moments</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#visualising-sample-moments">3.6.9. Visualising sample moments</a></li>
 </ul>
             </nav>
         </div>
@@ -460,96 +459,8 @@ document.write(`
                   
   <section id="examples-lecture-3">
 <h1><span class="section-number">3.6. </span>Examples: Lecture 3<a class="headerlink" href="#examples-lecture-3" title="Permalink to this heading">#</a></h1>
-<section id="use-of-matplotlib-pyplot">
-<h2><span class="section-number">3.6.1. </span>Use of <code class="docutils literal notranslate"><span class="pre">`matplotlib.pyplot`</span></code><a class="headerlink" href="#use-of-matplotlib-pyplot" title="Permalink to this heading">#</a></h2>
-<ul class="simple">
-<li><p><cite>drawing_01.py</cite></p></li>
-</ul>
-<div class="highlight-py notranslate"><div class="highlight"><pre><span></span><span class="ch">#!/usr/bin/python</span>
-<span class="sd">&#39;&#39;&#39;</span>
-<span class="sd">example on the use of matplotlib.pyplot</span>
-<span class="sd">&#39;&#39;&#39;</span>
-
-<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
-
-<span class="k">def</span> <span class="nf">main</span> <span class="p">()</span> <span class="p">:</span>
-<span class="w">    </span><span class="sd">&#39;&#39;&#39;</span>
-<span class="sd">    Funzione che implementa il programma principale</span>
-<span class="sd">    &#39;&#39;&#39;</span>
-    <span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span> <span class="p">(</span><span class="n">nrows</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="n">ncols</span> <span class="o">=</span> <span class="mi">1</span><span class="p">)</span>
-    <span class="nb">print</span> <span class="p">(</span><span class="n">ax</span><span class="p">)</span>
-    <span class="n">plt</span><span class="o">.</span><span class="n">savefig</span> <span class="p">(</span><span class="s1">&#39;drawing_01.png&#39;</span><span class="p">)</span>
-    <span class="n">plt</span><span class="o">.</span><span class="n">show</span> <span class="p">()</span>
-    
-
-<span class="c1"># ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- </span>
-
-    
-<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&quot;__main__&quot;</span><span class="p">:</span>
-    <span class="n">main</span> <span class="p">()</span>
-
-</pre></div>
-</div>
-</section>
-<section id="drawing-a-function">
-<h2><span class="section-number">3.6.2. </span>Drawing a function<a class="headerlink" href="#drawing-a-function" title="Permalink to this heading">#</a></h2>
-<ul class="simple">
-<li><p><cite>drawing_02.py</cite></p></li>
-</ul>
-<div class="highlight-py notranslate"><div class="highlight"><pre><span></span><span class="ch">#!/usr/bin/python</span>
-<span class="sd">&#39;&#39;&#39;</span>
-<span class="sd">example on the use of matplotlib.pyplot</span>
-<span class="sd">to draw a function</span>
-<span class="sd">&#39;&#39;&#39;</span>
-
-<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
-<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-
-
-<span class="k">def</span> <span class="nf">func</span> <span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="p">:</span>
-    <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">cos</span> <span class="p">(</span><span class="n">x</span> <span class="o">-</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span> <span class="o">/</span> <span class="mf">2.</span><span class="p">)</span>
-    
-
-<span class="c1"># ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- </span>
-
-    
-<span class="k">def</span> <span class="nf">main</span> <span class="p">()</span> <span class="p">:</span>
-<span class="w">    </span><span class="sd">&#39;&#39;&#39;</span>
-<span class="sd">    Funzione che implementa il programma principale</span>
-<span class="sd">    &#39;&#39;&#39;</span>
-    <span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span> <span class="p">(</span><span class="n">nrows</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="n">ncols</span> <span class="o">=</span> <span class="mi">1</span><span class="p">)</span>
-
-    <span class="c1"># preparing the set of points to be drawn </span>
-    <span class="n">x_coord</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="p">,</span> <span class="mi">10000</span><span class="p">)</span>
-    <span class="n">y_coord_1</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span> <span class="p">(</span><span class="n">x_coord</span><span class="p">)</span>
-
-    <span class="n">y_coord_2</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span> <span class="p">(</span><span class="mf">0.</span><span class="p">,</span> <span class="n">x_coord</span><span class="o">.</span><span class="n">size</span><span class="p">)</span>
-    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span> <span class="p">(</span><span class="n">x_coord</span><span class="o">.</span><span class="n">size</span><span class="p">):</span>
-        <span class="n">y_coord_2</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">func</span> <span class="p">(</span><span class="n">x_coord</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
-
-    <span class="c1"># visualisation of the image</span>
-    <span class="n">ax</span><span class="o">.</span><span class="n">plot</span> <span class="p">(</span><span class="n">x_coord</span><span class="p">,</span> <span class="n">y_coord_1</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;sin (x)&#39;</span><span class="p">)</span>
-    <span class="n">ax</span><span class="o">.</span><span class="n">plot</span> <span class="p">(</span><span class="n">x_coord</span><span class="p">,</span> <span class="n">y_coord_2</span><span class="p">,</span> <span class="n">linestyle</span> <span class="o">=</span> <span class="s1">&#39;dashed&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;cos (x) - pi/2&#39;</span><span class="p">)</span>
-    <span class="n">ax</span><span class="o">.</span><span class="n">set_title</span> <span class="p">(</span><span class="s1">&#39;Comparing trigonometric functions&#39;</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">14</span><span class="p">)</span>
-    <span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span> <span class="p">(</span><span class="s1">&#39;x&#39;</span><span class="p">)</span>
-    <span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span> <span class="p">(</span><span class="s1">&#39;y&#39;</span><span class="p">)</span>
-    <span class="n">ax</span><span class="o">.</span><span class="n">legend</span> <span class="p">()</span>
-
-    <span class="n">plt</span><span class="o">.</span><span class="n">savefig</span> <span class="p">(</span><span class="s1">&#39;drawing_02.png&#39;</span><span class="p">)</span>
-    <span class="n">plt</span><span class="o">.</span><span class="n">show</span> <span class="p">()</span>
-    
-
-<span class="c1"># ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- </span>
-
-    
-<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&quot;__main__&quot;</span><span class="p">:</span>
-    <span class="n">main</span> <span class="p">()</span>
-
-</pre></div>
-</div>
-</section>
 <section id="drawing-a-histogram">
-<h2><span class="section-number">3.6.3. </span>Drawing a histogram<a class="headerlink" href="#drawing-a-histogram" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">3.6.1. </span>Drawing a histogram<a class="headerlink" href="#drawing-a-histogram" title="Permalink to this heading">#</a></h2>
 <ul class="simple">
 <li><p><cite>drawing_03.py</cite></p></li>
 </ul>
@@ -593,7 +504,7 @@ document.write(`
 </div>
 </section>
 <section id="drawing-a-histogram-with-predefined-binning">
-<h2><span class="section-number">3.6.4. </span>Drawing a histogram with predefined binning<a class="headerlink" href="#drawing-a-histogram-with-predefined-binning" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">3.6.2. </span>Drawing a histogram with predefined binning<a class="headerlink" href="#drawing-a-histogram-with-predefined-binning" title="Permalink to this heading">#</a></h2>
 <ul class="simple">
 <li><p><cite>drawing_04.py</cite></p></li>
 </ul>
@@ -644,7 +555,7 @@ document.write(`
 </div>
 </section>
 <section id="drawing-a-histogram-and-choice-of-bin-number">
-<h2><span class="section-number">3.6.5. </span>Drawing a histogram and choice of bin number<a class="headerlink" href="#drawing-a-histogram-and-choice-of-bin-number" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">3.6.3. </span>Drawing a histogram and choice of bin number<a class="headerlink" href="#drawing-a-histogram-and-choice-of-bin-number" title="Permalink to this heading">#</a></h2>
 <ul class="simple">
 <li><p><cite>drawing_05.py</cite></p></li>
 </ul>
@@ -703,7 +614,7 @@ document.write(`
 </div>
 </section>
 <section id="comparing-different-binning-choices">
-<h2><span class="section-number">3.6.6. </span>Comparing different binning choices<a class="headerlink" href="#comparing-different-binning-choices" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">3.6.4. </span>Comparing different binning choices<a class="headerlink" href="#comparing-different-binning-choices" title="Permalink to this heading">#</a></h2>
 <ul class="simple">
 <li><p><cite>drawing_06.py</cite></p></li>
 </ul>
@@ -776,7 +687,7 @@ document.write(`
 </div>
 </section>
 <section id="testing-logarithmic-scales">
-<h2><span class="section-number">3.6.7. </span>Testing logarithmic scales<a class="headerlink" href="#testing-logarithmic-scales" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">3.6.5. </span>Testing logarithmic scales<a class="headerlink" href="#testing-logarithmic-scales" title="Permalink to this heading">#</a></h2>
 <ul class="simple">
 <li><p><cite>drawing_07.py</cite></p></li>
 </ul>
@@ -836,7 +747,7 @@ document.write(`
 </div>
 </section>
 <section id="writing-data-into-text-files">
-<h2><span class="section-number">3.6.8. </span>Writing data into text files<a class="headerlink" href="#writing-data-into-text-files" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">3.6.6. </span>Writing data into text files<a class="headerlink" href="#writing-data-into-text-files" title="Permalink to this heading">#</a></h2>
 <ul class="simple">
 <li><p><cite>saving.py</cite></p></li>
 </ul>
@@ -869,7 +780,7 @@ document.write(`
 </div>
 </section>
 <section id="reading-data-from-text-files">
-<h2><span class="section-number">3.6.9. </span>Reading data from text files<a class="headerlink" href="#reading-data-from-text-files" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">3.6.7. </span>Reading data from text files<a class="headerlink" href="#reading-data-from-text-files" title="Permalink to this heading">#</a></h2>
 <ul class="simple">
 <li><p><cite>reading.py</cite></p></li>
 </ul>
@@ -906,7 +817,7 @@ document.write(`
 </div>
 </section>
 <section id="calculating-sample-moments">
-<h2><span class="section-number">3.6.10. </span>Calculating sample moments<a class="headerlink" href="#calculating-sample-moments" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">3.6.8. </span>Calculating sample moments<a class="headerlink" href="#calculating-sample-moments" title="Permalink to this heading">#</a></h2>
 <ul class="simple">
 <li><p><cite>stats_01.py</cite></p></li>
 </ul>
@@ -994,7 +905,7 @@ document.write(`
 </div>
 </section>
 <section id="visualising-sample-moments">
-<h2><span class="section-number">3.6.11. </span>Visualising sample moments<a class="headerlink" href="#visualising-sample-moments" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">3.6.9. </span>Visualising sample moments<a class="headerlink" href="#visualising-sample-moments" title="Permalink to this heading">#</a></h2>
 <ul class="simple">
 <li><p><cite>stats_02.py</cite></p></li>
 </ul>
@@ -1131,17 +1042,15 @@ document.write(`
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#use-of-matplotlib-pyplot">3.6.1. Use of <code class="docutils literal notranslate"><span class="pre">`matplotlib.pyplot`</span></code></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#drawing-a-function">3.6.2. Drawing a function</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#drawing-a-histogram">3.6.3. Drawing a histogram</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#drawing-a-histogram-with-predefined-binning">3.6.4. Drawing a histogram with predefined binning</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#drawing-a-histogram-and-choice-of-bin-number">3.6.5. Drawing a histogram and choice of bin number</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#comparing-different-binning-choices">3.6.6. Comparing different binning choices</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#testing-logarithmic-scales">3.6.7. Testing logarithmic scales</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#writing-data-into-text-files">3.6.8. Writing data into text files</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#reading-data-from-text-files">3.6.9. Reading data from text files</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#calculating-sample-moments">3.6.10. Calculating sample moments</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#visualising-sample-moments">3.6.11. Visualising sample moments</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#drawing-a-histogram">3.6.1. Drawing a histogram</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#drawing-a-histogram-with-predefined-binning">3.6.2. Drawing a histogram with predefined binning</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#drawing-a-histogram-and-choice-of-bin-number">3.6.3. Drawing a histogram and choice of bin number</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#comparing-different-binning-choices">3.6.4. Comparing different binning choices</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#testing-logarithmic-scales">3.6.5. Testing logarithmic scales</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#writing-data-into-text-files">3.6.6. Writing data into text files</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#reading-data-from-text-files">3.6.7. Reading data from text files</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#calculating-sample-moments">3.6.8. Calculating sample moments</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#visualising-sample-moments">3.6.9. Visualising sample moments</a></li>
 </ul>
   </nav></div>
 
