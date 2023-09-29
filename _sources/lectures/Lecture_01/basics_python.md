@@ -915,7 +915,7 @@ Python is an interpreted, object-oriented, high-level programming language with 
     interrupts the execution of the instructions in the scope
     and **jumps to the following iteration**
   * The `break` instruction interrupts the execution of the iteration
-    and exits the loop 
+    and **exits the loop** 
 
 ## Modules
 
