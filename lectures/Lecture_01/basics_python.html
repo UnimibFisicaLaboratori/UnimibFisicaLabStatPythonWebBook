@@ -500,21 +500,15 @@ document.write(`
                   
   <section class="tex2jax_ignore mathjax_ignore" id="basics-of-python-programming">
 <h1><span class="section-number">1. </span>Basics of Python Programming<a class="headerlink" href="#basics-of-python-programming" title="Permalink to this heading">#</a></h1>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>List of subjects that might be useful in the future</p>
-<ul class="simple">
-<li><p>list comprehensions</p></li>
-<li><p>use of asterisk in passing variables (DONE)</p></li>
-<li><p>exercises on kernel reloading when discussing notebooks (in the likelihood lecture?):</p>
-<ul>
-<li><p>when an imported library is changed, need to reload</p></li>
-<li><p>when a variable changes name, the old one remains active until reloading</p></li>
-<li><p>rerun from start</p></li>
-</ul>
-</li>
-</ul>
-</div>
+<!-- ```{note}
+List of subjects that might be useful in the future
+  * list comprehensions
+  * use of asterisk in passing variables (DONE)
+  * exercises on kernel reloading when discussing notebooks (in the likelihood lecture?):
+    * when an imported library is changed, need to reload
+    * when a variable changes name, the old one remains active until reloading
+    * rerun from start
+``` -->
 <section id="objectives-of-the-laboratory">
 <h2><span class="section-number">1.1. </span>Objectives of the laboratory<a class="headerlink" href="#objectives-of-the-laboratory" title="Permalink to this heading">#</a></h2>
 <ul class="simple">
@@ -635,7 +629,7 @@ and the memory</p></li>
 <li><p>Information needs to be <strong>handled according to its nature</strong>,
 in terms of occupied memory space and elementary operations</p>
 <table class="table" id="tab-python-types">
-<caption><span class="caption-number">Table 1.2 </span><span class="caption-text">Logical Operators in Python</span><a class="headerlink" href="#tab-python-types" title="Permalink to this table">#</a></caption>
+<caption><span class="caption-number">Table 1.2 </span><span class="caption-text">Variable Types in Python</span><a class="headerlink" href="#tab-python-types" title="Permalink to this table">#</a></caption>
 <thead>
 <tr class="row-odd"><th class="head"><p>variable</p></th>
 <th class="head"><p>use</p></th>
@@ -652,10 +646,10 @@ in terms of occupied memory space and elementary operations</p>
 <td><p><code class="docutils literal notranslate"><span class="pre">a</span> <span class="pre">=</span> <span class="pre">3</span> <span class="pre">+</span> <span class="pre">2j</span></code></p></td>
 </tr>
 <tr class="row-odd"><td><p>boolean</p></td>
-<td><p><code class="docutils literal notranslate"><span class="pre">a=True</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">a</span> <span class="pre">=</span> <span class="pre">True</span></code></p></td>
 </tr>
 <tr class="row-even"><td><p>string</p></td>
-<td><p><code class="docutils literal notranslate"><span class="pre">a='filename.txt'</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">a</span> <span class="pre">=</span> <span class="pre">'filename.txt'</span></code></p></td>
 </tr>
 <tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">None</span></code></p></td>
 <td><p>object is not defined</p></td>
@@ -936,6 +930,12 @@ but Python allows also inhomogeneous lists.</p></li>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">test_list</span><span class="o">.</span><span class="n">append</span> <span class="p">(</span><span class="mi">7</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span> <span class="p">(</span><span class="n">test_list</span><span class="p">)</span>
 <span class="go">[1, 2, 3, 7]</span>
+</pre></div>
+</div>
+<p>or with the <code class="docutils literal notranslate"><span class="pre">+=</span></code> operator:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">test_list</span> <span class="o">+=</span> <span class="p">[</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">6</span><span class="p">]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span> <span class="p">(</span><span class="n">test_list</span><span class="p">)</span>
+<span class="go">[1, 2, 3, 7, 4, 5, 6]</span>
 </pre></div>
 </div>
 <ul class="simple">
@@ -1591,7 +1591,7 @@ independently of the conditions present in the <code class="docutils literal not
 <li><p>The <code class="docutils literal notranslate"><span class="pre">continue</span></code> instruction
 interrupts the execution of the instructions in the scope
 and <strong>jumps to the following iteration</strong></p></li>
-<li><p>The <code class="docutils literal notranslate"><span class="pre">break</span></code> instrution interrupts the execution of the iteration
+<li><p>The <code class="docutils literal notranslate"><span class="pre">break</span></code> instruction interrupts the execution of the iteration
 and exits the loop</p></li>
 </ul>
 </section>
@@ -1599,7 +1599,7 @@ and exits the loop</p></li>
 <section id="modules">
 <h2><span class="section-number">1.9. </span>Modules<a class="headerlink" href="#modules" title="Permalink to this heading">#</a></h2>
 <ul class="simple">
-<li><p>Colletions of functions to be used in many programs
+<li><p>Collections of functions to be used in many programs
 may be collected in <strong>libraries or modules</strong>
 that can be imported in scripts</p></li>
 </ul>

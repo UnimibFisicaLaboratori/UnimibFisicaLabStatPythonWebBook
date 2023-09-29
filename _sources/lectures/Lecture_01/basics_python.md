@@ -1,6 +1,6 @@
 # Basics of Python Programming
 
-```{note}
+<!-- ```{note}
 List of subjects that might be useful in the future
   * list comprehensions
   * use of asterisk in passing variables (DONE)
@@ -8,7 +8,7 @@ List of subjects that might be useful in the future
     * when an imported library is changed, need to reload
     * when a variable changes name, the old one remains active until reloading
     * rerun from start
-```
+``` -->
 
 ## Objectives of the laboratory
 
@@ -100,7 +100,7 @@ Python is an interpreted, object-oriented, high-level programming language with 
 
   * Information needs to be **handled according to its nature**, 
     in terms of occupied memory space and elementary operations
-    ```{list-table} Logical Operators in Python
+    ```{list-table} Variable Types in Python
     :header-rows: 1
     :name: tab_python_types
 
@@ -113,9 +113,9 @@ Python is an interpreted, object-oriented, high-level programming language with 
     * - complex
       - `a = 3 + 2j`
     * - boolean
-      - `a=True`
+      - `a = True`
     * - string
-      - `a='filename.txt'`
+      - `a = 'filename.txt'`
     * - `None`
       - object is not defined
     ```
@@ -342,6 +342,12 @@ Python is an interpreted, object-oriented, high-level programming language with 
     >>> test_list.append (7)
     >>> print (test_list)
     [1, 2, 3, 7]
+    ```
+    or with the `+=` operator:
+    ```python
+    >>> test_list += [4,5,6]
+    >>> print (test_list)
+    [1, 2, 3, 7, 4, 5, 6]
     ```
     * the dot (`.`) between `test_list` and the function `append`
       indicates that **the function has to act on that specific list**
@@ -908,12 +914,12 @@ Python is an interpreted, object-oriented, high-level programming language with 
   * The `continue` instruction
     interrupts the execution of the instructions in the scope
     and **jumps to the following iteration**
-  * The `break` instrution interrupts the execution of the iteration
+  * The `break` instruction interrupts the execution of the iteration
     and exits the loop 
 
 ## Modules
 
-  * Colletions of functions to be used in many programs
+  * Collections of functions to be used in many programs
     may be collected in **libraries or modules**
     that can be imported in scripts
 
