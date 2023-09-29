@@ -1,7 +1,7 @@
 Traceback (most recent call last):
   File "/opt/hostedtoolcache/Python/3.8.18/x64/lib/python3.8/site-packages/nbclient/client.py", line 778, in _async_poll_for_reply
     msg = await ensure_async(self.kc.shell_channel.get_msg(timeout=new_timeout))
-  File "/opt/hostedtoolcache/Python/3.8.18/x64/lib/python3.8/site-packages/jupyter_core/utils/__init__.py", line 182, in ensure_async
+  File "/opt/hostedtoolcache/Python/3.8.18/x64/lib/python3.8/site-packages/jupyter_core/utils/__init__.py", line 184, in ensure_async
     result = await obj
   File "/opt/hostedtoolcache/Python/3.8.18/x64/lib/python3.8/site-packages/jupyter_client/channels.py", line 315, in get_msg
     raise Empty
@@ -14,7 +14,7 @@ Traceback (most recent call last):
     executenb(
   File "/opt/hostedtoolcache/Python/3.8.18/x64/lib/python3.8/site-packages/nbclient/client.py", line 1305, in execute
     return NotebookClient(nb=nb, resources=resources, km=km, **kwargs).execute()
-  File "/opt/hostedtoolcache/Python/3.8.18/x64/lib/python3.8/site-packages/jupyter_core/utils/__init__.py", line 166, in wrapped
+  File "/opt/hostedtoolcache/Python/3.8.18/x64/lib/python3.8/site-packages/jupyter_core/utils/__init__.py", line 168, in wrapped
     return loop.run_until_complete(inner)
   File "/opt/hostedtoolcache/Python/3.8.18/x64/lib/python3.8/asyncio/base_events.py", line 616, in run_until_complete
     return future.result()
@@ -30,8 +30,8 @@ nbclient.exceptions.CellTimeoutError: A cell timed out while it was being execut
 The message was: Cell execution timed out.
 Here is a preview of the cell contents:
 -------------------
-['from iminuit.cost import ExtendedBinnedNLL', '', 'def mod_signal_bin_ext_LL (bin_edges, N_signal, mu, sigma) :', "    ''' fitting model for extended binned likelihood'''", '    return N_signal * norm.cdf (bin_edges, mu, sigma)']
+['from iminuit.cost import BinnedNLL', '', 'def mod_signal_bin_LL (bin_edges, mu, sigma) :', "    ''' fitting model for binned likelihood'''", '    return norm.cdf (bin_edges, mu, sigma)']
 ...
-['    if not my_minuit_bin_ext_LL.valid : continue', "    means_bin_ext_LL.append (my_minuit_bin_ext_LL.values['mu'])", "    sigmas_bin_ext_LL.append (my_minuit_bin_ext_LL.values['sigma'])", '    Q2_bin_ext_LL.append (my_minuit_bin_ext_LL.fval)', '    if (iToy == 0) : N_dof_ext_LL = my_minuit_bin_ext_LL.ndof']
+['    if not my_minuit_bin_LL.valid : continue', "    means_bin_LL.append (my_minuit_bin_LL.values['mu'])", "    sigmas_bin_LL.append (my_minuit_bin_LL.values['sigma'])", '    Q2_bin_LL.append (my_minuit_bin_LL.fval)', '    if (iToy == 0) : N_dof_LL = my_minuit_bin_LL.ndof']
 -------------------
 

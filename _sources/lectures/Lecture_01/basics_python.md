@@ -64,6 +64,7 @@ Python is an interpreted, object-oriented, high-level programming language with 
     Type "help", "copyright", "credits" or "license" for more information.
     >>> 
     ```
+<!-- fragment -->
   * The Python prompt is recognised by the `>>>` symbol and is **ready to receive commands**:
     ```python
     >>> 2+2

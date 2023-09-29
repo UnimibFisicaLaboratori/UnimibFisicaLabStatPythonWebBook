@@ -270,3 +270,5 @@ $$
   * The exercises for the lecture can be found [here](EXERCISES.md)
 :::
 
+```{note}
+Vogliamo aggiungere un esercizio di overfitting per mostrare che anche un chi2 vicino a 0 può essere un problema?```
