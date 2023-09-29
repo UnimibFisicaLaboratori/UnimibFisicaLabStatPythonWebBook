@@ -422,7 +422,7 @@ Python is an interpreted, object-oriented, high-level programming language with 
     `````{admonition} Tip
     :class: tip
     A special list is given by the type `range`, 
-    which represents an immutable sequence of numbers commonly used for looping a specific number of times in `for` loops
+    which represents an **immutable sequence of numbers** commonly used for looping a specific number of times in `for` loops
     ```python
     >>> list(range(4))
     [0, 1, 2, 3]
@@ -657,7 +657,7 @@ Python is an interpreted, object-oriented, high-level programming language with 
 
     ```{warning}
     Defining functions with an arbitrary number of arguments is a powerful feature, 
-    but it should be used with care. 
+    but it should be **used with care**. 
     All the operations that are performed on the arguments inside the function body 
     should be valid for all the possible types of arguments that the function can receive.
     ```
@@ -722,7 +722,7 @@ Python is an interpreted, object-oriented, high-level programming language with 
 
     `````{admonition} Documentation styles
     :class: note
-    Since in the Python language the information is inplicit
+    Since in the Python language the information is implicit
     (as the type of the variables),
     **special care has to be put in documenting the source code**:
     explain what is the purpose of the function in a concise way 
