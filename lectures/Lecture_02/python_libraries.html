@@ -654,8 +654,10 @@ of the object <code class="docutils literal notranslate"><span class="pre">matpl
 <ul class="simple">
 <li><p>the number of points, in this case <code class="docutils literal notranslate"><span class="pre">10000</span></code>, sets the <strong>smoothness of the drawing</strong></p></li>
 <li><p>the variable <code class="docutils literal notranslate"><span class="pre">y_coord_1</span></code> is a <strong><code class="docutils literal notranslate"><span class="pre">numpy</span></code> container</strong>,
-as it’s the result of the action of a <code class="docutils literal notranslate"><span class="pre">numpy</span></code> function (hence vectorialised) to a <code class="docutils literal notranslate"><span class="pre">numpy</span></code> container</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">x_coord</span></code> and <code class="docutils literal notranslate"><span class="pre">y_coord_1</span></code>; in this case,
+as it’s the result of the action of a <code class="docutils literal notranslate"><span class="pre">numpy</span></code> function (hence vectorialized) to a <code class="docutils literal notranslate"><span class="pre">numpy</span></code> container</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">x_coord</span></code> or <code class="docutils literal notranslate"><span class="pre">y_coord_1</span></code> may not be a <code class="docutils literal notranslate"><span class="pre">numpy</span></code> array,
+or the function to be plotted is not vectorialized;
+in this case,
 their filling will have to be done, if needed, with loops</p></li>
 </ul>
 </li>

@@ -164,8 +164,10 @@
     ```
     * the number of points, in this case ```10000```, sets the **smoothness of the drawing**
     * the variable ```y_coord_1``` is a **```numpy``` container**, 
-      as it's the result of the action of a ```numpy``` function (hence vectorialised) to a ```numpy``` container
-    * ```x_coord``` and ```y_coord_1```; in this case,
+      as it's the result of the action of a ```numpy``` function (hence vectorialized) to a ```numpy``` container
+    * ```x_coord``` or ```y_coord_1``` may not be a ```numpy``` array,
+      or the function to be plotted is not vectorialized; 
+      in this case,
       their filling will have to be done, if needed, with loops
   * coordinates are then **drawn on an axis**:
     ```py
