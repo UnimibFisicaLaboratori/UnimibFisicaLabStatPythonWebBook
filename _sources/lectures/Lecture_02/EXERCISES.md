@@ -60,6 +60,10 @@ using NumPy universal functions
   * Show that the terms *C* and *D* in the equation $f(x) = D \cos (Cx)$ represent
     horizontal and vertical dilations of the functional form, respectivey
 
+## Exercise 2.9
+
+Write a program that draws the Mandelbrot set with matplotlib.
+
 <!-- ## Exercise 2.X
 
 Using NumPy ndarrays,

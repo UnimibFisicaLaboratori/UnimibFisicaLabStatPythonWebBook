@@ -72,3 +72,10 @@ Exercise 2.8
 .. literalinclude:: exercises/ex_2.8.py
   :language: py
 
+Exercise 2.9
+------------
+* `ex_2.9.py`
+
+.. literalinclude:: exercises/ex_2.9.py
+  :language: py
+
