@@ -25,12 +25,20 @@
 
   * The **reading procedure** may be done in the following way:
     ```py
-    with open (sys.argv[1]) as input_file:
+    with open ('sample.txt') as input_file:
     sample = [float (x) for x in input_file.readlines()]
     ```
+    
     * The ```sample``` variabile gets created while reading the text file
     * The ```readlines ()``` function returns strings, 
       which need to be converted into floats for them to be used as sample elements
+
+    `````{note}
+    NumPy offers an alternative way to read data from text files and store them in arrays:
+    ```py
+    sample = np.loadtxt ('sample.txt')
+    ```
+    `````
 
 ## Histograms
 
@@ -74,7 +82,7 @@
             )
     ```
     where the input ```sample``` is a collection of values
-    * The *x* axis range and its division into bins is **automtically performed**
+    * The *x* axis range and its division into bins is **automatically performed**
       by the ```hist``` function
 
 ### Histogram drawing options control
@@ -98,17 +106,17 @@
 ### The number of bins
 
   * Depending on the sample size, **the number of bins shall be adapted**:
-    * on the one hand, **with more events it may be increased**, with very few events it has to remain small
-      to gather at least some events per bin
-    * on the other hand, **it's of no use that the size of each bin is much smaller** than the typical
-      shape changes in the histogram
-   ![histogram_binning](../../figs/compare_binnings.png)     
+    * on the one hand, **with more events it may be increased**, with very few events it has to remain small to gather at least some events per bin
+    * on the other hand, **it's of no use that the size of each bin is much smaller** than the typical shape changes in the histogram
+   
+      ![histogram_binning](../../figs/compare_binnings.png)     
+  
   * The choice of ```N_bins``` is therefore relevant for a proper representation: 
-    a recipe frequently used is the so-called Sturges' rule:
+    a recipe frequently used is the **so-called Sturges' rule**:
     ```py
-    from math import ceil
+    import numpy as np
     def sturges (N_events) :
-         return ceil (1 + 3.322 * np.log (N_events))
+         return int( np.ceil( 1 + 3.322 * np.log(N_events) ) )
     ```
     which may be used as follows in the drawing instructions:
     ```py
@@ -123,30 +131,30 @@
     (along the horizontal or vertical axis),
     to improve the readability of the result
   * Being a different visualization of the same content,
-    this operation is performed using a method of the ```axes``` object
+    this operation is performed using a **method of the ```axes``` object**
     ```py
     ax.set_ylabel ('y')
-
     ```
-      * Clearly, the zero of the logarithmic scale axis cannot appear in the images
-   ![log_scale](../../figs/log_scale_example.png)     
+      * Clearly, **the zero of the logarithmic scale axis cannot appear** in the images
+        
+        ![log_scale](../../figs/log_scale_example.png)     
 
 
 ## Calculate and draw sample moments
 
-  * Given the sample,
-    its **moments may be calculated** by replacing expectation values
-    with sample averages, for example:
+  * Given a sample, its **moments may be calculated** by replacing expectation values with sample averages, for example:
+
     $$
     E[x] = \int_{-\infty}^\infty x\:f(x)\:dx ~ \to ~ \sum^N_{i=1} x_i / N
     $$
+  
   * The **corresponding ```python``` script** to implement this call is then:
     ```py
     return sum (sample) / len (sample)   
     ```
     * the ```python``` function ```sum``` calculates the sum of the ```sample``` elements
     * the ```python``` function ```len``` calculates its number of elements
-  * once the average is known, its drawing may be added to a histogram:
+  * once the average is known, its drawing may be **added on top of a histogram**:
     ```py
     ax.hist (sample,
              bins = bin_edges,
@@ -161,13 +169,13 @@
 ## Data models
 
   * **Notable probability density function distributions**
-    exist in a pre-implemented for in the 
+    exist in a pre-implemented form in the 
     [`SciPy`](https://scipy.org) library,
     which provides algorithms and data structures for scientific computing.
   * The **full list of available models** may be found [here](https://docs.scipy.org/doc/SciPy/tutorial/stats.html#)
   * All continuous distributions take **`loc` and `scale` as keyword parameters**
     to adjust the location and scale of the distribution
-    * for the standard normal distribution, the `loc` is the mean and the `scale` is the standard deviation
+    * for the **[Gaussian](https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.norm.html#scipy-stats-norm) distribution**, the `loc` is the mean and the `scale` is the standard deviation
 
 ### Using a continuous probability density function
 
@@ -183,7 +191,7 @@
     x = mean + sigma / 2.
     print (norm.pdf (x, mean, sigma))
     ```
-  * The values of the input parameters may be frozen once and for all:
+  * The values of the **input parameters** may be frozen once and for all:
     ```py
     norm_fix = norm (mean, sigma)
     print (norm_fix.pdf (mean))
@@ -193,7 +201,7 @@
 
   * The function `cdf` gives access to the **cumulative density function** of the model,
     for example in the case of a 
-    [Gaussian](https://docs.scipy.org/doc/SciPy/reference/generated/scipy.stats.norm.html) distribution:
+    [Gaussian](https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.norm.html#scipy-stats-norm) distribution:
     ```py
     print ('the value of the Gaussian distribution cumulative at its mean is: ' +
            str (norm.cdf (mean, mean, sigma))
@@ -210,17 +218,17 @@
 
 ## Function integration
 
-  * The SciPy library also contains a module **dedicated to numerical integration**
-    of functions
+  * The SciPy library also contains a module **dedicated to numerical integration** of functions
 
 ### Definite integral
 
-  * The function `quad` **calculates definite integrals** given the function
+  * The function [`quad`](https://docs.scipy.org/doc/scipy/reference/generated/scipy.integrate.quad.html) **calculates definite integrals** given the function
     and the integration range  
     ```py
     from scipy.integrate import quad
     # definition of a polinomial function
-    polin = lambda x : x**2 + x + 1
+    def polin(x): return x**2 + x + 1
+    
     area = quad (polin, 0., 4.)
     print ('area = ', area[0])
     print ('absolute error estimate = ', area[1])
@@ -239,8 +247,7 @@
     area = quad (expon, 0, np.inf)
     ```
 
-:::{note}
+```{note}
   * The examples for the lecture may be found [here](EXAMPLES.rst)
   * The exercises for the lecture may be found [here](EXERCISES.md)
-:::
-
+```

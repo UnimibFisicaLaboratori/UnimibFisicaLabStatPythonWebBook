@@ -68,7 +68,7 @@ const thebe_selector_output = ".output, .cell_output"
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
     <link rel="next" title="3.6. Examples: Lecture 3" href="EXAMPLES.html" />
-    <link rel="prev" title="2.5. Exercises for Lecture 2" href="../Lecture_02/EXERCISES.html" />
+    <link rel="prev" title="2.6. Solutions: Lecture 2" href="../Lecture_02/SOLUTIONS.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -183,6 +183,7 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1 has-children"><a class="reference internal" href="../Lecture_02/python_libraries.html">2. Notable Python Libraries</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
 <li class="toctree-l2"><a class="reference internal" href="../Lecture_02/EXAMPLES.html">2.4. Examples: Lecture 2</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../Lecture_02/EXERCISES.html">2.5. Exercises for Lecture 2</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Lecture_02/SOLUTIONS.html">2.6. Solutions: Lecture 2</a></li>
 </ul>
 </li>
 <li class="toctree-l1 current active has-children"><a class="current reference internal" href="#">3. Data Visualisation with Python</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul>
@@ -495,7 +496,7 @@ so to ensure that the numbers are saved in different lines</p></li>
 <h3><span class="section-number">3.1.2. </span>Reading information from txt files<a class="headerlink" href="#reading-information-from-txt-files" title="Permalink to this heading">#</a></h3>
 <ul>
 <li><p>The <strong>reading procedure</strong> may be done in the following way:</p>
-<div class="highlight-py notranslate"><div class="highlight"><pre><span></span><span class="k">with</span> <span class="nb">open</span> <span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span> <span class="k">as</span> <span class="n">input_file</span><span class="p">:</span>
+<div class="highlight-py notranslate"><div class="highlight"><pre><span></span><span class="k">with</span> <span class="nb">open</span> <span class="p">(</span><span class="s1">&#39;sample.txt&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">input_file</span><span class="p">:</span>
 <span class="n">sample</span> <span class="o">=</span> <span class="p">[</span><span class="nb">float</span> <span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">input_file</span><span class="o">.</span><span class="n">readlines</span><span class="p">()]</span>
 </pre></div>
 </div>
@@ -504,6 +505,13 @@ so to ensure that the numbers are saved in different lines</p></li>
 <li><p>The <code class="docutils literal notranslate"><span class="pre">readlines</span> <span class="pre">()</span></code> function returns strings,
 which need to be converted into floats for them to be used as sample elements</p></li>
 </ul>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>NumPy offers an alternative way to read data from text files and store them in arrays:</p>
+<div class="highlight-py notranslate"><div class="highlight"><pre><span></span><span class="n">sample</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">loadtxt</span> <span class="p">(</span><span class="s1">&#39;sample.txt&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
 </li>
 </ul>
 </section>
@@ -566,7 +574,7 @@ may be obtained with the following instructions:</p>
 </div>
 <p>where the input <code class="docutils literal notranslate"><span class="pre">sample</span></code> is a collection of values</p>
 <ul class="simple">
-<li><p>The <em>x</em> axis range and its division into bins is <strong>automtically performed</strong>
+<li><p>The <em>x</em> axis range and its division into bins is <strong>automatically performed</strong>
 by the <code class="docutils literal notranslate"><span class="pre">hist</span></code> function</p></li>
 </ul>
 </li>
@@ -597,19 +605,18 @@ and providing them as input with the <code class="docutils literal notranslate">
 <h3><span class="section-number">3.2.5. </span>The number of bins<a class="headerlink" href="#the-number-of-bins" title="Permalink to this heading">#</a></h3>
 <ul>
 <li><p>Depending on the sample size, <strong>the number of bins shall be adapted</strong>:</p>
-<ul class="simple">
-<li><p>on the one hand, <strong>with more events it may be increased</strong>, with very few events it has to remain small
-to gather at least some events per bin</p></li>
-<li><p>on the other hand, <strong>it’s of no use that the size of each bin is much smaller</strong> than the typical
-shape changes in the histogram
-<img alt="histogram_binning" src="../../_images/compare_binnings.png" /></p></li>
+<ul>
+<li><p>on the one hand, <strong>with more events it may be increased</strong>, with very few events it has to remain small to gather at least some events per bin</p></li>
+<li><p>on the other hand, <strong>it’s of no use that the size of each bin is much smaller</strong> than the typical shape changes in the histogram</p>
+<p><img alt="histogram_binning" src="../../_images/compare_binnings.png" /></p>
+</li>
 </ul>
 </li>
 <li><p>The choice of <code class="docutils literal notranslate"><span class="pre">N_bins</span></code> is therefore relevant for a proper representation:
-a recipe frequently used is the so-called Sturges’ rule:</p>
-<div class="highlight-py notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">math</span> <span class="kn">import</span> <span class="n">ceil</span>
+a recipe frequently used is the <strong>so-called Sturges’ rule</strong>:</p>
+<div class="highlight-py notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 <span class="k">def</span> <span class="nf">sturges</span> <span class="p">(</span><span class="n">N_events</span><span class="p">)</span> <span class="p">:</span>
-     <span class="k">return</span> <span class="n">ceil</span> <span class="p">(</span><span class="mi">1</span> <span class="o">+</span> <span class="mf">3.322</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">log</span> <span class="p">(</span><span class="n">N_events</span><span class="p">))</span>
+     <span class="k">return</span> <span class="nb">int</span><span class="p">(</span> <span class="n">np</span><span class="o">.</span><span class="n">ceil</span><span class="p">(</span> <span class="mi">1</span> <span class="o">+</span> <span class="mf">3.322</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">N_events</span><span class="p">)</span> <span class="p">)</span> <span class="p">)</span>
 </pre></div>
 </div>
 <p>which may be used as follows in the drawing instructions:</p>
@@ -628,14 +635,14 @@ it can be convenient to <strong>visualize histograms on a logarithmic scale</str
 (along the horizontal or vertical axis),
 to improve the readability of the result</p></li>
 <li><p>Being a different visualization of the same content,
-this operation is performed using a method of the <code class="docutils literal notranslate"><span class="pre">axes</span></code> object</p>
+this operation is performed using a <strong>method of the <code class="docutils literal notranslate"><span class="pre">axes</span></code> object</strong></p>
 <div class="highlight-py notranslate"><div class="highlight"><pre><span></span><span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span> <span class="p">(</span><span class="s1">&#39;y&#39;</span><span class="p">)</span>
-
 </pre></div>
 </div>
-<ul class="simple">
-<li><p>Clearly, the zero of the logarithmic scale axis cannot appear in the images
-<img alt="log_scale" src="../../_images/log_scale_example.png" /></p></li>
+<ul>
+<li><p>Clearly, <strong>the zero of the logarithmic scale axis cannot appear</strong> in the images</p>
+<p><img alt="log_scale" src="../../_images/log_scale_example.png" /></p>
+</li>
 </ul>
 </li>
 </ul>
@@ -644,12 +651,12 @@ this operation is performed using a method of the <code class="docutils literal 
 <section id="calculate-and-draw-sample-moments">
 <h2><span class="section-number">3.3. </span>Calculate and draw sample moments<a class="headerlink" href="#calculate-and-draw-sample-moments" title="Permalink to this heading">#</a></h2>
 <ul>
-<li><p>Given the sample,
-its <strong>moments may be calculated</strong> by replacing expectation values
-with sample averages, for example:
-$<span class="math notranslate nohighlight">\(
-E[x] = \int_{-\infty}^\infty x\:f(x)\:dx ~ \to ~ \sum^N_{i=1} x_i / N
-\)</span>$</p></li>
+<li><p>Given a sample, its <strong>moments may be calculated</strong> by replacing expectation values with sample averages, for example:</p>
+<div class="math notranslate nohighlight">
+\[
+    E[x] = \int_{-\infty}^\infty x\:f(x)\:dx ~ \to ~ \sum^N_{i=1} x_i / N
+    \]</div>
+</li>
 <li><p>The <strong>corresponding <code class="docutils literal notranslate"><span class="pre">python</span></code> script</strong> to implement this call is then:</p>
 <div class="highlight-py notranslate"><div class="highlight"><pre><span></span><span class="k">return</span> <span class="nb">sum</span> <span class="p">(</span><span class="n">sample</span><span class="p">)</span> <span class="o">/</span> <span class="nb">len</span> <span class="p">(</span><span class="n">sample</span><span class="p">)</span>   
 </pre></div>
@@ -659,7 +666,7 @@ E[x] = \int_{-\infty}^\infty x\:f(x)\:dx ~ \to ~ \sum^N_{i=1} x_i / N
 <li><p>the <code class="docutils literal notranslate"><span class="pre">python</span></code> function <code class="docutils literal notranslate"><span class="pre">len</span></code> calculates its number of elements</p></li>
 </ul>
 </li>
-<li><p>once the average is known, its drawing may be added to a histogram:</p>
+<li><p>once the average is known, its drawing may be <strong>added on top of a histogram</strong>:</p>
 <div class="highlight-py notranslate"><div class="highlight"><pre><span></span><span class="n">ax</span><span class="o">.</span><span class="n">hist</span> <span class="p">(</span><span class="n">sample</span><span class="p">,</span>
          <span class="n">bins</span> <span class="o">=</span> <span class="n">bin_edges</span><span class="p">,</span>
          <span class="n">color</span> <span class="o">=</span> <span class="s1">&#39;orange&#39;</span><span class="p">,</span>
@@ -677,14 +684,14 @@ E[x] = \int_{-\infty}^\infty x\:f(x)\:dx ~ \to ~ \sum^N_{i=1} x_i / N
 <h2><span class="section-number">3.4. </span>Data models<a class="headerlink" href="#data-models" title="Permalink to this heading">#</a></h2>
 <ul class="simple">
 <li><p><strong>Notable probability density function distributions</strong>
-exist in a pre-implemented for in the
+exist in a pre-implemented form in the
 <a class="reference external" href="https://scipy.org"><code class="docutils literal notranslate"><span class="pre">SciPy</span></code></a> library,
 which provides algorithms and data structures for scientific computing.</p></li>
 <li><p>The <strong>full list of available models</strong> may be found <a class="reference external" href="https://docs.scipy.org/doc/SciPy/tutorial/stats.html#">here</a></p></li>
 <li><p>All continuous distributions take <strong><code class="docutils literal notranslate"><span class="pre">loc</span></code> and <code class="docutils literal notranslate"><span class="pre">scale</span></code> as keyword parameters</strong>
 to adjust the location and scale of the distribution</p>
 <ul>
-<li><p>for the standard normal distribution, the <code class="docutils literal notranslate"><span class="pre">loc</span></code> is the mean and the <code class="docutils literal notranslate"><span class="pre">scale</span></code> is the standard deviation</p></li>
+<li><p>for the <strong><a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.norm.html#scipy-stats-norm">Gaussian</a> distribution</strong>, the <code class="docutils literal notranslate"><span class="pre">loc</span></code> is the mean and the <code class="docutils literal notranslate"><span class="pre">scale</span></code> is the standard deviation</p></li>
 </ul>
 </li>
 </ul>
@@ -705,7 +712,7 @@ as for example for the Gaussian distribution:</p>
 </pre></div>
 </div>
 </li>
-<li><p>The values of the input parameters may be frozen once and for all:</p>
+<li><p>The values of the <strong>input parameters</strong> may be frozen once and for all:</p>
 <div class="highlight-py notranslate"><div class="highlight"><pre><span></span><span class="n">norm_fix</span> <span class="o">=</span> <span class="n">norm</span> <span class="p">(</span><span class="n">mean</span><span class="p">,</span> <span class="n">sigma</span><span class="p">)</span>
 <span class="nb">print</span> <span class="p">(</span><span class="n">norm_fix</span><span class="o">.</span><span class="n">pdf</span> <span class="p">(</span><span class="n">mean</span><span class="p">))</span>
 </pre></div>
@@ -718,7 +725,7 @@ as for example for the Gaussian distribution:</p>
 <ul>
 <li><p>The function <code class="docutils literal notranslate"><span class="pre">cdf</span></code> gives access to the <strong>cumulative density function</strong> of the model,
 for example in the case of a
-<a class="reference external" href="https://docs.scipy.org/doc/SciPy/reference/generated/scipy.stats.norm.html">Gaussian</a> distribution:</p>
+<a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.norm.html#scipy-stats-norm">Gaussian</a> distribution:</p>
 <div class="highlight-py notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span> <span class="p">(</span><span class="s1">&#39;the value of the Gaussian distribution cumulative at its mean is: &#39;</span> <span class="o">+</span>
        <span class="nb">str</span> <span class="p">(</span><span class="n">norm</span><span class="o">.</span><span class="n">cdf</span> <span class="p">(</span><span class="n">mean</span><span class="p">,</span> <span class="n">mean</span><span class="p">,</span> <span class="n">sigma</span><span class="p">))</span>
        <span class="p">)</span>
@@ -742,17 +749,17 @@ for example in the case of a
 <section id="function-integration">
 <h2><span class="section-number">3.5. </span>Function integration<a class="headerlink" href="#function-integration" title="Permalink to this heading">#</a></h2>
 <ul class="simple">
-<li><p>The SciPy library also contains a module <strong>dedicated to numerical integration</strong>
-of functions</p></li>
+<li><p>The SciPy library also contains a module <strong>dedicated to numerical integration</strong> of functions</p></li>
 </ul>
 <section id="definite-integral">
 <h3><span class="section-number">3.5.1. </span>Definite integral<a class="headerlink" href="#definite-integral" title="Permalink to this heading">#</a></h3>
 <ul>
-<li><p>The function <code class="docutils literal notranslate"><span class="pre">quad</span></code> <strong>calculates definite integrals</strong> given the function
+<li><p>The function <a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.integrate.quad.html"><code class="docutils literal notranslate"><span class="pre">quad</span></code></a> <strong>calculates definite integrals</strong> given the function
 and the integration range</p>
 <div class="highlight-py notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">scipy.integrate</span> <span class="kn">import</span> <span class="n">quad</span>
 <span class="c1"># definition of a polinomial function</span>
-<span class="n">polin</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">x</span> <span class="p">:</span> <span class="n">x</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="n">x</span> <span class="o">+</span> <span class="mi">1</span>
+<span class="k">def</span> <span class="nf">polin</span><span class="p">(</span><span class="n">x</span><span class="p">):</span> <span class="k">return</span> <span class="n">x</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="n">x</span> <span class="o">+</span> <span class="mi">1</span>
+
 <span class="n">area</span> <span class="o">=</span> <span class="n">quad</span> <span class="p">(</span><span class="n">polin</span><span class="p">,</span> <span class="mf">0.</span><span class="p">,</span> <span class="mf">4.</span><span class="p">)</span>
 <span class="nb">print</span> <span class="p">(</span><span class="s1">&#39;area = &#39;</span><span class="p">,</span> <span class="n">area</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
 <span class="nb">print</span> <span class="p">(</span><span class="s1">&#39;absolute error estimate = &#39;</span><span class="p">,</span> <span class="n">area</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
@@ -822,12 +829,12 @@ which can be expressed thanks to the numpy object <code class="docutils literal 
                   <!-- Previous / next buttons -->
 <div class="prev-next-area">
     <a class="left-prev"
-       href="../Lecture_02/EXERCISES.html"
+       href="../Lecture_02/SOLUTIONS.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title"><span class="section-number">2.5. </span>Exercises for Lecture 2</p>
+        <p class="prev-next-title"><span class="section-number">2.6. </span>Solutions: Lecture 2</p>
       </div>
     </a>
     <a class="right-next"

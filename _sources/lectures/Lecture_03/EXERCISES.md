@@ -6,7 +6,7 @@
 
 ## Exercise 3.2
 
-Read the text file [eventi_unif.txt](https://github.com/UnimibFisicaLaboratori/UnimibFisicaLabStatPython/blob/main/book/lectures/Lecture_03/exercises/eventi_unif.txt)
+Read the text file [eventi_unif.txt](https://raw.githubusercontent.com/UnimibFisicaLaboratori/UnimibFisicaLabStatPython/main/book/lectures/Lecture_03/exercises/eventi_unif.txt?token=GHSAT0AAAAAACIWS3PPQPW7EDJ35WURR4NMZJL6ZNA)
 
   * Print the first 10 positive elements to the screen.
   * Count the number of events contained in the file.
@@ -35,7 +35,7 @@ Read the text file [```eventi_gauss.txt```](https://github.com/UnimibFisicaLabor
 
 ## Exercise 3.5
 
-Read the text file [```eventi_unif.txt```](https://raw.githubusercontent.com/UnimibFisicaLaboratori/UnimibFisicaLab2/master/Lezione_03/programmi/eventi_unif.txt):
+Read the text file [```eventi_unif.txt```](https://raw.githubusercontent.com/UnimibFisicaLaboratori/UnimibFisicaLabStatPython/main/book/lectures/Lecture_03/exercises/eventi_unif.txt?token=GHSAT0AAAAAACIWS3POIJNNHAQOSCNMXEN2ZJL63FQ):
   * Calculate the mean of the numbers in the text file.
   * Calculate the variance of the numbers in the text file.
   * Calculate the standard deviation of the numbers in the text file.
@@ -43,13 +43,13 @@ Read the text file [```eventi_unif.txt```](https://raw.githubusercontent.com/Uni
 
 ## Exercise 3.6
 
-Write a ```python``` class in the form of a library which,
+Write a ```python``` library which,
 given the name of a text file containing a sample of events as input,
-is able to store the sample internally,
-calculate its mean, variance, standard deviation, standard deviation from the mean,
+is able to read the sample and save it in a numpy array,
+then calculate its mean, variance, standard deviation, standard deviation from the mean,
 display the sample in a histogram
 with an appropriately chosen definition range and bin number.
-Write a test program for the created class.
+Write a test program for the created library.
 
 ## Exercise 3.7
 
@@ -74,9 +74,9 @@ Write a Python program to draw a Poisson distribution for several values of its 
 
 ## Exercise 3.12
 
-Write a Python program to draw a Poisson distribution
+Write a Python program to draw a Poisson distribution.
 Show, by using the third and fourth central momenta calculations available in the `scipy.stat` library,
-that the momenta of a Poisson distribution asymptotically tend to the ones of a Gaussian
+that the momenta of a Poisson distribution asymptotically tend to the ones of a Gaussian.
 
 ## Exercise 3.13
 
