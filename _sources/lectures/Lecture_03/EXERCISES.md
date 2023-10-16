@@ -76,7 +76,7 @@ Write a Python program to draw a Poisson distribution for several values of its 
 ## Exercise 3.12
 
 Write a Python program to draw a Poisson distribution.
-Show, by using the third and fourth central momenta calculations available in the `scipy.stat` library,
+Show, by using the third and fourth central momenta calculations available in the `scipy.stats` library,
 that the momenta of a Poisson distribution asymptotically tend to the ones of a Gaussian.
 
 ## Exercise 3.13

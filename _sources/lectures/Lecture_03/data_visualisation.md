@@ -197,6 +197,10 @@
     print (norm_fix.pdf (mean))
     ```
 
+  ```{note}
+  For discrete probability density functions (e.g. *Poisson*, *Binomial*), the `pmf` function is used instead of `pdf`.
+  ```
+
 ### The cumulative density function
 
   * The function `cdf` gives access to the **cumulative density function** of the model,
