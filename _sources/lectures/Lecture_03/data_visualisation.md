@@ -133,7 +133,7 @@
   * Being a different visualization of the same content,
     this operation is performed using a **method of the ```axes``` object**
     ```py
-    ax.set_ylabel ('y')
+    ax.set_yscale ('log')
     ```
       * Clearly, **the zero of the logarithmic scale axis cannot appear** in the images
         
@@ -172,7 +172,7 @@
     exist in a pre-implemented form in the 
     [`SciPy`](https://scipy.org) library,
     which provides algorithms and data structures for scientific computing.
-  * The **full list of available models** may be found [here](https://docs.scipy.org/doc/SciPy/tutorial/stats.html#)
+  * The **full list of available models** may be found [here](https://docs.scipy.org/doc/scipy/reference/stats.html#module-scipy.stats)
   * All continuous distributions take **`loc` and `scale` as keyword parameters**
     to adjust the location and scale of the distribution
     * for the **[Gaussian](https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.norm.html#scipy-stats-norm) distribution**, the `loc` is the mean and the `scale` is the standard deviation
@@ -200,8 +200,7 @@
 ### The cumulative density function
 
   * The function `cdf` gives access to the **cumulative density function** of the model,
-    for example in the case of a 
-    [Gaussian](https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.norm.html#scipy-stats-norm) distribution:
+    for example in the case of a [Gaussian](https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.norm.html#scipy-stats-norm) distribution:
     ```py
     print ('the value of the Gaussian distribution cumulative at its mean is: ' +
            str (norm.cdf (mean, mean, sigma))
@@ -241,9 +240,8 @@
   * The `quad` function works with infinity extremes,
     which can be expressed thanks to the numpy object `np.inf`:
     ```py
-    def expon (x) :
-        return exp (-1 * x)
-    #...
+    def expon (x): return exp (-1 * x)
+    
     area = quad (expon, 0, np.inf)
     ```
 

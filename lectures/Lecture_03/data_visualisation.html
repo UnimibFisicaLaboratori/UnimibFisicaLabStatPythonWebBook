@@ -636,7 +636,7 @@ it can be convenient to <strong>visualize histograms on a logarithmic scale</str
 to improve the readability of the result</p></li>
 <li><p>Being a different visualization of the same content,
 this operation is performed using a <strong>method of the <code class="docutils literal notranslate"><span class="pre">axes</span></code> object</strong></p>
-<div class="highlight-py notranslate"><div class="highlight"><pre><span></span><span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span> <span class="p">(</span><span class="s1">&#39;y&#39;</span><span class="p">)</span>
+<div class="highlight-py notranslate"><div class="highlight"><pre><span></span><span class="n">ax</span><span class="o">.</span><span class="n">set_yscale</span> <span class="p">(</span><span class="s1">&#39;log&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 <ul>
@@ -687,7 +687,7 @@ this operation is performed using a <strong>method of the <code class="docutils 
 exist in a pre-implemented form in the
 <a class="reference external" href="https://scipy.org"><code class="docutils literal notranslate"><span class="pre">SciPy</span></code></a> library,
 which provides algorithms and data structures for scientific computing.</p></li>
-<li><p>The <strong>full list of available models</strong> may be found <a class="reference external" href="https://docs.scipy.org/doc/SciPy/tutorial/stats.html#">here</a></p></li>
+<li><p>The <strong>full list of available models</strong> may be found <a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/stats.html#module-scipy.stats">here</a></p></li>
 <li><p>All continuous distributions take <strong><code class="docutils literal notranslate"><span class="pre">loc</span></code> and <code class="docutils literal notranslate"><span class="pre">scale</span></code> as keyword parameters</strong>
 to adjust the location and scale of the distribution</p>
 <ul>
@@ -724,8 +724,7 @@ as for example for the Gaussian distribution:</p>
 <h3><span class="section-number">3.4.2. </span>The cumulative density function<a class="headerlink" href="#the-cumulative-density-function" title="Permalink to this heading">#</a></h3>
 <ul>
 <li><p>The function <code class="docutils literal notranslate"><span class="pre">cdf</span></code> gives access to the <strong>cumulative density function</strong> of the model,
-for example in the case of a
-<a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.norm.html#scipy-stats-norm">Gaussian</a> distribution:</p>
+for example in the case of a <a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.norm.html#scipy-stats-norm">Gaussian</a> distribution:</p>
 <div class="highlight-py notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span> <span class="p">(</span><span class="s1">&#39;the value of the Gaussian distribution cumulative at its mean is: &#39;</span> <span class="o">+</span>
        <span class="nb">str</span> <span class="p">(</span><span class="n">norm</span><span class="o">.</span><span class="n">cdf</span> <span class="p">(</span><span class="n">mean</span><span class="p">,</span> <span class="n">mean</span><span class="p">,</span> <span class="n">sigma</span><span class="p">))</span>
        <span class="p">)</span>
@@ -777,9 +776,8 @@ of the <strong>absolute error</strong> on the integral</p></li>
 <ul>
 <li><p>The <code class="docutils literal notranslate"><span class="pre">quad</span></code> function works with infinity extremes,
 which can be expressed thanks to the numpy object <code class="docutils literal notranslate"><span class="pre">np.inf</span></code>:</p>
-<div class="highlight-py notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">expon</span> <span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="p">:</span>
-    <span class="k">return</span> <span class="n">exp</span> <span class="p">(</span><span class="o">-</span><span class="mi">1</span> <span class="o">*</span> <span class="n">x</span><span class="p">)</span>
-<span class="c1">#...</span>
+<div class="highlight-py notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">expon</span> <span class="p">(</span><span class="n">x</span><span class="p">):</span> <span class="k">return</span> <span class="n">exp</span> <span class="p">(</span><span class="o">-</span><span class="mi">1</span> <span class="o">*</span> <span class="n">x</span><span class="p">)</span>
+
 <span class="n">area</span> <span class="o">=</span> <span class="n">quad</span> <span class="p">(</span><span class="n">expon</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">inf</span><span class="p">)</span>
 </pre></div>
 </div>
