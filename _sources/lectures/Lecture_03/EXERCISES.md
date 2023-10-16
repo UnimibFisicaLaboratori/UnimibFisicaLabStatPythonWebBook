@@ -6,8 +6,8 @@
 
 ## Exercise 3.2
 
-Read the text file [eventi_unif.txt](https://raw.githubusercontent.com/UnimibFisicaLaboratori/UnimibFisicaLabStatPython/main/book/lectures/Lecture_03/exercises/eventi_unif.txt?token=GHSAT0AAAAAACIWS3PPQPW7EDJ35WURR4NMZJL6ZNA)
-
+Read the text file [eventi_unif.txt](https://www.dropbox.com/scl/fi/8rz9hz2tejwu7y4kodlbt/eventi_unif.txt?rlkey=dr9r210zqsq1lz826ixgfa578&dl=0):
+<!-- https://raw.githubusercontent.com/UnimibFisicaLaboratori/UnimibFisicaLabStatPython/main/book/lectures/Lecture_03/exercises/eventi_unif.txt?token=GHSAT0AAAAAACIWS3PPQPW7EDJ35WURR4NMZJL6ZNA) -->
   * Print the first 10 positive elements to the screen.
   * Count the number of events contained in the file.
   * Determine the minimum and maximum values among the numbers saved in the file.
@@ -22,7 +22,8 @@ Read the text file [eventi_unif.txt](https://raw.githubusercontent.com/UnimibFis
 
 ## Exercise 3.3
 
-Read the text file [```eventi_gauss.txt```](https://github.com/UnimibFisicaLaboratori/UnimibFisicaLabStatPython/blob/main/book/lectures/Lecture_03/exercises/eventi_gauss.txt):
+Read the text file [```eventi_gauss.txt```](https://www.dropbox.com/scl/fi/4s8jdz7dtpwd1e6ziggn1/eventi_gauss.txt?rlkey=culpwqinlrah75eoy6wk4gpmq&dl=0):
+<!-- https://github.com/UnimibFisicaLaboratori/UnimibFisicaLabStatPython/blob/main/book/lectures/Lecture_03/exercises/eventi_gauss.txt): -->
   * Fill a histogram with the first N numbers contained in the file,
     where N is a command-line parameter during program execution.
   * Choose the histogram's definition range and its bin number
