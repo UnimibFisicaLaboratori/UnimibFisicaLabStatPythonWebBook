@@ -610,32 +610,33 @@ for the cases of maximum likelihood, extended maximum likelihood, and least squa
 <span class="g g-Whitespace">   </span><span class="mi">2186</span>     <span class="n">place</span><span class="p">(</span><span class="n">output</span><span class="p">,</span> <span class="n">cond</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">_cdf</span><span class="p">(</span><span class="o">*</span><span class="n">goodargs</span><span class="p">))</span>
 <span class="g g-Whitespace">   </span><span class="mi">2187</span> <span class="k">if</span> <span class="n">output</span><span class="o">.</span><span class="n">ndim</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
 
-<span class="nn">File /opt/hostedtoolcache/Python/3.8.18/x64/lib/python3.8/site-packages/scipy/stats/_distn_infrastructure.py:578,</span> in <span class="ni">argsreduce</span><span class="nt">(cond, *args)</span>
-<span class="g g-Whitespace">    </span><span class="mi">575</span> <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">newargs</span><span class="p">,</span> <span class="nb">list</span><span class="p">):</span>
-<span class="g g-Whitespace">    </span><span class="mi">576</span>     <span class="n">newargs</span> <span class="o">=</span> <span class="p">[</span><span class="n">newargs</span><span class="p">,</span> <span class="p">]</span>
-<span class="ne">--&gt; </span><span class="mi">578</span> <span class="k">if</span> <span class="n">np</span><span class="o">.</span><span class="n">all</span><span class="p">(</span><span class="n">cond</span><span class="p">):</span>
-<span class="g g-Whitespace">    </span><span class="mi">579</span>     <span class="c1"># broadcast arrays with cond</span>
-<span class="g g-Whitespace">    </span><span class="mi">580</span>     <span class="o">*</span><span class="n">newargs</span><span class="p">,</span> <span class="n">cond</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">broadcast_arrays</span><span class="p">(</span><span class="o">*</span><span class="n">newargs</span><span class="p">,</span> <span class="n">cond</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">581</span>     <span class="k">return</span> <span class="p">[</span><span class="n">arg</span><span class="o">.</span><span class="n">ravel</span><span class="p">()</span> <span class="k">for</span> <span class="n">arg</span> <span class="ow">in</span> <span class="n">newargs</span><span class="p">]</span>
-
-<span class="nn">File &lt;__array_function__ internals&gt;:200,</span> in <span class="ni">all</span><span class="nt">(*args, **kwargs)</span>
-
-<span class="nn">File /opt/hostedtoolcache/Python/3.8.18/x64/lib/python3.8/site-packages/numpy/core/fromnumeric.py:2515,</span> in <span class="ni">all</span><span class="nt">(a, axis, out, keepdims, where)</span>
-<span class="g g-Whitespace">   </span><span class="mi">2432</span> <span class="nd">@array_function_dispatch</span><span class="p">(</span><span class="n">_all_dispatcher</span><span class="p">)</span>
-<span class="g g-Whitespace">   </span><span class="mi">2433</span> <span class="k">def</span> <span class="nf">all</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">out</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">keepdims</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">_NoValue</span><span class="p">,</span> <span class="o">*</span><span class="p">,</span> <span class="n">where</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">_NoValue</span><span class="p">):</span>
-<span class="g g-Whitespace">   </span><span class="mi">2434</span><span class="w">     </span><span class="sd">&quot;&quot;&quot;</span>
-<span class="g g-Whitespace">   </span><span class="mi">2435</span><span class="sd">     Test whether all array elements along a given axis evaluate to True.</span>
-<span class="g g-Whitespace">   </span><span class="mi">2436</span><span class="sd"> </span>
+<span class="nn">File /opt/hostedtoolcache/Python/3.8.18/x64/lib/python3.8/site-packages/scipy/stats/_distn_infrastructure.py:571,</span> in <span class="ni">argsreduce</span><span class="nt">(cond, *args)</span>
+<span class="g g-Whitespace">    </span><span class="mi">537</span><span class="w"> </span><span class="sd">&quot;&quot;&quot;Clean arguments to:</span>
+<span class="g g-Whitespace">    </span><span class="mi">538</span><span class="sd"> </span>
+<span class="g g-Whitespace">    </span><span class="mi">539</span><span class="sd"> 1. Ensure all arguments are iterable (arrays of dimension at least one</span>
 <span class="sd">   (...)</span>
-<span class="g g-Whitespace">   </span><span class="mi">2513</span><span class="sd"> </span>
-<span class="g g-Whitespace">   </span><span class="mi">2514</span><span class="sd">     &quot;&quot;&quot;</span>
-<span class="ne">-&gt; </span><span class="mi">2515</span>     <span class="k">return</span> <span class="n">_wrapreduction</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">logical_and</span><span class="p">,</span> <span class="s1">&#39;all&#39;</span><span class="p">,</span> <span class="n">axis</span><span class="p">,</span> <span class="kc">None</span><span class="p">,</span> <span class="n">out</span><span class="p">,</span>
-<span class="g g-Whitespace">   </span><span class="mi">2516</span>                           <span class="n">keepdims</span><span class="o">=</span><span class="n">keepdims</span><span class="p">,</span> <span class="n">where</span><span class="o">=</span><span class="n">where</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">568</span><span class="sd"> </span>
+<span class="g g-Whitespace">    </span><span class="mi">569</span><span class="sd"> &quot;&quot;&quot;</span>
+<span class="g g-Whitespace">    </span><span class="mi">570</span> <span class="c1"># some distributions assume arguments are iterable.</span>
+<span class="ne">--&gt; </span><span class="mi">571</span> <span class="n">newargs</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">atleast_1d</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">573</span> <span class="c1"># np.atleast_1d returns an array if only one argument, or a list of arrays</span>
+<span class="g g-Whitespace">    </span><span class="mi">574</span> <span class="c1"># if more than one argument.</span>
+<span class="g g-Whitespace">    </span><span class="mi">575</span> <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">newargs</span><span class="p">,</span> <span class="nb">list</span><span class="p">):</span>
 
-<span class="nn">File /opt/hostedtoolcache/Python/3.8.18/x64/lib/python3.8/site-packages/numpy/core/fromnumeric.py:86,</span> in <span class="ni">_wrapreduction</span><span class="nt">(obj, ufunc, method, axis, dtype, out, **kwargs)</span>
-<span class="g g-Whitespace">     </span><span class="mi">83</span>         <span class="k">else</span><span class="p">:</span>
-<span class="g g-Whitespace">     </span><span class="mi">84</span>             <span class="k">return</span> <span class="n">reduction</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="n">axis</span><span class="p">,</span> <span class="n">out</span><span class="o">=</span><span class="n">out</span><span class="p">,</span> <span class="o">**</span><span class="n">passkwargs</span><span class="p">)</span>
-<span class="ne">---&gt; </span><span class="mi">86</span> <span class="k">return</span> <span class="n">ufunc</span><span class="o">.</span><span class="n">reduce</span><span class="p">(</span><span class="n">obj</span><span class="p">,</span> <span class="n">axis</span><span class="p">,</span> <span class="n">dtype</span><span class="p">,</span> <span class="n">out</span><span class="p">,</span> <span class="o">**</span><span class="n">passkwargs</span><span class="p">)</span>
+<span class="nn">File &lt;__array_function__ internals&gt;:200,</span> in <span class="ni">atleast_1d</span><span class="nt">(*args, **kwargs)</span>
+
+<span class="nn">File /opt/hostedtoolcache/Python/3.8.18/x64/lib/python3.8/site-packages/numpy/core/shape_base.py:63,</span> in <span class="ni">atleast_1d</span><span class="nt">(*arys)</span>
+<span class="g g-Whitespace">     </span><span class="mi">23</span> <span class="nd">@array_function_dispatch</span><span class="p">(</span><span class="n">_atleast_1d_dispatcher</span><span class="p">)</span>
+<span class="g g-Whitespace">     </span><span class="mi">24</span> <span class="k">def</span> <span class="nf">atleast_1d</span><span class="p">(</span><span class="o">*</span><span class="n">arys</span><span class="p">):</span>
+<span class="g g-Whitespace">     </span><span class="mi">25</span><span class="w">     </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="g g-Whitespace">     </span><span class="mi">26</span><span class="sd">     Convert inputs to arrays with at least one dimension.</span>
+<span class="g g-Whitespace">     </span><span class="mi">27</span><span class="sd"> </span>
+<span class="sd">   (...)</span>
+<span class="g g-Whitespace">     </span><span class="mi">61</span><span class="sd"> </span>
+<span class="g g-Whitespace">     </span><span class="mi">62</span><span class="sd">     &quot;&quot;&quot;</span>
+<span class="ne">---&gt; </span><span class="mi">63</span>     <span class="n">res</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="g g-Whitespace">     </span><span class="mi">64</span>     <span class="k">for</span> <span class="n">ary</span> <span class="ow">in</span> <span class="n">arys</span><span class="p">:</span>
+<span class="g g-Whitespace">     </span><span class="mi">65</span>         <span class="n">ary</span> <span class="o">=</span> <span class="n">asanyarray</span><span class="p">(</span><span class="n">ary</span><span class="p">)</span>
 
 <span class="ne">KeyboardInterrupt</span>: 
 </pre></div>

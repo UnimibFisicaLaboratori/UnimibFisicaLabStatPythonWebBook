@@ -470,7 +470,7 @@ distributed according to an exponential probability density distribution.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>il valore di tau che massimizza il logaritmo della verosimiglianza è: 2.107409747755486
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>il valore di tau che massimizza il logaritmo della verosimiglianza è: 2.2360224874745374
 </pre></div>
 </div>
 </div>
@@ -506,7 +506,7 @@ distributed according to an exponential probability density distribution.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../../_images/53d7636b7400f5582d8a59a58112432a309bc0b4ca1bbb334e4c74de85f6cd74.png" src="../../../_images/53d7636b7400f5582d8a59a58112432a309bc0b4ca1bbb334e4c74de85f6cd74.png" />
+<img alt="../../../_images/93d075abd011411062a1ca72bbe544948b4e25ba2b2d0c6988e1a6e24a752f84.png" src="../../../_images/93d075abd011411062a1ca72bbe544948b4e25ba2b2d0c6988e1a6e24a752f84.png" />
 </div>
 </div>
 </section>
@@ -557,10 +557,10 @@ How does the algorithm’s behavior change?</p></li>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>il valore di tau che massimizza il logaritmo della verosimiglianza è: 2.107409747755486
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>il valore di tau che massimizza il logaritmo della verosimiglianza è: 2.2360224874745374
 </pre></div>
 </div>
-<img alt="../../../_images/1b6066b293a0b668df245bba09db1bc3ba6ba0e5a067977bcda8f7f9bda3ff4d.png" src="../../../_images/1b6066b293a0b668df245bba09db1bc3ba6ba0e5a067977bcda8f7f9bda3ff4d.png" />
+<img alt="../../../_images/8e668ed18e06c3b8bd2f6e23d5afccc478d977afeb0e30a975abb78d54f88bd6.png" src="../../../_images/8e668ed18e06c3b8bd2f6e23d5afccc478d977afeb0e30a975abb78d54f88bd6.png" />
 </div>
 </div>
 </section>
@@ -633,19 +633,17 @@ between the likelihood function and its maximum value:</p></li>
 <span class="ne">---&gt; </span><span class="mi">39</span>     <span class="k">if</span> <span class="p">(</span><span class="n">pdf</span> <span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">theta</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mf">0.</span><span class="p">)</span> <span class="p">:</span> <span class="n">risultato</span> <span class="o">=</span> <span class="n">risultato</span> <span class="o">+</span> <span class="n">log</span> <span class="p">(</span><span class="n">pdf</span> <span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">theta</span><span class="p">))</span>    
 <span class="g g-Whitespace">     </span><span class="mi">40</span> <span class="k">return</span> <span class="n">risultato</span>
 
-<span class="nn">File ~/work/UnimibFisicaLabStatPython/UnimibFisicaLabStatPython/book/lectures/Lecture_10/exercises/likelihood.py:5,</span> in <span class="ni">exp_pdf</span><span class="nt">(x, tau)</span>
-<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="c1">#!/usr/bin/python</span>
-<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="kn">from</span> <span class="nn">math</span> <span class="kn">import</span> <span class="n">exp</span><span class="p">,</span> <span class="n">log</span>
-<span class="ne">----&gt; </span><span class="mi">5</span> <span class="k">def</span> <span class="nf">exp_pdf</span> <span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">tau</span><span class="p">)</span> <span class="p">:</span>
+<span class="nn">File ~/work/UnimibFisicaLabStatPython/UnimibFisicaLabStatPython/book/lectures/Lecture_10/exercises/likelihood.py:9,</span> in <span class="ni">exp_pdf</span><span class="nt">(x, tau)</span>
+<span class="g g-Whitespace">      </span><span class="mi">5</span> <span class="k">def</span> <span class="nf">exp_pdf</span> <span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">tau</span><span class="p">)</span> <span class="p">:</span>
 <span class="g g-Whitespace">      </span><span class="mi">6</span><span class="w">     </span><span class="sd">&#39;&#39;&#39;</span>
 <span class="g g-Whitespace">      </span><span class="mi">7</span><span class="sd">     the exponential probability density function</span>
 <span class="g g-Whitespace">      </span><span class="mi">8</span><span class="sd">     &#39;&#39;&#39;</span>
-<span class="g g-Whitespace">      </span><span class="mi">9</span>     <span class="k">return</span> <span class="n">exp</span> <span class="p">(</span><span class="o">-</span><span class="mi">1</span> <span class="o">*</span> <span class="n">x</span> <span class="o">/</span> <span class="n">tau</span><span class="p">)</span> <span class="o">/</span> <span class="n">tau</span>
+<span class="ne">----&gt; </span><span class="mi">9</span>     <span class="k">return</span> <span class="n">exp</span> <span class="p">(</span><span class="o">-</span><span class="mi">1</span> <span class="o">*</span> <span class="n">x</span> <span class="o">/</span> <span class="n">tau</span><span class="p">)</span> <span class="o">/</span> <span class="n">tau</span>
 
 <span class="ne">KeyboardInterrupt</span>: 
 </pre></div>
 </div>
-<img alt="../../../_images/aedcf0ad5c11a48123b56b879914ac6c74a2ea03f1b6a01841c3ad7a85b6f499.png" src="../../../_images/aedcf0ad5c11a48123b56b879914ac6c74a2ea03f1b6a01841c3ad7a85b6f499.png" />
+<img alt="../../../_images/a2813bb012d708f12c0961c55a12e66da7496f3f76f3cbe93f3252ba4b889773.png" src="../../../_images/a2813bb012d708f12c0961c55a12e66da7496f3f76f3cbe93f3252ba4b889773.png" />
 </div>
 </div>
 </section>
