@@ -26,7 +26,7 @@
   * The **reading procedure** may be done in the following way:
     ```py
     with open ('sample.txt') as input_file:
-    sample = [float (x) for x in input_file.readlines()]
+        sample = [float (x) for x in input_file.readlines()]
     ```
     
     * The ```sample``` variabile gets created while reading the text file
