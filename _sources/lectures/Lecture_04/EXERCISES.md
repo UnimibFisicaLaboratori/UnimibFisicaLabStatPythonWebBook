@@ -1,38 +1,80 @@
-# Exercises for Lecture 4
+# Exercises for Lecture 5
 
-## Exercise 4.1
+## Exercise 5.1
 
-  * Create a python library that implements the ```Fraction``` class,
-    containing its constructor, the data members to save numerator and denominator,
-    and three class method that returns 
-    the division between the numerator and the denominator.
+Write a function that implements the linear congruential generator for pseudo-random numbers,
+using these parameters:
+``` 
+M = 2147483647
+A = 214013
+C = 2531011
+```
 
-## Exercise 4.2
+## Exercise 5.2
 
-  * Implement a test function of the class inside the library file itself,
-    that verifies the output of each method of the class,
-    and that prints on screen the value of the numerator and of the denominator of a fraction.
+Implement the generator in the form of an object,
+which contains a method for generating a random number
+and a method for setting the generation ```seed```,
+using an appropriate variable of the class
+to store this information.
+  * How should the ```seed``` change
+    every time a new random number is generated?
 
-## Exercise 4.3
+## Exercise 5.3
 
-  * Add to the ```Fraction``` class the overloading of the `+`, `-`, `*`, `/` operations
-    in such a way that each of them returns an object of the type ```Fraction```.
-  * Add to the test function the call to all the new methods
-    and the verification of their behaviour.
+Show that initializing the seed of a pseudo-random integer generator
+is equivalent to looking into a sequence of pseudo-random numbers
+at any point.
 
-## Exercise 4.4
+## Exercise 5.4
 
-  * Write a python program that reads the sample file [eventi_unif.txt](https://github.com/UnimibFisicaLaboratori/UnimibFisicaLabStatPython/blob/main/book/lectures/Lecture_03/exercises/eventi_unif.txt)
-    of Exercise 3.2 and, using the filter function, 
-    creates two different sub-sets of events
-    containing those larger or smaller than the average respectively,
-    using `lambda` functions in the process.
-  * Show that the sigma of the two subsets is half the one of the parent sample.    
+Implement a pseudo-random number generator according to a uniform distribution
+between two arbitrary endpoints.
+  * Use the ```matplotlib``` library to visualize the distribution
+    of the generated numbers.
 
-## Exercise 4.5
+## Exercise 5.5
 
-  * Write a python program that reads the sample file [```eventi_gauss.txt```](https://github.com/UnimibFisicaLaboratori/UnimibFisicaLabStatPython/blob/main/book/lectures/Lecture_03/exercises/eventi_gauss.txt):
-    of Exercise 3.3 and, using the map function, 
-    creates the distribution of the squares and cubes of random Gaussian numbers, respectively,
-    using `lambda` functions in the process.
-  * Plot the distribution of them, together with the original sample one, all in the same frame.
+Implement a pseudo-random number generator that uses the try-and-catch method
+to generate pseudo-random numbers according to an arbitrary probability distribution.
+  * Take the probability density function (pdf) as an input parameter
+    for generating random numbers.
+  * Use the ```matplotlib``` library to visualize the distribution
+    of the generated numbers.
+
+## Exercise 5.6
+
+Implement a pseudo-random number generator that uses the inverse function method
+to generate events distributed according to an exponential probability distribution.
+  * Use the ```matplotlib``` library to visualize the distribution
+    of the generated numbers.
+
+## Exercise 5.7
+
+Implement a pseudo-random number generator that uses the central limit theorem method
+to generate events distributed according to a Gaussian probability distribution.
+  * How can you obtain a normal distribution,
+    i.e., a Gaussian distribution centered at zero with unit variance?
+  * Visually verify that as the number of events increases,
+    the similarity between the obtained distribution and the Gaussian functional form increases,
+    both graphically and by using the moments of the distributions
+    calculated on the generated event sample.
+
+## Exercise 5.8
+
+Building upon the work done during Lecture 3,
+implement an object named ```stats```,
+which calculates the statistics associated with a sample of numbers
+stored in a Python list.
+  * What different design options are possible for this object?
+  * What variables need to be added to the class to ensure its functionality?
+  * What values should these variables have during initialization?
+
+## Exercise 5.9
+
+Test the ```stats``` object with each of the implemented generation algorithms.
+In particular, then:
+  * Verify that the value of the variance for the uniform distribution corresponds to expectations
+    (what is the uncertainty associated with the obtained number?)
+  * Verify that the value of the variance obtained using the central limit theorem technique
+    corresponds to the expected one.

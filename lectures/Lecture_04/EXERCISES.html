@@ -9,7 +9,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
-    <title>4.5. Exercises for Lecture 4 &#8212; Laboratorio di Calcolo e Statistica</title>
+    <title>4.7. Exercises for Lecture 5 &#8212; Laboratorio di Calcolo e Statistica</title>
   
   
   
@@ -65,8 +65,8 @@ const thebe_selector_output = ".output, .cell_output"
     <script>DOCUMENTATION_OPTIONS.pagename = 'lectures/Lecture_04/EXERCISES';</script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="5. Generation of Pseudo-Random Numbers" href="../Lecture_05/pseudorandom.html" />
-    <link rel="prev" title="4.4. Examples: Lecture 4" href="EXAMPLES.html" />
+    <link rel="next" title="5. Some python insight: classes, lambda functions, functional programming" href="../Lecture_05/classes_lambda.html" />
+    <link rel="prev" title="4.6. Examples: Lecture 5" href="EXAMPLES.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -189,14 +189,14 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l2"><a class="reference internal" href="../Lecture_03/EXERCISES.html">3.7. Exercises for Lecture 3</a></li>
 </ul>
 </li>
-<li class="toctree-l1 current active has-children"><a class="reference internal" href="classes_lambda.html">4. Some python insight: classes, <code class="docutils literal notranslate"><span class="pre">lambda</span></code> functions, functional programming</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-4"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
-<li class="toctree-l2"><a class="reference internal" href="EXAMPLES.html">4.4. Examples: Lecture 4</a></li>
-<li class="toctree-l2 current active"><a class="current reference internal" href="#">4.5. Exercises for Lecture 4</a></li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="pseudorandom.html">4. Generation of Pseudo-Random Numbers</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-4"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="EXAMPLES.html">4.6. Examples: Lecture 5</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">4.7. Exercises for Lecture 5</a></li>
 </ul>
 </li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../Lecture_05/pseudorandom.html">5. Generation of Pseudo-Random Numbers</a><input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-5"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="../Lecture_05/EXAMPLES.html">5.6. Examples: Lecture 5</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../Lecture_05/EXERCISES.html">5.7. Exercises for Lecture 5</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../Lecture_05/classes_lambda.html">5. Some python insight: classes, <code class="docutils literal notranslate"><span class="pre">lambda</span></code> functions, functional programming</a><input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-5"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../Lecture_05/EXAMPLES.html">5.4. Examples: Lecture 4</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Lecture_05/EXERCISES.html">5.5. Exercises for Lecture 4</a></li>
 </ul>
 </li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../Lecture_06/zero_and_extrema.html">6. Finding Zeros and Extrema</a><input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-6"><i class="fa-solid fa-chevron-down"></i></label><ul>
@@ -415,7 +415,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Exercises for Lecture 4</h1>
+    <h1>Exercises for Lecture 5</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -425,11 +425,15 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-4-1">4.5.1. Exercise 4.1</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-4-2">4.5.2. Exercise 4.2</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-4-3">4.5.3. Exercise 4.3</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-4-4">4.5.4. Exercise 4.4</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-4-5">4.5.5. Exercise 4.5</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-5-1">4.7.1. Exercise 5.1</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-5-2">4.7.2. Exercise 5.2</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-5-3">4.7.3. Exercise 5.3</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-5-4">4.7.4. Exercise 5.4</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-5-5">4.7.5. Exercise 5.5</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-5-6">4.7.6. Exercise 5.6</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-5-7">4.7.7. Exercise 5.7</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-5-8">4.7.8. Exercise 5.8</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-5-9">4.7.9. Exercise 5.9</a></li>
 </ul>
             </nav>
         </div>
@@ -441,53 +445,99 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article" role="main">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="exercises-for-lecture-4">
-<h1><span class="section-number">4.5. </span>Exercises for Lecture 4<a class="headerlink" href="#exercises-for-lecture-4" title="Permalink to this heading">#</a></h1>
-<section id="exercise-4-1">
-<h2><span class="section-number">4.5.1. </span>Exercise 4.1<a class="headerlink" href="#exercise-4-1" title="Permalink to this heading">#</a></h2>
+  <section class="tex2jax_ignore mathjax_ignore" id="exercises-for-lecture-5">
+<h1><span class="section-number">4.7. </span>Exercises for Lecture 5<a class="headerlink" href="#exercises-for-lecture-5" title="Permalink to this heading">#</a></h1>
+<section id="exercise-5-1">
+<h2><span class="section-number">4.7.1. </span>Exercise 5.1<a class="headerlink" href="#exercise-5-1" title="Permalink to this heading">#</a></h2>
+<p>Write a function that implements the linear congruential generator for pseudo-random numbers,
+using these parameters:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">M</span> <span class="o">=</span> <span class="mi">2147483647</span>
+<span class="n">A</span> <span class="o">=</span> <span class="mi">214013</span>
+<span class="n">C</span> <span class="o">=</span> <span class="mi">2531011</span>
+</pre></div>
+</div>
+</section>
+<section id="exercise-5-2">
+<h2><span class="section-number">4.7.2. </span>Exercise 5.2<a class="headerlink" href="#exercise-5-2" title="Permalink to this heading">#</a></h2>
+<p>Implement the generator in the form of an object,
+which contains a method for generating a random number
+and a method for setting the generation <code class="docutils literal notranslate"><span class="pre">seed</span></code>,
+using an appropriate variable of the class
+to store this information.</p>
 <ul class="simple">
-<li><p>Create a python library that implements the <code class="docutils literal notranslate"><span class="pre">Fraction</span></code> class,
-containing its constructor, the data members to save numerator and denominator,
-and three class method that returns
-the division between the numerator and the denominator.</p></li>
+<li><p>How should the <code class="docutils literal notranslate"><span class="pre">seed</span></code> change
+every time a new random number is generated?</p></li>
 </ul>
 </section>
-<section id="exercise-4-2">
-<h2><span class="section-number">4.5.2. </span>Exercise 4.2<a class="headerlink" href="#exercise-4-2" title="Permalink to this heading">#</a></h2>
+<section id="exercise-5-3">
+<h2><span class="section-number">4.7.3. </span>Exercise 5.3<a class="headerlink" href="#exercise-5-3" title="Permalink to this heading">#</a></h2>
+<p>Show that initializing the seed of a pseudo-random integer generator
+is equivalent to looking into a sequence of pseudo-random numbers
+at any point.</p>
+</section>
+<section id="exercise-5-4">
+<h2><span class="section-number">4.7.4. </span>Exercise 5.4<a class="headerlink" href="#exercise-5-4" title="Permalink to this heading">#</a></h2>
+<p>Implement a pseudo-random number generator according to a uniform distribution
+between two arbitrary endpoints.</p>
 <ul class="simple">
-<li><p>Implement a test function of the class inside the library file itself,
-that verifies the output of each method of the class,
-and that prints on screen the value of the numerator and of the denominator of a fraction.</p></li>
+<li><p>Use the <code class="docutils literal notranslate"><span class="pre">matplotlib</span></code> library to visualize the distribution
+of the generated numbers.</p></li>
 </ul>
 </section>
-<section id="exercise-4-3">
-<h2><span class="section-number">4.5.3. </span>Exercise 4.3<a class="headerlink" href="#exercise-4-3" title="Permalink to this heading">#</a></h2>
+<section id="exercise-5-5">
+<h2><span class="section-number">4.7.5. </span>Exercise 5.5<a class="headerlink" href="#exercise-5-5" title="Permalink to this heading">#</a></h2>
+<p>Implement a pseudo-random number generator that uses the try-and-catch method
+to generate pseudo-random numbers according to an arbitrary probability distribution.</p>
 <ul class="simple">
-<li><p>Add to the <code class="docutils literal notranslate"><span class="pre">Fraction</span></code> class the overloading of the <code class="docutils literal notranslate"><span class="pre">+</span></code>, <code class="docutils literal notranslate"><span class="pre">-</span></code>, <code class="docutils literal notranslate"><span class="pre">*</span></code>, <code class="docutils literal notranslate"><span class="pre">/</span></code> operations
-in such a way that each of them returns an object of the type <code class="docutils literal notranslate"><span class="pre">Fraction</span></code>.</p></li>
-<li><p>Add to the test function the call to all the new methods
-and the verification of their behaviour.</p></li>
+<li><p>Take the probability density function (pdf) as an input parameter
+for generating random numbers.</p></li>
+<li><p>Use the <code class="docutils literal notranslate"><span class="pre">matplotlib</span></code> library to visualize the distribution
+of the generated numbers.</p></li>
 </ul>
 </section>
-<section id="exercise-4-4">
-<h2><span class="section-number">4.5.4. </span>Exercise 4.4<a class="headerlink" href="#exercise-4-4" title="Permalink to this heading">#</a></h2>
+<section id="exercise-5-6">
+<h2><span class="section-number">4.7.6. </span>Exercise 5.6<a class="headerlink" href="#exercise-5-6" title="Permalink to this heading">#</a></h2>
+<p>Implement a pseudo-random number generator that uses the inverse function method
+to generate events distributed according to an exponential probability distribution.</p>
 <ul class="simple">
-<li><p>Write a python program that reads the sample file <a class="reference external" href="https://github.com/UnimibFisicaLaboratori/UnimibFisicaLabStatPython/blob/main/book/lectures/Lecture_03/exercises/eventi_unif.txt">eventi_unif.txt</a>
-of Exercise 3.2 and, using the filter function,
-creates two different sub-sets of events
-containing those larger or smaller than the average respectively,
-using <code class="docutils literal notranslate"><span class="pre">lambda</span></code> functions in the process.</p></li>
-<li><p>Show that the sigma of the two subsets is half the one of the parent sample.</p></li>
+<li><p>Use the <code class="docutils literal notranslate"><span class="pre">matplotlib</span></code> library to visualize the distribution
+of the generated numbers.</p></li>
 </ul>
 </section>
-<section id="exercise-4-5">
-<h2><span class="section-number">4.5.5. </span>Exercise 4.5<a class="headerlink" href="#exercise-4-5" title="Permalink to this heading">#</a></h2>
+<section id="exercise-5-7">
+<h2><span class="section-number">4.7.7. </span>Exercise 5.7<a class="headerlink" href="#exercise-5-7" title="Permalink to this heading">#</a></h2>
+<p>Implement a pseudo-random number generator that uses the central limit theorem method
+to generate events distributed according to a Gaussian probability distribution.</p>
 <ul class="simple">
-<li><p>Write a python program that reads the sample file <a class="reference external" href="https://github.com/UnimibFisicaLaboratori/UnimibFisicaLabStatPython/blob/main/book/lectures/Lecture_03/exercises/eventi_gauss.txt"><code class="docutils literal notranslate"><span class="pre">eventi_gauss.txt</span></code></a>:
-of Exercise 3.3 and, using the map function,
-creates the distribution of the squares and cubes of random Gaussian numbers, respectively,
-using <code class="docutils literal notranslate"><span class="pre">lambda</span></code> functions in the process.</p></li>
-<li><p>Plot the distribution of them, together with the original sample one, all in the same frame.</p></li>
+<li><p>How can you obtain a normal distribution,
+i.e., a Gaussian distribution centered at zero with unit variance?</p></li>
+<li><p>Visually verify that as the number of events increases,
+the similarity between the obtained distribution and the Gaussian functional form increases,
+both graphically and by using the moments of the distributions
+calculated on the generated event sample.</p></li>
+</ul>
+</section>
+<section id="exercise-5-8">
+<h2><span class="section-number">4.7.8. </span>Exercise 5.8<a class="headerlink" href="#exercise-5-8" title="Permalink to this heading">#</a></h2>
+<p>Building upon the work done during Lecture 3,
+implement an object named <code class="docutils literal notranslate"><span class="pre">stats</span></code>,
+which calculates the statistics associated with a sample of numbers
+stored in a Python list.</p>
+<ul class="simple">
+<li><p>What different design options are possible for this object?</p></li>
+<li><p>What variables need to be added to the class to ensure its functionality?</p></li>
+<li><p>What values should these variables have during initialization?</p></li>
+</ul>
+</section>
+<section id="exercise-5-9">
+<h2><span class="section-number">4.7.9. </span>Exercise 5.9<a class="headerlink" href="#exercise-5-9" title="Permalink to this heading">#</a></h2>
+<p>Test the <code class="docutils literal notranslate"><span class="pre">stats</span></code> object with each of the implemented generation algorithms.
+In particular, then:</p>
+<ul class="simple">
+<li><p>Verify that the value of the variance for the uniform distribution corresponds to expectations
+(what is the uncertainty associated with the obtained number?)</p></li>
+<li><p>Verify that the value of the variance obtained using the central limit theorem technique
+corresponds to the expected one.</p></li>
 </ul>
 </section>
 </section>
@@ -528,15 +578,15 @@ using <code class="docutils literal notranslate"><span class="pre">lambda</span>
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title"><span class="section-number">4.4. </span>Examples: Lecture 4</p>
+        <p class="prev-next-title"><span class="section-number">4.6. </span>Examples: Lecture 5</p>
       </div>
     </a>
     <a class="right-next"
-       href="../Lecture_05/pseudorandom.html"
+       href="../Lecture_05/classes_lambda.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title"><span class="section-number">5. </span>Generation of Pseudo-Random Numbers</p>
+        <p class="prev-next-title"><span class="section-number">5. </span>Some python insight: classes, <code class="docutils literal notranslate"><span class="pre">lambda</span></code> functions, functional programming</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -555,11 +605,15 @@ using <code class="docutils literal notranslate"><span class="pre">lambda</span>
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-4-1">4.5.1. Exercise 4.1</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-4-2">4.5.2. Exercise 4.2</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-4-3">4.5.3. Exercise 4.3</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-4-4">4.5.4. Exercise 4.4</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-4-5">4.5.5. Exercise 4.5</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-5-1">4.7.1. Exercise 5.1</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-5-2">4.7.2. Exercise 5.2</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-5-3">4.7.3. Exercise 5.3</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-5-4">4.7.4. Exercise 5.4</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-5-5">4.7.5. Exercise 5.5</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-5-6">4.7.6. Exercise 5.6</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-5-7">4.7.7. Exercise 5.7</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-5-8">4.7.8. Exercise 5.8</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-5-9">4.7.9. Exercise 5.9</a></li>
 </ul>
   </nav></div>
 

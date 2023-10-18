@@ -1,60 +1,26 @@
-Examples: Lecture 5
+Examples: Lecture 4
 ===================
 
-Use of ```random ()``` and ```randint ()```
--------------------------------------------
-* `random_01.py`
-.. literalinclude:: examples/random_01.py
-  :language: py
-
-Use of ```random.seed ()```
----------------------------
-* `random_02.py`
-.. literalinclude:: examples/random_02.py
-  :language: py
-
-Drawing of the obtained sequence of numbers
--------------------------------------------
-* `random_03.py`
-.. literalinclude:: examples/random_03.py
-  :language: py
-
-Porting of the generation code to a library 
--------------------------------------------
-* `random_04.py`
-.. literalinclude:: examples/random_04.py
-  :language: py
-
-* `myrand.py`
-.. literalinclude:: examples/myrand.py
-  :language: py
-
-Generation of pseudo-random numbers uniformly within (xMin, xMax) 
------------------------------------------------------------------
-* `random_05.py`
-.. literalinclude:: examples/random_05.py
-  :language: py
-
-Visualisation of a pseudo-random sequence 
+A simple class to handle rational numbers
 -----------------------------------------
-* `random_06.py`
-.. literalinclude:: examples/random_06.py
+* `fraction.py`
+.. literalinclude:: examples/fraction.py
+  :language: py
+  
+A simple test of a `lambda` function
+------------------------------------
+* `lambda.py`
+.. literalinclude:: examples/lambda.py
   :language: py
 
-Visualisation of a pseudo-random sequence and its distribution
---------------------------------------------------------------
-* `random_07.py`
-.. literalinclude:: examples/random_07.py
+A simple test of the `map` function
+-----------------------------------
+* `map.py`
+.. literalinclude:: examples/map.py
   :language: py
 
-Generation of pseudo-random numbers with the try-and-catch method
------------------------------------------------------------------
-* `random_08.py`
-.. literalinclude:: examples/random_08.py
-  :language: py
-
-Generation of pseudo-random numbers with the central limit theorem method
--------------------------------------------------------------------------
-* `random_09.py`
-.. literalinclude:: examples/random_09.py
+A simple test of the `filter` function
+--------------------------------------
+* `filter.py`
+.. literalinclude:: examples/filter.py
   :language: py

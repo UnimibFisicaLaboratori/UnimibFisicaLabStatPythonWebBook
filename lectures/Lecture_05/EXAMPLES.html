@@ -9,7 +9,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
-    <title>5.6. Examples: Lecture 5 &#8212; Laboratorio di Calcolo e Statistica</title>
+    <title>5.4. Examples: Lecture 4 &#8212; Laboratorio di Calcolo e Statistica</title>
   
   
   
@@ -65,8 +65,8 @@ const thebe_selector_output = ".output, .cell_output"
     <script>DOCUMENTATION_OPTIONS.pagename = 'lectures/Lecture_05/EXAMPLES';</script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="5.7. Exercises for Lecture 5" href="EXERCISES.html" />
-    <link rel="prev" title="5. Generation of Pseudo-Random Numbers" href="pseudorandom.html" />
+    <link rel="next" title="5.5. Exercises for Lecture 4" href="EXERCISES.html" />
+    <link rel="prev" title="5. Some python insight: classes, lambda functions, functional programming" href="classes_lambda.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -189,14 +189,14 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l2"><a class="reference internal" href="../Lecture_03/EXERCISES.html">3.7. Exercises for Lecture 3</a></li>
 </ul>
 </li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../Lecture_04/classes_lambda.html">4. Some python insight: classes, <code class="docutils literal notranslate"><span class="pre">lambda</span></code> functions, functional programming</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-4"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="../Lecture_04/EXAMPLES.html">4.4. Examples: Lecture 4</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../Lecture_04/EXERCISES.html">4.5. Exercises for Lecture 4</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../Lecture_04/pseudorandom.html">4. Generation of Pseudo-Random Numbers</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-4"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../Lecture_04/EXAMPLES.html">4.6. Examples: Lecture 5</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Lecture_04/EXERCISES.html">4.7. Exercises for Lecture 5</a></li>
 </ul>
 </li>
-<li class="toctree-l1 current active has-children"><a class="reference internal" href="pseudorandom.html">5. Generation of Pseudo-Random Numbers</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-5"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
-<li class="toctree-l2 current active"><a class="current reference internal" href="#">5.6. Examples: Lecture 5</a></li>
-<li class="toctree-l2"><a class="reference internal" href="EXERCISES.html">5.7. Exercises for Lecture 5</a></li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="classes_lambda.html">5. Some python insight: classes, <code class="docutils literal notranslate"><span class="pre">lambda</span></code> functions, functional programming</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-5"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">5.4. Examples: Lecture 4</a></li>
+<li class="toctree-l2"><a class="reference internal" href="EXERCISES.html">5.5. Exercises for Lecture 4</a></li>
 </ul>
 </li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../Lecture_06/zero_and_extrema.html">6. Finding Zeros and Extrema</a><input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-6"><i class="fa-solid fa-chevron-down"></i></label><ul>
@@ -415,7 +415,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Examples: Lecture 5</h1>
+    <h1>Examples: Lecture 4</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -425,15 +425,10 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#use-of-random-and-randint">5.6.1. Use of <code class="docutils literal notranslate"><span class="pre">`random</span> <span class="pre">()`</span></code> and <code class="docutils literal notranslate"><span class="pre">`randint</span> <span class="pre">()`</span></code></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#use-of-random-seed">5.6.2. Use of <code class="docutils literal notranslate"><span class="pre">`random.seed</span> <span class="pre">()`</span></code></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#drawing-of-the-obtained-sequence-of-numbers">5.6.3. Drawing of the obtained sequence of numbers</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#porting-of-the-generation-code-to-a-library">5.6.4. Porting of the generation code to a library</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#generation-of-pseudo-random-numbers-uniformly-within-xmin-xmax">5.6.5. Generation of pseudo-random numbers uniformly within (xMin, xMax)</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#visualisation-of-a-pseudo-random-sequence">5.6.6. Visualisation of a pseudo-random sequence</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#visualisation-of-a-pseudo-random-sequence-and-its-distribution">5.6.7. Visualisation of a pseudo-random sequence and its distribution</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#generation-of-pseudo-random-numbers-with-the-try-and-catch-method">5.6.8. Generation of pseudo-random numbers with the try-and-catch method</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#generation-of-pseudo-random-numbers-with-the-central-limit-theorem-method">5.6.9. Generation of pseudo-random numbers with the central limit theorem method</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#a-simple-class-to-handle-rational-numbers">5.4.1. A simple class to handle rational numbers</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#a-simple-test-of-a-lambda-function">5.4.2. A simple test of a <cite>lambda</cite> function</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#a-simple-test-of-the-map-function">5.4.3. A simple test of the <cite>map</cite> function</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#a-simple-test-of-the-filter-function">5.4.4. A simple test of the <cite>filter</cite> function</a></li>
 </ul>
             </nav>
         </div>
@@ -445,753 +440,236 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article" role="main">
                   
-  <section id="examples-lecture-5">
-<h1><span class="section-number">5.6. </span>Examples: Lecture 5<a class="headerlink" href="#examples-lecture-5" title="Permalink to this heading">#</a></h1>
-<section id="use-of-random-and-randint">
-<h2><span class="section-number">5.6.1. </span>Use of <code class="docutils literal notranslate"><span class="pre">`random</span> <span class="pre">()`</span></code> and <code class="docutils literal notranslate"><span class="pre">`randint</span> <span class="pre">()`</span></code><a class="headerlink" href="#use-of-random-and-randint" title="Permalink to this heading">#</a></h2>
+  <section id="examples-lecture-4">
+<h1><span class="section-number">5.4. </span>Examples: Lecture 4<a class="headerlink" href="#examples-lecture-4" title="Permalink to this heading">#</a></h1>
+<section id="a-simple-class-to-handle-rational-numbers">
+<h2><span class="section-number">5.4.1. </span>A simple class to handle rational numbers<a class="headerlink" href="#a-simple-class-to-handle-rational-numbers" title="Permalink to this heading">#</a></h2>
 <ul class="simple">
-<li><p><cite>random_01.py</cite></p></li>
+<li><p><cite>fraction.py</cite></p></li>
 </ul>
 <div class="highlight-py notranslate"><div class="highlight"><pre><span></span><span class="ch">#!/usr/bin/python</span>
 <span class="sd">&#39;&#39;&#39;</span>
-<span class="sd">generazione di numeri pseudo-casuali distribuiti uniformemente fra 0 ed 1</span>
-<span class="sd">python3 random_01.py 10</span>
+<span class="sd">a simple class to handle fractions of integer numbers</span>
 <span class="sd">&#39;&#39;&#39;</span>
 
+
+<span class="kn">from</span> <span class="nn">math</span> <span class="kn">import</span> <span class="n">gcd</span>
 <span class="kn">import</span> <span class="nn">sys</span>
-<span class="kn">import</span> <span class="nn">random</span>
 
-<span class="k">def</span> <span class="nf">main</span> <span class="p">()</span> <span class="p">:</span>
+
+<span class="k">def</span> <span class="nf">lcm</span> <span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">)</span> <span class="p">:</span> 
 <span class="w">    </span><span class="sd">&#39;&#39;&#39;</span>
-<span class="sd">    Funzione che implementa il programma principale</span>
-<span class="sd">     - documentazione di random https://docs.python.org/3/library/random.html</span>
+<span class="sd">    least common multiple </span>
 <span class="sd">    &#39;&#39;&#39;</span>
-
-    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">)</span> <span class="o">&lt;</span> <span class="mi">2</span> <span class="p">:</span>
-        <span class="nb">print</span> <span class="p">(</span><span class="s1">&#39;usage: &#39;</span><span class="p">,</span> <span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="s1">&#39;numero&#39;</span><span class="p">)</span>
-        <span class="n">exit</span> <span class="p">()</span>
-
-    <span class="n">randlist</span> <span class="o">=</span> <span class="p">[]</span>
-    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span> <span class="p">(</span><span class="nb">int</span> <span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">[</span><span class="mi">1</span><span class="p">])):</span>
-        <span class="c1"># Return the next random floating point number in the range 0.0 &lt;= X &lt; 1.0</span>
-        <span class="n">randlist</span><span class="o">.</span><span class="n">append</span> <span class="p">(</span><span class="n">random</span><span class="o">.</span><span class="n">random</span> <span class="p">())</span>
-        <span class="nb">print</span> <span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="n">randlist</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span>
-
-
-    <span class="n">randlistint</span> <span class="o">=</span> <span class="p">[]</span>
-    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span> <span class="p">(</span><span class="nb">int</span> <span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">[</span><span class="mi">1</span><span class="p">])):</span>
-        <span class="c1"># Return the next random floating point number in the range 0.0 &lt;= X &lt; 1.0</span>
-        <span class="n">randlistint</span><span class="o">.</span><span class="n">append</span> <span class="p">(</span><span class="n">random</span><span class="o">.</span><span class="n">randint</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">100</span><span class="p">))</span>
-        <span class="nb">print</span> <span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="n">randlistint</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span>
+    <span class="k">return</span> <span class="n">a</span> <span class="o">*</span> <span class="n">b</span> <span class="o">/</span> <span class="n">gcd</span> <span class="p">(</span><span class="n">a</span><span class="p">,</span><span class="n">b</span><span class="p">)</span>
 
 
 <span class="c1"># ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- </span>
 
 
-<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&quot;__main__&quot;</span><span class="p">:</span>
-    <span class="n">main</span> <span class="p">()</span>
-</pre></div>
-</div>
-</section>
-<section id="use-of-random-seed">
-<h2><span class="section-number">5.6.2. </span>Use of <code class="docutils literal notranslate"><span class="pre">`random.seed</span> <span class="pre">()`</span></code><a class="headerlink" href="#use-of-random-seed" title="Permalink to this heading">#</a></h2>
-<ul class="simple">
-<li><p><cite>random_02.py</cite></p></li>
-</ul>
-<div class="highlight-py notranslate"><div class="highlight"><pre><span></span><span class="ch">#!/usr/bin/python</span>
-<span class="sd">&#39;&#39;&#39;</span>
-<span class="sd">generazione di numeri pseudo-casuali distribuiti uniformemente fra 0 ed 1</span>
-<span class="sd">a partire da un determinato seed</span>
-<span class="sd">python3 random_02.py 10 2.5</span>
-<span class="sd">&#39;&#39;&#39;</span>
-
-<span class="kn">import</span> <span class="nn">sys</span>
-<span class="kn">import</span> <span class="nn">random</span>
-
-<span class="k">def</span> <span class="nf">main</span> <span class="p">()</span> <span class="p">:</span>
+<span class="k">class</span> <span class="nc">Fraction</span> <span class="p">:</span>
 <span class="w">    </span><span class="sd">&#39;&#39;&#39;</span>
-<span class="sd">    Funzione che implementa il programma principale</span>
+<span class="sd">    a simple class implementing a high-level object</span>
+<span class="sd">    to handle fractions and their operations</span>
 <span class="sd">    &#39;&#39;&#39;</span>
 
-    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">)</span> <span class="o">&lt;</span> <span class="mi">3</span> <span class="p">:</span>
-        <span class="nb">print</span> <span class="p">(</span><span class="s1">&#39;usage: &#39;</span><span class="p">,</span> <span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="s1">&#39;numero seed&#39;</span><span class="p">)</span>
-        <span class="n">exit</span> <span class="p">()</span>
 
-    <span class="n">random</span><span class="o">.</span><span class="n">seed</span> <span class="p">(</span><span class="nb">float</span> <span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">[</span><span class="mi">2</span><span class="p">]))</span>
-    <span class="n">randlist</span> <span class="o">=</span> <span class="p">[]</span>
-    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span> <span class="p">(</span><span class="nb">int</span> <span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">[</span><span class="mi">1</span><span class="p">])):</span>
-        <span class="c1"># Return the next random floating point number in the range 0.0 &lt;= X &lt; 1.0</span>
-        <span class="n">randlist</span><span class="o">.</span><span class="n">append</span> <span class="p">(</span><span class="n">random</span><span class="o">.</span><span class="n">random</span> <span class="p">())</span>
-        <span class="nb">print</span> <span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="n">randlist</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span>
+    <span class="k">def</span> <span class="fm">__init__</span> <span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">numerator</span><span class="p">,</span> <span class="n">denominator</span><span class="p">)</span> <span class="p">:</span>
+<span class="w">        </span><span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">        the constructor: initialises all the variables needed</span>
+<span class="sd">        for the high-level object functioning</span>
+<span class="sd">        &#39;&#39;&#39;</span>
+        <span class="k">if</span> <span class="n">denominator</span> <span class="o">==</span> <span class="mi">0</span> <span class="p">:</span>
+            <span class="nb">print</span> <span class="p">(</span><span class="s1">&#39;Denominator cannot be zero&#39;</span><span class="p">)</span>
+            <span class="n">sys</span><span class="o">.</span><span class="n">exit</span> <span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+        
+        <span class="c1"># this allows to avoid calculating the LCM in the sum and subtraction</span>
+        <span class="n">common_divisor</span> <span class="o">=</span> <span class="n">gcd</span> <span class="p">(</span><span class="n">numerator</span><span class="p">,</span> <span class="n">denominator</span><span class="p">)</span> <span class="c1"># greatest common divisor </span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">numerator</span> <span class="o">=</span> <span class="n">numerator</span> <span class="o">//</span> <span class="n">common_divisor</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">denominator</span> <span class="o">=</span> <span class="n">denominator</span> <span class="o">//</span> <span class="n">common_divisor</span>
+        
+    <span class="k">def</span> <span class="nf">print</span> <span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="p">:</span>
+<span class="w">        </span><span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">        prints the value of the fraction on screen</span>
+<span class="sd">        &#39;&#39;&#39;</span>
+        <span class="nb">print</span> <span class="p">(</span><span class="nb">str</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">numerator</span><span class="p">)</span> <span class="o">+</span> <span class="s1">&#39;/&#39;</span> <span class="o">+</span> <span class="nb">str</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">denominator</span><span class="p">))</span>
+
+    <span class="k">def</span> <span class="nf">ratio</span> <span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="p">:</span>
+<span class="w">        </span><span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">        calculates the actual ratio between numerator and denominator,</span>
+<span class="sd">        practically acting as a casting to float</span>
+<span class="sd">        &#39;&#39;&#39;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">numerator</span> <span class="o">/</span> <span class="bp">self</span><span class="o">.</span><span class="n">denominator</span>
+
+
+    <span class="k">def</span> <span class="fm">__add__</span> <span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">)</span> <span class="p">:</span>
+<span class="w">        </span><span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">        implements the addition of two fractions.</span>
+<span class="sd">        Note that this function will be callable with the + symbol</span>
+<span class="sd">        in the program</span>
+<span class="sd">        &#39;&#39;&#39;</span>
+        <span class="n">new_numerator</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">numerator</span> <span class="o">*</span> <span class="n">other</span><span class="o">.</span><span class="n">denominator</span> <span class="o">+</span> <span class="n">other</span><span class="o">.</span><span class="n">numerator</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">denominator</span>
+        <span class="n">new_denominator</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">denominator</span> <span class="o">*</span> <span class="n">other</span><span class="o">.</span><span class="n">denominator</span>
+        <span class="k">return</span> <span class="n">Fraction</span> <span class="p">(</span><span class="n">new_numerator</span><span class="p">,</span> <span class="n">new_denominator</span><span class="p">)</span>
+    
+    <span class="k">def</span> <span class="fm">__sub__</span> <span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">)</span> <span class="p">:</span>
+<span class="w">        </span><span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">        implements the subtraction of two fractions.</span>
+<span class="sd">        Note that this function will be callable with the - symbol</span>
+<span class="sd">        in the program</span>
+<span class="sd">        &#39;&#39;&#39;</span>
+        <span class="n">new_numerator</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">numerator</span> <span class="o">*</span> <span class="n">other</span><span class="o">.</span><span class="n">denominator</span> <span class="o">-</span> <span class="n">other</span><span class="o">.</span><span class="n">numerator</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">denominator</span>
+        <span class="n">new_denominator</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">denominator</span> <span class="o">*</span> <span class="n">other</span><span class="o">.</span><span class="n">denominator</span>
+        <span class="k">return</span> <span class="n">Fraction</span> <span class="p">(</span><span class="n">new_numerator</span><span class="p">,</span> <span class="n">new_denominator</span><span class="p">)</span>
+    
+    <span class="k">def</span> <span class="fm">__mul__</span> <span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">)</span> <span class="p">:</span>
+<span class="w">        </span><span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">        implements the multiplications of two fractions.</span>
+<span class="sd">        Note that this function will be callable with the * symbol</span>
+<span class="sd">        in the program</span>
+<span class="sd">        &#39;&#39;&#39;</span>
+        <span class="n">new_numerator</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">numerator</span> <span class="o">*</span> <span class="n">other</span><span class="o">.</span><span class="n">numerator</span>
+        <span class="n">new_denominator</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">denominator</span> <span class="o">*</span> <span class="n">other</span><span class="o">.</span><span class="n">denominator</span>
+        <span class="k">return</span> <span class="n">Fraction</span> <span class="p">(</span><span class="n">new_numerator</span><span class="p">,</span> <span class="n">new_denominator</span><span class="p">)</span>
+    
+    <span class="k">def</span> <span class="fm">__truediv__</span> <span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">)</span> <span class="p">:</span>
+<span class="w">        </span><span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">        implements the ratio of two fractions.</span>
+<span class="sd">        Note that this function will be callable with the / symbol</span>
+<span class="sd">        in the program</span>
+<span class="sd">        &#39;&#39;&#39;</span>
+        <span class="k">if</span> <span class="n">other</span><span class="o">.</span><span class="n">numerator</span> <span class="o">==</span> <span class="mi">0</span> <span class="p">:</span>
+            <span class="nb">print</span> <span class="p">(</span><span class="s1">&#39;Cannot divide by zero&#39;</span><span class="p">)</span>
+            <span class="n">sys</span><span class="o">.</span><span class="n">exit</span> <span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+        
+        <span class="n">new_numerator</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">numerator</span> <span class="o">*</span> <span class="n">other</span><span class="o">.</span><span class="n">denominator</span>
+        <span class="n">new_denominator</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">denominator</span> <span class="o">*</span> <span class="n">other</span><span class="o">.</span><span class="n">numerator</span>
+        <span class="k">return</span> <span class="n">Fraction</span> <span class="p">(</span><span class="n">new_numerator</span><span class="p">,</span> <span class="n">new_denominator</span><span class="p">)</span>
+
+
+<span class="c1"># ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- </span>
+
+
+<span class="k">def</span> <span class="nf">testing</span> <span class="p">()</span>  <span class="p">:</span>
+<span class="w">    </span><span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">    Function to test the class behaviour, called in the main program</span>
+<span class="sd">    &#39;&#39;&#39;</span>
+
+    <span class="nb">print</span> <span class="p">(</span><span class="s1">&#39;Initial fractions:&#39;</span><span class="p">)</span>
+    <span class="n">frac1</span> <span class="o">=</span> <span class="n">Fraction</span> <span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">)</span>
+    <span class="n">frac1</span><span class="o">.</span><span class="n">print</span> <span class="p">()</span>
+    <span class="nb">print</span> <span class="p">(</span><span class="s1">&#39;ratio: &#39;</span><span class="p">,</span> <span class="n">frac1</span><span class="o">.</span><span class="n">ratio</span> <span class="p">())</span>
+
+    <span class="n">frac2</span> <span class="o">=</span> <span class="n">Fraction</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+    <span class="n">frac2</span><span class="o">.</span><span class="n">print</span> <span class="p">()</span>
+    <span class="nb">print</span> <span class="p">(</span><span class="s1">&#39;ratio: &#39;</span><span class="p">,</span> <span class="n">frac2</span><span class="o">.</span><span class="n">ratio</span> <span class="p">())</span>
+    
+    <span class="n">sum_frac</span> <span class="o">=</span> <span class="n">frac1</span> <span class="o">+</span> <span class="n">frac2</span>
+    <span class="nb">print</span> <span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">Sum :&#39;</span><span class="p">)</span>
+    <span class="n">sum_frac</span><span class="o">.</span><span class="n">print</span> <span class="p">()</span>
+    
+    <span class="n">diff_frac</span> <span class="o">=</span> <span class="n">frac1</span> <span class="o">-</span> <span class="n">frac2</span>
+    <span class="nb">print</span> <span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">Difference:&#39;</span><span class="p">)</span>
+    <span class="n">diff_frac</span><span class="o">.</span><span class="n">print</span> <span class="p">()</span>
+    
+    <span class="n">prod_frac</span> <span class="o">=</span> <span class="n">frac1</span> <span class="o">*</span> <span class="n">frac2</span>
+    <span class="nb">print</span> <span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">Product:&#39;</span><span class="p">)</span>
+    <span class="n">prod_frac</span><span class="o">.</span><span class="n">print</span> <span class="p">()</span>
+    
+    <span class="n">div_frac</span> <span class="o">=</span> <span class="n">frac1</span> <span class="o">/</span> <span class="n">frac2</span>
+    <span class="nb">print</span> <span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">Division:&#39;</span><span class="p">)</span>
+    <span class="n">div_frac</span><span class="o">.</span><span class="n">print</span> <span class="p">()</span>
+    
+
+<span class="c1"># ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- </span>
 
     
-<span class="c1"># ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- </span>
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&quot;__main__&quot;</span> <span class="p">:</span>
+    <span class="n">testing</span> <span class="p">()</span>
 
-
-<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&quot;__main__&quot;</span><span class="p">:</span>
-    <span class="n">main</span> <span class="p">()</span>
 </pre></div>
 </div>
 </section>
-<section id="drawing-of-the-obtained-sequence-of-numbers">
-<h2><span class="section-number">5.6.3. </span>Drawing of the obtained sequence of numbers<a class="headerlink" href="#drawing-of-the-obtained-sequence-of-numbers" title="Permalink to this heading">#</a></h2>
+<section id="a-simple-test-of-a-lambda-function">
+<h2><span class="section-number">5.4.2. </span>A simple test of a <cite>lambda</cite> function<a class="headerlink" href="#a-simple-test-of-a-lambda-function" title="Permalink to this heading">#</a></h2>
 <ul class="simple">
-<li><p><cite>random_03.py</cite></p></li>
+<li><p><cite>lambda.py</cite></p></li>
 </ul>
 <div class="highlight-py notranslate"><div class="highlight"><pre><span></span><span class="ch">#!/usr/bin/python</span>
 <span class="sd">&#39;&#39;&#39;</span>
-<span class="sd">generazione di numeri pseudo-casuali distribuiti uniformemente fra 0 ed 1</span>
-<span class="sd">a partire da un determinato seed e disegno della distribuzione</span>
-<span class="sd">python3 random_03.py 200 2.4</span>
+<span class="sd">a simple example of lambda function definition</span>
 <span class="sd">&#39;&#39;&#39;</span>
 
-<span class="kn">import</span> <span class="nn">sys</span>
-<span class="kn">import</span> <span class="nn">random</span>
-<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
-<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="kn">from</span> <span class="nn">math</span> <span class="kn">import</span> <span class="n">floor</span>
+<span class="k">def</span> <span class="nf">square</span> <span class="p">(</span><span class="n">a</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">a</span><span class="o">**</span><span class="mi">2</span>
 
-<span class="k">def</span> <span class="nf">main</span> <span class="p">()</span> <span class="p">:</span>
-<span class="w">    </span><span class="sd">&#39;&#39;&#39;</span>
-<span class="sd">    Funzione che implementa il programma principale</span>
-<span class="sd">    &#39;&#39;&#39;</span>
 
-    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">)</span> <span class="o">&lt;</span> <span class="mi">3</span> <span class="p">:</span>
-        <span class="nb">print</span> <span class="p">(</span><span class="s1">&#39;usage: &#39;</span><span class="p">,</span> <span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="s1">&#39;numero seed&#39;</span><span class="p">)</span>
-        <span class="n">exit</span> <span class="p">()</span>
+<span class="c1"># ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- </span>
 
-    <span class="n">random</span><span class="o">.</span><span class="n">seed</span> <span class="p">(</span><span class="nb">float</span> <span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">[</span><span class="mi">2</span><span class="p">]))</span>
-    <span class="n">randlist</span> <span class="o">=</span> <span class="p">[]</span>
-    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span> <span class="p">(</span><span class="nb">int</span> <span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">[</span><span class="mi">1</span><span class="p">])):</span>
-        <span class="c1"># Return the next random floating point number in the range 0.0 &lt;= X &lt; 1.0</span>
-        <span class="n">randlist</span><span class="o">.</span><span class="n">append</span> <span class="p">(</span><span class="n">random</span><span class="o">.</span><span class="n">random</span> <span class="p">())</span>
-        <span class="nb">print</span> <span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="n">randlist</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span>
-
-    <span class="c1"># plotting of the generated list of numbers in a histogram</span>
-
-    <span class="n">xMin</span> <span class="o">=</span> <span class="mf">0.</span>                                    <span class="c1"># minimum of the histogram drawing range</span>
-    <span class="n">xMax</span> <span class="o">=</span> <span class="mf">1.</span>                                    <span class="c1"># maximum of the histogram drawing range</span>
-    <span class="n">nBins</span> <span class="o">=</span> <span class="n">floor</span> <span class="p">(</span><span class="nb">len</span> <span class="p">(</span><span class="n">randlist</span><span class="p">)</span> <span class="o">/</span> <span class="mf">20.</span><span class="p">)</span> <span class="o">+</span> <span class="mi">1</span>     <span class="c1"># number of bins of the hitogram</span>
-    <span class="n">bin_edges</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span> <span class="p">(</span><span class="n">xMin</span><span class="p">,</span> <span class="n">xMax</span><span class="p">,</span> <span class="n">nBins</span><span class="p">)</span>  <span class="c1"># edges o the histogram bins</span>
-
-    <span class="c1"># check the bin edges</span>
-    <span class="nb">print</span> <span class="p">(</span><span class="n">bin_edges</span><span class="p">)</span>
-    <span class="nb">print</span> <span class="p">(</span><span class="nb">len</span> <span class="p">(</span><span class="n">bin_edges</span><span class="p">))</span>
-
-    <span class="c1"># disegno della funzione</span>
-    <span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span> <span class="p">()</span>
-    <span class="n">ax</span><span class="o">.</span><span class="n">set_title</span> <span class="p">(</span><span class="s1">&#39;Histogram of random numbers&#39;</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">14</span><span class="p">)</span>
-    <span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;random value&#39;</span><span class="p">)</span>
-    <span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;events in bin&#39;</span><span class="p">)</span>
-    <span class="n">ax</span><span class="o">.</span><span class="n">hist</span> <span class="p">(</span><span class="n">randlist</span><span class="p">,</span>      <span class="c1"># list of numbers</span>
-             <span class="n">bins</span> <span class="o">=</span> <span class="n">bin_edges</span><span class="p">,</span>
-             <span class="n">color</span> <span class="o">=</span> <span class="s1">&#39;orange&#39;</span><span class="p">,</span>
-             <span class="c1"># normed = True,</span>
-            <span class="p">)</span>
-    <span class="n">plt</span><span class="o">.</span><span class="n">show</span> <span class="p">()</span>
     
-<span class="c1"># ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- </span>
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&quot;__main__&quot;</span> <span class="p">:</span>
 
+    <span class="n">number</span> <span class="o">=</span> <span class="mi">5</span>
+    <span class="nb">print</span> <span class="p">(</span><span class="n">square</span> <span class="p">(</span><span class="n">number</span><span class="p">))</span>
+    <span class="nb">print</span> <span class="p">((</span><span class="k">lambda</span> <span class="n">x</span> <span class="p">:</span> <span class="n">x</span><span class="o">**</span><span class="mi">2</span><span class="p">)(</span><span class="n">number</span><span class="p">))</span>
 
-<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&quot;__main__&quot;</span><span class="p">:</span>
-    <span class="n">main</span> <span class="p">()</span>
-</pre></div>
-</div>
-</section>
-<section id="porting-of-the-generation-code-to-a-library">
-<h2><span class="section-number">5.6.4. </span>Porting of the generation code to a library<a class="headerlink" href="#porting-of-the-generation-code-to-a-library" title="Permalink to this heading">#</a></h2>
-<ul class="simple">
-<li><p><cite>random_04.py</cite></p></li>
-</ul>
-<div class="highlight-py notranslate"><div class="highlight"><pre><span></span><span class="ch">#!/usr/bin/python</span>
-<span class="sd">&#39;&#39;&#39;</span>
-<span class="sd">generazione di numeri pseudo-casuali distribuiti uniformemente fra 0 ed 1</span>
-<span class="sd">a partire da un determinato seed e disegno della distribuzione,</span>
-<span class="sd">separando la generazione dal programma principale</span>
-<span class="sd">python3 random_04.py 2000 2.4</span>
-<span class="sd">&#39;&#39;&#39;</span>
-
-<span class="kn">import</span> <span class="nn">sys</span>
-<span class="kn">import</span> <span class="nn">random</span>
-<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
-<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="kn">from</span> <span class="nn">math</span> <span class="kn">import</span> <span class="n">floor</span>
-
-<span class="kn">from</span> <span class="nn">myrand</span> <span class="kn">import</span> <span class="n">generate_uniform</span>
-
-<span class="k">def</span> <span class="nf">main</span> <span class="p">()</span> <span class="p">:</span>
-<span class="w">    </span><span class="sd">&#39;&#39;&#39;</span>
-<span class="sd">    Funzione che implementa il programma principale</span>
-<span class="sd">    &#39;&#39;&#39;</span>
-
-    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">)</span> <span class="o">&lt;</span> <span class="mi">3</span> <span class="p">:</span>
-        <span class="nb">print</span> <span class="p">(</span><span class="s1">&#39;usage: &#39;</span><span class="p">,</span> <span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="s1">&#39;numero seed&#39;</span><span class="p">)</span>
-        <span class="n">exit</span> <span class="p">()</span>
-
-    <span class="n">randlist</span> <span class="o">=</span> <span class="n">generate_uniform</span> <span class="p">(</span><span class="nb">int</span> <span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">[</span><span class="mi">1</span><span class="p">]),</span> <span class="nb">float</span> <span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">[</span><span class="mi">2</span><span class="p">]))</span>
-
-    <span class="c1"># plotting of the generated list of numbers in a histogram</span>
-
-    <span class="n">xMin</span> <span class="o">=</span> <span class="mf">0.</span>                                    <span class="c1"># minimum of the histogram drawing range</span>
-    <span class="n">xMax</span> <span class="o">=</span> <span class="mf">1.</span>                                    <span class="c1"># maximum of the histogram drawing range</span>
-    <span class="n">nBins</span> <span class="o">=</span> <span class="n">floor</span> <span class="p">(</span><span class="nb">len</span> <span class="p">(</span><span class="n">randlist</span><span class="p">)</span> <span class="o">/</span> <span class="mf">20.</span><span class="p">)</span> <span class="o">+</span> <span class="mi">1</span>     <span class="c1"># number of bins of the hitogram</span>
-    <span class="n">bin_edges</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span> <span class="p">(</span><span class="n">xMin</span><span class="p">,</span> <span class="n">xMax</span><span class="p">,</span> <span class="n">nBins</span><span class="p">)</span>  <span class="c1"># edges o the histogram bins</span>
-
-    <span class="c1"># disegno della funzione</span>
-    <span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span> <span class="p">()</span>
-    <span class="n">ax</span><span class="o">.</span><span class="n">set_title</span> <span class="p">(</span><span class="s1">&#39;Histogram of random numbers&#39;</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">14</span><span class="p">)</span>
-    <span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;random value&#39;</span><span class="p">)</span>
-    <span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;events in bin&#39;</span><span class="p">)</span>
-    <span class="n">ax</span><span class="o">.</span><span class="n">hist</span> <span class="p">(</span><span class="n">randlist</span><span class="p">,</span>      <span class="c1"># list of numbers</span>
-             <span class="n">bins</span> <span class="o">=</span> <span class="n">bin_edges</span><span class="p">,</span>
-             <span class="n">color</span> <span class="o">=</span> <span class="s1">&#39;orange&#39;</span><span class="p">,</span>
-             <span class="c1"># normed = True,</span>
-            <span class="p">)</span>
-    <span class="n">plt</span><span class="o">.</span><span class="n">show</span> <span class="p">()</span>
-
-
-<span class="c1"># ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- </span>
-
-
-<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&quot;__main__&quot;</span><span class="p">:</span>
-    <span class="n">main</span> <span class="p">()</span>
-</pre></div>
-</div>
-<ul class="simple">
-<li><p><cite>myrand.py</cite></p></li>
-</ul>
-<div class="highlight-py notranslate"><div class="highlight"><pre><span></span><span class="ch">#!/usr/bin/python</span>
-
-<span class="kn">import</span> <span class="nn">random</span>
-<span class="kn">from</span> <span class="nn">math</span> <span class="kn">import</span> <span class="n">sqrt</span>
-
-
-<span class="k">def</span> <span class="nf">generate_uniform</span> <span class="p">(</span><span class="n">N</span><span class="p">,</span> <span class="n">seed</span> <span class="o">=</span> <span class="mf">0.</span><span class="p">)</span> <span class="p">:</span>
-<span class="w">    </span><span class="sd">&#39;&#39;&#39;</span>
-<span class="sd">    generazione di N numeri pseudo-casuali distribuiti fra 0 ed 1</span>
-<span class="sd">    a partire da un determinato seed</span>
-<span class="sd">    &#39;&#39;&#39;</span>
-    <span class="k">if</span> <span class="n">seed</span> <span class="o">!=</span> <span class="mf">0.</span> <span class="p">:</span> <span class="n">random</span><span class="o">.</span><span class="n">seed</span> <span class="p">(</span><span class="nb">float</span> <span class="p">(</span><span class="n">seed</span><span class="p">))</span>
-    <span class="n">randlist</span> <span class="o">=</span> <span class="p">[]</span>
-    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span> <span class="p">(</span><span class="n">N</span><span class="p">):</span>
-        <span class="c1"># Return the next random floating point number in the range 0.0 &lt;= X &lt; 1.0</span>
-        <span class="n">randlist</span><span class="o">.</span><span class="n">append</span> <span class="p">(</span><span class="n">random</span><span class="o">.</span><span class="n">random</span> <span class="p">())</span>
-    <span class="k">return</span> <span class="n">randlist</span>
-
-
-<span class="c1"># ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- </span>
-
-
-<span class="k">def</span> <span class="nf">rand_range</span> <span class="p">(</span><span class="n">xMin</span><span class="p">,</span> <span class="n">xMax</span><span class="p">)</span> <span class="p">:</span>
-<span class="w">    </span><span class="sd">&#39;&#39;&#39;</span>
-<span class="sd">    generazione di un numero pseudo-casuale distribuito fra xMin ed xMax</span>
-<span class="sd">    &#39;&#39;&#39;</span>
-    <span class="k">return</span> <span class="n">xMin</span> <span class="o">+</span> <span class="n">random</span><span class="o">.</span><span class="n">random</span> <span class="p">()</span> <span class="o">*</span> <span class="p">(</span><span class="n">xMax</span> <span class="o">-</span> <span class="n">xMin</span><span class="p">)</span>
-
-
-<span class="c1"># ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- </span>
-
-
-<span class="k">def</span> <span class="nf">generate_range</span> <span class="p">(</span><span class="n">xMin</span><span class="p">,</span> <span class="n">xMax</span><span class="p">,</span> <span class="n">N</span><span class="p">,</span> <span class="n">seed</span> <span class="o">=</span> <span class="mf">0.</span><span class="p">)</span> <span class="p">:</span>
-<span class="w">    </span><span class="sd">&#39;&#39;&#39;</span>
-<span class="sd">    generazione di N numeri pseudo-casuali distribuiti fra xMin ed xMax</span>
-<span class="sd">    a partire da un determinato seed</span>
-<span class="sd">    &#39;&#39;&#39;</span>
-    <span class="k">if</span> <span class="n">seed</span> <span class="o">!=</span> <span class="mf">0.</span> <span class="p">:</span> <span class="n">random</span><span class="o">.</span><span class="n">seed</span> <span class="p">(</span><span class="nb">float</span> <span class="p">(</span><span class="n">seed</span><span class="p">))</span>
-    <span class="n">randlist</span> <span class="o">=</span> <span class="p">[]</span>
-    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span> <span class="p">(</span><span class="n">N</span><span class="p">):</span>
-        <span class="c1"># Return the next random floating point number in the range 0.0 &lt;= X &lt; 1.0</span>
-        <span class="n">randlist</span><span class="o">.</span><span class="n">append</span> <span class="p">(</span><span class="n">rand_range</span> <span class="p">(</span><span class="n">xMin</span><span class="p">,</span> <span class="n">xMax</span><span class="p">))</span>
-    <span class="k">return</span> <span class="n">randlist</span>
-
-
-<span class="c1"># ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- </span>
-
-
-<span class="k">def</span> <span class="nf">rand_TAC</span> <span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">xMin</span><span class="p">,</span> <span class="n">xMax</span><span class="p">,</span> <span class="n">yMax</span><span class="p">)</span> <span class="p">:</span>
-<span class="w">    </span><span class="sd">&#39;&#39;&#39;</span>
-<span class="sd">    generazione di un numero pseudo-casuale </span>
-<span class="sd">    con il metodo try and catch</span>
-<span class="sd">    &#39;&#39;&#39;</span>
-    <span class="n">x</span> <span class="o">=</span> <span class="n">rand_range</span> <span class="p">(</span><span class="n">xMin</span><span class="p">,</span> <span class="n">xMax</span><span class="p">)</span>
-    <span class="n">y</span> <span class="o">=</span> <span class="n">rand_range</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">yMax</span><span class="p">)</span>
-    <span class="k">while</span> <span class="p">(</span><span class="n">y</span> <span class="o">&gt;</span> <span class="n">f</span> <span class="p">(</span><span class="n">x</span><span class="p">))</span> <span class="p">:</span>
-        <span class="n">x</span> <span class="o">=</span> <span class="n">rand_range</span> <span class="p">(</span><span class="n">xMin</span><span class="p">,</span> <span class="n">xMax</span><span class="p">)</span>
-        <span class="n">y</span> <span class="o">=</span> <span class="n">rand_range</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">yMax</span><span class="p">)</span>
-    <span class="k">return</span> <span class="n">x</span>
-
-
-<span class="c1"># ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- </span>
-
-
-<span class="k">def</span> <span class="nf">generate_TAC</span> <span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">xMin</span><span class="p">,</span> <span class="n">xMax</span><span class="p">,</span> <span class="n">yMax</span><span class="p">,</span> <span class="n">N</span><span class="p">,</span> <span class="n">seed</span> <span class="o">=</span> <span class="mf">0.</span><span class="p">)</span> <span class="p">:</span>
-<span class="w">    </span><span class="sd">&#39;&#39;&#39;</span>
-<span class="sd">    generazione di N numeri pseudo-casuali</span>
-<span class="sd">    con il metodo try and catch, in un certo intervallo,</span>
-<span class="sd">    a partire da un determinato seed</span>
-<span class="sd">    &#39;&#39;&#39;</span>
-    <span class="k">if</span> <span class="n">seed</span> <span class="o">!=</span> <span class="mf">0.</span> <span class="p">:</span> <span class="n">random</span><span class="o">.</span><span class="n">seed</span> <span class="p">(</span><span class="nb">float</span> <span class="p">(</span><span class="n">seed</span><span class="p">))</span>
-    <span class="n">randlist</span> <span class="o">=</span> <span class="p">[]</span>
-    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span> <span class="p">(</span><span class="n">N</span><span class="p">):</span>
-        <span class="c1"># Return the next random floating point number in the range 0.0 &lt;= X &lt; 1.0</span>
-        <span class="n">randlist</span><span class="o">.</span><span class="n">append</span> <span class="p">(</span><span class="n">rand_TAC</span> <span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">xMin</span><span class="p">,</span> <span class="n">xMax</span><span class="p">,</span> <span class="n">yMax</span><span class="p">))</span>
-    <span class="k">return</span> <span class="n">randlist</span>
-
-
-<span class="c1"># ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- </span>
-
-
-<span class="k">def</span> <span class="nf">rand_TCL</span> <span class="p">(</span><span class="n">xMin</span><span class="p">,</span> <span class="n">xMax</span><span class="p">,</span> <span class="n">N_sum</span> <span class="o">=</span> <span class="mi">10</span><span class="p">)</span> <span class="p">:</span>
-<span class="w">    </span><span class="sd">&#39;&#39;&#39;</span>
-<span class="sd">    generazione di un numero pseudo-casuale </span>
-<span class="sd">    con il metodo del teorema centrale del limite</span>
-<span class="sd">    su un intervallo fissato</span>
-<span class="sd">    &#39;&#39;&#39;</span>
-    <span class="n">y</span> <span class="o">=</span> <span class="mf">0.</span>
-    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span> <span class="p">(</span><span class="n">N_sum</span><span class="p">)</span> <span class="p">:</span>
-        <span class="n">y</span> <span class="o">=</span> <span class="n">y</span> <span class="o">+</span> <span class="n">rand_range</span> <span class="p">(</span><span class="n">xMin</span><span class="p">,</span> <span class="n">xMax</span><span class="p">)</span>
-    <span class="n">y</span> <span class="o">/=</span> <span class="n">N_sum</span> <span class="p">;</span>
-    <span class="k">return</span> <span class="n">y</span> <span class="p">;</span>
-
-
-<span class="c1"># ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- </span>
-
-
-<span class="k">def</span> <span class="nf">generate_TCL</span> <span class="p">(</span><span class="n">xMin</span><span class="p">,</span> <span class="n">xMax</span><span class="p">,</span> <span class="n">N</span><span class="p">,</span> <span class="n">N_sum</span> <span class="o">=</span> <span class="mi">10</span><span class="p">,</span> <span class="n">seed</span> <span class="o">=</span> <span class="mf">0.</span><span class="p">)</span> <span class="p">:</span>
-<span class="w">    </span><span class="sd">&#39;&#39;&#39;</span>
-<span class="sd">    generazione di N numeri pseudo-casuali</span>
-<span class="sd">    con il metodo del teorema centrale del limite, in un certo intervallo,</span>
-<span class="sd">    a partire da un determinato seed</span>
-<span class="sd">    &#39;&#39;&#39;</span>
-    <span class="k">if</span> <span class="n">seed</span> <span class="o">!=</span> <span class="mf">0.</span> <span class="p">:</span> <span class="n">random</span><span class="o">.</span><span class="n">seed</span> <span class="p">(</span><span class="nb">float</span> <span class="p">(</span><span class="n">seed</span><span class="p">))</span>
-    <span class="n">randlist</span> <span class="o">=</span> <span class="p">[]</span>
-    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span> <span class="p">(</span><span class="n">N</span><span class="p">):</span>
-        <span class="c1"># Return the next random floating point number in the range 0.0 &lt;= X &lt; 1.0</span>
-        <span class="n">randlist</span><span class="o">.</span><span class="n">append</span> <span class="p">(</span><span class="n">rand_TCL</span> <span class="p">(</span><span class="n">xMin</span><span class="p">,</span> <span class="n">xMax</span><span class="p">,</span> <span class="n">N_sum</span><span class="p">))</span>
-    <span class="k">return</span> <span class="n">randlist</span>
-
-
-<span class="c1"># ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- </span>
-
-
-<span class="k">def</span> <span class="nf">rand_TCL_ms</span> <span class="p">(</span><span class="n">mean</span><span class="p">,</span> <span class="n">sigma</span><span class="p">,</span> <span class="n">N_sum</span> <span class="o">=</span> <span class="mi">10</span><span class="p">)</span> <span class="p">:</span>
-<span class="w">    </span><span class="sd">&#39;&#39;&#39;</span>
-<span class="sd">    generazione di un numero pseudo-casuale </span>
-<span class="sd">    con il metodo del teorema centrale del limite</span>
-<span class="sd">    note media e sigma della gaussiana</span>
-<span class="sd">    &#39;&#39;&#39;</span>
-    <span class="n">y</span> <span class="o">=</span> <span class="mf">0.</span>
-    <span class="n">delta</span> <span class="o">=</span> <span class="n">sqrt</span> <span class="p">(</span><span class="mi">3</span> <span class="o">*</span> <span class="n">N_sum</span><span class="p">)</span> <span class="o">*</span> <span class="n">sigma</span>
-    <span class="n">xMin</span> <span class="o">=</span> <span class="n">mean</span> <span class="o">-</span> <span class="n">delta</span>
-    <span class="n">xMax</span> <span class="o">=</span> <span class="n">mean</span> <span class="o">+</span> <span class="n">delta</span>
-    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span> <span class="p">(</span><span class="n">N_sum</span><span class="p">)</span> <span class="p">:</span>
-        <span class="n">y</span> <span class="o">=</span> <span class="n">y</span> <span class="o">+</span> <span class="n">rand_range</span> <span class="p">(</span><span class="n">xMin</span><span class="p">,</span> <span class="n">xMax</span><span class="p">)</span>
-    <span class="n">y</span> <span class="o">/=</span> <span class="n">N_sum</span> <span class="p">;</span>
-    <span class="k">return</span> <span class="n">y</span> <span class="p">;</span>
-
-
-<span class="c1"># ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- </span>
-
-
-<span class="k">def</span> <span class="nf">generate_TCL_ms</span> <span class="p">(</span><span class="n">mean</span><span class="p">,</span> <span class="n">sigma</span><span class="p">,</span> <span class="n">N</span><span class="p">,</span> <span class="n">N_sum</span> <span class="o">=</span> <span class="mi">10</span><span class="p">,</span> <span class="n">seed</span> <span class="o">=</span> <span class="mf">0.</span><span class="p">)</span> <span class="p">:</span>
-<span class="w">    </span><span class="sd">&#39;&#39;&#39;</span>
-<span class="sd">    generazione di N numeri pseudo-casuali</span>
-<span class="sd">    con il metodo del teorema centrale del limite, note media e sigma della gaussiana,</span>
-<span class="sd">    a partire da un determinato seed</span>
-<span class="sd">    &#39;&#39;&#39;</span>
-    <span class="k">if</span> <span class="n">seed</span> <span class="o">!=</span> <span class="mf">0.</span> <span class="p">:</span> <span class="n">random</span><span class="o">.</span><span class="n">seed</span> <span class="p">(</span><span class="nb">float</span> <span class="p">(</span><span class="n">seed</span><span class="p">))</span>
-    <span class="n">randlist</span> <span class="o">=</span> <span class="p">[]</span>
-    <span class="n">delta</span> <span class="o">=</span> <span class="n">sqrt</span> <span class="p">(</span><span class="mi">3</span> <span class="o">*</span> <span class="n">N_sum</span><span class="p">)</span> <span class="o">*</span> <span class="n">sigma</span>
-    <span class="n">xMin</span> <span class="o">=</span> <span class="n">mean</span> <span class="o">-</span> <span class="n">delta</span>
-    <span class="n">xMax</span> <span class="o">=</span> <span class="n">mean</span> <span class="o">+</span> <span class="n">delta</span>
-    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span> <span class="p">(</span><span class="n">N</span><span class="p">):</span>
-        <span class="c1"># Return the next random floating point number in the range 0.0 &lt;= X &lt; 1.0</span>
-        <span class="n">randlist</span><span class="o">.</span><span class="n">append</span> <span class="p">(</span><span class="n">rand_TCL</span> <span class="p">(</span><span class="n">xMin</span><span class="p">,</span> <span class="n">xMax</span><span class="p">,</span> <span class="n">N_sum</span><span class="p">))</span>
-    <span class="k">return</span> <span class="n">randlist</span>
-
+    <span class="n">f</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">x</span> <span class="p">:</span> <span class="n">x</span><span class="o">**</span><span class="mi">2</span>
+    <span class="nb">print</span> <span class="p">(</span><span class="n">f</span> <span class="p">(</span><span class="n">number</span><span class="p">))</span>
 
 </pre></div>
 </div>
 </section>
-<section id="generation-of-pseudo-random-numbers-uniformly-within-xmin-xmax">
-<h2><span class="section-number">5.6.5. </span>Generation of pseudo-random numbers uniformly within (xMin, xMax)<a class="headerlink" href="#generation-of-pseudo-random-numbers-uniformly-within-xmin-xmax" title="Permalink to this heading">#</a></h2>
+<section id="a-simple-test-of-the-map-function">
+<h2><span class="section-number">5.4.3. </span>A simple test of the <cite>map</cite> function<a class="headerlink" href="#a-simple-test-of-the-map-function" title="Permalink to this heading">#</a></h2>
 <ul class="simple">
-<li><p><cite>random_05.py</cite></p></li>
+<li><p><cite>map.py</cite></p></li>
 </ul>
 <div class="highlight-py notranslate"><div class="highlight"><pre><span></span><span class="ch">#!/usr/bin/python</span>
 <span class="sd">&#39;&#39;&#39;</span>
-<span class="sd">generazione di numeri pseudo-casuali distribuiti uniformemente fra xMin ed xMax</span>
-<span class="sd">a partire da un determinato seed e disegno della distribuzione,</span>
-<span class="sd">separando la generazione dal programma principale</span>
-<span class="sd">python3 random_05.py 2.2 4.3 2000 2.4</span>
+<span class="sd">a simple example of the map function use</span>
 <span class="sd">&#39;&#39;&#39;</span>
 
-<span class="kn">import</span> <span class="nn">sys</span>
-<span class="kn">import</span> <span class="nn">random</span>
-<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
-<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="kn">from</span> <span class="nn">math</span> <span class="kn">import</span> <span class="n">floor</span>
-
-<span class="kn">from</span> <span class="nn">myrand</span> <span class="kn">import</span> <span class="n">generate_range</span>
-
-<span class="k">def</span> <span class="nf">main</span> <span class="p">()</span> <span class="p">:</span>
-<span class="w">    </span><span class="sd">&#39;&#39;&#39;</span>
-<span class="sd">    Funzione che implementa il programma principale</span>
-<span class="sd">    &#39;&#39;&#39;</span>
-
-    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">)</span> <span class="o">&lt;</span> <span class="mi">5</span> <span class="p">:</span>
-        <span class="nb">print</span> <span class="p">(</span><span class="s1">&#39;usage: &#39;</span><span class="p">,</span> <span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="s1">&#39;xMin xMax numero seed&#39;</span><span class="p">)</span>
-        <span class="n">exit</span> <span class="p">()</span>
-
-    <span class="n">xMin</span> <span class="o">=</span> <span class="nb">float</span> <span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>  <span class="c1"># minimum of the histogram drawing range</span>
-    <span class="n">xMax</span> <span class="o">=</span> <span class="nb">float</span> <span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">[</span><span class="mi">2</span><span class="p">])</span>  <span class="c1"># maximum of the histogram drawing range</span>
-    <span class="n">seed</span> <span class="o">=</span> <span class="nb">float</span> <span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">[</span><span class="mi">4</span><span class="p">])</span>
-    <span class="n">N</span>    <span class="o">=</span> <span class="nb">int</span> <span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">[</span><span class="mi">3</span><span class="p">])</span>
-
-    <span class="nb">print</span> <span class="p">(</span><span class="s1">&#39; -------- &#39;</span><span class="p">)</span>
-    <span class="nb">print</span> <span class="p">(</span><span class="s1">&#39; minimum : &#39;</span><span class="p">,</span> <span class="n">xMin</span><span class="p">)</span>
-    <span class="nb">print</span> <span class="p">(</span><span class="s1">&#39; maximum : &#39;</span><span class="p">,</span> <span class="n">xMax</span><span class="p">)</span>
-    <span class="nb">print</span> <span class="p">(</span><span class="s1">&#39; seed    : &#39;</span><span class="p">,</span> <span class="n">seed</span><span class="p">)</span>
-    <span class="nb">print</span> <span class="p">(</span><span class="s1">&#39; N       : &#39;</span><span class="p">,</span> <span class="n">N</span><span class="p">)</span>
-    <span class="nb">print</span> <span class="p">(</span><span class="s1">&#39; -------- &#39;</span><span class="p">)</span>
-
-    <span class="n">randlist</span> <span class="o">=</span> <span class="n">generate_range</span> <span class="p">(</span><span class="n">xMin</span><span class="p">,</span> <span class="n">xMax</span><span class="p">,</span> <span class="n">N</span><span class="p">,</span> <span class="n">seed</span><span class="p">)</span>
-
-    <span class="c1"># plotting of the generated list of numbers in a histogram</span>
-
-    <span class="n">nBins</span> <span class="o">=</span> <span class="n">floor</span> <span class="p">(</span><span class="nb">len</span> <span class="p">(</span><span class="n">randlist</span><span class="p">)</span> <span class="o">/</span> <span class="mf">20.</span><span class="p">)</span> <span class="o">+</span> <span class="mi">1</span>     <span class="c1"># number of bins of the hitogram</span>
-    <span class="n">bin_edges</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span> <span class="p">(</span><span class="n">xMin</span><span class="p">,</span> <span class="n">xMax</span><span class="p">,</span> <span class="n">nBins</span><span class="p">)</span>  <span class="c1"># edges o the histogram bins</span>
-
-    <span class="c1"># disegno della funzione</span>
-    <span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span> <span class="p">()</span>
-    <span class="n">ax</span><span class="o">.</span><span class="n">set_title</span> <span class="p">(</span><span class="s1">&#39;Histogram of random numbers&#39;</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">14</span><span class="p">)</span>
-    <span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span> <span class="p">(</span><span class="s1">&#39;random value&#39;</span><span class="p">)</span>
-    <span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span> <span class="p">(</span><span class="s1">&#39;events in bin&#39;</span><span class="p">)</span>
-    <span class="n">ax</span><span class="o">.</span><span class="n">hist</span> <span class="p">(</span><span class="n">randlist</span><span class="p">,</span>      <span class="c1"># list of numbers</span>
-             <span class="n">bins</span> <span class="o">=</span> <span class="n">bin_edges</span><span class="p">,</span>
-             <span class="n">color</span> <span class="o">=</span> <span class="s1">&#39;orange&#39;</span><span class="p">,</span>
-             <span class="c1"># normed = True,</span>
-            <span class="p">)</span>
-    <span class="n">plt</span><span class="o">.</span><span class="n">show</span> <span class="p">()</span>
+<span class="k">def</span> <span class="nf">square</span> <span class="p">(</span><span class="n">a</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">a</span><span class="o">**</span><span class="mi">2</span>
 
 
 <span class="c1"># ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- </span>
 
+    
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&quot;__main__&quot;</span> <span class="p">:</span>
 
-<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&quot;__main__&quot;</span><span class="p">:</span>
-    <span class="n">main</span> <span class="p">()</span>
+    <span class="c1"># create a list to be used as an example</span>
+    <span class="n">lista</span> <span class="o">=</span> <span class="nb">list</span> <span class="p">(</span><span class="nb">range</span> <span class="p">(</span><span class="o">-</span><span class="mi">5</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
+
+    <span class="n">squared</span> <span class="o">=</span> <span class="nb">list</span> <span class="p">(</span><span class="nb">map</span> <span class="p">(</span><span class="n">square</span><span class="p">,</span> <span class="n">lista</span><span class="p">))</span>
+
+    <span class="k">for</span> <span class="n">e</span><span class="p">,</span> <span class="n">esq</span> <span class="ow">in</span> <span class="nb">zip</span> <span class="p">(</span><span class="n">lista</span><span class="p">,</span> <span class="n">squared</span><span class="p">)</span> <span class="p">:</span>
+        <span class="nb">print</span> <span class="p">(</span><span class="n">e</span><span class="p">,</span> <span class="n">esq</span><span class="p">)</span>
+
+    <span class="n">squared2</span> <span class="o">=</span> <span class="nb">list</span> <span class="p">(</span><span class="nb">map</span> <span class="p">(</span><span class="k">lambda</span> <span class="n">x</span> <span class="p">:</span> <span class="n">x</span><span class="o">**</span><span class="mi">2</span><span class="p">,</span> <span class="n">lista</span><span class="p">))</span>
+
+    <span class="k">for</span> <span class="n">e</span><span class="p">,</span> <span class="n">esq</span> <span class="ow">in</span> <span class="nb">zip</span> <span class="p">(</span><span class="n">lista</span><span class="p">,</span> <span class="n">squared2</span><span class="p">)</span> <span class="p">:</span>
+        <span class="nb">print</span> <span class="p">(</span><span class="n">e</span><span class="p">,</span> <span class="n">esq</span><span class="p">)</span>
+
 </pre></div>
 </div>
 </section>
-<section id="visualisation-of-a-pseudo-random-sequence">
-<h2><span class="section-number">5.6.6. </span>Visualisation of a pseudo-random sequence<a class="headerlink" href="#visualisation-of-a-pseudo-random-sequence" title="Permalink to this heading">#</a></h2>
+<section id="a-simple-test-of-the-filter-function">
+<h2><span class="section-number">5.4.4. </span>A simple test of the <cite>filter</cite> function<a class="headerlink" href="#a-simple-test-of-the-filter-function" title="Permalink to this heading">#</a></h2>
 <ul class="simple">
-<li><p><cite>random_06.py</cite></p></li>
+<li><p><cite>filter.py</cite></p></li>
 </ul>
 <div class="highlight-py notranslate"><div class="highlight"><pre><span></span><span class="ch">#!/usr/bin/python</span>
 <span class="sd">&#39;&#39;&#39;</span>
-<span class="sd">generazione di numeri pseudo-casuali distribuiti uniformemente fra xMin ed xMax</span>
-<span class="sd">a partire da un determinato seed e disegno della sequenza di numeri,</span>
-<span class="sd">separando la generazione dal programma principale</span>
-<span class="sd">python3 random_06.py 2.2 4.3 20 2.4</span>
+<span class="sd">a simple example of the filter function use</span>
 <span class="sd">&#39;&#39;&#39;</span>
 
-<span class="kn">import</span> <span class="nn">sys</span>
-<span class="kn">import</span> <span class="nn">random</span>
-<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
-<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="kn">from</span> <span class="nn">math</span> <span class="kn">import</span> <span class="n">floor</span>
+    
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&quot;__main__&quot;</span> <span class="p">:</span>
 
-<span class="kn">from</span> <span class="nn">myrand</span> <span class="kn">import</span> <span class="n">generate_range</span>
+    <span class="n">lista</span> <span class="o">=</span> <span class="nb">list</span> <span class="p">(</span><span class="nb">filter</span> <span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">==</span> <span class="mi">0</span><span class="p">,</span> <span class="nb">range</span><span class="p">(</span><span class="o">-</span><span class="mi">5</span><span class="p">,</span> <span class="mi">5</span><span class="p">)))</span>
+    <span class="k">for</span> <span class="n">e</span> <span class="ow">in</span> <span class="n">lista</span> <span class="p">:</span> <span class="nb">print</span> <span class="p">(</span><span class="n">e</span><span class="p">)</span>
 
-<span class="k">def</span> <span class="nf">main</span> <span class="p">()</span> <span class="p">:</span>
-<span class="w">    </span><span class="sd">&#39;&#39;&#39;</span>
-<span class="sd">    Funzione che implementa il programma principale</span>
-<span class="sd">    &#39;&#39;&#39;</span>
-
-    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">)</span> <span class="o">&lt;</span> <span class="mi">5</span> <span class="p">:</span>
-        <span class="nb">print</span> <span class="p">(</span><span class="s1">&#39;usage: &#39;</span><span class="p">,</span> <span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="s1">&#39;xMin xMax numero seed&#39;</span><span class="p">)</span>
-        <span class="n">exit</span> <span class="p">()</span>
-
-    <span class="n">xMin</span> <span class="o">=</span> <span class="nb">float</span> <span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>  <span class="c1"># minimum of the histogram drawing range</span>
-    <span class="n">xMax</span> <span class="o">=</span> <span class="nb">float</span> <span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">[</span><span class="mi">2</span><span class="p">])</span>  <span class="c1"># maximum of the histogram drawing range</span>
-    <span class="n">seed</span> <span class="o">=</span> <span class="nb">float</span> <span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">[</span><span class="mi">4</span><span class="p">])</span>
-    <span class="n">N</span>    <span class="o">=</span> <span class="nb">int</span> <span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">[</span><span class="mi">3</span><span class="p">])</span>
-
-    <span class="nb">print</span> <span class="p">(</span><span class="s1">&#39; -------- &#39;</span><span class="p">)</span>
-    <span class="nb">print</span> <span class="p">(</span><span class="s1">&#39; minimum : &#39;</span><span class="p">,</span> <span class="n">xMin</span><span class="p">)</span>
-    <span class="nb">print</span> <span class="p">(</span><span class="s1">&#39; maximum : &#39;</span><span class="p">,</span> <span class="n">xMax</span><span class="p">)</span>
-    <span class="nb">print</span> <span class="p">(</span><span class="s1">&#39; seed    : &#39;</span><span class="p">,</span> <span class="n">seed</span><span class="p">)</span>
-    <span class="nb">print</span> <span class="p">(</span><span class="s1">&#39; N       : &#39;</span><span class="p">,</span> <span class="n">N</span><span class="p">)</span>
-    <span class="nb">print</span> <span class="p">(</span><span class="s1">&#39; -------- &#39;</span><span class="p">)</span>
-
-    <span class="c1"># list of uniformly generated numbers</span>
-    <span class="n">randlist</span> <span class="o">=</span> <span class="n">generate_range</span> <span class="p">(</span><span class="n">xMin</span><span class="p">,</span> <span class="n">xMax</span><span class="p">,</span> <span class="n">N</span><span class="p">,</span> <span class="n">seed</span><span class="p">)</span>
-    <span class="c1"># list of the position indices of the pseudo-random numbers in randlist</span>
-    <span class="n">index</span> <span class="o">=</span> <span class="nb">range</span> <span class="p">(</span><span class="nb">len</span> <span class="p">(</span><span class="n">randlist</span><span class="p">))</span>
-
-    <span class="c1"># disegno della funzione</span>
-    <span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span> <span class="p">()</span>
-    <span class="n">ax</span><span class="o">.</span><span class="n">set_title</span> <span class="p">(</span><span class="s1">&#39;Sequence of random numbers&#39;</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">14</span><span class="p">)</span>
-    <span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span> <span class="p">(</span><span class="s1">&#39;index in the sequence&#39;</span><span class="p">)</span>
-    <span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span> <span class="p">(</span><span class="s1">&#39;random value&#39;</span><span class="p">)</span>
-<span class="c1">#    ax.scatter (index, randlist)</span>
-    <span class="n">ax</span><span class="o">.</span><span class="n">plot</span> <span class="p">(</span><span class="n">index</span><span class="p">,</span> <span class="n">randlist</span><span class="p">,</span> <span class="n">marker</span> <span class="o">=</span> <span class="s1">&#39;o&#39;</span><span class="p">)</span>
-    <span class="n">plt</span><span class="o">.</span><span class="n">show</span> <span class="p">()</span>
-
-
-<span class="c1"># ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- </span>
-
-
-<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&quot;__main__&quot;</span><span class="p">:</span>
-    <span class="n">main</span> <span class="p">()</span>
-</pre></div>
-</div>
-</section>
-<section id="visualisation-of-a-pseudo-random-sequence-and-its-distribution">
-<h2><span class="section-number">5.6.7. </span>Visualisation of a pseudo-random sequence and its distribution<a class="headerlink" href="#visualisation-of-a-pseudo-random-sequence-and-its-distribution" title="Permalink to this heading">#</a></h2>
-<ul class="simple">
-<li><p><cite>random_07.py</cite></p></li>
-</ul>
-<div class="highlight-py notranslate"><div class="highlight"><pre><span></span><span class="ch">#!/usr/bin/python</span>
-<span class="sd">&#39;&#39;&#39;</span>
-<span class="sd">generazione di numeri pseudo-casuali distribuiti uniformemente fra xMin ed xMax</span>
-<span class="sd">a partire da un determinato seed e disegno congiunto della loro distribuzione e sequenza,</span>
-<span class="sd">separando la generazione dal programma principale</span>
-<span class="sd">reference documentation:</span>
-<span class="sd">https://matplotlib.org/stable/gallery/axes_grid1/scatter_hist_locatable_axes.html#sphx-glr-gallery-axes-grid1-scatter-hist-locatable-axes-py</span>
-<span class="sd">python3 random_07.py 2.2 4.3 100 2.4</span>
-<span class="sd">&#39;&#39;&#39;</span>
-
-<span class="kn">import</span> <span class="nn">sys</span>
-<span class="kn">import</span> <span class="nn">random</span>
-<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
-<span class="kn">from</span> <span class="nn">mpl_toolkits.axes_grid1</span> <span class="kn">import</span> <span class="n">make_axes_locatable</span>
-<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="kn">from</span> <span class="nn">math</span> <span class="kn">import</span> <span class="n">floor</span>
-
-<span class="kn">from</span> <span class="nn">myrand</span> <span class="kn">import</span> <span class="n">generate_range</span>
-
-
-<span class="k">def</span> <span class="nf">main</span> <span class="p">()</span> <span class="p">:</span>
-<span class="w">    </span><span class="sd">&#39;&#39;&#39;</span>
-<span class="sd">    Funzione che implementa il programma principale</span>
-<span class="sd">    &#39;&#39;&#39;</span>
-
-    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">)</span> <span class="o">&lt;</span> <span class="mi">5</span> <span class="p">:</span>
-        <span class="nb">print</span> <span class="p">(</span><span class="s1">&#39;usage: &#39;</span><span class="p">,</span> <span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="s1">&#39;xMin xMax numero seed&#39;</span><span class="p">)</span>
-        <span class="n">exit</span> <span class="p">()</span>
-
-    <span class="n">xMin</span> <span class="o">=</span> <span class="nb">float</span> <span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>  <span class="c1"># minimum of the histogram drawing range</span>
-    <span class="n">xMax</span> <span class="o">=</span> <span class="nb">float</span> <span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">[</span><span class="mi">2</span><span class="p">])</span>  <span class="c1"># maximum of the histogram drawing range</span>
-    <span class="n">seed</span> <span class="o">=</span> <span class="nb">float</span> <span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">[</span><span class="mi">4</span><span class="p">])</span>
-    <span class="n">N</span>    <span class="o">=</span> <span class="nb">int</span> <span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">[</span><span class="mi">3</span><span class="p">])</span>
-
-    <span class="nb">print</span> <span class="p">(</span><span class="s1">&#39; -------- &#39;</span><span class="p">)</span>
-    <span class="nb">print</span> <span class="p">(</span><span class="s1">&#39; minimum : &#39;</span><span class="p">,</span> <span class="n">xMin</span><span class="p">)</span>
-    <span class="nb">print</span> <span class="p">(</span><span class="s1">&#39; maximum : &#39;</span><span class="p">,</span> <span class="n">xMax</span><span class="p">)</span>
-    <span class="nb">print</span> <span class="p">(</span><span class="s1">&#39; seed    : &#39;</span><span class="p">,</span> <span class="n">seed</span><span class="p">)</span>
-    <span class="nb">print</span> <span class="p">(</span><span class="s1">&#39; N       : &#39;</span><span class="p">,</span> <span class="n">N</span><span class="p">)</span>
-    <span class="nb">print</span> <span class="p">(</span><span class="s1">&#39; -------- &#39;</span><span class="p">)</span>
-
-    <span class="c1"># list of uniformly generated numbers</span>
-    <span class="n">randlist</span> <span class="o">=</span> <span class="n">generate_range</span> <span class="p">(</span><span class="n">xMin</span><span class="p">,</span> <span class="n">xMax</span><span class="p">,</span> <span class="n">N</span><span class="p">,</span> <span class="n">seed</span><span class="p">)</span>
-    <span class="c1"># list of the position indices of the pseudo-random numbers in randlist</span>
-    <span class="n">index</span> <span class="o">=</span> <span class="nb">range</span> <span class="p">(</span><span class="nb">len</span> <span class="p">(</span><span class="n">randlist</span><span class="p">))</span>
-
-    <span class="c1"># disegno della funzione</span>
-    <span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span> <span class="p">()</span>
-    <span class="n">ax</span><span class="o">.</span><span class="n">set_title</span> <span class="p">(</span><span class="s1">&#39;Sequence of random numbers&#39;</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">14</span><span class="p">)</span>
-    <span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span> <span class="p">(</span><span class="s1">&#39;index in the sequence&#39;</span><span class="p">)</span>
-    <span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span> <span class="p">(</span><span class="s1">&#39;random value&#39;</span><span class="p">)</span>
-<span class="c1">#    ax.scatter (index, randlist)</span>
-    <span class="n">ax</span><span class="o">.</span><span class="n">plot</span> <span class="p">(</span><span class="n">index</span><span class="p">,</span> <span class="n">randlist</span><span class="p">,</span> <span class="n">marker</span> <span class="o">=</span> <span class="s1">&#39;o&#39;</span><span class="p">)</span>
-
-    <span class="c1"># create a new axis on the left of the current axes</span>
-    <span class="n">divider</span> <span class="o">=</span> <span class="n">make_axes_locatable</span> <span class="p">(</span><span class="n">ax</span><span class="p">)</span>
-    <span class="c1"># below height and pad are in inches</span>
-    <span class="n">ax_histy</span> <span class="o">=</span> <span class="n">divider</span><span class="o">.</span><span class="n">append_axes</span> <span class="p">(</span><span class="s2">&quot;right&quot;</span><span class="p">,</span> <span class="mf">1.2</span><span class="p">,</span> <span class="n">pad</span><span class="o">=</span><span class="mf">0.1</span><span class="p">,</span> <span class="n">sharey</span><span class="o">=</span><span class="n">ax</span><span class="p">)</span>
-    <span class="n">ax_histy</span><span class="o">.</span><span class="n">set_xlabel</span> <span class="p">(</span><span class="s1">&#39;counts&#39;</span><span class="p">)</span>
-
-    <span class="c1"># make some labels invisible</span>
-    <span class="n">ax_histy</span><span class="o">.</span><span class="n">yaxis</span><span class="o">.</span><span class="n">set_tick_params</span> <span class="p">(</span><span class="n">labelleft</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
-
-    <span class="n">nBins</span> <span class="o">=</span> <span class="n">floor</span> <span class="p">(</span><span class="nb">len</span> <span class="p">(</span><span class="n">randlist</span><span class="p">)</span> <span class="o">/</span> <span class="mf">10.</span><span class="p">)</span> <span class="o">+</span> <span class="mi">1</span>     <span class="c1"># number of bins of the hitogram</span>
-    <span class="n">bin_edges</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span> <span class="p">(</span><span class="n">xMin</span><span class="p">,</span> <span class="n">xMax</span><span class="p">,</span> <span class="n">nBins</span><span class="p">)</span>  <span class="c1"># edges o the histogram bins</span>
-
-    <span class="n">ax_histy</span><span class="o">.</span><span class="n">hist</span> <span class="p">(</span><span class="n">randlist</span><span class="p">,</span>      <span class="c1"># list of numbers</span>
-                   <span class="n">bins</span> <span class="o">=</span> <span class="n">bin_edges</span><span class="p">,</span>
-                   <span class="n">color</span> <span class="o">=</span> <span class="s1">&#39;orange&#39;</span><span class="p">,</span>
-                   <span class="n">orientation</span><span class="o">=</span><span class="s1">&#39;horizontal&#39;</span><span class="p">,</span>
-                   <span class="c1"># normed = True,</span>
-                  <span class="p">)</span>
-    <span class="n">plt</span><span class="o">.</span><span class="n">show</span> <span class="p">()</span>
-
-
-<span class="c1"># ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- </span>
-
-
-<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&quot;__main__&quot;</span><span class="p">:</span>
-    <span class="n">main</span> <span class="p">()</span>
-</pre></div>
-</div>
-</section>
-<section id="generation-of-pseudo-random-numbers-with-the-try-and-catch-method">
-<h2><span class="section-number">5.6.8. </span>Generation of pseudo-random numbers with the try-and-catch method<a class="headerlink" href="#generation-of-pseudo-random-numbers-with-the-try-and-catch-method" title="Permalink to this heading">#</a></h2>
-<ul class="simple">
-<li><p><cite>random_08.py</cite></p></li>
-</ul>
-<div class="highlight-py notranslate"><div class="highlight"><pre><span></span><span class="ch">#!/usr/bin/python</span>
-<span class="sd">&#39;&#39;&#39;</span>
-<span class="sd">generazione di numeri pseudo-casuali distribuiti secondo una distribuzione arbitraria</span>
-<span class="sd">con il metodo try-and-catch fra xMin ed xMax</span>
-<span class="sd">a partire da un determinato seed e disegno della distribuzione,</span>
-<span class="sd">separando la generazione dal programma principale</span>
-<span class="sd">python3 random_08.py 0. 10 2. 20000 2.4</span>
-<span class="sd">&#39;&#39;&#39;</span>
-
-<span class="kn">import</span> <span class="nn">sys</span>
-<span class="kn">import</span> <span class="nn">random</span>
-<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
-<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="kn">from</span> <span class="nn">math</span> <span class="kn">import</span> <span class="n">floor</span>
-
-<span class="kn">from</span> <span class="nn">myrand</span> <span class="kn">import</span> <span class="n">generate_TAC</span>
-
-
-<span class="k">def</span> <span class="nf">func</span> <span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">scale</span> <span class="o">=</span> <span class="mi">1</span><span class="p">)</span> <span class="p">:</span> 
-<span class="w">    </span><span class="sd">&#39;&#39;&#39;</span>
-<span class="sd">    funzione definita positiva sotto la quale generare numeri casuali</span>
-<span class="sd">    &#39;&#39;&#39;</span>
-    <span class="k">return</span> <span class="n">scale</span> <span class="o">*</span> <span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">cos</span> <span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="o">+</span> <span class="mf">1.</span><span class="p">)</span>
-
-
-<span class="c1"># ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- </span>
-
-
-<span class="k">def</span> <span class="nf">main</span> <span class="p">()</span> <span class="p">:</span>
-<span class="w">    </span><span class="sd">&#39;&#39;&#39;</span>
-<span class="sd">    Funzione che implementa il programma principale</span>
-<span class="sd">    &#39;&#39;&#39;</span>
-
-    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">)</span> <span class="o">&lt;</span> <span class="mi">6</span> <span class="p">:</span>
-        <span class="nb">print</span> <span class="p">(</span><span class="s1">&#39;usage: &#39;</span><span class="p">,</span> <span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="s1">&#39;xMin xMax numero seed&#39;</span><span class="p">)</span>
-        <span class="n">exit</span> <span class="p">()</span>
-
-    <span class="n">xMin</span> <span class="o">=</span> <span class="nb">float</span> <span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>  <span class="c1"># minimum of the histogram drawing range</span>
-    <span class="n">xMax</span> <span class="o">=</span> <span class="nb">float</span> <span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">[</span><span class="mi">2</span><span class="p">])</span>  <span class="c1"># maximum of the histogram drawing range</span>
-    <span class="n">yMax</span> <span class="o">=</span> <span class="nb">float</span> <span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">[</span><span class="mi">3</span><span class="p">])</span>  <span class="c1"># maximum of the histogram drawing range    </span>
-    <span class="n">seed</span> <span class="o">=</span> <span class="nb">float</span> <span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">[</span><span class="mi">5</span><span class="p">])</span>
-    <span class="n">N</span>    <span class="o">=</span> <span class="nb">int</span> <span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">[</span><span class="mi">4</span><span class="p">])</span>
-
-    <span class="nb">print</span> <span class="p">(</span><span class="s1">&#39; -------- &#39;</span><span class="p">)</span>
-    <span class="nb">print</span> <span class="p">(</span><span class="s1">&#39; minimum : &#39;</span><span class="p">,</span> <span class="n">xMin</span><span class="p">)</span>
-    <span class="nb">print</span> <span class="p">(</span><span class="s1">&#39; maximum : &#39;</span><span class="p">,</span> <span class="n">xMax</span><span class="p">)</span>
-    <span class="nb">print</span> <span class="p">(</span><span class="s1">&#39; seed    : &#39;</span><span class="p">,</span> <span class="n">seed</span><span class="p">)</span>
-    <span class="nb">print</span> <span class="p">(</span><span class="s1">&#39; N       : &#39;</span><span class="p">,</span> <span class="n">N</span><span class="p">)</span>
-    <span class="nb">print</span> <span class="p">(</span><span class="s1">&#39; -------- &#39;</span><span class="p">)</span>
-
-    <span class="n">randlist</span> <span class="o">=</span> <span class="n">generate_TAC</span> <span class="p">(</span><span class="n">func</span><span class="p">,</span> <span class="n">xMin</span><span class="p">,</span> <span class="n">xMax</span><span class="p">,</span> <span class="n">yMax</span><span class="p">,</span> <span class="n">N</span><span class="p">,</span> <span class="n">seed</span><span class="p">)</span>
-
-    <span class="c1"># plotting of the generated list of numbers in a histogram</span>
-
-    <span class="n">nBins</span> <span class="o">=</span> <span class="n">floor</span> <span class="p">(</span><span class="nb">len</span> <span class="p">(</span><span class="n">randlist</span><span class="p">)</span> <span class="o">/</span> <span class="mf">400.</span><span class="p">)</span>             <span class="c1"># number of bins of the hitogram</span>
-    <span class="n">bin_edges</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span> <span class="p">(</span><span class="n">xMin</span><span class="p">,</span> <span class="n">xMax</span><span class="p">,</span> <span class="n">nBins</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span>  <span class="c1"># edges o the histogram bins</span>
-
-    <span class="c1"># disegno della funzione</span>
-    <span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span> <span class="p">()</span>
-    <span class="n">ax</span><span class="o">.</span><span class="n">set_title</span> <span class="p">(</span><span class="s1">&#39;Histogram of random numbers&#39;</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">14</span><span class="p">)</span>
-    <span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span> <span class="p">(</span><span class="s1">&#39;random value&#39;</span><span class="p">)</span>
-    <span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span> <span class="p">(</span><span class="s1">&#39;events in bin&#39;</span><span class="p">)</span>
-    <span class="n">ax</span><span class="o">.</span><span class="n">hist</span> <span class="p">(</span><span class="n">randlist</span><span class="p">,</span>      <span class="c1"># list of numbers</span>
-             <span class="n">bins</span> <span class="o">=</span> <span class="n">bin_edges</span><span class="p">,</span>
-             <span class="n">color</span> <span class="o">=</span> <span class="s1">&#39;orange&#39;</span><span class="p">,</span>
-             <span class="c1"># normed = True,</span>
-            <span class="p">)</span>
-
-    <span class="n">plt</span><span class="o">.</span><span class="n">show</span> <span class="p">()</span>
-
-
-<span class="c1"># ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- </span>
-
-
-<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&quot;__main__&quot;</span><span class="p">:</span>
-    <span class="n">main</span> <span class="p">()</span>
-</pre></div>
-</div>
-</section>
-<section id="generation-of-pseudo-random-numbers-with-the-central-limit-theorem-method">
-<h2><span class="section-number">5.6.9. </span>Generation of pseudo-random numbers with the central limit theorem method<a class="headerlink" href="#generation-of-pseudo-random-numbers-with-the-central-limit-theorem-method" title="Permalink to this heading">#</a></h2>
-<ul class="simple">
-<li><p><cite>random_09.py</cite></p></li>
-</ul>
-<div class="highlight-py notranslate"><div class="highlight"><pre><span></span><span class="ch">#!/usr/bin/python</span>
-<span class="sd">&#39;&#39;&#39;</span>
-<span class="sd">generazione di numeri pseudo-casuali distribuiti secondo una distribuzione Gaussiana</span>
-<span class="sd">con il metodo del teorema centrale del limite fra xMin ed xMax</span>
-<span class="sd">a partire da un determinato seed e disegno della distribuzione,</span>
-<span class="sd">separando la generazione dal programma principale</span>
-<span class="sd">python3 random_09.py 0. 10 20000 2.4 10</span>
-<span class="sd">&#39;&#39;&#39;</span>
-
-<span class="kn">import</span> <span class="nn">sys</span>
-<span class="kn">import</span> <span class="nn">random</span>
-<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
-<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="kn">from</span> <span class="nn">math</span> <span class="kn">import</span> <span class="n">floor</span>
-
-<span class="kn">from</span> <span class="nn">myrand</span> <span class="kn">import</span> <span class="n">generate_TCL</span>
-
-
-<span class="k">def</span> <span class="nf">main</span> <span class="p">()</span> <span class="p">:</span>
-<span class="w">    </span><span class="sd">&#39;&#39;&#39;</span>
-<span class="sd">    Funzione che implementa il programma principale</span>
-<span class="sd">    &#39;&#39;&#39;</span>
-
-    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">)</span> <span class="o">&lt;</span> <span class="mi">6</span><span class="p">:</span>
-        <span class="nb">print</span> <span class="p">(</span><span class="s1">&#39;usage: &#39;</span><span class="p">,</span> <span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="s1">&#39;xMin xMax numero seed&#39;</span><span class="p">)</span>
-        <span class="n">exit</span> <span class="p">()</span>
-
-    <span class="n">xMin</span>  <span class="o">=</span> <span class="nb">float</span> <span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>  <span class="c1"># minimum of the histogram drawing range</span>
-    <span class="n">xMax</span>  <span class="o">=</span> <span class="nb">float</span> <span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">[</span><span class="mi">2</span><span class="p">])</span>  <span class="c1"># maximum of the histogram drawing range</span>
-    <span class="n">seed</span>  <span class="o">=</span> <span class="nb">float</span> <span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">[</span><span class="mi">4</span><span class="p">])</span>
-    <span class="n">N</span>     <span class="o">=</span> <span class="nb">int</span> <span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">[</span><span class="mi">3</span><span class="p">])</span>
-    <span class="n">N_sum</span> <span class="o">=</span> <span class="nb">int</span> <span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">[</span><span class="mi">5</span><span class="p">])</span>
-
-    <span class="nb">print</span> <span class="p">(</span><span class="s1">&#39; -------- &#39;</span><span class="p">)</span>
-    <span class="nb">print</span> <span class="p">(</span><span class="s1">&#39; minimum : &#39;</span><span class="p">,</span> <span class="n">xMin</span><span class="p">)</span>
-    <span class="nb">print</span> <span class="p">(</span><span class="s1">&#39; maximum : &#39;</span><span class="p">,</span> <span class="n">xMax</span><span class="p">)</span>
-    <span class="nb">print</span> <span class="p">(</span><span class="s1">&#39; seed    : &#39;</span><span class="p">,</span> <span class="n">seed</span><span class="p">)</span>
-    <span class="nb">print</span> <span class="p">(</span><span class="s1">&#39; N       : &#39;</span><span class="p">,</span> <span class="n">N</span><span class="p">)</span>
-    <span class="nb">print</span> <span class="p">(</span><span class="s1">&#39; N_sum   : &#39;</span><span class="p">,</span> <span class="n">N_sum</span><span class="p">)</span>
-    <span class="nb">print</span> <span class="p">(</span><span class="s1">&#39; -------- &#39;</span><span class="p">)</span>
-
-    <span class="n">randlist</span> <span class="o">=</span> <span class="n">generate_TCL</span> <span class="p">(</span><span class="n">xMin</span><span class="p">,</span> <span class="n">xMax</span><span class="p">,</span> <span class="n">N</span><span class="p">,</span> <span class="n">N_sum</span><span class="p">,</span> <span class="n">seed</span><span class="p">)</span>
-
-    <span class="c1"># plotting of the generated list of numbers in a histogram</span>
-
-    <span class="n">nBins</span> <span class="o">=</span> <span class="n">floor</span> <span class="p">(</span><span class="nb">len</span> <span class="p">(</span><span class="n">randlist</span><span class="p">)</span> <span class="o">/</span> <span class="mf">400.</span><span class="p">)</span>             <span class="c1"># number of bins of the hitogram</span>
-    <span class="n">bin_edges</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span> <span class="p">(</span><span class="n">xMin</span><span class="p">,</span> <span class="n">xMax</span><span class="p">,</span> <span class="n">nBins</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span>  <span class="c1"># edges o the histogram bins</span>
-
-    <span class="c1"># disegno della funzione</span>
-    <span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span> <span class="p">()</span>
-    <span class="n">ax</span><span class="o">.</span><span class="n">set_title</span> <span class="p">(</span><span class="s1">&#39;Histogram of random numbers&#39;</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">14</span><span class="p">)</span>
-    <span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span> <span class="p">(</span><span class="s1">&#39;random value&#39;</span><span class="p">)</span>
-    <span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span> <span class="p">(</span><span class="s1">&#39;events in bin&#39;</span><span class="p">)</span>
-    <span class="n">ax</span><span class="o">.</span><span class="n">hist</span> <span class="p">(</span><span class="n">randlist</span><span class="p">,</span>      <span class="c1"># list of numbers</span>
-             <span class="n">bins</span> <span class="o">=</span> <span class="n">bin_edges</span><span class="p">,</span>
-             <span class="n">color</span> <span class="o">=</span> <span class="s1">&#39;orange&#39;</span><span class="p">,</span>
-             <span class="c1"># normed = True,</span>
-            <span class="p">)</span>
-
-    <span class="n">plt</span><span class="o">.</span><span class="n">show</span> <span class="p">()</span>
-
-
-<span class="c1"># ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- </span>
-
-
-<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&quot;__main__&quot;</span><span class="p">:</span>
-    <span class="n">main</span> <span class="p">()</span>
 </pre></div>
 </div>
 </section>
@@ -1228,12 +706,12 @@ document.write(`
                   <!-- Previous / next buttons -->
 <div class="prev-next-area">
     <a class="left-prev"
-       href="pseudorandom.html"
+       href="classes_lambda.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title"><span class="section-number">5. </span>Generation of Pseudo-Random Numbers</p>
+        <p class="prev-next-title"><span class="section-number">5. </span>Some python insight: classes, <code class="docutils literal notranslate"><span class="pre">lambda</span></code> functions, functional programming</p>
       </div>
     </a>
     <a class="right-next"
@@ -1241,7 +719,7 @@ document.write(`
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title"><span class="section-number">5.7. </span>Exercises for Lecture 5</p>
+        <p class="prev-next-title"><span class="section-number">5.5. </span>Exercises for Lecture 4</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -1260,15 +738,10 @@ document.write(`
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#use-of-random-and-randint">5.6.1. Use of <code class="docutils literal notranslate"><span class="pre">`random</span> <span class="pre">()`</span></code> and <code class="docutils literal notranslate"><span class="pre">`randint</span> <span class="pre">()`</span></code></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#use-of-random-seed">5.6.2. Use of <code class="docutils literal notranslate"><span class="pre">`random.seed</span> <span class="pre">()`</span></code></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#drawing-of-the-obtained-sequence-of-numbers">5.6.3. Drawing of the obtained sequence of numbers</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#porting-of-the-generation-code-to-a-library">5.6.4. Porting of the generation code to a library</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#generation-of-pseudo-random-numbers-uniformly-within-xmin-xmax">5.6.5. Generation of pseudo-random numbers uniformly within (xMin, xMax)</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#visualisation-of-a-pseudo-random-sequence">5.6.6. Visualisation of a pseudo-random sequence</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#visualisation-of-a-pseudo-random-sequence-and-its-distribution">5.6.7. Visualisation of a pseudo-random sequence and its distribution</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#generation-of-pseudo-random-numbers-with-the-try-and-catch-method">5.6.8. Generation of pseudo-random numbers with the try-and-catch method</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#generation-of-pseudo-random-numbers-with-the-central-limit-theorem-method">5.6.9. Generation of pseudo-random numbers with the central limit theorem method</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#a-simple-class-to-handle-rational-numbers">5.4.1. A simple class to handle rational numbers</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#a-simple-test-of-a-lambda-function">5.4.2. A simple test of a <cite>lambda</cite> function</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#a-simple-test-of-the-map-function">5.4.3. A simple test of the <cite>map</cite> function</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#a-simple-test-of-the-filter-function">5.4.4. A simple test of the <cite>filter</cite> function</a></li>
 </ul>
   </nav></div>
 

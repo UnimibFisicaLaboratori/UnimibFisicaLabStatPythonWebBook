@@ -9,7 +9,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
-    <title>4. Some python insight: classes, lambda functions, functional programming &#8212; Laboratorio di Calcolo e Statistica</title>
+    <title>5. Some python insight: classes, lambda functions, functional programming &#8212; Laboratorio di Calcolo e Statistica</title>
   
   
   
@@ -62,11 +62,11 @@ const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
     <script async="async" src="../../_static/sphinx-thebe.js"></script>
-    <script>DOCUMENTATION_OPTIONS.pagename = 'lectures/Lecture_04/classes_lambda';</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'lectures/Lecture_05/classes_lambda';</script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="4.4. Examples: Lecture 4" href="EXAMPLES.html" />
-    <link rel="prev" title="3.7. Exercises for Lecture 3" href="../Lecture_03/EXERCISES.html" />
+    <link rel="next" title="5.4. Examples: Lecture 4" href="EXAMPLES.html" />
+    <link rel="prev" title="4.7. Exercises for Lecture 5" href="../Lecture_04/EXERCISES.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -189,14 +189,14 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l2"><a class="reference internal" href="../Lecture_03/EXERCISES.html">3.7. Exercises for Lecture 3</a></li>
 </ul>
 </li>
-<li class="toctree-l1 current active has-children"><a class="current reference internal" href="#">4. Some python insight: classes, <code class="docutils literal notranslate"><span class="pre">lambda</span></code> functions, functional programming</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-4"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="EXAMPLES.html">4.4. Examples: Lecture 4</a></li>
-<li class="toctree-l2"><a class="reference internal" href="EXERCISES.html">4.5. Exercises for Lecture 4</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../Lecture_04/pseudorandom.html">4. Generation of Pseudo-Random Numbers</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-4"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../Lecture_04/EXAMPLES.html">4.6. Examples: Lecture 5</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Lecture_04/EXERCISES.html">4.7. Exercises for Lecture 5</a></li>
 </ul>
 </li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../Lecture_05/pseudorandom.html">5. Generation of Pseudo-Random Numbers</a><input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-5"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="../Lecture_05/EXAMPLES.html">5.6. Examples: Lecture 5</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../Lecture_05/EXERCISES.html">5.7. Exercises for Lecture 5</a></li>
+<li class="toctree-l1 current active has-children"><a class="current reference internal" href="#">5. Some python insight: classes, <code class="docutils literal notranslate"><span class="pre">lambda</span></code> functions, functional programming</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-5"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="EXAMPLES.html">5.4. Examples: Lecture 4</a></li>
+<li class="toctree-l2"><a class="reference internal" href="EXERCISES.html">5.5. Exercises for Lecture 4</a></li>
 </ul>
 </li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../Lecture_06/zero_and_extrema.html">6. Finding Zeros and Extrema</a><input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-6"><i class="fa-solid fa-chevron-down"></i></label><ul>
@@ -303,7 +303,7 @@ const thebe_selector_output = ".output, .cell_output"
       
       
       
-      <li><a href="https://github.com/UnimibFisicaLaboratori/UnimibFisicaLabStatPython/issues/new?title=Issue%20on%20page%20%2Flectures/Lecture_04/classes_lambda.html&body=Your%20issue%20content%20here." target="_blank"
+      <li><a href="https://github.com/UnimibFisicaLaboratori/UnimibFisicaLabStatPython/issues/new?title=Issue%20on%20page%20%2Flectures/Lecture_05/classes_lambda.html&body=Your%20issue%20content%20here." target="_blank"
    class="btn btn-sm btn-source-issues-button dropdown-item"
    title="Open an issue"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -333,7 +333,7 @@ const thebe_selector_output = ".output, .cell_output"
       
       
       
-      <li><a href="../../_sources/lectures/Lecture_04/classes_lambda.md" target="_blank"
+      <li><a href="../../_sources/lectures/Lecture_05/classes_lambda.md" target="_blank"
    class="btn btn-sm btn-download-source-button dropdown-item"
    title="Download source file"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -425,17 +425,17 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#object-oriented-programming-in-python">4.1. Object-Oriented programming in python</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-logic-elements-needed-for-a-class">4.1.1. The logic elements needed for a class</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#a-class-for-handling-fractions">4.1.2. A class for handling fractions</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#using-the-class">4.1.3. Using the class</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#function-overloading">4.1.4. Function overloading</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#object-oriented-programming-in-python">5.1. Object-Oriented programming in python</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-logic-elements-needed-for-a-class">5.1.1. The logic elements needed for a class</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#a-class-for-handling-fractions">5.1.2. A class for handling fractions</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#using-the-class">5.1.3. Using the class</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#function-overloading">5.1.4. Function overloading</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#anonymous-functions-lambda">4.2. Anonymous functions: <code class="docutils literal notranslate"><span class="pre">lambda</span></code></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#functional-programming">4.3. Functional programming</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#map">4.3.1. <code class="docutils literal notranslate"><span class="pre">map</span></code></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#filter">4.3.2. <code class="docutils literal notranslate"><span class="pre">filter</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#anonymous-functions-lambda">5.2. Anonymous functions: <code class="docutils literal notranslate"><span class="pre">lambda</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#functional-programming">5.3. Functional programming</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#map">5.3.1. <code class="docutils literal notranslate"><span class="pre">map</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#filter">5.3.2. <code class="docutils literal notranslate"><span class="pre">filter</span></code></a></li>
 </ul>
 </li>
 </ul>
@@ -450,9 +450,9 @@ document.write(`
                 <article class="bd-article" role="main">
                   
   <section class="tex2jax_ignore mathjax_ignore" id="some-python-insight-classes-lambda-functions-functional-programming">
-<h1><span class="section-number">4. </span>Some python insight: classes, <code class="docutils literal notranslate"><span class="pre">lambda</span></code> functions, functional programming<a class="headerlink" href="#some-python-insight-classes-lambda-functions-functional-programming" title="Permalink to this heading">#</a></h1>
+<h1><span class="section-number">5. </span>Some python insight: classes, <code class="docutils literal notranslate"><span class="pre">lambda</span></code> functions, functional programming<a class="headerlink" href="#some-python-insight-classes-lambda-functions-functional-programming" title="Permalink to this heading">#</a></h1>
 <section id="object-oriented-programming-in-python">
-<h2><span class="section-number">4.1. </span>Object-Oriented programming in python<a class="headerlink" href="#object-oriented-programming-in-python" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">5.1. </span>Object-Oriented programming in python<a class="headerlink" href="#object-oriented-programming-in-python" title="Permalink to this heading">#</a></h2>
 <ul class="simple">
 <li><p>Basic python data types, like integers and float,
 may be used to <strong>build more sophisticated mathematical objects</strong>,
@@ -464,7 +464,7 @@ putting together the variables that define them
 and the functions that determine their behaviour</p></li>
 </ul>
 <section id="the-logic-elements-needed-for-a-class">
-<h3><span class="section-number">4.1.1. </span>The logic elements needed for a class<a class="headerlink" href="#the-logic-elements-needed-for-a-class" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">5.1.1. </span>The logic elements needed for a class<a class="headerlink" href="#the-logic-elements-needed-for-a-class" title="Permalink to this heading">#</a></h3>
 <ul class="simple">
 <li><p>For such a construct to work, <strong>some elements are necessary</strong>:</p></li>
 </ul>
@@ -488,7 +488,7 @@ and the functions that determine their behaviour</p></li>
 </table>
 </section>
 <section id="a-class-for-handling-fractions">
-<h3><span class="section-number">4.1.2. </span>A class for handling fractions<a class="headerlink" href="#a-class-for-handling-fractions" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">5.1.2. </span>A class for handling fractions<a class="headerlink" href="#a-class-for-handling-fractions" title="Permalink to this heading">#</a></h3>
 <ul>
 <li><p>All these components need to be <strong>encased in a structure</strong>,
 which is called <code class="docutils literal notranslate"><span class="pre">class</span></code></p></li>
@@ -525,7 +525,7 @@ that may be used to handle numerical fractions as high-level objecs:</p>
 </ul>
 </section>
 <section id="using-the-class">
-<h3><span class="section-number">4.1.3. </span>Using the class<a class="headerlink" href="#using-the-class" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">5.1.3. </span>Using the class<a class="headerlink" href="#using-the-class" title="Permalink to this heading">#</a></h3>
 <ul>
 <li><p>The <code class="docutils literal notranslate"><span class="pre">__init__</span></code> function, called <strong>constructor</strong>, is necessary and operates all the necessary actions
 to <strong>initialize a new high-level object of the type <code class="docutils literal notranslate"><span class="pre">Fraction</span></code></strong></p></li>
@@ -551,7 +551,7 @@ with the preamble <code class="docutils literal notranslate"><span class="pre">s
 </div>
 </section>
 <section id="function-overloading">
-<h3><span class="section-number">4.1.4. </span>Function overloading<a class="headerlink" href="#function-overloading" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">5.1.4. </span>Function overloading<a class="headerlink" href="#function-overloading" title="Permalink to this heading">#</a></h3>
 <ul class="simple">
 <li><p>Since the <code class="docutils literal notranslate"><span class="pre">Fraction</span></code> class describes the field of the rational numbers,
 <strong>usual operations</strong> like the sum, subtraction, multiplication, division
@@ -582,7 +582,7 @@ for the high-level objects built with the <code class="docutils literal notransl
 </section>
 </section>
 <section id="anonymous-functions-lambda">
-<h2><span class="section-number">4.2. </span>Anonymous functions: <code class="docutils literal notranslate"><span class="pre">lambda</span></code><a class="headerlink" href="#anonymous-functions-lambda" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">5.2. </span>Anonymous functions: <code class="docutils literal notranslate"><span class="pre">lambda</span></code><a class="headerlink" href="#anonymous-functions-lambda" title="Permalink to this heading">#</a></h2>
 <ul>
 <li><p>The usual functional definition syntax <strong>cannot be used within other instructions</strong>:
 a function shall be defined before being used</p>
@@ -608,14 +608,14 @@ since a function is a python object as well:</p>
 </ul>
 </section>
 <section id="functional-programming">
-<h2><span class="section-number">4.3. </span>Functional programming<a class="headerlink" href="#functional-programming" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">5.3. </span>Functional programming<a class="headerlink" href="#functional-programming" title="Permalink to this heading">#</a></h2>
 <ul class="simple">
 <li><p>When dealing with lists and other containers,
 python offers ways of <strong>acting on the whole collection of variables</strong>
 automatically building optimized loops</p></li>
 </ul>
 <section id="map">
-<h3><span class="section-number">4.3.1. </span><code class="docutils literal notranslate"><span class="pre">map</span></code><a class="headerlink" href="#map" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">5.3.1. </span><code class="docutils literal notranslate"><span class="pre">map</span></code><a class="headerlink" href="#map" title="Permalink to this heading">#</a></h3>
 <ul>
 <li><p>The built-in <code class="docutils literal notranslate"><span class="pre">map</span></code> function <strong>applies a passed-in function to all elements of a list</strong>:</p>
 <div class="highlight-py notranslate"><div class="highlight"><pre><span></span><span class="n">lista</span> <span class="o">=</span> <span class="nb">list</span> <span class="p">(</span><span class="nb">range</span> <span class="p">(</span><span class="o">-</span><span class="mi">5</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
@@ -634,7 +634,7 @@ automatically building optimized loops</p></li>
 </ul>
 </section>
 <section id="filter">
-<h3><span class="section-number">4.3.2. </span><code class="docutils literal notranslate"><span class="pre">filter</span></code><a class="headerlink" href="#filter" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">5.3.2. </span><code class="docutils literal notranslate"><span class="pre">filter</span></code><a class="headerlink" href="#filter" title="Permalink to this heading">#</a></h3>
 <ul>
 <li><p>The built-in <code class="docutils literal notranslate"><span class="pre">filter</span></code> function <strong>applies a passed-in function to all elements of a list</strong>:</p>
 <div class="highlight-py notranslate"><div class="highlight"><pre><span></span><span class="n">lista</span> <span class="o">=</span> <span class="nb">list</span> <span class="p">(</span><span class="nb">filter</span> <span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">==</span> <span class="mi">0</span><span class="p">,</span> <span class="nb">range</span><span class="p">(</span><span class="o">-</span><span class="mi">5</span><span class="p">,</span> <span class="mi">5</span><span class="p">)))</span>
@@ -661,7 +661,7 @@ automatically building optimized loops</p></li>
         },
         kernelOptions: {
             name: "python3",
-            path: "./lectures/Lecture_04"
+            path: "./lectures/Lecture_05"
         },
         predefinedOutput: true
     }
@@ -679,12 +679,12 @@ automatically building optimized loops</p></li>
                   <!-- Previous / next buttons -->
 <div class="prev-next-area">
     <a class="left-prev"
-       href="../Lecture_03/EXERCISES.html"
+       href="../Lecture_04/EXERCISES.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title"><span class="section-number">3.7. </span>Exercises for Lecture 3</p>
+        <p class="prev-next-title"><span class="section-number">4.7. </span>Exercises for Lecture 5</p>
       </div>
     </a>
     <a class="right-next"
@@ -692,7 +692,7 @@ automatically building optimized loops</p></li>
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title"><span class="section-number">4.4. </span>Examples: Lecture 4</p>
+        <p class="prev-next-title"><span class="section-number">5.4. </span>Examples: Lecture 4</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -711,17 +711,17 @@ automatically building optimized loops</p></li>
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#object-oriented-programming-in-python">4.1. Object-Oriented programming in python</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-logic-elements-needed-for-a-class">4.1.1. The logic elements needed for a class</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#a-class-for-handling-fractions">4.1.2. A class for handling fractions</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#using-the-class">4.1.3. Using the class</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#function-overloading">4.1.4. Function overloading</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#object-oriented-programming-in-python">5.1. Object-Oriented programming in python</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-logic-elements-needed-for-a-class">5.1.1. The logic elements needed for a class</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#a-class-for-handling-fractions">5.1.2. A class for handling fractions</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#using-the-class">5.1.3. Using the class</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#function-overloading">5.1.4. Function overloading</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#anonymous-functions-lambda">4.2. Anonymous functions: <code class="docutils literal notranslate"><span class="pre">lambda</span></code></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#functional-programming">4.3. Functional programming</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#map">4.3.1. <code class="docutils literal notranslate"><span class="pre">map</span></code></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#filter">4.3.2. <code class="docutils literal notranslate"><span class="pre">filter</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#anonymous-functions-lambda">5.2. Anonymous functions: <code class="docutils literal notranslate"><span class="pre">lambda</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#functional-programming">5.3. Functional programming</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#map">5.3.1. <code class="docutils literal notranslate"><span class="pre">map</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#filter">5.3.2. <code class="docutils literal notranslate"><span class="pre">filter</span></code></a></li>
 </ul>
 </li>
 </ul>
