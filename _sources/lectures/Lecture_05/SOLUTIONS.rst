@@ -1,34 +1,34 @@
-Solutions: Lecture 4
+Solutions: Lecture 5
 ====================
 
-Exercise 4.1
+Exercise 5.1
 ------------
 * `fraction.py`
 .. literalinclude:: exercises/fraction.py
   :language: py
 
-Exercise 4.2
+Exercise 5.2
 ------------
 * `fraction.py`
 .. literalinclude:: exercises/fraction.py
   :language: py
 
-Exercise 4.3
+Exercise 5.3
 ------------
 * `fraction.py`
 .. literalinclude:: exercises/fraction.py
   :language: py
 
-Exercise 4.4
+Exercise 5.4
 ------------
 * `fraction.py`
-.. literalinclude:: exercises/ex_4.4.py
+.. literalinclude:: exercises/ex_5.5.py
   :language: py
 
-Exercise 4.5
+Exercise 5.5
 ------------
 * `fraction.py`
-.. literalinclude:: exercises/ex_4.5.py
+.. literalinclude:: exercises/ex_5.5.py
   :language: py
 
 
