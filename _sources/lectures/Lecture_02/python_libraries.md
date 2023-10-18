@@ -68,7 +68,7 @@
    ```py
    array_a = np.array (list_a)
    array_b = np.array (list_b)
-   array_prod array_a * array_b
+   array_prod = array_a * array_b
    ```
 <!-- example {ref}`examples:numpy:ndarray_operations` -->
 
@@ -107,7 +107,7 @@
 
 ### NumPy universal functions
 
- * Universal functions implement a smilar to the compact form of array operations,
+ * Universal functions implement in a compact form operations on arrays,
    making it such that a **function may be called on an entire array**
    and act on its elements
  * Several **unviversal functions exist** (the full list may be found [here](https://numpy.org/doc/stable/reference/ufuncs.html#available-ufuncs),
