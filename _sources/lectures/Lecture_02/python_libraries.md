@@ -68,7 +68,7 @@
    ```py
    array_a = np.array (list_a)
    array_b = np.array (list_b)
-   array_prod array_a * array_b
+   array_prod = array_a * array_b
    ```
 <!-- example {ref}`examples:numpy:ndarray_operations` -->
 
