@@ -30,8 +30,8 @@ nbclient.exceptions.CellTimeoutError: A cell timed out while it was being execut
 The message was: Cell execution timed out.
 Here is a preview of the cell contents:
 -------------------
-['from iminuit.cost import ExtendedBinnedNLL', '', 'def mod_signal_bin_ext_LL (bin_edges, N_signal, mu, sigma) :', "    ''' fitting model for extended binned likelihood'''", '    return N_signal * norm.cdf (bin_edges, mu, sigma)']
+['from iminuit.cost import BinnedNLL', '', 'def mod_signal_bin_LL (bin_edges, mu, sigma) :', "    ''' fitting model for binned likelihood'''", '    return norm.cdf (bin_edges, mu, sigma)']
 ...
-['    if not my_minuit_bin_ext_LL.valid : continue', "    means_bin_ext_LL.append (my_minuit_bin_ext_LL.values['mu'])", "    sigmas_bin_ext_LL.append (my_minuit_bin_ext_LL.values['sigma'])", '    Q2_bin_ext_LL.append (my_minuit_bin_ext_LL.fval)', '    if (iToy == 0) : N_dof_ext_LL = my_minuit_bin_ext_LL.ndof']
+['    if not my_minuit_bin_LL.valid : continue', "    means_bin_LL.append (my_minuit_bin_LL.values['mu'])", "    sigmas_bin_LL.append (my_minuit_bin_LL.values['sigma'])", '    Q2_bin_LL.append (my_minuit_bin_LL.fval)', '    if (iToy == 0) : N_dof_LL = my_minuit_bin_LL.ndof']
 -------------------
 

@@ -12,6 +12,7 @@ C = 2531011
 
 ## Exercise 4.2
 
+*To be solved after lecture 5*
 Implement the generator in the form of an object,
 which contains a method for generating a random number
 and a method for setting the generation ```seed```,
@@ -62,8 +63,8 @@ to generate events distributed according to a Gaussian probability distribution.
 
 ## Exercise 4.8
 
-Building upon the work done during Lecture 3,
-implement an object named ```stats```,
+*To be solved after lecuture 4*
+Implement an object named ```stats```,
 which calculates the statistics associated with a sample of numbers
 stored in a Python list.
   * What different design options are possible for this object?
@@ -72,6 +73,7 @@ stored in a Python list.
 
 ## Exercise 4.9
 
+*To be solved after lecuture 4*
 Test the ```stats``` object with each of the implemented generation algorithms.
 In particular, then:
   * Verify that the value of the variance for the uniform distribution corresponds to expectations
