@@ -35,11 +35,12 @@
   * The sequence of numbers in these sequences is deterministic,
     and the functions used for generation are designed to
     **mimic the behavior of random sequences**
-  * The first number in a sequence (or sequence) of pseudo-random numbers
+  * The **first number in a sequence** of pseudo-random numbers
     is called the *seed*,
     because that number is known and, along with the generation algorithm,
     the entire sequence can be reproduced
-    * Clearly, different seeds will start different sequences of pseudo-random numbers
+    * **Different seeds** will start different sequences of pseudo-random numbers,
+      or start the same sequence from different points
 
 ### Linear Congruential Generator
 
@@ -65,6 +66,7 @@
 ### Issues with Pseudo-Random Number Generators
 
   * The functional dependence between two consecutive pseudo-random numbers **should not be visible**
+    in the samples used for data analysis
   * If a repeated number reappears in a pseudo-random sequence,
     the sequence starts repeating from that point:
     this is the **periodicity of the generator**
@@ -101,10 +103,10 @@
 
 ### Characteristics of `random`
 
-  * It is a generator of pseudo-random integers uniformly distributed between `0` and `1`
+  * It is a generator of pseudo-random numbers **uniformly distributed between `0` and `1`**
   * The default ```seed``` of the ```random``` function is set
-    based on the current time as known by the operating system
-  * To have the generator starting from a given ```seed```,
+    **based on the current time** as known by the operating system
+  * To have the generator **starting from a given ```seed```**,
     so that the same sequence is produced ad every run of the script,
     the following instruction has to be used:
     ```py
@@ -134,9 +136,9 @@
 ## Generating Pseudo-Random Numbers with Uniform Distribution
 
   * The ```random``` library may be used to produce sequences of pseudo-random numbers
-    following different distributions using appropriate algorithms.
-  * In general, the probability density functions of pseudo-random numbers generated with a computer
-    will always have a **limited range**, due to intrinsic limitations of computers.
+    **following different distributions** using appropriate algorithms.
+  * Usually, the probability density functions of pseudo-random numbers generated with a computer
+    will have a **limited range**, due to intrinsic limitations of computers.
   * The uniform distribution of random numbers is a special case, as it is **defined on a limited set**
     by construction (otherwise its integral would be divergent).
 
@@ -178,7 +180,7 @@
 ![non_uniform_distribution](../../figs/try_and_catch_areas.png)
 
   * Populate the plane with pairs of pseudo-random numbers `x,y`,
-    each generated uniformly with `rand_range()`,
+    each generated uniformly with `rand_range ()`,
     and use `x` only if `y < f(x)`.
 
 ![non_uniform_distribution](../../figs/try_and_catch_2.png)
@@ -214,7 +216,7 @@
 
   * **Knowing the functional form** of the PDF, the algorithm works.
   * It's **not necessary for the PDF to be known analytically**,
-    it's sufficient that it can be written as a ```python``` function.
+    as it's sufficient that it can be written as a ```python``` function.
   * Easily **generalizable to N dimensions**.
 
   | Disadvantages |
@@ -229,7 +231,7 @@
 ## Other Probability Distributions: Inverse Function
 
   * Let *x* be a random variable with continuous PDF *f(x)*.
-  * Let *F(x)* be the PDF cumulative distribution function (CDF).
+  * Let *F(x)* be its cumulative distribution function (CDF).
   * **If *F(x)* is strictly increasing, then the variable *y = F(x)* has a uniform distribution**.
     (This is proved using the chain rule when changing variables in a PDF.)
   * Generating pseudo-random events **with uniform distribution in *y*** 
@@ -242,7 +244,7 @@
 ![inverse_function](../../figs/inverse_function.png)
 
   * Generate **pseudo-random numbers y<sub>i</sub> with uniform distribution** between `0` and `1` along the *y* axis.
-  * For each generated event, calculate *x<sub>i</sub> = F <sup>-1</sup>(y<sub>i</sub>)*
+  * For each generated event, **calculate *x<sub>i</sub> = F <sup>-1</sup>(y<sub>i</sub>)* **
     and use that value as the generated random number.
   * Where *f(x)* is higher, *F(x)* is steeper,
     so the number of pseudo-random numbers generated in the two intervals
@@ -263,7 +265,7 @@
 
     * One must **know the analytical form** of *f(x)* and *F(x)* and **be able to invert**
       the cumulative function to obtain *F <sup>-1</sup>(y)*.
-    * Calculating a function **adds time** to event generation.
+    * Calculating a function **adds time** to the event generation.
   ::::
 
 ## Gaussian Probability Distributions: Central Limit Theorem
@@ -275,7 +277,7 @@
      Let *N* be given independent and identically distributed random variables *x<sub>i</sub>* 
     with probability distribution *f(x)* having finite mean &mu; and variance &sigma;<sup>2</sup>. 
     Then, for large *N*, the variable *y = &lang;x<sub>i</sub>&rang;* 
-    is distributed as a Gaussian with mean &mu; and variance &sigma;<sup>2</sup>.
+    is distributed as a Gaussian with mean &mu; and variance &sigma;<sup>2</sup>/N.
     ```
 
 ### Implementation of the Algorithm
@@ -290,8 +292,6 @@
 ![inverse_function](../../figs/central_limit_theorem.png)
 
   <!-- <div style="text-align: right"> (example <a href="EXAMPLES.html#generating-pdf-using-the-central-limit-theorem-method">4.4</a>) </div> -->
-
-### Advantages and Disadvantages of the Gaussian Distribution Algorithm
 
   ::::{important}
     | Advantages |
