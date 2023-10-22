@@ -1,4 +1,4 @@
-Examples: Lecture 5
+Examples: Lecture 4
 ===================
 
 Use of ```random ()``` and ```randint ()```

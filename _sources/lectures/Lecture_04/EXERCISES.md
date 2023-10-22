@@ -1,6 +1,6 @@
-# Exercises for Lecture 5
+# Exercises for Lecture 4
 
-## Exercise 5.1
+## Exercise 4.1
 
 Write a function that implements the linear congruential generator for pseudo-random numbers,
 using these parameters:
@@ -10,7 +10,7 @@ A = 214013
 C = 2531011
 ```
 
-## Exercise 5.2
+## Exercise 4.2
 
 Implement the generator in the form of an object,
 which contains a method for generating a random number
@@ -20,20 +20,20 @@ to store this information.
   * How should the ```seed``` change
     every time a new random number is generated?
 
-## Exercise 5.3
+## Exercise 4.3
 
 Show that initializing the seed of a pseudo-random integer generator
 is equivalent to looking into a sequence of pseudo-random numbers
 at any point.
 
-## Exercise 5.4
+## Exercise 4.4
 
 Implement a pseudo-random number generator according to a uniform distribution
 between two arbitrary endpoints.
   * Use the ```matplotlib``` library to visualize the distribution
     of the generated numbers.
 
-## Exercise 5.5
+## Exercise 4.5
 
 Implement a pseudo-random number generator that uses the try-and-catch method
 to generate pseudo-random numbers according to an arbitrary probability distribution.
@@ -42,14 +42,14 @@ to generate pseudo-random numbers according to an arbitrary probability distribu
   * Use the ```matplotlib``` library to visualize the distribution
     of the generated numbers.
 
-## Exercise 5.6
+## Exercise 4.6
 
 Implement a pseudo-random number generator that uses the inverse function method
 to generate events distributed according to an exponential probability distribution.
   * Use the ```matplotlib``` library to visualize the distribution
     of the generated numbers.
 
-## Exercise 5.7
+## Exercise 4.7
 
 Implement a pseudo-random number generator that uses the central limit theorem method
 to generate events distributed according to a Gaussian probability distribution.
@@ -60,7 +60,7 @@ to generate events distributed according to a Gaussian probability distribution.
     both graphically and by using the moments of the distributions
     calculated on the generated event sample.
 
-## Exercise 5.8
+## Exercise 4.8
 
 Building upon the work done during Lecture 3,
 implement an object named ```stats```,
@@ -70,7 +70,7 @@ stored in a Python list.
   * What variables need to be added to the class to ensure its functionality?
   * What values should these variables have during initialization?
 
-## Exercise 5.9
+## Exercise 4.9
 
 Test the ```stats``` object with each of the implemented generation algorithms.
 In particular, then:

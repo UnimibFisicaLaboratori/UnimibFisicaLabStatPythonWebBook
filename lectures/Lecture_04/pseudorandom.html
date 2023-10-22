@@ -67,7 +67,7 @@ const thebe_selector_output = ".output, .cell_output"
     <script>DOCUMENTATION_OPTIONS.pagename = 'lectures/Lecture_04/pseudorandom';</script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="4.6. Examples: Lecture 5" href="EXAMPLES.html" />
+    <link rel="next" title="4.6. Examples: Lecture 4" href="EXAMPLES.html" />
     <link rel="prev" title="3.8. Solutions: Lecture 3" href="../Lecture_03/SOLUTIONS.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
@@ -193,13 +193,13 @@ const thebe_selector_output = ".output, .cell_output"
 </ul>
 </li>
 <li class="toctree-l1 current active has-children"><a class="current reference internal" href="#">4. Generation of Pseudo-Random Numbers</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-4"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="EXAMPLES.html">4.6. Examples: Lecture 5</a></li>
-<li class="toctree-l2"><a class="reference internal" href="EXERCISES.html">4.7. Exercises for Lecture 5</a></li>
+<li class="toctree-l2"><a class="reference internal" href="EXAMPLES.html">4.6. Examples: Lecture 4</a></li>
+<li class="toctree-l2"><a class="reference internal" href="EXERCISES.html">4.7. Exercises for Lecture 4</a></li>
 </ul>
 </li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../Lecture_05/classes_lambda.html">5. Some python insight: classes, <code class="docutils literal notranslate"><span class="pre">lambda</span></code> functions, functional programming</a><input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-5"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="../Lecture_05/EXAMPLES.html">5.4. Examples: Lecture 4</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../Lecture_05/EXERCISES.html">5.5. Exercises for Lecture 4</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Lecture_05/EXAMPLES.html">5.4. Examples: Lecture 5</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Lecture_05/EXERCISES.html">5.5. Exercises for Lecture 5</a></li>
 </ul>
 </li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../Lecture_06/zero_and_extrema.html">6. Finding Zeros and Extrema</a><input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-6"><i class="fa-solid fa-chevron-down"></i></label><ul>
@@ -481,7 +481,7 @@ the <strong>comparison between collected data and a model of nature</strong> is 
 </li>
 <li><p>It is therefore crucial to be able to <strong>calculate model predictions</strong></p>
 <ul>
-<li><p>Often the model is <strong>not known</strong> in an alytical form
+<li><p>Often the model is <strong>not known</strong> in an analytical form
 and alternative computational methods are used to obtain predictions
 for comparison with measurements</p></li>
 </ul>
@@ -573,7 +573,7 @@ can be found <a class="reference external" href="https://boallen.com/random-numb
 <section id="a-random-number-generator-in-python">
 <h3><span class="section-number">4.1.5. </span>A Random Number Generator in <code class="docutils literal notranslate"><span class="pre">Python</span></code><a class="headerlink" href="#a-random-number-generator-in-python" title="Permalink to this heading">#</a></h3>
 <ul>
-<li><p>The <code class="docutils literal notranslate"><span class="pre">random</span></code> library contains a pseudo-random number generator <code class="docutils literal notranslate"><span class="pre">rand()</span></code>:</p>
+<li><p>The <code class="docutils literal notranslate"><span class="pre">random</span></code> library contains a pseudo-random number generator <code class="docutils literal notranslate"><span class="pre">random()</span></code>:</p>
 <div class="highlight-py notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">random</span>
 
 <span class="n">randlistint</span> <span class="o">=</span> <span class="p">[]</span> 
@@ -603,7 +603,7 @@ based on the current time as known by the operating system</p></li>
 <li><p>To have the generator starting from a given <code class="docutils literal notranslate"><span class="pre">seed</span></code>,
 so that the same sequence is produced ad every run of the script,
 the following instruction has to be used:</p>
-<div class="highlight-py notranslate"><div class="highlight"><pre><span></span><span class="n">random</span><span class="o">.</span><span class="n">seed</span> <span class="p">(</span><span class="nb">float</span> <span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">[</span><span class="mi">2</span><span class="p">]))</span>
+<div class="highlight-py notranslate"><div class="highlight"><pre><span></span><span class="n">random</span><span class="o">.</span><span class="n">seed</span> <span class="p">(</span> <span class="n">seed</span> <span class="p">)</span> <span class="c1"># seed can be any floating point number</span>
 </pre></div>
 </div>
 </li>
@@ -923,7 +923,7 @@ to obtain one distributed according to a Gaussian distribution.</p></li>
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title"><span class="section-number">4.6. </span>Examples: Lecture 5</p>
+        <p class="prev-next-title"><span class="section-number">4.6. </span>Examples: Lecture 4</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>

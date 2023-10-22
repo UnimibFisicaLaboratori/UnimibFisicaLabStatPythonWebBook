@@ -7,7 +7,7 @@
     * To **falsify the model**, or
     * To **determine the value (and associated uncertainty)** of one of its parameters
   * It is therefore crucial to be able to **calculate model predictions**
-    * Often the model is **not known** in an alytical form
+    * Often the model is **not known** in an analytical form
       and alternative computational methods are used to obtain predictions
       for comparison with measurements
   * Many calculation techniques are based on **generating random numbers**
@@ -79,7 +79,7 @@
 
 ### A Random Number Generator in ```Python```
 
-  * The ```random``` library contains a pseudo-random number generator ```rand()```:
+  * The ```random``` library contains a pseudo-random number generator ```random()```:
     ```py
     import random
 
@@ -108,7 +108,7 @@
     so that the same sequence is produced ad every run of the script,
     the following instruction has to be used:
     ```py
-    random.seed (float (sys.argv[2]))
+    random.seed ( seed ) # seed can be any floating point number
     ```    
   * It's in fact important to be able to reproduce the same sequence of pseudo-random numbers
     **for testing purposes**.
