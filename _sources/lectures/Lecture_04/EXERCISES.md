@@ -63,7 +63,7 @@ to generate events distributed according to a Gaussian probability distribution.
 
 ## Exercise 4.8
 
-*To be solved after lecuture 4*
+*To be solved after lecture 5*
 Implement an object named ```stats```,
 which calculates the statistics associated with a sample of numbers
 stored in a Python list.
@@ -73,7 +73,7 @@ stored in a Python list.
 
 ## Exercise 4.9
 
-*To be solved after lecuture 4*
+*To be solved after lecture 5*
 Test the ```stats``` object with each of the implemented generation algorithms.
 In particular, then:
   * Verify that the value of the variance for the uniform distribution corresponds to expectations

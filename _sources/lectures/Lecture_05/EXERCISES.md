@@ -22,7 +22,8 @@
 
 ## Exercise 5.4
 
-  * Write a python program that reads the sample file [eventi_unif.txt](https://github.com/UnimibFisicaLaboratori/UnimibFisicaLabStatPython/blob/main/book/lectures/Lecture_03/exercises/eventi_unif.txt)
+  <!-- * Write a python program that reads the sample file [eventi_unif.txt](https://github.com/UnimibFisicaLaboratori/UnimibFisicaLabStatPython/blob/main/book/lectures/Lecture_03/exercises/eventi_unif.txt) -->
+  * Write a python program that reads the sample file [eventi_unif.txt](https://www.dropbox.com/scl/fi/8rz9hz2tejwu7y4kodlbt/eventi_unif.txt?rlkey=dr9r210zqsq1lz826ixgfa578&dl=0)
     of Exercise 3.2 and, using the filter function, 
     creates two different sub-sets of events
     containing those larger or smaller than the average respectively,
@@ -31,8 +32,14 @@
 
 ## Exercise 5.5
 
-  * Write a python program that reads the sample file [```eventi_gauss.txt```](https://github.com/UnimibFisicaLaboratori/UnimibFisicaLabStatPython/blob/main/book/lectures/Lecture_03/exercises/eventi_gauss.txt):
+  <!-- * Write a python program that reads the sample file [```eventi_gauss.txt```](https://github.com/UnimibFisicaLaboratori/UnimibFisicaLabStatPython/blob/main/book/lectures/Lecture_03/exercises/eventi_gauss.txt): -->
+  * Write a python program that reads the sample file [```eventi_gauss.txt```](https://www.dropbox.com/scl/fi/4s8jdz7dtpwd1e6ziggn1/eventi_gauss.txt?rlkey=culpwqinlrah75eoy6wk4gpmq&dl=0)
     of Exercise 3.3 and, using the map function, 
     creates the distribution of the squares and cubes of random Gaussian numbers, respectively,
     using `lambda` functions in the process.
   * Plot the distribution of them, together with the original sample one, all in the same frame.
+
+## Additional exercises
+
+  * Solve the [exercises](../Lecture_04/EXERCISES.md) of lecture 4 left on hold. 
+
