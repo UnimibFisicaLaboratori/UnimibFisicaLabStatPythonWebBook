@@ -23,7 +23,7 @@ to store this information.
 
 ## Exercise 4.3
 
-Show that initializing the seed of a pseudo-random integer generator
+Show that initializing the seed of the linear congruential pseudo-random integer generator
 is equivalent to looking into a sequence of pseudo-random numbers
 at any point.
 
