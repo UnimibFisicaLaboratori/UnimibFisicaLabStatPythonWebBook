@@ -14,20 +14,30 @@
 ### The logic elements needed for a class
 
   * For such a construct to work, **some elements are necessary**: 
-
-  | | |
+  ```{list-table} Necessary elements for a class
+  :header-rows: 0
+  :name: tab_necessary_class_elements
+  * - **data members**
+    - all the variables that compose the high-level object
+  * - **constructor**
+    - the function which builds each high-level object when initialized
+  * - **methods**
+    - the functions that operate on the object variables to implement its high-level behaviour
+  ``` 
+  <!-- | | |
   | ------------ | --------- |
   | **data members** | all the variables that compose the high-level object |
   | **constructor**  | the function which builds each high-level object when initialized |
-  | **methods**      | the functions that operate on the object variables to implement its high-level behaviour |
+  | **methods**      | the functions that operate on the object variables to implement its high-level behaviour | -->
 
 ### A class for handling fractions
 
   * All these components need to be **encased in a structure**,
     which is called ```class```
   * The following example shows a **simple implementation of a class**
-    that may be used to handle numerical fractions as high-level objecs:
+    that may be used to handle numerical fractions (of integers) as high-level objecs:
     ```py
+    from math import gcd
     class Fraction :
         '''
         # a simple class implementing a high-level object
@@ -40,8 +50,11 @@
             for the high-level object functioning
             '''
             if denominator == 0 :
-                print ('Denominator cannot be zero')
-                sys.exit (1)
+              raise ValueError ('Denominator cannot be zero')
+            if type(numerator) != int:
+              raise ValueError ('Numerator must be an integer')
+            if type(denominator) != int:
+              raise ValueError ('Denominator must be an integer')
             
             # this allows to avoid calculating the LCM in the sum and subtraction
             common_divisor = gcd (numerator, denominator) # greatest common divisor 
@@ -54,6 +67,13 @@
             '''
             print (str (self.numerator) + '/' + str (self.denominator))
     ```
+    `````{tip}
+    When user input is not valid for a function/class, it is useful to **raise** an *exception*
+    ```py
+    raise ValueError ('Denominator cannot be zero')
+    ```
+    This will stop the execution of the program and print the error message without exiting the python session.
+    `````
 
 ### Using the class
 
@@ -145,7 +165,7 @@ The **keyword ```self```** identifies the high-level object.
 
 ### `filter`
 
-  * The built-in `filter` function **applies a passed-in function to all elements of a list**:
+  * The built-in `filter` function **applies a passed-in function to all elements of a list and returns a list with the items for which the function is `True`**:
     ```py
     lista = list (filter (lambda x: x % 2 == 0, range(-5, 5)))
     ```

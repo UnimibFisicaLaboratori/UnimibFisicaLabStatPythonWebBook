@@ -460,10 +460,16 @@ document.write(`
 <span class="kn">import</span> <span class="nn">sys</span>
 
 
-<span class="k">def</span> <span class="nf">lcm</span> <span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">)</span> <span class="p">:</span> 
-<span class="w">    </span><span class="sd">&#39;&#39;&#39;</span>
-<span class="sd">    least common multiple </span>
-<span class="sd">    &#39;&#39;&#39;</span>
+<span class="k">def</span> <span class="nf">lcm</span> <span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">)</span> <span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;least common multiple </span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        a (int): the first number</span>
+<span class="sd">        b (int): the second number</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        int: the least common multiple of the two numbers</span>
+<span class="sd">    &quot;&quot;&quot;</span>
     <span class="k">return</span> <span class="n">a</span> <span class="o">*</span> <span class="n">b</span> <span class="o">/</span> <span class="n">gcd</span> <span class="p">(</span><span class="n">a</span><span class="p">,</span><span class="n">b</span><span class="p">)</span>
 
 
@@ -476,22 +482,32 @@ document.write(`
 <span class="sd">    to handle fractions and their operations</span>
 <span class="sd">    &#39;&#39;&#39;</span>
 
-
     <span class="k">def</span> <span class="fm">__init__</span> <span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">numerator</span><span class="p">,</span> <span class="n">denominator</span><span class="p">)</span> <span class="p">:</span>
-<span class="w">        </span><span class="sd">&#39;&#39;&#39;</span>
-<span class="sd">        the constructor: initialises all the variables needed</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;the constructor: initialises all the variables needed</span>
 <span class="sd">        for the high-level object functioning</span>
-<span class="sd">        &#39;&#39;&#39;</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            numerator (int): the numerator of the fraction</span>
+<span class="sd">            denominator (int): the denominator of the fraction</span>
+
+<span class="sd">        Raises:</span>
+<span class="sd">            ValueError: Denominator cannot be zero</span>
+<span class="sd">            ValueError: Numerator must be an integer</span>
+<span class="sd">            ValueError: Denominator must be an integer</span>
+<span class="sd">        &quot;&quot;&quot;</span>
         <span class="k">if</span> <span class="n">denominator</span> <span class="o">==</span> <span class="mi">0</span> <span class="p">:</span>
-            <span class="nb">print</span> <span class="p">(</span><span class="s1">&#39;Denominator cannot be zero&#39;</span><span class="p">)</span>
-            <span class="n">sys</span><span class="o">.</span><span class="n">exit</span> <span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span> <span class="p">(</span><span class="s1">&#39;Denominator cannot be zero&#39;</span><span class="p">)</span>
+        <span class="k">if</span> <span class="nb">type</span><span class="p">(</span><span class="n">numerator</span><span class="p">)</span> <span class="o">!=</span> <span class="nb">int</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span> <span class="p">(</span><span class="s1">&#39;Numerator must be an integer&#39;</span><span class="p">)</span>
+        <span class="k">if</span> <span class="nb">type</span><span class="p">(</span><span class="n">denominator</span><span class="p">)</span> <span class="o">!=</span> <span class="nb">int</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span> <span class="p">(</span><span class="s1">&#39;Denominator must be an integer&#39;</span><span class="p">)</span>
         
         <span class="c1"># this allows to avoid calculating the LCM in the sum and subtraction</span>
-        <span class="n">common_divisor</span> <span class="o">=</span> <span class="n">gcd</span> <span class="p">(</span><span class="n">numerator</span><span class="p">,</span> <span class="n">denominator</span><span class="p">)</span> <span class="c1"># greatest common divisor </span>
+        <span class="n">common_divisor</span> <span class="o">=</span> <span class="n">gcd</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">numerator</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">denominator</span><span class="p">)</span> <span class="c1"># greatest common divisor </span>
         <span class="bp">self</span><span class="o">.</span><span class="n">numerator</span> <span class="o">=</span> <span class="n">numerator</span> <span class="o">//</span> <span class="n">common_divisor</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">denominator</span> <span class="o">=</span> <span class="n">denominator</span> <span class="o">//</span> <span class="n">common_divisor</span>
         
-    <span class="k">def</span> <span class="nf">print</span> <span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="p">:</span>
+    <span class="k">def</span> <span class="nf">print</span> <span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="p">:</span>        
 <span class="w">        </span><span class="sd">&#39;&#39;&#39;</span>
 <span class="sd">        prints the value of the fraction on screen</span>
 <span class="sd">        &#39;&#39;&#39;</span>
@@ -506,31 +522,47 @@ document.write(`
 
 
     <span class="k">def</span> <span class="fm">__add__</span> <span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">)</span> <span class="p">:</span>
-<span class="w">        </span><span class="sd">&#39;&#39;&#39;</span>
-<span class="sd">        implements the addition of two fractions.</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;implements the addition of two fractions.</span>
 <span class="sd">        Note that this function will be callable with the + symbol</span>
 <span class="sd">        in the program</span>
-<span class="sd">        &#39;&#39;&#39;</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            other (Fraction): the fraction to be added to the current one</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            Fraction: the addition of the two fractions</span>
+<span class="sd">        &quot;&quot;&quot;</span>
         <span class="n">new_numerator</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">numerator</span> <span class="o">*</span> <span class="n">other</span><span class="o">.</span><span class="n">denominator</span> <span class="o">+</span> <span class="n">other</span><span class="o">.</span><span class="n">numerator</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">denominator</span>
         <span class="n">new_denominator</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">denominator</span> <span class="o">*</span> <span class="n">other</span><span class="o">.</span><span class="n">denominator</span>
         <span class="k">return</span> <span class="n">Fraction</span> <span class="p">(</span><span class="n">new_numerator</span><span class="p">,</span> <span class="n">new_denominator</span><span class="p">)</span>
     
     <span class="k">def</span> <span class="fm">__sub__</span> <span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">)</span> <span class="p">:</span>
-<span class="w">        </span><span class="sd">&#39;&#39;&#39;</span>
-<span class="sd">        implements the subtraction of two fractions.</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;implements the subtraction of two fractions.</span>
 <span class="sd">        Note that this function will be callable with the - symbol</span>
 <span class="sd">        in the program</span>
-<span class="sd">        &#39;&#39;&#39;</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            other (Fraction): the fraction to be subtracted from the current one</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            Fraction: the subtraction of the two fractions</span>
+<span class="sd">        &quot;&quot;&quot;</span>
         <span class="n">new_numerator</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">numerator</span> <span class="o">*</span> <span class="n">other</span><span class="o">.</span><span class="n">denominator</span> <span class="o">-</span> <span class="n">other</span><span class="o">.</span><span class="n">numerator</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">denominator</span>
         <span class="n">new_denominator</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">denominator</span> <span class="o">*</span> <span class="n">other</span><span class="o">.</span><span class="n">denominator</span>
         <span class="k">return</span> <span class="n">Fraction</span> <span class="p">(</span><span class="n">new_numerator</span><span class="p">,</span> <span class="n">new_denominator</span><span class="p">)</span>
     
     <span class="k">def</span> <span class="fm">__mul__</span> <span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">)</span> <span class="p">:</span>
-<span class="w">        </span><span class="sd">&#39;&#39;&#39;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        implements the multiplications of two fractions.</span>
 <span class="sd">        Note that this function will be callable with the * symbol</span>
 <span class="sd">        in the program</span>
-<span class="sd">        &#39;&#39;&#39;</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            other (Fraction): the fraction to be multiplied from the current one</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            Fraction: the multiplication of the two fractions</span>
+<span class="sd">        &quot;&quot;&quot;</span>
         <span class="n">new_numerator</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">numerator</span> <span class="o">*</span> <span class="n">other</span><span class="o">.</span><span class="n">numerator</span>
         <span class="n">new_denominator</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">denominator</span> <span class="o">*</span> <span class="n">other</span><span class="o">.</span><span class="n">denominator</span>
         <span class="k">return</span> <span class="n">Fraction</span> <span class="p">(</span><span class="n">new_numerator</span><span class="p">,</span> <span class="n">new_denominator</span><span class="p">)</span>
@@ -540,6 +572,12 @@ document.write(`
 <span class="sd">        implements the ratio of two fractions.</span>
 <span class="sd">        Note that this function will be callable with the / symbol</span>
 <span class="sd">        in the program</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            other (Fraction): the fraction to be divided from the current one</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            Fraction: the ratio of the two fractions</span>
 <span class="sd">        &#39;&#39;&#39;</span>
         <span class="k">if</span> <span class="n">other</span><span class="o">.</span><span class="n">numerator</span> <span class="o">==</span> <span class="mi">0</span> <span class="p">:</span>
             <span class="nb">print</span> <span class="p">(</span><span class="s1">&#39;Cannot divide by zero&#39;</span><span class="p">)</span>
