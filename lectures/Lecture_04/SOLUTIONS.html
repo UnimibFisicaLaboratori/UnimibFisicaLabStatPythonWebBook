@@ -576,6 +576,9 @@ document.write(`
 <span class="sd">Si mostri che inizializzare il seed di un generatore di numeri pseudo-casuali interi</span>
 <span class="sd">equivale ad inserirsi in una sequenza di numeri pseudo-casuali ad un qualunque punto.</span>
 <span class="sd">python3 es_4.3.py 10</span>
+
+<span class="sd">nb: `random.seed` does not restart the sequence from the given value, </span>
+<span class="sd">rather it uses the given value to calculate a random *state* that is then used to generate the random numbers.</span>
 <span class="sd">&#39;&#39;&#39;</span>
 
 <span class="kn">import</span> <span class="nn">sys</span>
@@ -591,12 +594,17 @@ document.write(`
         <span class="n">exit</span> <span class="p">()</span>
 
     <span class="n">randlist</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="n">randstates</span> <span class="o">=</span> <span class="p">[]</span>
     <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span> <span class="p">(</span><span class="nb">int</span> <span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">[</span><span class="mi">1</span><span class="p">])):</span>
         <span class="c1"># Return the next random floating point number in the range 0.0 &lt;= X &lt; 1.0</span>
         <span class="n">randlist</span><span class="o">.</span><span class="n">append</span> <span class="p">(</span><span class="n">random</span><span class="o">.</span><span class="n">randint</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">100</span><span class="p">))</span>
+        <span class="n">randstates</span><span class="o">.</span><span class="n">append</span> <span class="p">(</span><span class="n">random</span><span class="o">.</span><span class="n">getstate</span> <span class="p">())</span>
         <span class="nb">print</span> <span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="n">randlist</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span>
 
-    <span class="n">random</span><span class="o">.</span><span class="n">seed</span> <span class="p">(</span><span class="n">randlist</span><span class="p">[</span><span class="mi">4</span><span class="p">])</span>
+    <span class="n">random</span><span class="o">.</span><span class="n">setstate</span> <span class="p">(</span><span class="n">randstates</span><span class="p">[</span><span class="mi">4</span><span class="p">])</span>
+    <span class="nb">print</span> <span class="p">(</span><span class="n">random</span><span class="o">.</span><span class="n">randint</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">100</span><span class="p">),</span> <span class="n">randlist</span><span class="p">[</span><span class="mi">5</span><span class="p">])</span>
+
+    <span class="n">random</span><span class="o">.</span><span class="n">seed</span><span class="p">(</span> <span class="n">randlist</span><span class="p">[</span><span class="mi">4</span><span class="p">]</span> <span class="p">)</span>
     <span class="nb">print</span> <span class="p">(</span><span class="n">random</span><span class="o">.</span><span class="n">randint</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">100</span><span class="p">),</span> <span class="n">randlist</span><span class="p">[</span><span class="mi">5</span><span class="p">])</span>
 
     
