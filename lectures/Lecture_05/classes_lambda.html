@@ -497,7 +497,7 @@ and the functions that determine their behaviour</p></li>
 <li><p>All these components need to be <strong>encased in a structure</strong>,
 which is called <code class="docutils literal notranslate"><span class="pre">class</span></code></p></li>
 <li><p>The following example shows a <strong>simple implementation of a class</strong>
-that may be used to handle numerical fractions (of integers) as high-level objecs:</p>
+that may be used to handle numerical fractions (of integers) as high-level objects:</p>
 <div class="highlight-py notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">math</span> <span class="kn">import</span> <span class="n">gcd</span>
 <span class="k">class</span> <span class="nc">Fraction</span> <span class="p">:</span>
 <span class="w">    </span><span class="sd">&#39;&#39;&#39;</span>
@@ -519,8 +519,8 @@ that may be used to handle numerical fractions (of integers) as high-level objec
         
         <span class="c1"># this allows to avoid calculating the LCM in the sum and subtraction</span>
         <span class="n">common_divisor</span> <span class="o">=</span> <span class="n">gcd</span> <span class="p">(</span><span class="n">numerator</span><span class="p">,</span> <span class="n">denominator</span><span class="p">)</span> <span class="c1"># greatest common divisor </span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">numerator</span> <span class="o">=</span> <span class="n">numerator</span> <span class="o">//</span> <span class="n">common_divisor</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">denominator</span> <span class="o">=</span> <span class="n">denominator</span> <span class="o">//</span> <span class="n">common_divisor</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">numerator</span> <span class="o">=</span> <span class="n">numerator</span> <span class="o">//</span> <span class="n">common_divisor</span> <span class="c1"># integer division with floor division</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">denominator</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">denominator</span> <span class="o">/</span> <span class="n">common_divisor</span><span class="p">)</span> <span class="c1"># integer division with casting</span>
         
     <span class="k">def</span> <span class="nf">print</span> <span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="p">:</span>
 <span class="w">        </span><span class="sd">&#39;&#39;&#39;</span>
@@ -561,7 +561,7 @@ for a high-level object</p></li>
 <ul class="simple">
 <li><p>A high-level object always is an <strong>implicit argument of class functions</strong>,
 and is therefore always present as fist argument of all class methods</p></li>
-<li><p>The class <strong>variabiles</strong>, which characterise the high-level object, are identified
+<li><p>The class <strong>variables</strong>, which characterise the high-level object, are identified
 with the preamble <code class="docutils literal notranslate"><span class="pre">self.</span></code></p></li>
 </ul>
 </div>

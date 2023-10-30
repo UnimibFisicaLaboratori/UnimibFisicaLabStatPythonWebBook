@@ -35,7 +35,7 @@
   * All these components need to be **encased in a structure**,
     which is called ```class```
   * The following example shows a **simple implementation of a class**
-    that may be used to handle numerical fractions (of integers) as high-level objecs:
+    that may be used to handle numerical fractions (of integers) as high-level objects:
     ```py
     from math import gcd
     class Fraction :
@@ -58,8 +58,8 @@
             
             # this allows to avoid calculating the LCM in the sum and subtraction
             common_divisor = gcd (numerator, denominator) # greatest common divisor 
-            self.numerator = numerator // common_divisor
-            self.denominator = denominator // common_divisor
+            self.numerator = numerator // common_divisor # integer division with floor division
+            self.denominator = int(denominator / common_divisor) # integer division with casting
             
         def print (self) :
             '''
@@ -91,7 +91,7 @@
 The **keyword ```self```** identifies the high-level object.
   * A high-level object always is an **implicit argument of class functions**,
     and is therefore always present as fist argument of all class methods
-  * The class **variabiles**, which characterise the high-level object, are identified
+  * The class **variables**, which characterise the high-level object, are identified
     with the preamble ```self.```
 ```
 
