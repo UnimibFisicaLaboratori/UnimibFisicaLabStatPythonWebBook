@@ -52,9 +52,9 @@
             if denominator == 0 :
               raise ValueError ('Denominator cannot be zero')
             if type(numerator) != int:
-              raise ValueError ('Numerator must be an integer')
+              raise TypeError ('Numerator must be an integer')
             if not isinstance(denominator, int ): # alternative way to check the type
-              raise ValueError ('Denominator must be an integer')
+              raise TypeError ('Denominator must be an integer')
             
             # this allows to avoid calculating the LCM in the sum and subtraction
             common_divisor = gcd (numerator, denominator) # greatest common divisor 
@@ -68,7 +68,7 @@
             print (str (self.numerator) + '/' + str (self.denominator))
     ```
     `````{tip}
-    When user input is not valid for a function/class, it is useful to **raise** an *exception*
+    When user input is not valid for a function/class, it is useful to **raise** an [*exception*](https://docs.python.org/3/library/exceptions.html)
     ```py
     raise ValueError ('Denominator cannot be zero')
     ```

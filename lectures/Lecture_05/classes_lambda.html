@@ -513,9 +513,9 @@ that may be used to handle numerical fractions (of integers) as high-level objec
         <span class="k">if</span> <span class="n">denominator</span> <span class="o">==</span> <span class="mi">0</span> <span class="p">:</span>
           <span class="k">raise</span> <span class="ne">ValueError</span> <span class="p">(</span><span class="s1">&#39;Denominator cannot be zero&#39;</span><span class="p">)</span>
         <span class="k">if</span> <span class="nb">type</span><span class="p">(</span><span class="n">numerator</span><span class="p">)</span> <span class="o">!=</span> <span class="nb">int</span><span class="p">:</span>
-          <span class="k">raise</span> <span class="ne">ValueError</span> <span class="p">(</span><span class="s1">&#39;Numerator must be an integer&#39;</span><span class="p">)</span>
+          <span class="k">raise</span> <span class="ne">TypeError</span> <span class="p">(</span><span class="s1">&#39;Numerator must be an integer&#39;</span><span class="p">)</span>
         <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">denominator</span><span class="p">,</span> <span class="nb">int</span> <span class="p">):</span> <span class="c1"># alternative way to check the type</span>
-          <span class="k">raise</span> <span class="ne">ValueError</span> <span class="p">(</span><span class="s1">&#39;Denominator must be an integer&#39;</span><span class="p">)</span>
+          <span class="k">raise</span> <span class="ne">TypeError</span> <span class="p">(</span><span class="s1">&#39;Denominator must be an integer&#39;</span><span class="p">)</span>
         
         <span class="c1"># this allows to avoid calculating the LCM in the sum and subtraction</span>
         <span class="n">common_divisor</span> <span class="o">=</span> <span class="n">gcd</span> <span class="p">(</span><span class="n">numerator</span><span class="p">,</span> <span class="n">denominator</span><span class="p">)</span> <span class="c1"># greatest common divisor </span>
@@ -531,7 +531,7 @@ that may be used to handle numerical fractions (of integers) as high-level objec
 </div>
 <div class="admonition tip">
 <p class="admonition-title">Tip</p>
-<p>When user input is not valid for a function/class, it is useful to <strong>raise</strong> an <em>exception</em></p>
+<p>When user input is not valid for a function/class, it is useful to <strong>raise</strong> an <a class="reference external" href="https://docs.python.org/3/library/exceptions.html"><em>exception</em></a></p>
 <div class="highlight-py notranslate"><div class="highlight"><pre><span></span><span class="k">raise</span> <span class="ne">ValueError</span> <span class="p">(</span><span class="s1">&#39;Denominator cannot be zero&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
