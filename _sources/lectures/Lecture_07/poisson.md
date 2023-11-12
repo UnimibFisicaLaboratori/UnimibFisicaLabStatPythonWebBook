@@ -64,7 +64,7 @@
 
     $$
     f(x) &= \frac{1}{\tau}e^{-t/\tau} \\
-    F(t) &= \int_{0}^{t}\frac{1}{\tau}e^{-s/\tau}ds\\
+    F(t) &= \int_{0}^{t}\frac{1}{\tau}e^{-s/\tau}ds = 1-e^{-t/\tau}\\
     y &= F(x)~\to~ x = F^{-1}(y) = -\tau \log (1-y)
     $$
 
