@@ -131,7 +131,7 @@
   <!-- ![integral_HOM](../../figs/integral_HOM_real_3.png) -->
   * The quantity *I* is the *result of the integral* for the hit-or-miss method.
   * Being a function of pseudo-random numbers, it is itself a **pseudo-random number**.
-  * It has an expected value and a variance.
+  * It has an expected **value and a variance**.
   * The latter is the **numerical uncertainty** in the integral calculation.
     * *A* and *N* are **known without uncertainty**.
     * *n<sub>hit</sub>* follows a **binomial distribution**, 
@@ -144,7 +144,7 @@
 
     $$
     &E[I] = E\left[ A\cdot\frac{n_{hit}}{N} \right] = \frac{A}{N}E[n_{hit}] = \frac{A}{N}\;Np = A\cdot\frac{n_{hit}}{N} \\
-    &V[I] = $V\left[ A\cdot\frac{n_{hit}}{N} \right] = \frac{A^2}{N^2}V[n_{hit}] = \frac{A^2}{N}\;p(1-p)
+    &V[I] = V\left[ A\cdot\frac{n_{hit}}{N} \right] = \frac{A^2}{N^2}V[n_{hit}] = \frac{A^2}{N}\;p(1-p)
     $$
 
   <!-- ![integral_HOM](../../figs/integral_HOM_exp_var.png) -->
