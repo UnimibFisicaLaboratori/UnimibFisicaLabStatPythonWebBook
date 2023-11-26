@@ -685,7 +685,9 @@ document.write(`
     <span class="n">means_sigma</span> <span class="o">=</span> <span class="p">[]</span>
     <span class="c1"># single sigma of the mean</span>
     <span class="n">sigma_of_the_mean</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="n">sigmas_of_the_mean</span> <span class="o">=</span> <span class="p">[]</span>
     <span class="n">N_events</span> <span class="o">=</span> <span class="p">[]</span> 
+    <span class="n">X</span> <span class="o">=</span> <span class="p">[]</span>
     <span class="k">while</span> <span class="p">(</span><span class="n">N_evt_min</span> <span class="o">&lt;</span> <span class="n">N_evt_max</span><span class="p">)</span> <span class="p">:</span>
         <span class="n">means</span> <span class="o">=</span> <span class="p">[]</span>
         <span class="c1"># loop over toys</span>
@@ -694,6 +696,8 @@ document.write(`
             <span class="n">toy_stats</span> <span class="o">=</span> <span class="n">stats</span> <span class="p">(</span><span class="n">randlist</span><span class="p">)</span>
             <span class="n">means</span><span class="o">.</span><span class="n">append</span> <span class="p">(</span><span class="n">toy_stats</span><span class="o">.</span><span class="n">mean</span> <span class="p">())</span>
             <span class="k">if</span> <span class="n">i</span> <span class="o">==</span> <span class="mi">0</span> <span class="p">:</span> <span class="n">sigma_of_the_mean</span><span class="o">.</span><span class="n">append</span> <span class="p">(</span><span class="n">toy_stats</span><span class="o">.</span><span class="n">sigma_mean</span> <span class="p">())</span>
+            <span class="n">sigmas_of_the_mean</span><span class="o">.</span><span class="n">append</span> <span class="p">(</span><span class="n">toy_stats</span><span class="o">.</span><span class="n">sigma_mean</span> <span class="p">())</span>
+            <span class="n">X</span> <span class="o">+=</span> <span class="p">[</span><span class="n">N_evt_min</span><span class="p">]</span>
         <span class="n">N_events</span><span class="o">.</span><span class="n">append</span> <span class="p">(</span><span class="n">N_evt_min</span><span class="p">)</span>
         <span class="n">toy_stats</span> <span class="o">=</span> <span class="n">stats</span> <span class="p">(</span><span class="n">means</span><span class="p">)</span>
         <span class="n">means_sigma</span><span class="o">.</span><span class="n">append</span> <span class="p">(</span><span class="n">toy_stats</span><span class="o">.</span><span class="n">sigma</span> <span class="p">())</span>
@@ -703,8 +707,10 @@ document.write(`
     <span class="n">ax</span><span class="o">.</span><span class="n">set_title</span> <span class="p">(</span><span class="s1">&#39;sigma of the means&#39;</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">14</span><span class="p">)</span>
     <span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span> <span class="p">(</span><span class="s1">&#39;number of events&#39;</span><span class="p">)</span>
     <span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span> <span class="p">(</span><span class="s1">&#39;sigma of the mean&#39;</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">X</span><span class="p">,</span><span class="n">sigmas_of_the_mean</span><span class="p">,</span><span class="n">label</span><span class="o">=</span><span class="s1">&#39;stddev of the mean&#39;</span><span class="p">)</span>
     <span class="n">ax</span><span class="o">.</span><span class="n">plot</span> <span class="p">(</span><span class="n">N_events</span><span class="p">,</span> <span class="n">means_sigma</span><span class="p">,</span> <span class="n">color</span> <span class="o">=</span> <span class="s1">&#39;red&#39;</span><span class="p">,</span> <span class="n">label</span> <span class="o">=</span> <span class="s1">&#39;all toys&#39;</span><span class="p">)</span>
     <span class="n">ax</span><span class="o">.</span><span class="n">plot</span> <span class="p">(</span><span class="n">N_events</span><span class="p">,</span> <span class="n">sigma_of_the_mean</span><span class="p">,</span> <span class="n">color</span> <span class="o">=</span> <span class="s1">&#39;blue&#39;</span><span class="p">,</span> <span class="n">label</span> <span class="o">=</span> <span class="s1">&#39;single toy&#39;</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_xscale</span> <span class="p">(</span><span class="s1">&#39;log&#39;</span><span class="p">)</span>
     <span class="n">ax</span><span class="o">.</span><span class="n">legend</span> <span class="p">()</span>
 
     <span class="n">plt</span><span class="o">.</span><span class="n">savefig</span> <span class="p">(</span><span class="s1">&#39;es_8.4.png&#39;</span><span class="p">)</span>

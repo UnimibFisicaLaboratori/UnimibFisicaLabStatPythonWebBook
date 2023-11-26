@@ -191,14 +191,16 @@
   * The first step in the study is the **writing of the source code** for the
     probability density function and the likelihood itself:
     ```py
-    def exp_pdf (x, tau) :
+    def exp_pdf (x, tau) :      
         '''
         the exponential probability density function
         '''
         if tau == 0. : return 1.
+        if x < 0. : return 0. 
         return exp (-1 * x / tau) / tau
     ```
     * the first ```if``` **protects the program** from infinity calculations
+    * the second ```if``` **guarantees that we have a Probability Density Function** by limiting the integral to 1
   * the likelihood function will have **as a input**
     both the data and the parameter of interest:
     ```py
@@ -208,10 +210,10 @@
         for a sample of independent variables idendically distributed 
         according to their pdf with parameter theta
         '''
-        risultato = 0.
+        logL = 0.
         for x in sample:
-          if (pdf (x, theta) > 0.) : risultato = risultato + log (pdf (x, theta))    
-        return risultato
+          if (pdf (x, theta) > 0.) : logL = logL + log (pdf (x, theta))    
+        return logL
     ```
     * in this case,
       the logarithm of the probability density function is **calculated
