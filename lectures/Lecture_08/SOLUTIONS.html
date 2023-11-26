@@ -9,7 +9,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
-    <title>Solutions: Lecture 8 &#8212; Laboratorio di Calcolo e Statistica</title>
+    <title>8.5. Solutions: Lecture 8 &#8212; Laboratorio di Calcolo e Statistica</title>
   
   
   
@@ -65,6 +65,8 @@ const thebe_selector_output = ".output, .cell_output"
     <script>DOCUMENTATION_OPTIONS.pagename = 'lectures/Lecture_08/SOLUTIONS';</script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="9. The likelihood" href="../Lecture_09/likelihood.html" />
+    <link rel="prev" title="8.4. Exercises for Lecture 8" href="EXERCISES.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -170,7 +172,7 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1"><a class="reference internal" href="../../prerequisites/README.html">Prerequisites of this Course</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Lectures</span></p>
-<ul class="nav bd-sidenav">
+<ul class="current nav bd-sidenav">
 <li class="toctree-l1 has-children"><a class="reference internal" href="../Lecture_01/basics_python.html">1. Basics of Python Programming</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
 <li class="toctree-l2"><a class="reference internal" href="../Lecture_01/EXAMPLES.html">1.10. Examples: Lecture 1</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../Lecture_01/EXERCISES.html">1.11. Exercises for Lecture 1</a></li>
@@ -212,9 +214,10 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l2"><a class="reference internal" href="../Lecture_07/SOLUTIONS.html">7.6. Solutions: Lezione 7</a></li>
 </ul>
 </li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="toys_integration.html">8. Toy Experiments and Integration using Pseudorandom Numbers</a><input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-8"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="toys_integration.html">8. Toy Experiments and Integration using Pseudorandom Numbers</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-8"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="EXAMPLES.html">8.3. Examples: Lecture 8</a></li>
 <li class="toctree-l2"><a class="reference internal" href="EXERCISES.html">8.4. Exercises for Lecture 8</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">8.5. Solutions: Lecture 8</a></li>
 </ul>
 </li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../Lecture_09/likelihood.html">9. The likelihood</a><input class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-9"><i class="fa-solid fa-chevron-down"></i></label><ul>
@@ -429,15 +432,15 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-8-1">Exercise 8.1</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-8-2">Exercise 8.2</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-8-3">Exercise 8.3</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-8-4">Exercise 8.4</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-8-5">Exercise 8.5</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-8-6">Exercise 8.6</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-8-7">Exercise 8.7</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-8-8">Exercise 8.8</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-8-9">Exercise 8.9</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-8-1">8.5.1. Exercise 8.1</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-8-2">8.5.2. Exercise 8.2</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-8-3">8.5.3. Exercise 8.3</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-8-4">8.5.4. Exercise 8.4</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-8-5">8.5.5. Exercise 8.5</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-8-6">8.5.6. Exercise 8.6</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-8-7">8.5.7. Exercise 8.7</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-8-8">8.5.8. Exercise 8.8</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-8-9">8.5.9. Exercise 8.9</a></li>
 </ul>
             </nav>
         </div>
@@ -450,9 +453,9 @@ document.write(`
                 <article class="bd-article" role="main">
                   
   <section id="solutions-lecture-8">
-<h1>Solutions: Lecture 8<a class="headerlink" href="#solutions-lecture-8" title="Permalink to this heading">#</a></h1>
+<h1><span class="section-number">8.5. </span>Solutions: Lecture 8<a class="headerlink" href="#solutions-lecture-8" title="Permalink to this heading">#</a></h1>
 <section id="exercise-8-1">
-<h2>Exercise 8.1<a class="headerlink" href="#exercise-8-1" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">8.5.1. </span>Exercise 8.1<a class="headerlink" href="#exercise-8-1" title="Permalink to this heading">#</a></h2>
 <ul class="simple">
 <li><p><cite>es_8.1.py</cite></p></li>
 </ul>
@@ -496,7 +499,7 @@ document.write(`
 </div>
 </section>
 <section id="exercise-8-2">
-<h2>Exercise 8.2<a class="headerlink" href="#exercise-8-2" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">8.5.2. </span>Exercise 8.2<a class="headerlink" href="#exercise-8-2" title="Permalink to this heading">#</a></h2>
 <ul class="simple">
 <li><p><cite>es_8.2.py</cite></p></li>
 </ul>
@@ -562,7 +565,7 @@ document.write(`
 </div>
 </section>
 <section id="exercise-8-3">
-<h2>Exercise 8.3<a class="headerlink" href="#exercise-8-3" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">8.5.3. </span>Exercise 8.3<a class="headerlink" href="#exercise-8-3" title="Permalink to this heading">#</a></h2>
 <ul class="simple">
 <li><p><cite>es_8.3.cpp</cite></p></li>
 </ul>
@@ -644,7 +647,7 @@ document.write(`
 </div>
 </section>
 <section id="exercise-8-4">
-<h2>Exercise 8.4<a class="headerlink" href="#exercise-8-4" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">8.5.4. </span>Exercise 8.4<a class="headerlink" href="#exercise-8-4" title="Permalink to this heading">#</a></h2>
 <ul class="simple">
 <li><p><cite>es_8.4.py</cite></p></li>
 </ul>
@@ -716,7 +719,7 @@ document.write(`
 </div>
 </section>
 <section id="exercise-8-5">
-<h2>Exercise 8.5<a class="headerlink" href="#exercise-8-5" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">8.5.5. </span>Exercise 8.5<a class="headerlink" href="#exercise-8-5" title="Permalink to this heading">#</a></h2>
 <ul class="simple">
 <li><p><cite>es_8.5.py</cite></p></li>
 </ul>
@@ -819,7 +822,7 @@ document.write(`
 </div>
 </section>
 <section id="exercise-8-6">
-<h2>Exercise 8.6<a class="headerlink" href="#exercise-8-6" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">8.5.6. </span>Exercise 8.6<a class="headerlink" href="#exercise-8-6" title="Permalink to this heading">#</a></h2>
 <ul class="simple">
 <li><p><cite>es_8.6.py</cite></p></li>
 </ul>
@@ -889,7 +892,7 @@ document.write(`
 </div>
 </section>
 <section id="exercise-8-7">
-<h2>Exercise 8.7<a class="headerlink" href="#exercise-8-7" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">8.5.7. </span>Exercise 8.7<a class="headerlink" href="#exercise-8-7" title="Permalink to this heading">#</a></h2>
 <ul class="simple">
 <li><p><cite>es_8.7.py</cite></p></li>
 </ul>
@@ -949,7 +952,7 @@ document.write(`
 </div>
 </section>
 <section id="exercise-8-8">
-<h2>Exercise 8.8<a class="headerlink" href="#exercise-8-8" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">8.5.8. </span>Exercise 8.8<a class="headerlink" href="#exercise-8-8" title="Permalink to this heading">#</a></h2>
 <ul class="simple">
 <li><p><cite>es_8.8.py</cite></p></li>
 </ul>
@@ -1029,7 +1032,7 @@ document.write(`
 </div>
 </section>
 <section id="exercise-8-9">
-<h2>Exercise 8.9<a class="headerlink" href="#exercise-8-9" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">8.5.9. </span>Exercise 8.9<a class="headerlink" href="#exercise-8-9" title="Permalink to this heading">#</a></h2>
 <ul class="simple">
 <li><p><cite>es_8.9.py</cite></p></li>
 </ul>
@@ -1116,6 +1119,24 @@ document.write(`
                 <footer class="prev-next-footer">
                   <!-- Previous / next buttons -->
 <div class="prev-next-area">
+    <a class="left-prev"
+       href="EXERCISES.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title"><span class="section-number">8.4. </span>Exercises for Lecture 8</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="../Lecture_09/likelihood.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title"><span class="section-number">9. </span>The likelihood</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
 </div>
                 </footer>
               
@@ -1131,15 +1152,15 @@ document.write(`
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-8-1">Exercise 8.1</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-8-2">Exercise 8.2</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-8-3">Exercise 8.3</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-8-4">Exercise 8.4</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-8-5">Exercise 8.5</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-8-6">Exercise 8.6</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-8-7">Exercise 8.7</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-8-8">Exercise 8.8</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-8-9">Exercise 8.9</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-8-1">8.5.1. Exercise 8.1</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-8-2">8.5.2. Exercise 8.2</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-8-3">8.5.3. Exercise 8.3</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-8-4">8.5.4. Exercise 8.4</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-8-5">8.5.5. Exercise 8.5</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-8-6">8.5.6. Exercise 8.6</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-8-7">8.5.7. Exercise 8.7</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-8-8">8.5.8. Exercise 8.8</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-8-9">8.5.9. Exercise 8.9</a></li>
 </ul>
   </nav></div>
 

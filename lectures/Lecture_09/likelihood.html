@@ -68,7 +68,7 @@ const thebe_selector_output = ".output, .cell_output"
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
     <link rel="next" title="9.7. This is a notebook example" href="examples/notebook_01.html" />
-    <link rel="prev" title="8.4. Exercises for Lecture 8" href="../Lecture_08/EXERCISES.html" />
+    <link rel="prev" title="8.5. Solutions: Lecture 8" href="../Lecture_08/SOLUTIONS.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -219,6 +219,7 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1 has-children"><a class="reference internal" href="../Lecture_08/toys_integration.html">8. Toy Experiments and Integration using Pseudorandom Numbers</a><input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-8"><i class="fa-solid fa-chevron-down"></i></label><ul>
 <li class="toctree-l2"><a class="reference internal" href="../Lecture_08/EXAMPLES.html">8.3. Examples: Lecture 8</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../Lecture_08/EXERCISES.html">8.4. Exercises for Lecture 8</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Lecture_08/SOLUTIONS.html">8.5. Solutions: Lecture 8</a></li>
 </ul>
 </li>
 <li class="toctree-l1 current active has-children"><a class="current reference internal" href="#">9. The likelihood</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-9"><i class="fa-solid fa-chevron-down"></i></label><ul>
@@ -478,8 +479,7 @@ rich text elements</strong> (paragraph, equations, figures, links, etc…)
 and can show the output of the code integrated within the document.</p></li>
 <li><p>They may be exploited in keeping in the same place
 the actual developed algorithms
-<strong>together with their descritption<br />
-and results</strong> comments.</p></li>
+<strong>together with their description and results comments</strong>.</p></li>
 <li><p>Python notebooks may be implemented locally,
 for example with the <strong><a class="reference external" href="https://jupyter.org/">jupyter</a> software</strong>,
 or remotely, for example with <strong><a class="reference external" href="https://colab.research.google.com/?hl=it">Google Colaboratory</a></strong>
@@ -532,7 +532,7 @@ will appear just after it.</p>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
 <p>In a complex notebook,
-all elements need to be run sequentially,
+all elements need to be run sequentially from the beginning,
 to avoid mismatches between variable values across
 execution</p>
 </div>
@@ -637,7 +637,8 @@ and integration with Google Drive may be found at this <a class="reference exter
 summarizing both the theoretical assumptions and the measurements taken,
 is encoded in the <strong>likelihood</strong>,
 defined as the product of the value of the probability density distribution
-calculated for each measurement taken:</p></li>
+calculated for each measurement taken
+(for independent identically-distributed random values x<sub>i</sub>):</p></li>
 </ul>
 <!--
     $$
@@ -645,9 +646,6 @@ calculated for each measurement taken:</p></li>
     $$ -->
 <p><img alt="likelihood" src="../../_images/likelihood.png" /></p>
 <ul class="simple">
-<li><p>La <em>likelihood</em> è funzione sia delle misure che dei parametri,
-tuttavia si <strong>evidenzia la dipendenza dai parametri</strong> perché
-a misure finite i dati sono immutabili.</p></li>
 <li><p>The <strong>likelihood</strong> is a function of both the measurements and the parameters;
 however, usually <strong>only the dependence on the parameters is highlighted</strong>
 because with finite measurements, the data remain fixed.</p></li>
@@ -655,9 +653,11 @@ because with finite measurements, the data remain fixed.</p></li>
 <section id="a-model-describing-the-data">
 <h3><span class="section-number">9.4.1. </span>A model describing the data<a class="headerlink" href="#a-model-describing-the-data" title="Permalink to this heading">#</a></h3>
 <ul class="simple">
-<li><p>A <strong>model</strong> is a probability distribution <em>f</em> or a law <em>g</em> to which measurements are expected to conform.</p></li>
+<li><p>A <strong>model</strong> is a probability distribution <em>f</em> or a law <em>g</em>
+to which measurements are expected to conform.</p></li>
 <li><p>The <strong>measurement outcomes</strong> are variables with respect to which the model depends.</p></li>
-<li><p>Any quantities on which the model depends, which are not measured, are referred to as <strong>parameters</strong>.</p></li>
+<li><p>Any quantities on which the model depends, which are not measured,
+are referred to as <strong>parameters</strong>.</p></li>
 </ul>
 </section>
 <section id="probability-density-functions">
@@ -709,7 +709,7 @@ with the sole parameter τ as an additional argument of the likelihood:
 <section id="the-probability-density-function-and-the-likelihood-function">
 <h3><span class="section-number">9.6.1. </span>The Probability Density Function and the Likelihood function<a class="headerlink" href="#the-probability-density-function-and-the-likelihood-function" title="Permalink to this heading">#</a></h3>
 <ul>
-<li><p>The first step in the study is the writing of the source code for the
+<li><p>The first step in the study is the <strong>writing of the source code</strong> for the
 probability density function and the likelihood itself:</p>
 <div class="highlight-py notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">exp_pdf</span> <span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">tau</span><span class="p">)</span> <span class="p">:</span>
 <span class="w">    </span><span class="sd">&#39;&#39;&#39;</span>
@@ -720,10 +720,10 @@ probability density function and the likelihood itself:</p>
 </pre></div>
 </div>
 <ul class="simple">
-<li><p>the first <code class="docutils literal notranslate"><span class="pre">if</span></code> <strong>protects the program</strong> from infinity</p></li>
+<li><p>the first <code class="docutils literal notranslate"><span class="pre">if</span></code> <strong>protects the program</strong> from infinity calculations</p></li>
 </ul>
 </li>
-<li><p>the likelihood function will have as a input
+<li><p>the likelihood function will have <strong>as a input</strong>
 both the data and the parameter of interest:</p>
 <div class="highlight-py notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">loglikelihood</span> <span class="p">(</span><span class="n">theta</span><span class="p">,</span> <span class="n">pdf</span><span class="p">,</span> <span class="n">sample</span><span class="p">)</span> <span class="p">:</span>
 <span class="w">    </span><span class="sd">&#39;&#39;&#39;</span>
@@ -739,8 +739,8 @@ both the data and the parameter of interest:</p>
 </div>
 <ul class="simple">
 <li><p>in this case,
-the logarithm of the probability density function is calculated
-in each data point</p></li>
+the logarithm of the probability density function is <strong>calculated
+in each data point</strong></p></li>
 </ul>
 </li>
 </ul>
@@ -787,12 +787,12 @@ in each data point</p></li>
                   <!-- Previous / next buttons -->
 <div class="prev-next-area">
     <a class="left-prev"
-       href="../Lecture_08/EXERCISES.html"
+       href="../Lecture_08/SOLUTIONS.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title"><span class="section-number">8.4. </span>Exercises for Lecture 8</p>
+        <p class="prev-next-title"><span class="section-number">8.5. </span>Solutions: Lecture 8</p>
       </div>
     </a>
     <a class="right-next"

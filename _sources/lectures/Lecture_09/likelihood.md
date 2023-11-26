@@ -8,8 +8,7 @@
     and can show the output of the code integrated within the document.
   * They may be exploited in keeping in the same place
     the actual developed algorithms
-    **together with their descritption  
-    and results** comments.
+    **together with their description and results comments**.
   * Python notebooks may be implemented locally, 
     for example with the **[jupyter](https://jupyter.org/) software**,
     or remotely, for example with **[Google Colaboratory](https://colab.research.google.com/?hl=it)**
@@ -52,7 +51,7 @@
     will appear just after it.
     ```{warning}
     In a complex notebook,
-    all elements need to be run sequentially,
+    all elements need to be run sequentially from the beginning,
     to avoid mismatches between variable values across 
     execution
     ```   
@@ -131,24 +130,24 @@
     summarizing both the theoretical assumptions and the measurements taken, 
     is encoded in the **likelihood**, 
     defined as the product of the value of the probability density distribution 
-    calculated for each measurement taken:
+    calculated for each measurement taken 
+    (for independent identically-distributed random values x<sub>i</sub>):
 <!--
     $$
     \mathcal{L} = \mathcal{L}(\theta;\vec{x}) = f(x_1,\theta)\times ... \times f(x_N,\theta) = \prod_{i=1}^N f(x_i,\theta)
     $$ -->
   ![likelihood](../../figs/likelihood.png)
-  * La *likelihood* è funzione sia delle misure che dei parametri,
-    tuttavia si **evidenzia la dipendenza dai parametri** perché
-    a misure finite i dati sono immutabili.
   * The **likelihood** is a function of both the measurements and the parameters; 
     however, usually **only the dependence on the parameters is highlighted**
     because with finite measurements, the data remain fixed.
 
 ### A model describing the data
 
-  * A **model** is a probability distribution *f* or a law *g* to which measurements are expected to conform.
+  * A **model** is a probability distribution *f* or a law *g* 
+    to which measurements are expected to conform.
   * The **measurement outcomes** are variables with respect to which the model depends.
-  * Any quantities on which the model depends, which are not measured, are referred to as **parameters**.
+  * Any quantities on which the model depends, which are not measured, 
+    are referred to as **parameters**.
 
 ### Probability Density Functions
 
@@ -189,7 +188,7 @@
 
 ### The Probability Density Function and the Likelihood function
 
-  * The first step in the study is the writing of the source code for the
+  * The first step in the study is the **writing of the source code** for the
     probability density function and the likelihood itself:
     ```py
     def exp_pdf (x, tau) :
@@ -199,8 +198,8 @@
         if tau == 0. : return 1.
         return exp (-1 * x / tau) / tau
     ```
-    * the first ```if``` **protects the program** from infinity
-  * the likelihood function will have as a input
+    * the first ```if``` **protects the program** from infinity calculations
+  * the likelihood function will have **as a input**
     both the data and the parameter of interest:
     ```py
     def loglikelihood (theta, pdf, sample) :
@@ -215,8 +214,8 @@
         return risultato
     ```
     * in this case,
-      the logarithm of the probability density function is calculated
-      in each data point
+      the logarithm of the probability density function is **calculated
+      in each data point**
 
 :::{note}
   * The exercises for the lecture may be found [here](EXERCISES.md)
