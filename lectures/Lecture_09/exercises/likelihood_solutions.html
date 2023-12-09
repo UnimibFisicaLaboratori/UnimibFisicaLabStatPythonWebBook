@@ -3,13 +3,13 @@
 <!DOCTYPE html>
 
 
-<html lang="en" >
+<html lang="en" data-content_root="" >
 
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
-    <title>Likelihood exercise solutions &#8212; Laboratorio di Calcolo e Statistica</title>
+    <title>9.11. Likelihood exercise solutions &#8212; Laboratorio di Calcolo e Statistica</title>
   
   
   
@@ -19,12 +19,12 @@
   </script>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="../../../_static/styles/theme.css?digest=365ca57ee442770a23c6" rel="stylesheet" />
-<link href="../../../_static/styles/bootstrap.css?digest=365ca57ee442770a23c6" rel="stylesheet" />
-<link href="../../../_static/styles/pydata-sphinx-theme.css?digest=365ca57ee442770a23c6" rel="stylesheet" />
+  <link href="../../../_static/styles/theme.css?digest=5b4479735964841361fd" rel="stylesheet" />
+<link href="../../../_static/styles/bootstrap.css?digest=5b4479735964841361fd" rel="stylesheet" />
+<link href="../../../_static/styles/pydata-sphinx-theme.css?digest=5b4479735964841361fd" rel="stylesheet" />
 
   
-  <link href="../../../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=365ca57ee442770a23c6" rel="stylesheet" />
+  <link href="../../../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=5b4479735964841361fd" rel="stylesheet" />
   <link rel="preload" as="font" type="font/woff2" crossorigin href="../../../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../../../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../../../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
@@ -38,9 +38,9 @@
     <link rel="stylesheet" type="text/css" href="../../../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../../../_static/scripts/bootstrap.js?digest=365ca57ee442770a23c6" />
-<link rel="preload" as="script" href="../../../_static/scripts/pydata-sphinx-theme.js?digest=365ca57ee442770a23c6" />
-  <script src="../../../_static/vendor/fontawesome/6.1.2/js/all.min.js?digest=365ca57ee442770a23c6"></script>
+  <link rel="preload" as="script" href="../../../_static/scripts/bootstrap.js?digest=5b4479735964841361fd" />
+<link rel="preload" as="script" href="../../../_static/scripts/pydata-sphinx-theme.js?digest=5b4479735964841361fd" />
+  <script src="../../../_static/vendor/fontawesome/6.1.2/js/all.min.js?digest=5b4479735964841361fd"></script>
 
     <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
     <script src="../../../_static/jquery.js"></script>
@@ -65,6 +65,8 @@ const thebe_selector_output = ".output, .cell_output"
     <script>DOCUMENTATION_OPTIONS.pagename = 'lectures/Lecture_09/exercises/likelihood_solutions';</script>
     <link rel="index" title="Index" href="../../../genindex.html" />
     <link rel="search" title="Search" href="../../../search.html" />
+    <link rel="next" title="10. Parameter Estimate using the Maximum Likelihood Method" href="../../Lecture_10/likelihood_fit.html" />
+    <link rel="prev" title="9.10. Exercises for Lecture 9" href="../EXERCISES.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -137,6 +139,7 @@ const thebe_selector_output = ".output, .cell_output"
   
     <div class="sidebar-primary-items__start sidebar-primary__section">
         <div class="sidebar-primary-item">
+
   
 
 <a class="navbar-brand logo" href="../../../intro.html">
@@ -170,7 +173,7 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1"><a class="reference internal" href="../../../prerequisites/README.html">Prerequisites of this Course</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Lectures</span></p>
-<ul class="nav bd-sidenav">
+<ul class="current nav bd-sidenav">
 <li class="toctree-l1 has-children"><a class="reference internal" href="../../Lecture_01/basics_python.html">1. Basics of Python Programming</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
 <li class="toctree-l2"><a class="reference internal" href="../../Lecture_01/EXAMPLES.html">1.10. Examples: Lecture 1</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../Lecture_01/EXERCISES.html">1.11. Exercises for Lecture 1</a></li>
@@ -218,11 +221,12 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l2"><a class="reference internal" href="../../Lecture_08/SOLUTIONS.html">8.5. Solutions: Lecture 8</a></li>
 </ul>
 </li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../likelihood.html">9. The likelihood</a><input class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-9"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="../likelihood.html">9. The likelihood</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-9"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="../examples/notebook_01.html">9.7. This is a notebook example</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../examples/notebook_02.html">9.8. Drawing of a function</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../examples/notebook_03.html">9.9. Accessing files on disk</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../EXERCISES.html">9.10. Exercises for Lecture 9</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">9.11. Likelihood exercise solutions</a></li>
 </ul>
 </li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../../Lecture_10/likelihood_fit.html">10. Parameter Estimate using the Maximum Likelihood Method</a><input class="toctree-checkbox" id="toctree-checkbox-10" name="toctree-checkbox-10" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-10"><i class="fa-solid fa-chevron-down"></i></label><ul>
@@ -390,6 +394,7 @@ const thebe_selector_output = ".output, .cell_output"
 </button>
 
 
+
 <script>
 document.write(`
   <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
@@ -399,6 +404,7 @@ document.write(`
   </button>
 `);
 </script>
+
 
 <script>
 document.write(`
@@ -430,12 +436,12 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-9-1">Exercise 9.1</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-9-2">Exercise 9.2</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-9-3">Exercise 9.3</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-9-4">Exercise 9.4</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-9-5">Exercise 9.5</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-9-6">Exercise 9.6</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-9-1">9.11.1. Exercise 9.1</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-9-2">9.11.2. Exercise 9.2</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-9-3">9.11.3. Exercise 9.3</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-9-4">9.11.4. Exercise 9.4</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-9-5">9.11.5. Exercise 9.5</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-9-6">9.11.6. Exercise 9.6</a></li>
 </ul>
             </nav>
         </div>
@@ -448,9 +454,9 @@ document.write(`
                 <article class="bd-article" role="main">
                   
   <section class="tex2jax_ignore mathjax_ignore" id="likelihood-exercise-solutions">
-<h1>Likelihood exercise solutions<a class="headerlink" href="#likelihood-exercise-solutions" title="Permalink to this heading">#</a></h1>
+<h1><span class="section-number">9.11. </span>Likelihood exercise solutions<a class="headerlink" href="#likelihood-exercise-solutions" title="Permalink to this heading">#</a></h1>
 <section id="exercise-9-1">
-<h2>Exercise 9.1<a class="headerlink" href="#exercise-9-1" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">9.11.1. </span>Exercise 9.1<a class="headerlink" href="#exercise-9-1" title="Permalink to this heading">#</a></h2>
 <p>Write a program that generates pseudo-random numbers
 distributed according to an exponential function
 and stores them in a list.</p>
@@ -468,7 +474,7 @@ and stores them in a list.</p>
 </div>
 </section>
 <section id="exercise-9-2">
-<h2>Exercise 9.2<a class="headerlink" href="#exercise-9-2" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">9.11.2. </span>Exercise 9.2<a class="headerlink" href="#exercise-9-2" title="Permalink to this heading">#</a></h2>
 <p>Add to the previous program the source code that fills a histogram
 with the numbers present in the list where they have been transferred,
 and displays the histogram on the screen.</p>
@@ -495,12 +501,12 @@ and displays the histogram on the screen.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../../_images/3d3ffd62d7ea5a0d19fd62d8783ba9a088b838b10d7e3e5d551febeddd4e4b23.png" src="../../../_images/3d3ffd62d7ea5a0d19fd62d8783ba9a088b838b10d7e3e5d551febeddd4e4b23.png" />
+<img alt="../../../_images/50d24e13df800ad9129e17004f9cdc052e68902a81085342deaf9bef194e4997.png" src="../../../_images/50d24e13df800ad9129e17004f9cdc052e68902a81085342deaf9bef194e4997.png" />
 </div>
 </div>
 </section>
 <section id="exercise-9-3">
-<h2>Exercise 9.3<a class="headerlink" href="#exercise-9-3" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">9.11.3. </span>Exercise 9.3<a class="headerlink" href="#exercise-9-3" title="Permalink to this heading">#</a></h2>
 <p>Write a program
 that plots the exponential probability distribution
 with a fixed parameter <em>t<sub>0</sub></em>.</p>
@@ -528,7 +534,7 @@ with a fixed parameter <em>t<sub>0</sub></em>.</p>
 </div>
 </section>
 <section id="exercise-9-4">
-<h2>Exercise 9.4<a class="headerlink" href="#exercise-9-4" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">9.11.4. </span>Exercise 9.4<a class="headerlink" href="#exercise-9-4" title="Permalink to this heading">#</a></h2>
 <p>Write a function <code class="docutils literal notranslate"><span class="pre">likelihood</span></code> that calculates the likelihood
 as the parameter <em>t<sub>0</sub></em> varies,
 for a sample of pseudo-random events generated according to the instructions of Exercise 1.</p>
@@ -566,7 +572,7 @@ for a sample of pseudo-random events generated according to the instructions of 
 </div>
 </section>
 <section id="exercise-9-5">
-<h2>Exercise 9.5<a class="headerlink" href="#exercise-9-5" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">9.11.5. </span>Exercise 9.5<a class="headerlink" href="#exercise-9-5" title="Permalink to this heading">#</a></h2>
 <p>Write a function <code class="docutils literal notranslate"><span class="pre">loglikelihood</span></code> that calculates the logarithm of the likelihood
 as the parameter <em>t<sub>0</sub></em> varies,
 for a sample of pseudo-random events generated according to the instructions of Exercise 1.
@@ -598,7 +604,7 @@ only when the <em>likelihood</em> is strictly positive.</p>
 </div>
 </section>
 <section id="exercise-9-6">
-<h2>Exercise 9.6<a class="headerlink" href="#exercise-9-6" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">9.11.6. </span>Exercise 9.6<a class="headerlink" href="#exercise-9-6" title="Permalink to this heading">#</a></h2>
 <p>Study the behavior of the shape of the log-likelihood as a function of the number of events
 comprising the generated sample.</p>
 <div class="cell docutils container">
@@ -655,8 +661,26 @@ comprising the generated sample.</p>
               
               
                 <footer class="prev-next-footer">
-                  <!-- Previous / next buttons -->
+                  
 <div class="prev-next-area">
+    <a class="left-prev"
+       href="../EXERCISES.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title"><span class="section-number">9.10. </span>Exercises for Lecture 9</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="../../Lecture_10/likelihood_fit.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title"><span class="section-number">10. </span>Parameter Estimate using the Maximum Likelihood Method</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
 </div>
                 </footer>
               
@@ -672,12 +696,12 @@ comprising the generated sample.</p>
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-9-1">Exercise 9.1</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-9-2">Exercise 9.2</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-9-3">Exercise 9.3</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-9-4">Exercise 9.4</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-9-5">Exercise 9.5</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-9-6">Exercise 9.6</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-9-1">9.11.1. Exercise 9.1</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-9-2">9.11.2. Exercise 9.2</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-9-3">9.11.3. Exercise 9.3</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-9-4">9.11.4. Exercise 9.4</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-9-5">9.11.5. Exercise 9.5</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-9-6">9.11.6. Exercise 9.6</a></li>
 </ul>
   </nav></div>
 
@@ -699,6 +723,7 @@ By The Jupyter Book community
   
   <div class="footer-item">
     
+
   <p class="copyright">
     
       © Copyright 2022.
@@ -725,8 +750,8 @@ By The Jupyter Book community
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="../../../_static/scripts/bootstrap.js?digest=365ca57ee442770a23c6"></script>
-<script src="../../../_static/scripts/pydata-sphinx-theme.js?digest=365ca57ee442770a23c6"></script>
+  <script src="../../../_static/scripts/bootstrap.js?digest=5b4479735964841361fd"></script>
+<script src="../../../_static/scripts/pydata-sphinx-theme.js?digest=5b4479735964841361fd"></script>
 
   <footer class="bd-footer">
   </footer>

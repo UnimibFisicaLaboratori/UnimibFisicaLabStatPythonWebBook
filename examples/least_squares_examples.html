@@ -3,7 +3,7 @@
 <!DOCTYPE html>
 
 
-<html lang="en" >
+<html lang="en" data-content_root="" >
 
   <head>
     <meta charset="utf-8" />
@@ -19,12 +19,12 @@
   </script>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="../_static/styles/theme.css?digest=365ca57ee442770a23c6" rel="stylesheet" />
-<link href="../_static/styles/bootstrap.css?digest=365ca57ee442770a23c6" rel="stylesheet" />
-<link href="../_static/styles/pydata-sphinx-theme.css?digest=365ca57ee442770a23c6" rel="stylesheet" />
+  <link href="../_static/styles/theme.css?digest=5b4479735964841361fd" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=5b4479735964841361fd" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=5b4479735964841361fd" rel="stylesheet" />
 
   
-  <link href="../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=365ca57ee442770a23c6" rel="stylesheet" />
+  <link href="../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=5b4479735964841361fd" rel="stylesheet" />
   <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
@@ -38,9 +38,9 @@
     <link rel="stylesheet" type="text/css" href="../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=365ca57ee442770a23c6" />
-<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=365ca57ee442770a23c6" />
-  <script src="../_static/vendor/fontawesome/6.1.2/js/all.min.js?digest=365ca57ee442770a23c6"></script>
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=5b4479735964841361fd" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=5b4479735964841361fd" />
+  <script src="../_static/vendor/fontawesome/6.1.2/js/all.min.js?digest=5b4479735964841361fd"></script>
 
     <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
     <script src="../_static/jquery.js"></script>
@@ -139,6 +139,7 @@ const thebe_selector_output = ".output, .cell_output"
   
     <div class="sidebar-primary-items__start sidebar-primary__section">
         <div class="sidebar-primary-item">
+
   
 
 <a class="navbar-brand logo" href="../intro.html">
@@ -225,6 +226,7 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l2"><a class="reference internal" href="../lectures/Lecture_09/examples/notebook_02.html">9.8. Drawing of a function</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../lectures/Lecture_09/examples/notebook_03.html">9.9. Accessing files on disk</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../lectures/Lecture_09/EXERCISES.html">9.10. Exercises for Lecture 9</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../lectures/Lecture_09/exercises/likelihood_solutions.html">9.11. Likelihood exercise solutions</a></li>
 </ul>
 </li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../lectures/Lecture_10/likelihood_fit.html">10. Parameter Estimate using the Maximum Likelihood Method</a><input class="toctree-checkbox" id="toctree-checkbox-10" name="toctree-checkbox-10" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-10"><i class="fa-solid fa-chevron-down"></i></label><ul>
@@ -392,6 +394,7 @@ const thebe_selector_output = ".output, .cell_output"
 </button>
 
 
+
 <script>
 document.write(`
   <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
@@ -401,6 +404,7 @@ document.write(`
   </button>
 `);
 </script>
+
 
 <script>
 document.write(`
@@ -475,7 +479,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.legend.Legend at 0x7f8f40fc8af0&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.legend.Legend at 0x7f85b0722d30&gt;
 </pre></div>
 </div>
 <img alt="../_images/47cdf76a53270233a06d847b900d7d9945435c29645e1163979249846b2b0b31.png" src="../_images/47cdf76a53270233a06d847b900d7d9945435c29645e1163979249846b2b0b31.png" />
@@ -604,7 +608,7 @@ Then we load the function template that creates a <em>cost</em> function corresp
   <rdf:RDF xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:cc="http://creativecommons.org/ns#" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
    <cc:Work>
     <dc:type rdf:resource="http://purl.org/dc/dcmitype/StillImage"/>
-    <dc:date>2023-11-26T22:26:21.604675</dc:date>
+    <dc:date>2023-12-09T21:47:49.767033</dc:date>
     <dc:format>image/svg+xml</dc:format>
     <dc:creator>
      <cc:Agent>
@@ -639,12 +643,12 @@ z
     <g id="xtick_1">
      <g id="line2d_1">
       <defs>
-       <path id="mc2a5c192ab" d="M 0 0 
+       <path id="md4bec330d2" d="M 0 0 
 L 0 3.5 
 " style="stroke: #000000; stroke-width: 0.8"/>
       </defs>
       <g>
-       <use xlink:href="#mc2a5c192ab" x="40.953201" y="268.321635" style="stroke: #000000; stroke-width: 0.8"/>
+       <use xlink:href="#md4bec330d2" x="40.953201" y="268.321635" style="stroke: #000000; stroke-width: 0.8"/>
       </g>
      </g>
      <g id="text_1">
@@ -673,7 +677,7 @@ z
     <g id="xtick_2">
      <g id="line2d_2">
       <g>
-       <use xlink:href="#mc2a5c192ab" x="101.152546" y="268.321635" style="stroke: #000000; stroke-width: 0.8"/>
+       <use xlink:href="#md4bec330d2" x="101.152546" y="268.321635" style="stroke: #000000; stroke-width: 0.8"/>
       </g>
      </g>
      <g id="text_2">
@@ -712,7 +716,7 @@ z
     <g id="xtick_3">
      <g id="line2d_3">
       <g>
-       <use xlink:href="#mc2a5c192ab" x="161.35189" y="268.321635" style="stroke: #000000; stroke-width: 0.8"/>
+       <use xlink:href="#md4bec330d2" x="161.35189" y="268.321635" style="stroke: #000000; stroke-width: 0.8"/>
       </g>
      </g>
      <g id="text_3">
@@ -759,7 +763,7 @@ z
     <g id="xtick_4">
      <g id="line2d_4">
       <g>
-       <use xlink:href="#mc2a5c192ab" x="221.551235" y="268.321635" style="stroke: #000000; stroke-width: 0.8"/>
+       <use xlink:href="#md4bec330d2" x="221.551235" y="268.321635" style="stroke: #000000; stroke-width: 0.8"/>
       </g>
      </g>
      <g id="text_4">
@@ -793,7 +797,7 @@ z
     <g id="xtick_5">
      <g id="line2d_5">
       <g>
-       <use xlink:href="#mc2a5c192ab" x="281.750579" y="268.321635" style="stroke: #000000; stroke-width: 0.8"/>
+       <use xlink:href="#md4bec330d2" x="281.750579" y="268.321635" style="stroke: #000000; stroke-width: 0.8"/>
       </g>
      </g>
      <g id="text_5">
@@ -833,7 +837,7 @@ z
     <g id="xtick_6">
      <g id="line2d_6">
       <g>
-       <use xlink:href="#mc2a5c192ab" x="341.949924" y="268.321635" style="stroke: #000000; stroke-width: 0.8"/>
+       <use xlink:href="#md4bec330d2" x="341.949924" y="268.321635" style="stroke: #000000; stroke-width: 0.8"/>
       </g>
      </g>
      <g id="text_6">
@@ -880,12 +884,12 @@ z
     <g id="ytick_1">
      <g id="line2d_7">
       <defs>
-       <path id="m196a89f4d7" d="M 0 0 
+       <path id="me37fb63dfe" d="M 0 0 
 L -3.5 0 
 " style="stroke: #000000; stroke-width: 0.8"/>
       </defs>
       <g>
-       <use xlink:href="#m196a89f4d7" x="25.903365" y="232.919513" style="stroke: #000000; stroke-width: 0.8"/>
+       <use xlink:href="#me37fb63dfe" x="25.903365" y="232.919513" style="stroke: #000000; stroke-width: 0.8"/>
       </g>
      </g>
      <g id="text_7">
@@ -930,7 +934,7 @@ z
     <g id="ytick_2">
      <g id="line2d_8">
       <g>
-       <use xlink:href="#m196a89f4d7" x="25.903365" y="194.016083" style="stroke: #000000; stroke-width: 0.8"/>
+       <use xlink:href="#me37fb63dfe" x="25.903365" y="194.016083" style="stroke: #000000; stroke-width: 0.8"/>
       </g>
      </g>
      <g id="text_8">
@@ -945,7 +949,7 @@ z
     <g id="ytick_3">
      <g id="line2d_9">
       <g>
-       <use xlink:href="#m196a89f4d7" x="25.903365" y="155.112653" style="stroke: #000000; stroke-width: 0.8"/>
+       <use xlink:href="#me37fb63dfe" x="25.903365" y="155.112653" style="stroke: #000000; stroke-width: 0.8"/>
       </g>
      </g>
      <g id="text_9">
@@ -960,7 +964,7 @@ z
     <g id="ytick_4">
      <g id="line2d_10">
       <g>
-       <use xlink:href="#m196a89f4d7" x="25.903365" y="116.209222" style="stroke: #000000; stroke-width: 0.8"/>
+       <use xlink:href="#me37fb63dfe" x="25.903365" y="116.209222" style="stroke: #000000; stroke-width: 0.8"/>
       </g>
      </g>
      <g id="text_10">
@@ -975,7 +979,7 @@ z
     <g id="ytick_5">
      <g id="line2d_11">
       <g>
-       <use xlink:href="#m196a89f4d7" x="25.903365" y="77.305792" style="stroke: #000000; stroke-width: 0.8"/>
+       <use xlink:href="#me37fb63dfe" x="25.903365" y="77.305792" style="stroke: #000000; stroke-width: 0.8"/>
       </g>
      </g>
      <g id="text_11">
@@ -990,7 +994,7 @@ z
     <g id="ytick_6">
      <g id="line2d_12">
       <g>
-       <use xlink:href="#m196a89f4d7" x="25.903365" y="38.402362" style="stroke: #000000; stroke-width: 0.8"/>
+       <use xlink:href="#me37fb63dfe" x="25.903365" y="38.402362" style="stroke: #000000; stroke-width: 0.8"/>
       </g>
      </g>
      <g id="text_12">
@@ -1006,22 +1010,22 @@ z
    <g id="LineCollection_1">
     <path d="M 40.953201 256.261572 
 L 40.953201 240.700199 
-" clip-path="url(#pa7447fd992)" style="fill: none; stroke: #000000; stroke-width: 1.5"/>
+" clip-path="url(#p515955b7f3)" style="fill: none; stroke: #000000; stroke-width: 1.5"/>
     <path d="M 101.152546 217.358141 
 L 101.152546 201.796769 
-" clip-path="url(#pa7447fd992)" style="fill: none; stroke: #000000; stroke-width: 1.5"/>
+" clip-path="url(#p515955b7f3)" style="fill: none; stroke: #000000; stroke-width: 1.5"/>
     <path d="M 161.35189 170.674025 
 L 161.35189 155.112653 
-" clip-path="url(#pa7447fd992)" style="fill: none; stroke: #000000; stroke-width: 1.5"/>
+" clip-path="url(#p515955b7f3)" style="fill: none; stroke: #000000; stroke-width: 1.5"/>
     <path d="M 221.551235 123.989908 
 L 221.551235 108.428536 
-" clip-path="url(#pa7447fd992)" style="fill: none; stroke: #000000; stroke-width: 1.5"/>
+" clip-path="url(#p515955b7f3)" style="fill: none; stroke: #000000; stroke-width: 1.5"/>
     <path d="M 281.750579 77.305792 
 L 281.750579 61.74442 
-" clip-path="url(#pa7447fd992)" style="fill: none; stroke: #000000; stroke-width: 1.5"/>
+" clip-path="url(#p515955b7f3)" style="fill: none; stroke: #000000; stroke-width: 1.5"/>
     <path d="M 341.949924 30.621676 
 L 341.949924 15.060303 
-" clip-path="url(#pa7447fd992)" style="fill: none; stroke: #000000; stroke-width: 1.5"/>
+" clip-path="url(#p515955b7f3)" style="fill: none; stroke: #000000; stroke-width: 1.5"/>
    </g>
    <g id="line2d_13">
     <path d="M 40.953201 252.185974 
@@ -1033,11 +1037,11 @@ L 229.076153 109.771631
 L 266.700743 81.288762 
 L 304.325334 52.805894 
 L 341.949924 24.323025 
-" clip-path="url(#pa7447fd992)" style="fill: none; stroke: #1f77b4; stroke-width: 1.5; stroke-linecap: square"/>
+" clip-path="url(#p515955b7f3)" style="fill: none; stroke: #1f77b4; stroke-width: 1.5; stroke-linecap: square"/>
    </g>
    <g id="line2d_14">
     <defs>
-     <path id="m9ff03c3365" d="M 0 3 
+     <path id="m2fe972527b" d="M 0 3 
 C 0.795609 3 1.55874 2.683901 2.12132 2.12132 
 C 2.683901 1.55874 3 0.795609 3 0 
 C 3 -0.795609 2.683901 -1.55874 2.12132 -2.12132 
@@ -1049,13 +1053,13 @@ C -1.55874 2.683901 -0.795609 3 0 3
 z
 " style="stroke: #000000"/>
     </defs>
-    <g clip-path="url(#pa7447fd992)">
-     <use xlink:href="#m9ff03c3365" x="40.953201" y="248.480886" style="stroke: #000000"/>
-     <use xlink:href="#m9ff03c3365" x="101.152546" y="209.577455" style="stroke: #000000"/>
-     <use xlink:href="#m9ff03c3365" x="161.35189" y="162.893339" style="stroke: #000000"/>
-     <use xlink:href="#m9ff03c3365" x="221.551235" y="116.209222" style="stroke: #000000"/>
-     <use xlink:href="#m9ff03c3365" x="281.750579" y="69.525106" style="stroke: #000000"/>
-     <use xlink:href="#m9ff03c3365" x="341.949924" y="22.840989" style="stroke: #000000"/>
+    <g clip-path="url(#p515955b7f3)">
+     <use xlink:href="#m2fe972527b" x="40.953201" y="248.480886" style="stroke: #000000"/>
+     <use xlink:href="#m2fe972527b" x="101.152546" y="209.577455" style="stroke: #000000"/>
+     <use xlink:href="#m2fe972527b" x="161.35189" y="162.893339" style="stroke: #000000"/>
+     <use xlink:href="#m2fe972527b" x="221.551235" y="116.209222" style="stroke: #000000"/>
+     <use xlink:href="#m2fe972527b" x="281.750579" y="69.525106" style="stroke: #000000"/>
+     <use xlink:href="#m2fe972527b" x="341.949924" y="22.840989" style="stroke: #000000"/>
     </g>
    </g>
    <g id="patch_3">
@@ -1081,7 +1085,7 @@ L 356.99976 3.00024
   </g>
  </g>
  <defs>
-  <clipPath id="pa7447fd992">
+  <clipPath id="p515955b7f3">
    <rect x="25.903365" y="3.00024" width="331.096395" height="265.321395"/>
   </clipPath>
  </defs>
@@ -1228,7 +1232,7 @@ q = 0.167 +/- 0.093
               
               
                 <footer class="prev-next-footer">
-                  <!-- Previous / next buttons -->
+                  
 <div class="prev-next-area">
 </div>
                 </footer>
@@ -1267,6 +1271,7 @@ By The Jupyter Book community
   
   <div class="footer-item">
     
+
   <p class="copyright">
     
       © Copyright 2022.
@@ -1293,8 +1298,8 @@ By The Jupyter Book community
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="../_static/scripts/bootstrap.js?digest=365ca57ee442770a23c6"></script>
-<script src="../_static/scripts/pydata-sphinx-theme.js?digest=365ca57ee442770a23c6"></script>
+  <script src="../_static/scripts/bootstrap.js?digest=5b4479735964841361fd"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=5b4479735964841361fd"></script>
 
   <footer class="bd-footer">
   </footer>
