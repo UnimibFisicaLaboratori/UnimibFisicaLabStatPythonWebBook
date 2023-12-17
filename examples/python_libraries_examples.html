@@ -230,6 +230,7 @@ const thebe_selector_output = ".output, .cell_output"
 </li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../lectures/Lecture_10/likelihood_fit.html">10. Parameter Estimate using the Maximum Likelihood Method</a><input class="toctree-checkbox" id="toctree-checkbox-10" name="toctree-checkbox-10" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-10"><i class="fa-solid fa-chevron-down"></i></label><ul>
 <li class="toctree-l2"><a class="reference internal" href="../lectures/Lecture_10/EXERCISES.html">10.10. Exercises for Lecture 10</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../lectures/Lecture_10/exercises/likelihood_fit_solutions.html">10.11. Maximum likelihood exercise solutions</a></li>
 </ul>
 </li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../lectures/Lecture_11/least_squares.html">11. Least-Squares Fitting</a><input class="toctree-checkbox" id="toctree-checkbox-11" name="toctree-checkbox-11" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-11"><i class="fa-solid fa-chevron-down"></i></label><ul>
@@ -482,7 +483,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>It took 4.197ms (CPU: 4.188ms)
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>It took 3.061ms (CPU: 6.117ms)
 </pre></div>
 </div>
 </div>
@@ -499,7 +500,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>It took 3.502ms (CPU: 1.205ms)
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>It took 0.966ms (CPU: 1.931ms)
 </pre></div>
 </div>
 </div>
@@ -527,8 +528,8 @@ Let’s compare the timing and syntax of a term-by-term product of two arrays.</
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>lists multiplication: 2.684ms (CPU: 1.902ms)
-ndarray multiplication: 0.401ms (CPU: 0.392ms)
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>lists multiplication: 1.366ms (CPU: 2.730ms)
+ndarray multiplication: 0.100ms (CPU: 0.198ms)
 </pre></div>
 </div>
 </div>
@@ -553,8 +554,8 @@ Let’s see the performance when dealing with 1M events arrays.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>lists multiplication: 188.069ms (CPU: 188.106ms)
-ndarray multiplication: 5.435ms (CPU: 5.751ms)
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>lists multiplication: 145.125ms (CPU: 145.155ms)
+ndarray multiplication: 4.508ms (CPU: 4.811ms)
 </pre></div>
 </div>
 </div>
