@@ -53,7 +53,7 @@
   * If the residuals $\epsilon_i$ of $y_i$ with respect to $\phi(x_i,\theta)$
     have a **zero mean and finite, constant variance**,
     that is, independent of $y$, 
-    and $\phi(x_i,\theta)$ is linear in the $\theta)$ parameters,
+    and $\phi(x_i,\theta)$ is linear in the $\theta$ parameters,
     then
     * the least squares method is an **unbiased estimator** of the parameters $\theta$
     * and it has the **minimum variance** among all unbiased linear estimators (in $y$),
@@ -105,7 +105,7 @@
     ```
   * where pseudo-random number generation (```generate_TCL_ms```)
     is used to **find the values of the terms $\epsilon_i$**
-  * the $\x_i$ points may also be generated is a pseudo-random manner
+  * the $x_i$ points may also be generated is a pseudo-random manner
 
 ### Plotting the data
 
@@ -205,7 +205,7 @@
 
 ### Covariance matrix of the fit parameters
 
-  * The covariance matrix of the resulting parameters **can be printed to the screen**:
+  * The covariance matrix of the resulting parameters **can be printed on the screen**:
     ```py
     print (my_minuit.covariance)
     ```
@@ -229,7 +229,7 @@
     display (my_minuit)
     ``` 
 
-## Measurement uncertainties and the least-squares method
+## Uncertainty determination and the least-squares method
 
   * In the case where the random variables $\epsilon_i$ have a Gaussian probability density distribution,
     **the value of $Q^2$ associated with the fit

@@ -461,7 +461,7 @@ document.write(`
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#quick-inspection-of-the-fit-results">11.3.5. Quick inspection of the fit results</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#measurement-uncertainties-and-the-least-squares-method">11.4. Measurement uncertainties and the least-squares method</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#uncertainty-determination-and-the-least-squares-method">11.4. Uncertainty determination and the least-squares method</a></li>
 </ul>
             </nav>
         </div>
@@ -542,7 +542,7 @@ are determined by <strong>finding the minimum of the function <span class="math 
 <li><p>If the residuals <span class="math notranslate nohighlight">\(\epsilon_i\)</span> of <span class="math notranslate nohighlight">\(y_i\)</span> with respect to <span class="math notranslate nohighlight">\(\phi(x_i,\theta)\)</span>
 have a <strong>zero mean and finite, constant variance</strong>,
 that is, independent of <span class="math notranslate nohighlight">\(y\)</span>,
-and <span class="math notranslate nohighlight">\(\phi(x_i,\theta)\)</span> is linear in the <span class="math notranslate nohighlight">\(\theta)\)</span> parameters,
+and <span class="math notranslate nohighlight">\(\phi(x_i,\theta)\)</span> is linear in the <span class="math notranslate nohighlight">\(\theta\)</span> parameters,
 then</p>
 <ul>
 <li><p>the least squares method is an <strong>unbiased estimator</strong> of the parameters <span class="math notranslate nohighlight">\(\theta\)</span></p></li>
@@ -613,7 +613,7 @@ for example:</p>
 </li>
 <li><p>where pseudo-random number generation (<code class="docutils literal notranslate"><span class="pre">generate_TCL_ms</span></code>)
 is used to <strong>find the values of the terms <span class="math notranslate nohighlight">\(\epsilon_i\)</span></strong></p></li>
-<li><p>the <span class="math notranslate nohighlight">\(\x_i\)</span> points may also be generated is a pseudo-random manner</p></li>
+<li><p>the <span class="math notranslate nohighlight">\(x_i\)</span> points may also be generated is a pseudo-random manner</p></li>
 </ul>
 <section id="plotting-the-data">
 <h3><span class="section-number">11.2.1. </span>Plotting the data<a class="headerlink" href="#plotting-the-data" title="Permalink to this heading">#</a></h3>
@@ -738,7 +738,7 @@ of the <span class="math notranslate nohighlight">\(\chi{}^2\)</span> probabilit
 <section id="covariance-matrix-of-the-fit-parameters">
 <h3><span class="section-number">11.3.4. </span>Covariance matrix of the fit parameters<a class="headerlink" href="#covariance-matrix-of-the-fit-parameters" title="Permalink to this heading">#</a></h3>
 <ul>
-<li><p>The covariance matrix of the resulting parameters <strong>can be printed to the screen</strong>:</p>
+<li><p>The covariance matrix of the resulting parameters <strong>can be printed on the screen</strong>:</p>
 <div class="highlight-py notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span> <span class="p">(</span><span class="n">my_minuit</span><span class="o">.</span><span class="n">covariance</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -770,8 +770,8 @@ and may be displayed with the call:</p>
 </ul>
 </section>
 </section>
-<section id="measurement-uncertainties-and-the-least-squares-method">
-<h2><span class="section-number">11.4. </span>Measurement uncertainties and the least-squares method<a class="headerlink" href="#measurement-uncertainties-and-the-least-squares-method" title="Permalink to this heading">#</a></h2>
+<section id="uncertainty-determination-and-the-least-squares-method">
+<h2><span class="section-number">11.4. </span>Uncertainty determination and the least-squares method<a class="headerlink" href="#uncertainty-determination-and-the-least-squares-method" title="Permalink to this heading">#</a></h2>
 <ul class="simple">
 <li><p>In the case where the random variables <span class="math notranslate nohighlight">\(\epsilon_i\)</span> have a Gaussian probability density distribution,
 <strong>the value of <span class="math notranslate nohighlight">\(Q^2\)</span> associated with the fit
@@ -882,7 +882,7 @@ the estimation of uncertainties on the values <span class="math notranslate nohi
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#quick-inspection-of-the-fit-results">11.3.5. Quick inspection of the fit results</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#measurement-uncertainties-and-the-least-squares-method">11.4. Measurement uncertainties and the least-squares method</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#uncertainty-determination-and-the-least-squares-method">11.4. Uncertainty determination and the least-squares method</a></li>
 </ul>
   </nav></div>
 
