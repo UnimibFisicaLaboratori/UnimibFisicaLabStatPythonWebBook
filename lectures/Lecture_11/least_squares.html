@@ -618,8 +618,6 @@ is used to <strong>find the values of the terms <span class="math notranslate no
 <section id="plotting-the-data">
 <h3><span class="section-number">11.2.1. </span>Plotting the data<a class="headerlink" href="#plotting-the-data" title="Permalink to this heading">#</a></h3>
 <ul>
-<li><p>The <code class="docutils literal notranslate"><span class="pre">iminuit</span></code> library provides tools that <strong>automatically apply
-the least squares method</strong> to find the parameters</p></li>
 <li><p>Pairs of measurements like those generated are usually represented
 in the form of scatter plots:</p>
 <div class="highlight-py notranslate"><div class="highlight"><pre><span></span><span class="n">sigma_y</span> <span class="o">=</span> <span class="n">epsilon_sigma</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">ones</span> <span class="p">(</span><span class="nb">len</span> <span class="p">(</span><span class="n">y_coord</span><span class="p">))</span>
@@ -639,6 +637,7 @@ in the form of scatter plots:</p>
 <section id="parameters-determination">
 <h3><span class="section-number">11.2.2. </span>Parameters determination<a class="headerlink" href="#parameters-determination" title="Permalink to this heading">#</a></h3>
 <ul>
+<li><p>The <code class="docutils literal notranslate"><span class="pre">iminuit</span></code> library provides tools that <strong>automatically apply the least squares method</strong> to find the parameters</p></li>
 <li><p>The <strong>fit operation</strong> is performed with the following instructions:</p>
 <div class="highlight-py notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">iminuit</span> <span class="kn">import</span> <span class="n">Minuit</span>
 <span class="kn">from</span> <span class="nn">iminuit.cost</span> <span class="kn">import</span> <span class="n">LeastSquares</span>
@@ -700,8 +699,8 @@ by calculating the probability that the result could be worse than what was obta
 integrating the <span class="math notranslate nohighlight">\(\chi^2(N-k)\)</span> distribution from <span class="math notranslate nohighlight">\(Q^2_{\text{min}}\)</span> to infinity.</p></li>
 <li><p>The values of <span class="math notranslate nohighlight">\(Q^2_{\text{min}}\)</span> and the number of degrees of freedom
 can be obtained from the <code class="docutils literal notranslate"><span class="pre">Minuit</span></code> variable as well:</p>
-<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span>print (&#39;Value of Q2: &#39;, my_minuit.fval)
-print (&#39;Number of degrees of freedom: &#39;, my_minuit.ndof)
+<div class="highlight-py notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span> <span class="p">(</span><span class="s1">&#39;Value of Q2: &#39;</span><span class="p">,</span> <span class="n">my_minuit</span><span class="o">.</span><span class="n">fval</span><span class="p">)</span>
+<span class="nb">print</span> <span class="p">(</span><span class="s1">&#39;Number of degrees of freedom: &#39;</span><span class="p">,</span> <span class="n">my_minuit</span><span class="o">.</span><span class="n">ndof</span><span class="p">)</span>
 </pre></div>
 </div>
 </li>

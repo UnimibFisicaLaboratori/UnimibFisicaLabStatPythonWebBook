@@ -109,8 +109,6 @@
 
 ### Plotting the data
 
-  * The ```iminuit``` library provides tools that **automatically apply
-    the least squares method** to find the parameters
   * Pairs of measurements like those generated are usually represented
     in the form of scatter plots:
     ```py
@@ -125,6 +123,7 @@
 
 ### Parameters determination
 
+  * The ```iminuit``` library provides tools that **automatically apply the least squares method** to find the parameters
   * The **fit operation** is performed with the following instructions:
     ```py
     from iminuit import Minuit
@@ -176,7 +175,7 @@
     integrating the $\chi^2(N-k)$ distribution from $Q^2_{\text{min}}$ to infinity. 
   * The values of $Q^2_{\text{min}}$ and the number of degrees of freedom 
     can be obtained from the `Minuit` variable as well:
-    ```cpp
+    ```py
     print ('Value of Q2: ', my_minuit.fval)
     print ('Number of degrees of freedom: ', my_minuit.ndof)
     ```

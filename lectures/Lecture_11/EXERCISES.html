@@ -470,6 +470,25 @@ such that the points <span class="math notranslate nohighlight">\(x_i\)</span> a
 between 0 and 10, and the points <span class="math notranslate nohighlight">\(y_i\)</span> are constructed using the formula <span class="math notranslate nohighlight">\(y_i = \phi(x_i, \theta) + \epsilon_i\)</span>.</p></li>
 <li><p>Plot the obtained sample, including the expected error bars.</p></li>
 </ul>
+<div class="dropdown admonition hint">
+<p class="admonition-title">Hint</p>
+<ul>
+<li><p>Use this prototype for the function <span class="math notranslate nohighlight">\(\phi(x, \theta)\)</span>:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">phi</span> <span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">m</span><span class="p">,</span> <span class="n">q</span><span class="p">)</span> <span class="p">:</span>
+<span class="w">  </span><span class="sd">&quot;&quot;&quot;a linear function</span>
+
+<span class="sd">  Args:</span>
+<span class="sd">      x (float): the `x` value</span>
+<span class="sd">      m (float): the slope</span>
+<span class="sd">      q (float): the intercept</span>
+<span class="sd">  &quot;&quot;&quot;</span>    
+</pre></div>
+</div>
+</li>
+<li><p>generate the <span class="math notranslate nohighlight">\(\epsilon_i\)</span> values using the appropriate function from <a class="reference internal" href="../Lecture_09/solution_libraries.html#myrand-library"><span class="std std-ref">myrand</span></a> if you did not write your own yet. Assume the same uncertainty for all points.</p></li>
+<li><p>Use the <a class="reference external" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.errorbar.html"><code class="docutils literal notranslate"><span class="pre">matplotlib.pyplot.errorbar</span></code></a> function to plot the points with the error bars.</p></li>
+</ul>
+</div>
 </section>
 <section id="exercise-11-2">
 <h2><span class="section-number">11.5.2. </span>Exercise 11.2<a class="headerlink" href="#exercise-11-2" title="Permalink to this heading">#</a></h2>

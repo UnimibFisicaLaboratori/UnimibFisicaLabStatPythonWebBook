@@ -9,6 +9,23 @@ a linear function $\phi(x, \theta)$ with two parameters $\theta$:
     between 0 and 10, and the points $y_i$ are constructed using the formula $y_i = \phi(x_i, \theta) + \epsilon_i$.
   * Plot the obtained sample, including the expected error bars.
 
+  `````{hint}
+  :class: dropdown
+  - Use this prototype for the function $\phi(x, \theta)$:
+    ```python
+    def phi (x, m, q) :
+      """a linear function
+
+      Args:
+          x (float): the `x` value
+          m (float): the slope
+          q (float): the intercept
+      """    
+    ```
+  - generate the $\epsilon_i$ values using the appropriate function from [myrand](myrand_library) if you did not write your own yet. Assume the same uncertainty for all points.
+  - Use the [`matplotlib.pyplot.errorbar`](https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.errorbar.html) function to plot the points with the error bars.
+  `````
+
 ## Exercise 11.2
 
 Use the ```iMinuit``` library to perform a fit on the simulated sample.
