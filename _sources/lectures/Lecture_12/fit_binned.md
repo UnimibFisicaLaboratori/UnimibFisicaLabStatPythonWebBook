@@ -78,12 +78,12 @@
 ### Reading the data from a file
 
   * The starting sample corresponds to a **data taking of 10,000 events**, 
-    stored in the file [```data.txt```](https://raw.githubusercontent.com/UnimibFisicaLaboratori/UnimibFisicaLabStatPython/main/book/lectures/Lecture_12/exercises/dati.txt?token=GHSAT0AAAAAACGWDDZES7GQFWLYSW3XPLQSZHHC36A)
+    stored in the file [```data.txt```](https://drive.google.com/file/d/19Csfi4zrSz0bLREXOaPaWicIUUmstHQz/view?usp=sharing)
   * When events are plotted in a histogram, as it's a counting experiment, 
     the **content of each bin fluctuates** stochastically:
     ![distributions](../../figs/distribuzioni.png)
     * In the case of 10,000 events, 
-      the relative fluctuations are much more pronounced than in the case of 10,000,000 events, as expected
+      the relative fluctuations are **much more visible** than in the case of 10,000,000 events, as expected
 
 ### Determining the fit parameters
 
@@ -137,7 +137,7 @@
 
 ### Helping *Minuit* to find the right minimum
 
-  * **The fit rarely succeeds autonomously**, as due to the large number of parameters &theta; 
+  * **The fit rarely succeeds autonomously** as, due to the large number of parameters &theta; 
     and the stochastic fluctuations of the bin contents, 
     the program struggles to find the correct minimum of the $Q^2$ function
   * Some variabiles are bound to be positive:
@@ -167,7 +167,7 @@
       # and, when initializing the Minuit object:
       mu = sample_mean
       ```
-    * The **width of the Gaussian** is correlated to the histogram's sigma for a certain level:
+    * The **width of the Gaussian** is correlated to the histogram sigma for a certain level:
       ```py
       sample_sigma = np.std (sample)
       # and, when initializing the Minuit object:
@@ -184,9 +184,9 @@
 
 ### Determine the exponential slope
 
-  * A **partial fit** only below $x = 5$ and above $x = 15$
+  * A **partial fit** performed only below $x = 5$ and above $x = 15$
     with **only the parameters of the background component of the model free to float**
-    allows for calculating a preliminary estimate of `N_background` and `tau`:
+    allows to calculate a preliminary estimate of `N_background` and `tau`:
     ```py
     # setting the signal to zero for a first background-only preliminary fit
     my_minuit.values["N_signal"] = 0
@@ -200,11 +200,11 @@
 
     my_minuit.migrad ()
     ```
-  * A partial fit
-    with the **background component of the model 
+  * A second partial fit
+    performed with the **background component of the model 
     frozen** to the values found so far,
     which are known to the `Minuit` object,
-    allows for calculating a preliminary estimate of `N_signal`, `mu` and `sigma`:
+    allows to calculate a preliminary estimate of `N_signal`, `mu` and `sigma`:
     ```py
     my_cost_func.mask = None # remove mask
     my_minuit.fixed = False # release all parameters
@@ -259,7 +259,7 @@
         print(f'{par} = {val:.3f} +/- {err:.3f}') # formatted output
     ```
   * The uncertainty is by default calculated by **inverting the Hessian matrix of the cost function**,
-    which is equivalent to applying the Cramér-Rao theorem assuming that the estimator is efficient
+    which is equivalent to applying the Cramér-Rao theorem assuming that the estimator is unbiased and efficient
   * To calculate the uncertainty by **looking at the likelihood profile**,
     which is a multi-dimensional generalization of the graphic method, 
     an additional call to the `minos` function needs to be added:

@@ -581,13 +581,13 @@ which can be thought of as a <strong>signal peak superimposed on a slowly decrea
 <h3><span class="section-number">12.3.1. </span>Reading the data from a file<a class="headerlink" href="#reading-the-data-from-a-file" title="Permalink to this heading">#</a></h3>
 <ul class="simple">
 <li><p>The starting sample corresponds to a <strong>data taking of 10,000 events</strong>,
-stored in the file <a class="reference external" href="https://raw.githubusercontent.com/UnimibFisicaLaboratori/UnimibFisicaLabStatPython/main/book/lectures/Lecture_12/exercises/dati.txt?token=GHSAT0AAAAAACGWDDZES7GQFWLYSW3XPLQSZHHC36A"><code class="docutils literal notranslate"><span class="pre">data.txt</span></code></a></p></li>
+stored in the file <a class="reference external" href="https://drive.google.com/file/d/19Csfi4zrSz0bLREXOaPaWicIUUmstHQz/view?usp=sharing"><code class="docutils literal notranslate"><span class="pre">data.txt</span></code></a></p></li>
 <li><p>When events are plotted in a histogram, as it’s a counting experiment,
 the <strong>content of each bin fluctuates</strong> stochastically:
 <img alt="distributions" src="../../_images/distribuzioni.png" /></p>
 <ul>
 <li><p>In the case of 10,000 events,
-the relative fluctuations are much more pronounced than in the case of 10,000,000 events, as expected</p></li>
+the relative fluctuations are <strong>much more visible</strong> than in the case of 10,000,000 events, as expected</p></li>
 </ul>
 </li>
 </ul>
@@ -660,7 +660,7 @@ to be used in the search for the extreme</p></li>
 <section id="helping-minuit-to-find-the-right-minimum">
 <h3><span class="section-number">12.3.5. </span>Helping <em>Minuit</em> to find the right minimum<a class="headerlink" href="#helping-minuit-to-find-the-right-minimum" title="Permalink to this heading">#</a></h3>
 <ul>
-<li><p><strong>The fit rarely succeeds autonomously</strong>, as due to the large number of parameters θ
+<li><p><strong>The fit rarely succeeds autonomously</strong> as, due to the large number of parameters θ
 and the stochastic fluctuations of the bin contents,
 the program struggles to find the correct minimum of the <span class="math notranslate nohighlight">\(Q^2\)</span> function</p></li>
 <li><p>Some variabiles are bound to be positive:</p>
@@ -695,7 +695,7 @@ so they are <strong>related to the integral of the histogram</strong>:</p>
 </pre></div>
 </div>
 </li>
-<li><p>The <strong>width of the Gaussian</strong> is correlated to the histogram’s sigma for a certain level:</p>
+<li><p>The <strong>width of the Gaussian</strong> is correlated to the histogram sigma for a certain level:</p>
 <div class="highlight-py notranslate"><div class="highlight"><pre><span></span><span class="n">sample_sigma</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">std</span> <span class="p">(</span><span class="n">sample</span><span class="p">)</span>
 <span class="c1"># and, when initializing the Minuit object:</span>
 <span class="n">sigma</span> <span class="o">=</span> <span class="n">sample_sigma</span>
@@ -719,9 +719,9 @@ where only <strong>a subset of the parameters is relevant</strong>
 <section id="determine-the-exponential-slope">
 <h3><span class="section-number">12.3.7. </span>Determine the exponential slope<a class="headerlink" href="#determine-the-exponential-slope" title="Permalink to this heading">#</a></h3>
 <ul>
-<li><p>A <strong>partial fit</strong> only below <span class="math notranslate nohighlight">\(x = 5\)</span> and above <span class="math notranslate nohighlight">\(x = 15\)</span>
+<li><p>A <strong>partial fit</strong> performed only below <span class="math notranslate nohighlight">\(x = 5\)</span> and above <span class="math notranslate nohighlight">\(x = 15\)</span>
 with <strong>only the parameters of the background component of the model free to float</strong>
-allows for calculating a preliminary estimate of <code class="docutils literal notranslate"><span class="pre">N_background</span></code> and <code class="docutils literal notranslate"><span class="pre">tau</span></code>:</p>
+allows to calculate a preliminary estimate of <code class="docutils literal notranslate"><span class="pre">N_background</span></code> and <code class="docutils literal notranslate"><span class="pre">tau</span></code>:</p>
 <div class="highlight-py notranslate"><div class="highlight"><pre><span></span><span class="c1"># setting the signal to zero for a first background-only preliminary fit</span>
 <span class="n">my_minuit</span><span class="o">.</span><span class="n">values</span><span class="p">[</span><span class="s2">&quot;N_signal&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span>
 <span class="c1"># fixing the value of the signal parameters to a constant value</span>
@@ -736,11 +736,11 @@ allows for calculating a preliminary estimate of <code class="docutils literal n
 </pre></div>
 </div>
 </li>
-<li><p>A partial fit
-with the <strong>background component of the model
+<li><p>A second partial fit
+performed with the <strong>background component of the model
 frozen</strong> to the values found so far,
 which are known to the <code class="docutils literal notranslate"><span class="pre">Minuit</span></code> object,
-allows for calculating a preliminary estimate of <code class="docutils literal notranslate"><span class="pre">N_signal</span></code>, <code class="docutils literal notranslate"><span class="pre">mu</span></code> and <code class="docutils literal notranslate"><span class="pre">sigma</span></code>:</p>
+allows to calculate a preliminary estimate of <code class="docutils literal notranslate"><span class="pre">N_signal</span></code>, <code class="docutils literal notranslate"><span class="pre">mu</span></code> and <code class="docutils literal notranslate"><span class="pre">sigma</span></code>:</p>
 <div class="highlight-py notranslate"><div class="highlight"><pre><span></span><span class="n">my_cost_func</span><span class="o">.</span><span class="n">mask</span> <span class="o">=</span> <span class="kc">None</span> <span class="c1"># remove mask</span>
 <span class="n">my_minuit</span><span class="o">.</span><span class="n">fixed</span> <span class="o">=</span> <span class="kc">False</span> <span class="c1"># release all parameters</span>
 <span class="n">my_minuit</span><span class="o">.</span><span class="n">fixed</span><span class="p">[</span><span class="s2">&quot;N_background&quot;</span><span class="p">,</span> <span class="s2">&quot;tau&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="kc">True</span> <span class="c1"># fix background parameters</span>
@@ -811,7 +811,7 @@ the value of the parameters and their uncertainty can be <strong>obtained from t
 </div>
 </li>
 <li><p>The uncertainty is by default calculated by <strong>inverting the Hessian matrix of the cost function</strong>,
-which is equivalent to applying the Cramér-Rao theorem assuming that the estimator is efficient</p></li>
+which is equivalent to applying the Cramér-Rao theorem assuming that the estimator is unbiased and efficient</p></li>
 <li><p>To calculate the uncertainty by <strong>looking at the likelihood profile</strong>,
 which is a multi-dimensional generalization of the graphic method,
 an additional call to the <code class="docutils literal notranslate"><span class="pre">minos</span></code> function needs to be added:</p>
