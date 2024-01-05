@@ -25,8 +25,8 @@
   Q^2(\theta) = \sum_{i=1}^N\left(\frac{n_i-f(x_i,\theta)}{\sqrt{n_i}}\right)^2
   $$
 
-  * The value of $y_i$ from the previous lesson is **constituted by $\mathbf{n_i}$**
-  * The **uncertainty on $\mathbf{n_i}$** is given by its square root, following the Poisson statistic
+  * The value of $y_i$ from the previous lesson is **replaced by $\mathbf{n_i}$**
+  * The **uncertainty on $\mathbf{n_i}$** is calculated as its square root, as it's assumed following the Poisson statistic
   * The value of $x_i$ is the **center of the corresponding bin**
   * The number of bins in the histogram is $N$
 
@@ -45,7 +45,7 @@
 ### Choosing amongst the least squares and the maximum likelihood
 
   * In the case of **few counts** present in the bins,
-    * Bins without counts do not contribute to the fit in the case of least squares, 
+    * **Bins with zero counts** do not contribute to the fit in the case of least squares, 
       despite the absence of events being important information
     * It is recommended to use the **maximum likelihood method**
   * In the case of **many counts** present in the bins, the two methods are equivalent, 

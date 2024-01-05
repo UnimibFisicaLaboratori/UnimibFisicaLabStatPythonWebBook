@@ -9,7 +9,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
-    <title>Least squares solutions &#8212; Laboratorio di Calcolo e Statistica</title>
+    <title>11.6. Least squares solutions &#8212; Laboratorio di Calcolo e Statistica</title>
   
   
   
@@ -67,6 +67,8 @@ const thebe_selector_output = ".output, .cell_output"
     <script>DOCUMENTATION_OPTIONS.pagename = 'lectures/Lecture_11/exercises/least_squares_solutions';</script>
     <link rel="index" title="Index" href="../../../genindex.html" />
     <link rel="search" title="Search" href="../../../search.html" />
+    <link rel="next" title="12. Fit of Binned Distributions" href="../../Lecture_12/fit_binned.html" />
+    <link rel="prev" title="11.5. Exercises for Lecture 11" href="../EXERCISES.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -173,7 +175,7 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1"><a class="reference internal" href="../../../prerequisites/README.html">Prerequisites of this Course</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Lectures</span></p>
-<ul class="nav bd-sidenav">
+<ul class="current nav bd-sidenav">
 <li class="toctree-l1 has-children"><a class="reference internal" href="../../Lecture_01/basics_python.html">1. Basics of Python Programming</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
 <li class="toctree-l2"><a class="reference internal" href="../../Lecture_01/EXAMPLES.html">1.10. Examples: Lecture 1</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../Lecture_01/EXERCISES.html">1.11. Exercises for Lecture 1</a></li>
@@ -235,8 +237,9 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l2"><a class="reference internal" href="../../Lecture_10/exercises/likelihood_fit_solutions.html">10.11. Maximum likelihood exercise solutions</a></li>
 </ul>
 </li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../least_squares.html">11. Least-Squares Fitting</a><input class="toctree-checkbox" id="toctree-checkbox-11" name="toctree-checkbox-11" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-11"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="../least_squares.html">11. Least-Squares Fitting</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-11" name="toctree-checkbox-11" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-11"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="../EXERCISES.html">11.5. Exercises for Lecture 11</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">11.6. Least squares solutions</a></li>
 </ul>
 </li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../../Lecture_12/fit_binned.html">12. Fit of Binned Distributions</a><input class="toctree-checkbox" id="toctree-checkbox-12" name="toctree-checkbox-12" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-12"><i class="fa-solid fa-chevron-down"></i></label><ul>
@@ -438,13 +441,13 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-11-1">Exercise 11.1</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-11-2">Exercise 11.2</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-11-3">Exercise 11.3</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-11-4">Exercise 11.4</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-11-5">Exercise 11.5</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-11-6">Exercise 11.6</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-11-7">Exercise 11.7</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-11-1">11.6.1. Exercise 11.1</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-11-2">11.6.2. Exercise 11.2</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-11-3">11.6.3. Exercise 11.3</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-11-4">11.6.4. Exercise 11.4</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-11-5">11.6.5. Exercise 11.5</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-11-6">11.6.6. Exercise 11.6</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-11-7">11.6.7. Exercise 11.7</a></li>
 </ul>
             </nav>
         </div>
@@ -457,13 +460,13 @@ document.write(`
                 <article class="bd-article" role="main">
                   
   <section class="tex2jax_ignore mathjax_ignore" id="least-squares-solutions">
-<h1>Least squares solutions<a class="headerlink" href="#least-squares-solutions" title="Permalink to this heading">#</a></h1>
+<h1><span class="section-number">11.6. </span>Least squares solutions<a class="headerlink" href="#least-squares-solutions" title="Permalink to this heading">#</a></h1>
 <ul class="simple">
 <li><p><a class="github reference external" href="https://github.com/scikit-hep/iminuit">scikit-hep/iminuit</a></p></li>
 <li><p><a class="reference external" href="https://iminuit.readthedocs.io/en/stable/notebooks/basic.html">https://iminuit.readthedocs.io/en/stable/notebooks/basic.html</a></p></li>
 </ul>
 <section id="exercise-11-1">
-<h2>Exercise 11.1<a class="headerlink" href="#exercise-11-1" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">11.6.1. </span>Exercise 11.1<a class="headerlink" href="#exercise-11-1" title="Permalink to this heading">#</a></h2>
 <p>After defining, in a dedicated library,
 a linear function <span class="math notranslate nohighlight">\(\phi(x, \theta)\)</span> with two parameters <span class="math notranslate nohighlight">\(\theta\)</span>:</p>
 <ul class="simple">
@@ -516,12 +519,12 @@ between 0 and 10, and the points <span class="math notranslate nohighlight">\(y_
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../../_images/1ef0f3711e0f86435f454e55659c16ba8155986c0c0f086ff468a9b02a7834a6.png" src="../../../_images/1ef0f3711e0f86435f454e55659c16ba8155986c0c0f086ff468a9b02a7834a6.png" />
+<img alt="../../../_images/98541910a0afd693d1029ac9587425b4aa551b944282ba50c473da754f01b7fe.png" src="../../../_images/98541910a0afd693d1029ac9587425b4aa551b944282ba50c473da754f01b7fe.png" />
 </div>
 </div>
 </section>
 <section id="exercise-11-2">
-<h2>Exercise 11.2<a class="headerlink" href="#exercise-11-2" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">11.6.2. </span>Exercise 11.2<a class="headerlink" href="#exercise-11-2" title="Permalink to this heading">#</a></h2>
 <p>Use the <code class="docutils literal notranslate"><span class="pre">iMinuit</span></code> library to perform a fit on the simulated sample.</p>
 <ul class="simple">
 <li><p>Check if the fit was successful.</p></li>
@@ -547,11 +550,11 @@ between 0 and 10, and the points <span class="math notranslate nohighlight">\(y_
         <th colspan="2" style="text-align:center" title="Minimizer"> Migrad </th>
     </tr>
     <tr>
-        <td style="text-align:left" title="Minimum value of function"> FCN = 10.18 (χ²/ndof = 1.3) </td>
+        <td style="text-align:left" title="Minimum value of function"> FCN = 8.092 (χ²/ndof = 1.0) </td>
         <td style="text-align:center" title="Total number of function and (optional) gradient evaluations"> Nfcn = 40 </td>
     </tr>
     <tr>
-        <td style="text-align:left" title="Estimated distance to minimum and goal"> EDM = 2.6e-22 (Goal: 0.0002) </td>
+        <td style="text-align:left" title="Estimated distance to minimum and goal"> EDM = 1.64e-21 (Goal: 0.0002) </td>
         <td style="text-align:center" title="Total run time of algorithms">  </td>
     </tr>
     <tr>
@@ -581,7 +584,7 @@ between 0 and 10, and the points <span class="math notranslate nohighlight">\(y_
     <tr>
         <th> 0 </th>
         <td> m </td>
-        <td> 0.470 </td>
+        <td> 0.409 </td>
         <td> 0.033 </td>
         <td>  </td>
         <td>  </td>
@@ -592,7 +595,7 @@ between 0 and 10, and the points <span class="math notranslate nohighlight">\(y_
     <tr>
         <th> 1 </th>
         <td> q </td>
-        <td> 1.19 </td>
+        <td> 1.63 </td>
         <td> 0.18 </td>
         <td>  </td>
         <td>  </td>
@@ -624,7 +627,7 @@ between 0 and 10, and the points <span class="math notranslate nohighlight">\(y_
   <rdf:RDF xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:cc="http://creativecommons.org/ns#" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
    <cc:Work>
     <dc:type rdf:resource="http://purl.org/dc/dcmitype/StillImage"/>
-    <dc:date>2023-12-17T16:26:50.774806</dc:date>
+    <dc:date>2024-01-05T11:10:22.149618</dc:date>
     <dc:format>image/svg+xml</dc:format>
     <dc:creator>
      <cc:Agent>
@@ -659,12 +662,12 @@ z
     <g id="xtick_1">
      <g id="line2d_1">
       <defs>
-       <path id="m9ef8de2fc0" d="M 0 0 
+       <path id="m4f44d0a75a" d="M 0 0 
 L 0 3.5 
 " style="stroke: #000000; stroke-width: 0.8"/>
       </defs>
       <g>
-       <use xlink:href="#m9ef8de2fc0" x="31.846241" y="268.321635" style="stroke: #000000; stroke-width: 0.8"/>
+       <use xlink:href="#m4f44d0a75a" x="31.846241" y="268.321635" style="stroke: #000000; stroke-width: 0.8"/>
       </g>
      </g>
      <g id="text_1">
@@ -700,7 +703,7 @@ z
     <g id="xtick_2">
      <g id="line2d_2">
       <g>
-       <use xlink:href="#m9ef8de2fc0" x="100.661801" y="268.321635" style="stroke: #000000; stroke-width: 0.8"/>
+       <use xlink:href="#m4f44d0a75a" x="100.661801" y="268.321635" style="stroke: #000000; stroke-width: 0.8"/>
       </g>
      </g>
      <g id="text_2">
@@ -739,7 +742,7 @@ z
     <g id="xtick_3">
      <g id="line2d_3">
       <g>
-       <use xlink:href="#m9ef8de2fc0" x="169.47736" y="268.321635" style="stroke: #000000; stroke-width: 0.8"/>
+       <use xlink:href="#m4f44d0a75a" x="169.47736" y="268.321635" style="stroke: #000000; stroke-width: 0.8"/>
       </g>
      </g>
      <g id="text_3">
@@ -773,7 +776,7 @@ z
     <g id="xtick_4">
      <g id="line2d_4">
       <g>
-       <use xlink:href="#m9ef8de2fc0" x="238.29292" y="268.321635" style="stroke: #000000; stroke-width: 0.8"/>
+       <use xlink:href="#m4f44d0a75a" x="238.29292" y="268.321635" style="stroke: #000000; stroke-width: 0.8"/>
       </g>
      </g>
      <g id="text_4">
@@ -818,7 +821,7 @@ z
     <g id="xtick_5">
      <g id="line2d_5">
       <g>
-       <use xlink:href="#m9ef8de2fc0" x="307.108479" y="268.321635" style="stroke: #000000; stroke-width: 0.8"/>
+       <use xlink:href="#m4f44d0a75a" x="307.108479" y="268.321635" style="stroke: #000000; stroke-width: 0.8"/>
       </g>
      </g>
      <g id="text_5">
@@ -874,17 +877,17 @@ z
     <g id="ytick_1">
      <g id="line2d_6">
       <defs>
-       <path id="m59a4f0090c" d="M 0 0 
+       <path id="md32285d8e7" d="M 0 0 
 L -3.5 0 
 " style="stroke: #000000; stroke-width: 0.8"/>
       </defs>
       <g>
-       <use xlink:href="#m59a4f0090c" x="16.36274" y="247.400224" style="stroke: #000000; stroke-width: 0.8"/>
+       <use xlink:href="#md32285d8e7" x="16.36274" y="267.789463" style="stroke: #000000; stroke-width: 0.8"/>
       </g>
      </g>
      <g id="text_6">
       <!-- 1 -->
-      <g transform="translate(3.00024 251.199443) scale(0.1 -0.1)">
+      <g transform="translate(3.00024 271.588682) scale(0.1 -0.1)">
        <defs>
         <path id="DejaVuSans-31" d="M 794 531 
 L 1825 531 
@@ -908,12 +911,12 @@ z
     <g id="ytick_2">
      <g id="line2d_7">
       <g>
-       <use xlink:href="#m59a4f0090c" x="16.36274" y="197.418947" style="stroke: #000000; stroke-width: 0.8"/>
+       <use xlink:href="#md32285d8e7" x="16.36274" y="212.385482" style="stroke: #000000; stroke-width: 0.8"/>
       </g>
      </g>
      <g id="text_7">
       <!-- 2 -->
-      <g transform="translate(3.00024 201.218166) scale(0.1 -0.1)">
+      <g transform="translate(3.00024 216.184701) scale(0.1 -0.1)">
        <use xlink:href="#DejaVuSans-32"/>
       </g>
      </g>
@@ -921,12 +924,12 @@ z
     <g id="ytick_3">
      <g id="line2d_8">
       <g>
-       <use xlink:href="#m59a4f0090c" x="16.36274" y="147.43767" style="stroke: #000000; stroke-width: 0.8"/>
+       <use xlink:href="#md32285d8e7" x="16.36274" y="156.981501" style="stroke: #000000; stroke-width: 0.8"/>
       </g>
      </g>
      <g id="text_8">
       <!-- 3 -->
-      <g transform="translate(3.00024 151.236889) scale(0.1 -0.1)">
+      <g transform="translate(3.00024 160.78072) scale(0.1 -0.1)">
        <defs>
         <path id="DejaVuSans-33" d="M 2597 2516 
 Q 3050 2419 3304 2112 
@@ -968,12 +971,12 @@ z
     <g id="ytick_4">
      <g id="line2d_9">
       <g>
-       <use xlink:href="#m59a4f0090c" x="16.36274" y="97.456393" style="stroke: #000000; stroke-width: 0.8"/>
+       <use xlink:href="#md32285d8e7" x="16.36274" y="101.57752" style="stroke: #000000; stroke-width: 0.8"/>
       </g>
      </g>
      <g id="text_9">
       <!-- 4 -->
-      <g transform="translate(3.00024 101.255612) scale(0.1 -0.1)">
+      <g transform="translate(3.00024 105.376739) scale(0.1 -0.1)">
        <use xlink:href="#DejaVuSans-34"/>
       </g>
      </g>
@@ -981,12 +984,12 @@ z
     <g id="ytick_5">
      <g id="line2d_10">
       <g>
-       <use xlink:href="#m59a4f0090c" x="16.36274" y="47.475116" style="stroke: #000000; stroke-width: 0.8"/>
+       <use xlink:href="#md32285d8e7" x="16.36274" y="46.173539" style="stroke: #000000; stroke-width: 0.8"/>
       </g>
      </g>
      <g id="text_10">
       <!-- 5 -->
-      <g transform="translate(3.00024 51.274335) scale(0.1 -0.1)">
+      <g transform="translate(3.00024 49.972758) scale(0.1 -0.1)">
        <defs>
         <path id="DejaVuSans-35" d="M 691 4666 
 L 3169 4666 
@@ -1020,52 +1023,52 @@ z
     </g>
    </g>
    <g id="LineCollection_1">
-    <path d="M 31.846241 256.261572 
-L 31.846241 226.272805 
-" clip-path="url(#p2601ee940d)" style="fill: none; stroke: #000000; stroke-width: 1.5"/>
-    <path d="M 66.254021 252.455083 
-L 66.254021 222.466316 
-" clip-path="url(#p2601ee940d)" style="fill: none; stroke: #000000; stroke-width: 1.5"/>
-    <path d="M 100.661801 172.684293 
-L 100.661801 142.695527 
-" clip-path="url(#p2601ee940d)" style="fill: none; stroke: #000000; stroke-width: 1.5"/>
-    <path d="M 135.06958 196.631342 
-L 135.06958 166.642576 
-" clip-path="url(#p2601ee940d)" style="fill: none; stroke: #000000; stroke-width: 1.5"/>
-    <path d="M 169.47736 148.345318 
-L 169.47736 118.356552 
-" clip-path="url(#p2601ee940d)" style="fill: none; stroke: #000000; stroke-width: 1.5"/>
-    <path d="M 203.88514 123.911552 
-L 203.88514 93.922786 
-" clip-path="url(#p2601ee940d)" style="fill: none; stroke: #000000; stroke-width: 1.5"/>
-    <path d="M 238.29292 122.562246 
-L 238.29292 92.57348 
-" clip-path="url(#p2601ee940d)" style="fill: none; stroke: #000000; stroke-width: 1.5"/>
-    <path d="M 272.700699 81.69953 
-L 272.700699 51.710763 
-" clip-path="url(#p2601ee940d)" style="fill: none; stroke: #000000; stroke-width: 1.5"/>
-    <path d="M 307.108479 69.988247 
-L 307.108479 39.99948 
-" clip-path="url(#p2601ee940d)" style="fill: none; stroke: #000000; stroke-width: 1.5"/>
-    <path d="M 341.516259 45.04907 
-L 341.516259 15.060303 
-" clip-path="url(#p2601ee940d)" style="fill: none; stroke: #000000; stroke-width: 1.5"/>
+    <path d="M 31.846241 238.016043 
+L 31.846241 204.773654 
+" clip-path="url(#pf42851c2da)" style="fill: none; stroke: #000000; stroke-width: 1.5"/>
+    <path d="M 66.254021 256.261572 
+L 66.254021 223.019183 
+" clip-path="url(#pf42851c2da)" style="fill: none; stroke: #000000; stroke-width: 1.5"/>
+    <path d="M 100.661801 201.31155 
+L 100.661801 168.069161 
+" clip-path="url(#pf42851c2da)" style="fill: none; stroke: #000000; stroke-width: 1.5"/>
+    <path d="M 135.06958 169.253807 
+L 135.06958 136.011418 
+" clip-path="url(#pf42851c2da)" style="fill: none; stroke: #000000; stroke-width: 1.5"/>
+    <path d="M 169.47736 156.886585 
+L 169.47736 123.644197 
+" clip-path="url(#pf42851c2da)" style="fill: none; stroke: #000000; stroke-width: 1.5"/>
+    <path d="M 203.88514 119.777717 
+L 203.88514 86.535329 
+" clip-path="url(#pf42851c2da)" style="fill: none; stroke: #000000; stroke-width: 1.5"/>
+    <path d="M 238.29292 120.622987 
+L 238.29292 87.380598 
+" clip-path="url(#pf42851c2da)" style="fill: none; stroke: #000000; stroke-width: 1.5"/>
+    <path d="M 272.700699 105.590417 
+L 272.700699 72.348029 
+" clip-path="url(#pf42851c2da)" style="fill: none; stroke: #000000; stroke-width: 1.5"/>
+    <path d="M 307.108479 48.302692 
+L 307.108479 15.060303 
+" clip-path="url(#pf42851c2da)" style="fill: none; stroke: #000000; stroke-width: 1.5"/>
+    <path d="M 341.516259 57.511415 
+L 341.516259 24.269026 
+" clip-path="url(#pf42851c2da)" style="fill: none; stroke: #000000; stroke-width: 1.5"/>
    </g>
    <g id="line2d_11">
-    <path d="M 31.846241 237.775676 
-L 70.554993 211.322867 
-L 109.263745 184.870059 
-L 147.972498 158.41725 
-L 186.68125 131.964442 
-L 225.390002 105.511634 
-L 264.098755 79.058825 
-L 302.807507 52.606017 
-L 341.516259 26.153208 
-" clip-path="url(#p2601ee940d)" style="fill: none; stroke: #1f77b4; stroke-width: 1.5; stroke-linecap: square"/>
+    <path d="M 31.846241 232.783033 
+L 70.554993 207.270346 
+L 109.263745 181.757659 
+L 147.972498 156.244971 
+L 186.68125 130.732284 
+L 225.390002 105.219597 
+L 264.098755 79.70691 
+L 302.807507 54.194222 
+L 341.516259 28.681535 
+" clip-path="url(#pf42851c2da)" style="fill: none; stroke: #1f77b4; stroke-width: 1.5; stroke-linecap: square"/>
    </g>
    <g id="line2d_12">
     <defs>
-     <path id="mdee21395d6" d="M 0 3 
+     <path id="mb08af15283" d="M 0 3 
 C 0.795609 3 1.55874 2.683901 2.12132 2.12132 
 C 2.683901 1.55874 3 0.795609 3 0 
 C 3 -0.795609 2.683901 -1.55874 2.12132 -2.12132 
@@ -1077,17 +1080,17 @@ C -1.55874 2.683901 -0.795609 3 0 3
 z
 " style="stroke: #000000"/>
     </defs>
-    <g clip-path="url(#p2601ee940d)">
-     <use xlink:href="#mdee21395d6" x="31.846241" y="241.267188" style="stroke: #000000"/>
-     <use xlink:href="#mdee21395d6" x="66.254021" y="237.460699" style="stroke: #000000"/>
-     <use xlink:href="#mdee21395d6" x="100.661801" y="157.68991" style="stroke: #000000"/>
-     <use xlink:href="#mdee21395d6" x="135.06958" y="181.636959" style="stroke: #000000"/>
-     <use xlink:href="#mdee21395d6" x="169.47736" y="133.350935" style="stroke: #000000"/>
-     <use xlink:href="#mdee21395d6" x="203.88514" y="108.917169" style="stroke: #000000"/>
-     <use xlink:href="#mdee21395d6" x="238.29292" y="107.567863" style="stroke: #000000"/>
-     <use xlink:href="#mdee21395d6" x="272.700699" y="66.705146" style="stroke: #000000"/>
-     <use xlink:href="#mdee21395d6" x="307.108479" y="54.993863" style="stroke: #000000"/>
-     <use xlink:href="#mdee21395d6" x="341.516259" y="30.054687" style="stroke: #000000"/>
+    <g clip-path="url(#pf42851c2da)">
+     <use xlink:href="#mb08af15283" x="31.846241" y="221.394848" style="stroke: #000000"/>
+     <use xlink:href="#mb08af15283" x="66.254021" y="239.640377" style="stroke: #000000"/>
+     <use xlink:href="#mb08af15283" x="100.661801" y="184.690355" style="stroke: #000000"/>
+     <use xlink:href="#mb08af15283" x="135.06958" y="152.632613" style="stroke: #000000"/>
+     <use xlink:href="#mb08af15283" x="169.47736" y="140.265391" style="stroke: #000000"/>
+     <use xlink:href="#mb08af15283" x="203.88514" y="103.156523" style="stroke: #000000"/>
+     <use xlink:href="#mb08af15283" x="238.29292" y="104.001792" style="stroke: #000000"/>
+     <use xlink:href="#mb08af15283" x="272.700699" y="88.969223" style="stroke: #000000"/>
+     <use xlink:href="#mb08af15283" x="307.108479" y="31.681498" style="stroke: #000000"/>
+     <use xlink:href="#mb08af15283" x="341.516259" y="40.89022" style="stroke: #000000"/>
     </g>
    </g>
    <g id="patch_3">
@@ -1113,7 +1116,7 @@ L 356.99976 3.00024
   </g>
  </g>
  <defs>
-  <clipPath id="p2601ee940d">
+  <clipPath id="pf42851c2da">
    <rect x="16.36274" y="3.00024" width="340.63702" height="265.321395"/>
   </clipPath>
  </defs>
@@ -1133,11 +1136,11 @@ L 356.99976 3.00024
         <th colspan="2" style="text-align:center" title="Minimizer"> Migrad </th>
     </tr>
     <tr>
-        <td style="text-align:left" title="Minimum value of function"> FCN = 10.18 (χ²/ndof = 1.3) </td>
+        <td style="text-align:left" title="Minimum value of function"> FCN = 8.092 (χ²/ndof = 1.0) </td>
         <td style="text-align:center" title="Total number of function and (optional) gradient evaluations"> Nfcn = 40 </td>
     </tr>
     <tr>
-        <td style="text-align:left" title="Estimated distance to minimum and goal"> EDM = 2.6e-22 (Goal: 0.0002) </td>
+        <td style="text-align:left" title="Estimated distance to minimum and goal"> EDM = 1.64e-21 (Goal: 0.0002) </td>
         <td style="text-align:center" title="Total run time of algorithms">  </td>
     </tr>
     <tr>
@@ -1190,7 +1193,7 @@ L 356.99976 3.00024
 </div>
 </section>
 <section id="exercise-11-3">
-<h2>Exercise 11.3<a class="headerlink" href="#exercise-11-3" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">11.6.3. </span>Exercise 11.3<a class="headerlink" href="#exercise-11-3" title="Permalink to this heading">#</a></h2>
 <ul class="simple">
 <li><p>Calculate the value of <span class="math notranslate nohighlight">\(Q^2\)</span> using the points and the fitted function
 obtained in the previous exercise.</p></li>
@@ -1230,7 +1233,7 @@ value of the number of degrees of freedom 8.0
 </div>
 </section>
 <section id="exercise-11-4">
-<h2>Exercise 11.4<a class="headerlink" href="#exercise-11-4" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">11.6.4. </span>Exercise 11.4<a class="headerlink" href="#exercise-11-4" title="Permalink to this heading">#</a></h2>
 <p>Using the toy experiments technique,
 generate 10,000 fit experiments with the model studied in the previous exercises
 and fill a histogram with the obtained values of <span class="math notranslate nohighlight">\(Q^2\)</span>.</p>
@@ -1284,7 +1287,7 @@ with the degrees of freedom of the problem.</p></li>
 </div>
 </section>
 <section id="exercise-11-5">
-<h2>Exercise 11.5<a class="headerlink" href="#exercise-11-5" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">11.6.5. </span>Exercise 11.5<a class="headerlink" href="#exercise-11-5" title="Permalink to this heading">#</a></h2>
 <p>Modify the previous program by deliberately changing the experimental uncertainty
 associated with the points <span class="math notranslate nohighlight">\(y_i\)</span> in the sample and verify that it’s possible to recover the
 uncertainty used in generating the points
@@ -1328,7 +1331,7 @@ sigma: 0.2998604709861597
 </div>
 </section>
 <section id="exercise-11-6">
-<h2>Exercise 11.6<a class="headerlink" href="#exercise-11-6" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">11.6.6. </span>Exercise 11.6<a class="headerlink" href="#exercise-11-6" title="Permalink to this heading">#</a></h2>
 <p>Add to Exercise 11.3 the screen printout of the entire covariance matrix
 of the fit parameters.</p>
 <div class="cell docutils container">
@@ -1366,7 +1369,7 @@ covariance of the two parameters: -0.004909094504830553
 </div>
 </section>
 <section id="exercise-11-7">
-<h2>Exercise 11.7<a class="headerlink" href="#exercise-11-7" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">11.6.7. </span>Exercise 11.7<a class="headerlink" href="#exercise-11-7" title="Permalink to this heading">#</a></h2>
 <p>Repeat the fitting exercise for a parabolic trend.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -2094,6 +2097,24 @@ L 356.99976 3.00024
                 <footer class="prev-next-footer">
                   
 <div class="prev-next-area">
+    <a class="left-prev"
+       href="../EXERCISES.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title"><span class="section-number">11.5. </span>Exercises for Lecture 11</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="../../Lecture_12/fit_binned.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title"><span class="section-number">12. </span>Fit of Binned Distributions</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
 </div>
                 </footer>
               
@@ -2109,13 +2130,13 @@ L 356.99976 3.00024
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-11-1">Exercise 11.1</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-11-2">Exercise 11.2</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-11-3">Exercise 11.3</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-11-4">Exercise 11.4</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-11-5">Exercise 11.5</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-11-6">Exercise 11.6</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-11-7">Exercise 11.7</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-11-1">11.6.1. Exercise 11.1</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-11-2">11.6.2. Exercise 11.2</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-11-3">11.6.3. Exercise 11.3</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-11-4">11.6.4. Exercise 11.4</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-11-5">11.6.5. Exercise 11.5</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-11-6">11.6.6. Exercise 11.6</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-11-7">11.6.7. Exercise 11.7</a></li>
 </ul>
   </nav></div>
 

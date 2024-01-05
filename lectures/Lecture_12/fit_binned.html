@@ -68,7 +68,7 @@ const thebe_selector_output = ".output, .cell_output"
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
     <link rel="next" title="12.8. Exercises for Lecture 12" href="EXERCISES.html" />
-    <link rel="prev" title="11.5. Exercises for Lecture 11" href="../Lecture_11/EXERCISES.html" />
+    <link rel="prev" title="11.6. Least squares solutions" href="../Lecture_11/exercises/least_squares_solutions.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -239,6 +239,7 @@ const thebe_selector_output = ".output, .cell_output"
 </li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../Lecture_11/least_squares.html">11. Least-Squares Fitting</a><input class="toctree-checkbox" id="toctree-checkbox-11" name="toctree-checkbox-11" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-11"><i class="fa-solid fa-chevron-down"></i></label><ul>
 <li class="toctree-l2"><a class="reference internal" href="../Lecture_11/EXERCISES.html">11.5. Exercises for Lecture 11</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Lecture_11/exercises/least_squares_solutions.html">11.6. Least squares solutions</a></li>
 </ul>
 </li>
 <li class="toctree-l1 current active has-children"><a class="current reference internal" href="#">12. Fit of Binned Distributions</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-12" name="toctree-checkbox-12" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-12"><i class="fa-solid fa-chevron-down"></i></label><ul>
@@ -511,8 +512,8 @@ the function <em><strong>Q<sup>2</sup>(θ)</strong></em> is usually the followin
   Q^2(\theta) = \sum_{i=1}^N\left(\frac{n_i-f(x_i,\theta)}{\sqrt{n_i}}\right)^2
   \]</div>
 <ul class="simple">
-<li><p>The value of <span class="math notranslate nohighlight">\(y_i\)</span> from the previous lesson is <strong>constituted by <span class="math notranslate nohighlight">\(\mathbf{n_i}\)</span></strong></p></li>
-<li><p>The <strong>uncertainty on <span class="math notranslate nohighlight">\(\mathbf{n_i}\)</span></strong> is given by its square root, following the Poisson statistic</p></li>
+<li><p>The value of <span class="math notranslate nohighlight">\(y_i\)</span> from the previous lesson is <strong>replaced by <span class="math notranslate nohighlight">\(\mathbf{n_i}\)</span></strong></p></li>
+<li><p>The <strong>uncertainty on <span class="math notranslate nohighlight">\(\mathbf{n_i}\)</span></strong> is calculated as its square root, as it’s assumed following the Poisson statistic</p></li>
 <li><p>The value of <span class="math notranslate nohighlight">\(x_i\)</span> is the <strong>center of the corresponding bin</strong></p></li>
 <li><p>The number of bins in the histogram is <span class="math notranslate nohighlight">\(N\)</span></p></li>
 </ul>
@@ -537,7 +538,7 @@ with expected value <span class="math notranslate nohighlight">\(\mu = F_i(\thet
 <ul class="simple">
 <li><p>In the case of <strong>few counts</strong> present in the bins,</p>
 <ul>
-<li><p>Bins without counts do not contribute to the fit in the case of least squares,
+<li><p><strong>Bins with zero counts</strong> do not contribute to the fit in the case of least squares,
 despite the absence of events being important information</p></li>
 <li><p>It is recommended to use the <strong>maximum likelihood method</strong></p></li>
 </ul>
@@ -941,12 +942,12 @@ both for the maximum likelihood (extended and not) and least squares techniques<
                   
 <div class="prev-next-area">
     <a class="left-prev"
-       href="../Lecture_11/EXERCISES.html"
+       href="../Lecture_11/exercises/least_squares_solutions.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title"><span class="section-number">11.5. </span>Exercises for Lecture 11</p>
+        <p class="prev-next-title"><span class="section-number">11.6. </span>Least squares solutions</p>
       </div>
     </a>
     <a class="right-next"

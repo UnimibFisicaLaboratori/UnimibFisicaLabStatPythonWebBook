@@ -237,6 +237,7 @@ const thebe_selector_output = ".output, .cell_output"
 </li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../lectures/Lecture_11/least_squares.html">11. Least-Squares Fitting</a><input class="toctree-checkbox" id="toctree-checkbox-11" name="toctree-checkbox-11" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-11"><i class="fa-solid fa-chevron-down"></i></label><ul>
 <li class="toctree-l2"><a class="reference internal" href="../lectures/Lecture_11/EXERCISES.html">11.5. Exercises for Lecture 11</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../lectures/Lecture_11/exercises/least_squares_solutions.html">11.6. Least squares solutions</a></li>
 </ul>
 </li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../lectures/Lecture_12/fit_binned.html">12. Fit of Binned Distributions</a><input class="toctree-checkbox" id="toctree-checkbox-12" name="toctree-checkbox-12" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-12"><i class="fa-solid fa-chevron-down"></i></label><ul>
@@ -525,14 +526,14 @@ The output of the script should be a sequence that prints the performance improv
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>n 	 time gain 	 cpu time gain
-1 	 0.57 	 0.41
-10 	 1.29 	 1.21
-100 	 4.93 	 4.84
-1000 	 33.15 	 32.56
-10000 	 26.68 	 26.66
-100000 	 25.91 	 25.41
-1000000 	 33.11 	 33.09
-10000000 	 42.51 	 42.47
+1 	 0.73 	 0.49
+10 	 0.75 	 0.83
+100 	 5.89 	 5.38
+1000 	 21.00 	 20.97
+10000 	 22.00 	 22.05
+100000 	 22.13 	 21.70
+1000000 	 35.10 	 35.03
+10000000 	 38.73 	 38.65
 </pre></div>
 </div>
 </div>
@@ -554,14 +555,14 @@ The output of the script should be a sequence that prints the performance improv
 <tr><th style="text-align: right;">       n</th><th style="text-align: right;">  time gain</th><th style="text-align: right;">  cpu time gain</th></tr>
 </thead>
 <tbody>
-<tr><td style="text-align: right;">       1</td><td style="text-align: right;">        0.6</td><td style="text-align: right;">            0.4</td></tr>
-<tr><td style="text-align: right;">      10</td><td style="text-align: right;">        1.3</td><td style="text-align: right;">            1.2</td></tr>
-<tr><td style="text-align: right;">     100</td><td style="text-align: right;">        4.9</td><td style="text-align: right;">            4.8</td></tr>
-<tr><td style="text-align: right;">    1000</td><td style="text-align: right;">       33.1</td><td style="text-align: right;">           32.6</td></tr>
-<tr><td style="text-align: right;">   10000</td><td style="text-align: right;">       26.7</td><td style="text-align: right;">           26.7</td></tr>
-<tr><td style="text-align: right;">  100000</td><td style="text-align: right;">       25.9</td><td style="text-align: right;">           25.4</td></tr>
-<tr><td style="text-align: right;"> 1000000</td><td style="text-align: right;">       33.1</td><td style="text-align: right;">           33.1</td></tr>
-<tr><td style="text-align: right;">10000000</td><td style="text-align: right;">       42.5</td><td style="text-align: right;">           42.5</td></tr>
+<tr><td style="text-align: right;">       1</td><td style="text-align: right;">        0.7</td><td style="text-align: right;">            0.5</td></tr>
+<tr><td style="text-align: right;">      10</td><td style="text-align: right;">        0.8</td><td style="text-align: right;">            0.8</td></tr>
+<tr><td style="text-align: right;">     100</td><td style="text-align: right;">        5.9</td><td style="text-align: right;">            5.4</td></tr>
+<tr><td style="text-align: right;">    1000</td><td style="text-align: right;">       21.0</td><td style="text-align: right;">           21.0</td></tr>
+<tr><td style="text-align: right;">   10000</td><td style="text-align: right;">       22.0</td><td style="text-align: right;">           22.1</td></tr>
+<tr><td style="text-align: right;">  100000</td><td style="text-align: right;">       22.1</td><td style="text-align: right;">           21.7</td></tr>
+<tr><td style="text-align: right;"> 1000000</td><td style="text-align: right;">       35.1</td><td style="text-align: right;">           35.0</td></tr>
+<tr><td style="text-align: right;">10000000</td><td style="text-align: right;">       38.7</td><td style="text-align: right;">           38.7</td></tr>
 </tbody>
 </table></div></div>
 </div>
