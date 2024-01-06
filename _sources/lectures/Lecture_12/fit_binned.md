@@ -1,7 +1,5 @@
 # Fit of Binned Distributions
 
-## TODOs
-
 ## Introduction
 
   * The least squares and maximum likelihood methods 

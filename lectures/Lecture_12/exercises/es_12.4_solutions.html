@@ -241,7 +241,7 @@ const thebe_selector_output = ".output, .cell_output"
 </ul>
 </li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../fit_binned.html">12. Fit of Binned Distributions</a><input class="toctree-checkbox" id="toctree-checkbox-12" name="toctree-checkbox-12" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-12"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="../EXERCISES.html">12.8. Exercises for Lecture 12</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../EXERCISES.html">12.7. Exercises for Lecture 12</a></li>
 </ul>
 </li>
 </ul>
@@ -527,39 +527,6 @@ for the cases of maximum likelihood, extended maximum likelihood, and least squa
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">KeyboardInterrupt</span><span class="g g-Whitespace">                         </span>Traceback (most recent call last)
-<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span> <span class="n">line</span> <span class="mi">13</span>
-<span class="g g-Whitespace">     </span><span class="mi">10</span> <span class="n">N_dof_LL</span> <span class="o">=</span> <span class="mi">0</span>
-<span class="g g-Whitespace">     </span><span class="mi">12</span> <span class="k">for</span> <span class="n">iToy</span> <span class="ow">in</span> <span class="nb">range</span> <span class="p">(</span><span class="n">N_toys</span><span class="p">)</span> <span class="p">:</span>
-<span class="ne">---&gt; </span><span class="mi">13</span>     <span class="n">subsample</span> <span class="o">=</span> <span class="n">generate_TCL_ms</span> <span class="p">(</span><span class="mf">1.</span><span class="p">,</span> <span class="mf">0.7</span><span class="p">,</span> <span class="n">sample_size</span><span class="p">)</span>
-<span class="g g-Whitespace">     </span><span class="mi">14</span>     <span class="n">bin_content</span><span class="p">,</span> <span class="n">bin_edges</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">histogram</span> <span class="p">(</span><span class="n">subsample</span><span class="p">,</span> <span class="n">bins</span><span class="p">,</span> 
-<span class="g g-Whitespace">     </span><span class="mi">15</span>                                            <span class="nb">range</span> <span class="o">=</span> <span class="p">(</span><span class="n">floor</span> <span class="p">(</span><span class="nb">min</span> <span class="p">(</span><span class="n">subsample</span><span class="p">)),</span> <span class="n">ceil</span> <span class="p">(</span><span class="nb">max</span> <span class="p">(</span><span class="n">subsample</span><span class="p">))))</span>
-<span class="g g-Whitespace">     </span><span class="mi">17</span>     <span class="n">my_cost_func_bin_LL</span> <span class="o">=</span> <span class="n">BinnedNLL</span> <span class="p">(</span><span class="n">bin_content</span><span class="p">,</span> <span class="n">bin_edges</span><span class="p">,</span> <span class="n">mod_signal_bin_LL</span><span class="p">)</span>
-
-<span class="nn">File ~/work/UnimibFisicaLabStatPython/UnimibFisicaLabStatPython/book/lectures/Lecture_12/exercises/myrand.py:148,</span> in <span class="ni">generate_TCL_ms</span><span class="nt">(mean, sigma, N, N_sum, seed)</span>
-<span class="g g-Whitespace">    </span><span class="mi">145</span> <span class="n">xMax</span> <span class="o">=</span> <span class="n">mean</span> <span class="o">+</span> <span class="n">delta</span>
-<span class="g g-Whitespace">    </span><span class="mi">146</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span> <span class="p">(</span><span class="n">N</span><span class="p">):</span>
-<span class="g g-Whitespace">    </span><span class="mi">147</span>     <span class="c1"># Return the next random floating point number in the range 0.0 &lt;= X &lt; 1.0</span>
-<span class="ne">--&gt; </span><span class="mi">148</span>     <span class="n">randlist</span><span class="o">.</span><span class="n">append</span> <span class="p">(</span><span class="n">rand_TCL</span> <span class="p">(</span><span class="n">xMin</span><span class="p">,</span> <span class="n">xMax</span><span class="p">,</span> <span class="n">N_sum</span><span class="p">))</span>
-<span class="g g-Whitespace">    </span><span class="mi">149</span> <span class="k">return</span> <span class="n">randlist</span>
-
-<span class="nn">File ~/work/UnimibFisicaLabStatPython/UnimibFisicaLabStatPython/book/lectures/Lecture_12/exercises/myrand.py:90,</span> in <span class="ni">rand_TCL</span><span class="nt">(xMin, xMax, N_sum)</span>
-<span class="g g-Whitespace">     </span><span class="mi">84</span><span class="w"> </span><span class="sd">&#39;&#39;&#39;</span>
-<span class="g g-Whitespace">     </span><span class="mi">85</span><span class="sd"> generazione di un numero pseudo-casuale </span>
-<span class="g g-Whitespace">     </span><span class="mi">86</span><span class="sd"> con il metodo del teorema centrale del limite</span>
-<span class="g g-Whitespace">     </span><span class="mi">87</span><span class="sd"> su un intervallo fissato</span>
-<span class="g g-Whitespace">     </span><span class="mi">88</span><span class="sd"> &#39;&#39;&#39;</span>
-<span class="g g-Whitespace">     </span><span class="mi">89</span> <span class="n">y</span> <span class="o">=</span> <span class="mf">0.</span>
-<span class="ne">---&gt; </span><span class="mi">90</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span> <span class="p">(</span><span class="n">N_sum</span><span class="p">)</span> <span class="p">:</span>
-<span class="g g-Whitespace">     </span><span class="mi">91</span>     <span class="n">y</span> <span class="o">=</span> <span class="n">y</span> <span class="o">+</span> <span class="n">rand_range</span> <span class="p">(</span><span class="n">xMin</span><span class="p">,</span> <span class="n">xMax</span><span class="p">)</span>
-<span class="g g-Whitespace">     </span><span class="mi">92</span> <span class="n">y</span> <span class="o">/=</span> <span class="n">N_sum</span> <span class="p">;</span>
-
-<span class="ne">KeyboardInterrupt</span>: 
-</pre></div>
-</div>
-</div>
 </div>
 </section>
 <section id="extended-binned-likelihood">
@@ -596,6 +563,85 @@ for the cases of maximum likelihood, extended maximum likelihood, and least squa
     <span class="n">sigmas_bin_ext_LL</span><span class="o">.</span><span class="n">append</span> <span class="p">(</span><span class="n">my_minuit_bin_ext_LL</span><span class="o">.</span><span class="n">values</span><span class="p">[</span><span class="s1">&#39;sigma&#39;</span><span class="p">])</span>
     <span class="n">Q2_bin_ext_LL</span><span class="o">.</span><span class="n">append</span> <span class="p">(</span><span class="n">my_minuit_bin_ext_LL</span><span class="o">.</span><span class="n">fval</span><span class="p">)</span>
     <span class="k">if</span> <span class="p">(</span><span class="n">iToy</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span> <span class="p">:</span> <span class="n">N_dof_ext_LL</span> <span class="o">=</span> <span class="n">my_minuit_bin_ext_LL</span><span class="o">.</span><span class="n">ndof</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">TypeError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
+<span class="nn">File /opt/hostedtoolcache/Python/3.8.18/x64/lib/python3.8/site-packages/numpy/core/numerictypes.py:319,</span> in <span class="ni">issubclass_</span><span class="nt">(arg1, arg2)</span>
+<span class="g g-Whitespace">    </span><span class="mi">318</span> <span class="k">try</span><span class="p">:</span>
+<span class="ne">--&gt; </span><span class="mi">319</span>     <span class="k">return</span> <span class="nb">issubclass</span><span class="p">(</span><span class="n">arg1</span><span class="p">,</span> <span class="n">arg2</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">320</span> <span class="k">except</span> <span class="ne">TypeError</span><span class="p">:</span>
+
+<span class="ne">TypeError</span>: issubclass() arg 1 must be a class
+
+<span class="n">During</span> <span class="n">handling</span> <span class="n">of</span> <span class="n">the</span> <span class="n">above</span> <span class="n">exception</span><span class="p">,</span> <span class="n">another</span> <span class="n">exception</span> <span class="n">occurred</span><span class="p">:</span>
+
+<span class="ne">KeyboardInterrupt</span><span class="g g-Whitespace">                         </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">3</span><span class="p">],</span> <span class="n">line</span> <span class="mi">14</span>
+<span class="g g-Whitespace">     </span><span class="mi">12</span> <span class="k">for</span> <span class="n">iToy</span> <span class="ow">in</span> <span class="nb">range</span> <span class="p">(</span><span class="n">N_toys</span><span class="p">)</span> <span class="p">:</span>
+<span class="g g-Whitespace">     </span><span class="mi">13</span>     <span class="n">subsample</span> <span class="o">=</span> <span class="n">generate_TCL_ms</span> <span class="p">(</span><span class="mf">1.</span><span class="p">,</span> <span class="mf">0.7</span><span class="p">,</span> <span class="n">sample_size</span><span class="p">)</span>
+<span class="ne">---&gt; </span><span class="mi">14</span>     <span class="n">bin_content</span><span class="p">,</span> <span class="n">bin_edges</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">histogram</span> <span class="p">(</span><span class="n">subsample</span><span class="p">,</span> <span class="n">bins</span><span class="p">,</span> 
+<span class="g g-Whitespace">     </span><span class="mi">15</span>                                            <span class="nb">range</span> <span class="o">=</span> <span class="p">(</span><span class="n">floor</span> <span class="p">(</span><span class="nb">min</span> <span class="p">(</span><span class="n">subsample</span><span class="p">)),</span> <span class="n">ceil</span> <span class="p">(</span><span class="nb">max</span> <span class="p">(</span><span class="n">subsample</span><span class="p">))))</span>
+<span class="g g-Whitespace">     </span><span class="mi">17</span>     <span class="n">my_cost_func_bin_ext_LL</span> <span class="o">=</span> <span class="n">ExtendedBinnedNLL</span> <span class="p">(</span><span class="n">bin_content</span><span class="p">,</span> <span class="n">bin_edges</span><span class="p">,</span> <span class="n">mod_signal_bin_ext_LL</span><span class="p">)</span>
+<span class="g g-Whitespace">     </span><span class="mi">18</span>     <span class="n">my_minuit_bin_ext_LL</span> <span class="o">=</span> <span class="n">Minuit</span> <span class="p">(</span>
+<span class="g g-Whitespace">     </span><span class="mi">19</span>                             <span class="n">my_cost_func_bin_ext_LL</span><span class="p">,</span> 
+<span class="g g-Whitespace">     </span><span class="mi">20</span>                             <span class="n">N_signal</span> <span class="o">=</span> <span class="nb">len</span> <span class="p">(</span><span class="n">subsample</span><span class="p">),</span>
+<span class="g g-Whitespace">     </span><span class="mi">21</span>                             <span class="n">mu</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span> <span class="p">(</span><span class="n">subsample</span><span class="p">),</span> 
+<span class="g g-Whitespace">     </span><span class="mi">22</span>                             <span class="n">sigma</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">std</span> <span class="p">(</span><span class="n">subsample</span><span class="p">),</span>
+<span class="g g-Whitespace">     </span><span class="mi">23</span>                            <span class="p">)</span>
+
+<span class="nn">File &lt;__array_function__ internals&gt;:200,</span> in <span class="ni">histogram</span><span class="nt">(*args, **kwargs)</span>
+
+<span class="nn">File /opt/hostedtoolcache/Python/3.8.18/x64/lib/python3.8/site-packages/numpy/lib/histograms.py:780,</span> in <span class="ni">histogram</span><span class="nt">(a, bins, range, density, weights)</span>
+<span class="g g-Whitespace">    </span><span class="mi">680</span><span class="w"> </span><span class="sa">r</span><span class="sd">&quot;&quot;&quot;</span>
+<span class="g g-Whitespace">    </span><span class="mi">681</span><span class="sd"> Compute the histogram of a dataset.</span>
+<span class="g g-Whitespace">    </span><span class="mi">682</span><span class="sd"> </span>
+<span class="sd">   (...)</span>
+<span class="g g-Whitespace">    </span><span class="mi">776</span><span class="sd"> </span>
+<span class="g g-Whitespace">    </span><span class="mi">777</span><span class="sd"> &quot;&quot;&quot;</span>
+<span class="g g-Whitespace">    </span><span class="mi">778</span> <span class="n">a</span><span class="p">,</span> <span class="n">weights</span> <span class="o">=</span> <span class="n">_ravel_and_check_weights</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">weights</span><span class="p">)</span>
+<span class="ne">--&gt; </span><span class="mi">780</span> <span class="n">bin_edges</span><span class="p">,</span> <span class="n">uniform_bins</span> <span class="o">=</span> <span class="n">_get_bin_edges</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">bins</span><span class="p">,</span> <span class="nb">range</span><span class="p">,</span> <span class="n">weights</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">782</span> <span class="c1"># Histogram is an integer or a float array depending on the weights.</span>
+<span class="g g-Whitespace">    </span><span class="mi">783</span> <span class="k">if</span> <span class="n">weights</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+
+<span class="nn">File /opt/hostedtoolcache/Python/3.8.18/x64/lib/python3.8/site-packages/numpy/lib/histograms.py:442,</span> in <span class="ni">_get_bin_edges</span><span class="nt">(a, bins, range, weights)</span>
+<span class="g g-Whitespace">    </span><span class="mi">437</span> <span class="k">if</span> <span class="n">n_equal_bins</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">438</span>     <span class="c1"># gh-10322 means that type resolution rules are dependent on array</span>
+<span class="g g-Whitespace">    </span><span class="mi">439</span>     <span class="c1"># shapes. To avoid this causing problems, we pick a type now and stick</span>
+<span class="g g-Whitespace">    </span><span class="mi">440</span>     <span class="c1"># with it throughout.</span>
+<span class="g g-Whitespace">    </span><span class="mi">441</span>     <span class="n">bin_type</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">result_type</span><span class="p">(</span><span class="n">first_edge</span><span class="p">,</span> <span class="n">last_edge</span><span class="p">,</span> <span class="n">a</span><span class="p">)</span>
+<span class="ne">--&gt; </span><span class="mi">442</span>     <span class="k">if</span> <span class="n">np</span><span class="o">.</span><span class="n">issubdtype</span><span class="p">(</span><span class="n">bin_type</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">integer</span><span class="p">):</span>
+<span class="g g-Whitespace">    </span><span class="mi">443</span>         <span class="n">bin_type</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">result_type</span><span class="p">(</span><span class="n">bin_type</span><span class="p">,</span> <span class="nb">float</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">445</span>     <span class="c1"># bin edges must be computed</span>
+
+<span class="nn">File /opt/hostedtoolcache/Python/3.8.18/x64/lib/python3.8/site-packages/numpy/core/numerictypes.py:415,</span> in <span class="ni">issubdtype</span><span class="nt">(arg1, arg2)</span>
+<span class="g g-Whitespace">    </span><span class="mi">356</span> <span class="nd">@set_module</span><span class="p">(</span><span class="s1">&#39;numpy&#39;</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">357</span> <span class="k">def</span> <span class="nf">issubdtype</span><span class="p">(</span><span class="n">arg1</span><span class="p">,</span> <span class="n">arg2</span><span class="p">):</span>
+<span class="g g-Whitespace">    </span><span class="mi">358</span><span class="w">     </span><span class="sa">r</span><span class="sd">&quot;&quot;&quot;</span>
+<span class="g g-Whitespace">    </span><span class="mi">359</span><span class="sd">     Returns True if first argument is a typecode lower/equal in type hierarchy.</span>
+<span class="g g-Whitespace">    </span><span class="mi">360</span><span class="sd"> </span>
+<span class="sd">   (...)</span>
+<span class="g g-Whitespace">    </span><span class="mi">413</span><span class="sd"> </span>
+<span class="g g-Whitespace">    </span><span class="mi">414</span><span class="sd">     &quot;&quot;&quot;</span>
+<span class="ne">--&gt; </span><span class="mi">415</span>     <span class="k">if</span> <span class="ow">not</span> <span class="n">issubclass_</span><span class="p">(</span><span class="n">arg1</span><span class="p">,</span> <span class="n">generic</span><span class="p">):</span>
+<span class="g g-Whitespace">    </span><span class="mi">416</span>         <span class="n">arg1</span> <span class="o">=</span> <span class="n">dtype</span><span class="p">(</span><span class="n">arg1</span><span class="p">)</span><span class="o">.</span><span class="n">type</span>
+<span class="g g-Whitespace">    </span><span class="mi">417</span>     <span class="k">if</span> <span class="ow">not</span> <span class="n">issubclass_</span><span class="p">(</span><span class="n">arg2</span><span class="p">,</span> <span class="n">generic</span><span class="p">):</span>
+
+<span class="nn">File /opt/hostedtoolcache/Python/3.8.18/x64/lib/python3.8/site-packages/numpy/core/numerictypes.py:319,</span> in <span class="ni">issubclass_</span><span class="nt">(arg1, arg2)</span>
+<span class="g g-Whitespace">    </span><span class="mi">284</span><span class="w"> </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="g g-Whitespace">    </span><span class="mi">285</span><span class="sd"> Determine if a class is a subclass of a second class.</span>
+<span class="g g-Whitespace">    </span><span class="mi">286</span><span class="sd"> </span>
+<span class="sd">   (...)</span>
+<span class="g g-Whitespace">    </span><span class="mi">316</span><span class="sd"> </span>
+<span class="g g-Whitespace">    </span><span class="mi">317</span><span class="sd"> &quot;&quot;&quot;</span>
+<span class="g g-Whitespace">    </span><span class="mi">318</span> <span class="k">try</span><span class="p">:</span>
+<span class="ne">--&gt; </span><span class="mi">319</span>     <span class="k">return</span> <span class="nb">issubclass</span><span class="p">(</span><span class="n">arg1</span><span class="p">,</span> <span class="n">arg2</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">320</span> <span class="k">except</span> <span class="ne">TypeError</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">321</span>     <span class="k">return</span> <span class="kc">False</span>
+
+<span class="ne">KeyboardInterrupt</span>: 
 </pre></div>
 </div>
 </div>

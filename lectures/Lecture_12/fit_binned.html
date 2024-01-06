@@ -67,7 +67,7 @@ const thebe_selector_output = ".output, .cell_output"
     <script>DOCUMENTATION_OPTIONS.pagename = 'lectures/Lecture_12/fit_binned';</script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="12.8. Exercises for Lecture 12" href="EXERCISES.html" />
+    <link rel="next" title="12.7. Exercises for Lecture 12" href="EXERCISES.html" />
     <link rel="prev" title="11.6. Least squares solutions" href="../Lecture_11/exercises/least_squares_solutions.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
@@ -243,7 +243,7 @@ const thebe_selector_output = ".output, .cell_output"
 </ul>
 </li>
 <li class="toctree-l1 current active has-children"><a class="current reference internal" href="#">12. Fit of Binned Distributions</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-12" name="toctree-checkbox-12" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-12"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="EXERCISES.html">12.8. Exercises for Lecture 12</a></li>
+<li class="toctree-l2"><a class="reference internal" href="EXERCISES.html">12.7. Exercises for Lecture 12</a></li>
 </ul>
 </li>
 </ul>
@@ -441,35 +441,34 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#todos">12.1. TODOs</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#introduction">12.2. Introduction</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#fit-of-binned-distributions-with-the-least-squares-method">12.2.1. Fit of binned distributions with the least squares method</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#fit-of-binned-distributions-with-the-maximum-likelihood-method">12.2.2. Fit of binned distributions with the maximum likelihood method</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#choosing-amongst-the-least-squares-and-the-maximum-likelihood">12.2.3. Choosing amongst the least squares and the maximum likelihood</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#introduction">12.1. Introduction</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#fit-of-binned-distributions-with-the-least-squares-method">12.1.1. Fit of binned distributions with the least squares method</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#fit-of-binned-distributions-with-the-maximum-likelihood-method">12.1.2. Fit of binned distributions with the maximum likelihood method</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#choosing-amongst-the-least-squares-and-the-maximum-likelihood">12.1.3. Choosing amongst the least squares and the maximum likelihood</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#a-regression-exercise-with-binned-data">12.3. A regression exercise with binned data</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#reading-the-data-from-a-file">12.3.1. Reading the data from a file</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#determining-the-fit-parameters">12.3.2. Determining the fit parameters</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#defining-the-statistical-model-for-the-fit">12.3.3. Defining the statistical model for the fit</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#setting-up-the-fitting-algorithm">12.3.4. Setting up the fitting algorithm</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#helping-minuit-to-find-the-right-minimum">12.3.5. Helping <em>Minuit</em> to find the right minimum</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#how-to-deal-with-one-parameter-at-a-time">12.3.6. How to deal with one parameter at a time</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#determine-the-exponential-slope">12.3.7. Determine the exponential slope</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-final-fit">12.3.8. The final fit</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#a-regression-exercise-with-binned-data">12.2. A regression exercise with binned data</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#reading-the-data-from-a-file">12.2.1. Reading the data from a file</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#determining-the-fit-parameters">12.2.2. Determining the fit parameters</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#defining-the-statistical-model-for-the-fit">12.2.3. Defining the statistical model for the fit</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#setting-up-the-fitting-algorithm">12.2.4. Setting up the fitting algorithm</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#helping-minuit-to-find-the-right-minimum">12.2.5. Helping <em>Minuit</em> to find the right minimum</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#how-to-deal-with-one-parameter-at-a-time">12.2.6. How to deal with one parameter at a time</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#determine-the-exponential-slope">12.2.7. Determine the exponential slope</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-final-fit">12.2.8. The final fit</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#analyzing-the-regression-results">12.4. Analyzing the regression results</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#study-the-fit-convergence">12.4.1. Study the fit convergence</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#parameter-values-and-uncertainty">12.4.2. Parameter values and uncertainty</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#analyzing-the-regression-results">12.3. Analyzing the regression results</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#study-the-fit-convergence">12.3.1. Study the fit convergence</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#parameter-values-and-uncertainty">12.3.2. Parameter values and uncertainty</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#unbinned-maximum-likelihood-fit">12.5. Unbinned maximum likelihood fit</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#least-squares-and-maximum-likelihood">12.6. Least squares and maximum likelihood</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#least-squares-method-for-histogram-fitting">12.6.1. Least squares method for histogram fitting</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#unbinned-maximum-likelihood-fit">12.4. Unbinned maximum likelihood fit</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#least-squares-and-maximum-likelihood">12.5. Least squares and maximum likelihood</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#least-squares-method-for-histogram-fitting">12.5.1. Least squares method for histogram fitting</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#fit-quality">12.7. Fit quality</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#fit-quality">12.6. Fit quality</a></li>
 </ul>
             </nav>
         </div>
@@ -483,11 +482,8 @@ document.write(`
                   
   <section class="tex2jax_ignore mathjax_ignore" id="fit-of-binned-distributions">
 <h1><span class="section-number">12. </span>Fit of Binned Distributions<a class="headerlink" href="#fit-of-binned-distributions" title="Permalink to this heading">#</a></h1>
-<section id="todos">
-<h2><span class="section-number">12.1. </span>TODOs<a class="headerlink" href="#todos" title="Permalink to this heading">#</a></h2>
-</section>
 <section id="introduction">
-<h2><span class="section-number">12.2. </span>Introduction<a class="headerlink" href="#introduction" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">12.1. </span>Introduction<a class="headerlink" href="#introduction" title="Permalink to this heading">#</a></h2>
 <ul class="simple">
 <li><p>The least squares and maximum likelihood methods
 can also be <strong>applied in the case of histograms</strong>, i.e., binned distributions,
@@ -502,7 +498,7 @@ one can assume that the random variable <span class="math notranslate nohighligh
   \mathcal{P}(n,\mu)=\frac{e^{-\mu}\mu^n}{n!}
   \]</div>
 <section id="fit-of-binned-distributions-with-the-least-squares-method">
-<h3><span class="section-number">12.2.1. </span>Fit of binned distributions with the least squares method<a class="headerlink" href="#fit-of-binned-distributions-with-the-least-squares-method" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">12.1.1. </span>Fit of binned distributions with the least squares method<a class="headerlink" href="#fit-of-binned-distributions-with-the-least-squares-method" title="Permalink to this heading">#</a></h3>
 <ul class="simple">
 <li><p>In the case of least squares,
 the function <em><strong>Q<sup>2</sup>(θ)</strong></em> is usually the following (<strong>Neyman’s formulation</strong>):</p></li>
@@ -519,7 +515,7 @@ the function <em><strong>Q<sup>2</sup>(θ)</strong></em> is usually the followin
 </ul>
 </section>
 <section id="fit-of-binned-distributions-with-the-maximum-likelihood-method">
-<h3><span class="section-number">12.2.2. </span>Fit of binned distributions with the maximum likelihood method<a class="headerlink" href="#fit-of-binned-distributions-with-the-maximum-likelihood-method" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">12.1.2. </span>Fit of binned distributions with the maximum likelihood method<a class="headerlink" href="#fit-of-binned-distributions-with-the-maximum-likelihood-method" title="Permalink to this heading">#</a></h3>
 <ul class="simple">
 <li><p>In the case of maximum likelihood,
 it is assumed that in each bin the counts follow a <strong>Poissonian probability distribution</strong>
@@ -534,7 +530,7 @@ with expected value <span class="math notranslate nohighlight">\(\mu = F_i(\thet
 </ul>
 </section>
 <section id="choosing-amongst-the-least-squares-and-the-maximum-likelihood">
-<h3><span class="section-number">12.2.3. </span>Choosing amongst the least squares and the maximum likelihood<a class="headerlink" href="#choosing-amongst-the-least-squares-and-the-maximum-likelihood" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">12.1.3. </span>Choosing amongst the least squares and the maximum likelihood<a class="headerlink" href="#choosing-amongst-the-least-squares-and-the-maximum-likelihood" title="Permalink to this heading">#</a></h3>
 <ul class="simple">
 <li><p>In the case of <strong>few counts</strong> present in the bins,</p>
 <ul>
@@ -549,7 +545,7 @@ and often the <strong>least squares method</strong> is computationally simpler</
 </section>
 </section>
 <section id="a-regression-exercise-with-binned-data">
-<h2><span class="section-number">12.3. </span>A regression exercise with binned data<a class="headerlink" href="#a-regression-exercise-with-binned-data" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">12.2. </span>A regression exercise with binned data<a class="headerlink" href="#a-regression-exercise-with-binned-data" title="Permalink to this heading">#</a></h2>
 <ul class="simple">
 <li><p>Starting from a <strong>sample of events</strong> along a variable <em>x</em>,
 the objective is to determine the parameters of the probability distribution of the variable</p></li>
@@ -578,7 +574,7 @@ which can be thought of as a <strong>signal peak superimposed on a slowly decrea
 </li>
 </ul>
 <section id="reading-the-data-from-a-file">
-<h3><span class="section-number">12.3.1. </span>Reading the data from a file<a class="headerlink" href="#reading-the-data-from-a-file" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">12.2.1. </span>Reading the data from a file<a class="headerlink" href="#reading-the-data-from-a-file" title="Permalink to this heading">#</a></h3>
 <ul class="simple">
 <li><p>The starting sample corresponds to a <strong>data taking of 10,000 events</strong>,
 stored in the file <a class="reference external" href="https://drive.google.com/file/d/19Csfi4zrSz0bLREXOaPaWicIUUmstHQz/view?usp=sharing"><code class="docutils literal notranslate"><span class="pre">data.txt</span></code></a></p></li>
@@ -593,7 +589,7 @@ the relative fluctuations are <strong>much more visible</strong> than in the cas
 </ul>
 </section>
 <section id="determining-the-fit-parameters">
-<h3><span class="section-number">12.3.2. </span>Determining the fit parameters<a class="headerlink" href="#determining-the-fit-parameters" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">12.2.2. </span>Determining the fit parameters<a class="headerlink" href="#determining-the-fit-parameters" title="Permalink to this heading">#</a></h3>
 <ul class="simple">
 <li><p>To <strong>determine the parameters θ</strong>, the extremum of a function needs to be found</p>
 <ul>
@@ -606,7 +602,7 @@ offers robust tools to perform this task</p></li>
 </ul>
 </section>
 <section id="defining-the-statistical-model-for-the-fit">
-<h3><span class="section-number">12.3.3. </span>Defining the statistical model for the fit<a class="headerlink" href="#defining-the-statistical-model-for-the-fit" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">12.2.3. </span>Defining the statistical model for the fit<a class="headerlink" href="#defining-the-statistical-model-for-the-fit" title="Permalink to this heading">#</a></h3>
 <ul>
 <li><p>The minimization performed by the fit is based on the comparison between
 the <strong>number of events</strong> observed in each bin with respect to the expectation</p></li>
@@ -623,7 +619,7 @@ is based on <strong>cumulative distribution functions</strong></p>
 </ul>
 </section>
 <section id="setting-up-the-fitting-algorithm">
-<h3><span class="section-number">12.3.4. </span>Setting up the fitting algorithm<a class="headerlink" href="#setting-up-the-fitting-algorithm" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">12.2.4. </span>Setting up the fitting algorithm<a class="headerlink" href="#setting-up-the-fitting-algorithm" title="Permalink to this heading">#</a></h3>
 <ul>
 <li><p>The <strong>cost function</strong>,
 for which an extreme has to be found when varying the <span class="math notranslate nohighlight">\(\theta\)</span> parameters,
@@ -658,7 +654,7 @@ to be used in the search for the extreme</p></li>
 </ul>
 </section>
 <section id="helping-minuit-to-find-the-right-minimum">
-<h3><span class="section-number">12.3.5. </span>Helping <em>Minuit</em> to find the right minimum<a class="headerlink" href="#helping-minuit-to-find-the-right-minimum" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">12.2.5. </span>Helping <em>Minuit</em> to find the right minimum<a class="headerlink" href="#helping-minuit-to-find-the-right-minimum" title="Permalink to this heading">#</a></h3>
 <ul>
 <li><p><strong>The fit rarely succeeds autonomously</strong> as, due to the large number of parameters θ
 and the stochastic fluctuations of the bin contents,
@@ -707,7 +703,7 @@ so they are <strong>related to the integral of the histogram</strong>:</p>
 </ul>
 </section>
 <section id="how-to-deal-with-one-parameter-at-a-time">
-<h3><span class="section-number">12.3.6. </span>How to deal with one parameter at a time<a class="headerlink" href="#how-to-deal-with-one-parameter-at-a-time" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">12.2.6. </span>How to deal with one parameter at a time<a class="headerlink" href="#how-to-deal-with-one-parameter-at-a-time" title="Permalink to this heading">#</a></h3>
 <ul class="simple">
 <li><p>Sometimes, even starting from reasonable parameter values,
 <strong>the fit does not converge</strong> to the sought extremum</p></li>
@@ -717,7 +713,7 @@ where only <strong>a subset of the parameters is relevant</strong>
 </ul>
 </section>
 <section id="determine-the-exponential-slope">
-<h3><span class="section-number">12.3.7. </span>Determine the exponential slope<a class="headerlink" href="#determine-the-exponential-slope" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">12.2.7. </span>Determine the exponential slope<a class="headerlink" href="#determine-the-exponential-slope" title="Permalink to this heading">#</a></h3>
 <ul>
 <li><p>A <strong>partial fit</strong> performed only below <span class="math notranslate nohighlight">\(x = 5\)</span> and above <span class="math notranslate nohighlight">\(x = 15\)</span>
 with <strong>only the parameters of the background component of the model free to float</strong>
@@ -752,7 +748,7 @@ allows to calculate a preliminary estimate of <code class="docutils literal notr
 </ul>
 </section>
 <section id="the-final-fit">
-<h3><span class="section-number">12.3.8. </span>The final fit<a class="headerlink" href="#the-final-fit" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">12.2.8. </span>The final fit<a class="headerlink" href="#the-final-fit" title="Permalink to this heading">#</a></h3>
 <ul>
 <li><p>For the final fit,
 <strong>all parameters are free to float</strong>
@@ -769,7 +765,7 @@ from the result of the last fit performed:</p>
 </section>
 </section>
 <section id="analyzing-the-regression-results">
-<h2><span class="section-number">12.4. </span>Analyzing the regression results<a class="headerlink" href="#analyzing-the-regression-results" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">12.3. </span>Analyzing the regression results<a class="headerlink" href="#analyzing-the-regression-results" title="Permalink to this heading">#</a></h2>
 <ul>
 <li><p>The <strong>result of the fit</strong> consists in several pieces of information:</p>
 <ul class="simple">
@@ -789,7 +785,7 @@ including a plot of the input data with the fitting model superimposed</p>
 for it to be used in the program</p></li>
 </ul>
 <section id="study-the-fit-convergence">
-<h3><span class="section-number">12.4.1. </span>Study the fit convergence<a class="headerlink" href="#study-the-fit-convergence" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">12.3.1. </span>Study the fit convergence<a class="headerlink" href="#study-the-fit-convergence" title="Permalink to this heading">#</a></h3>
 <ul>
 <li><p>To determine the <strong>success of the numerical algorithm</strong>,
 the <code class="docutils literal notranslate"><span class="pre">Minuit.valid</span></code> variable is used:
@@ -801,7 +797,7 @@ which should be <code class="docutils literal notranslate"><span class="pre">Tru
 </ul>
 </section>
 <section id="parameter-values-and-uncertainty">
-<h3><span class="section-number">12.4.2. </span>Parameter values and uncertainty<a class="headerlink" href="#parameter-values-and-uncertainty" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">12.3.2. </span>Parameter values and uncertainty<a class="headerlink" href="#parameter-values-and-uncertainty" title="Permalink to this heading">#</a></h3>
 <ul>
 <li><p>As for the least squares case,
 the value of the parameters and their uncertainty can be <strong>obtained from the Minuit object</strong>:</p>
@@ -834,7 +830,7 @@ are <strong>not symmetric around each parameter value</strong>:</p>
 </section>
 </section>
 <section id="unbinned-maximum-likelihood-fit">
-<h2><span class="section-number">12.5. </span>Unbinned maximum likelihood fit<a class="headerlink" href="#unbinned-maximum-likelihood-fit" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">12.4. </span>Unbinned maximum likelihood fit<a class="headerlink" href="#unbinned-maximum-likelihood-fit" title="Permalink to this heading">#</a></h2>
 <ul>
 <li><p>In the case of an unbinned maximum likelihood fit,
 the model function to be used is <strong>the probability density function itself</strong>.
@@ -861,7 +857,7 @@ as an approximation of the <span class="math notranslate nohighlight">\(Q^2\)</s
 </ul>
 </section>
 <section id="least-squares-and-maximum-likelihood">
-<h2><span class="section-number">12.6. </span>Least squares and maximum likelihood<a class="headerlink" href="#least-squares-and-maximum-likelihood" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">12.5. </span>Least squares and maximum likelihood<a class="headerlink" href="#least-squares-and-maximum-likelihood" title="Permalink to this heading">#</a></h2>
 <ul class="simple">
 <li><p>The least squares method (LS) and the maximum likelihood method
 (ML) are <strong>parameter estimators of a model</strong> based on data</p></li>
@@ -869,7 +865,7 @@ as an approximation of the <span class="math notranslate nohighlight">\(Q^2\)</s
 even though they use the same data, they can <strong>produce different results</strong></p></li>
 </ul>
 <section id="least-squares-method-for-histogram-fitting">
-<h3><span class="section-number">12.6.1. </span>Least squares method for histogram fitting<a class="headerlink" href="#least-squares-method-for-histogram-fitting" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">12.5.1. </span>Least squares method for histogram fitting<a class="headerlink" href="#least-squares-method-for-histogram-fitting" title="Permalink to this heading">#</a></h3>
 <ul>
 <li><p>When applying the least squares method,
 the <strong>input function representing the statistical model</strong>
@@ -894,7 +890,7 @@ for the binned maximum likelihood case</p></li>
 </section>
 </section>
 <section id="fit-quality">
-<h2><span class="section-number">12.7. </span>Fit quality<a class="headerlink" href="#fit-quality" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">12.6. </span>Fit quality<a class="headerlink" href="#fit-quality" title="Permalink to this heading">#</a></h2>
 <ul class="simple">
 <li><p>In case the probability density distribution of the individual <span class="math notranslate nohighlight">\(n_i\)</span> follows a Gaussian,
 the <strong><span class="math notranslate nohighlight">\(Q^2_{\text{min}}\)</span> quantity follows the <span class="math notranslate nohighlight">\(\chi^2\)</span> distribution</strong>
@@ -955,7 +951,7 @@ both for the maximum likelihood (extended and not) and least squares techniques<
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title"><span class="section-number">12.8. </span>Exercises for Lecture 12</p>
+        <p class="prev-next-title"><span class="section-number">12.7. </span>Exercises for Lecture 12</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -974,35 +970,34 @@ both for the maximum likelihood (extended and not) and least squares techniques<
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#todos">12.1. TODOs</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#introduction">12.2. Introduction</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#fit-of-binned-distributions-with-the-least-squares-method">12.2.1. Fit of binned distributions with the least squares method</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#fit-of-binned-distributions-with-the-maximum-likelihood-method">12.2.2. Fit of binned distributions with the maximum likelihood method</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#choosing-amongst-the-least-squares-and-the-maximum-likelihood">12.2.3. Choosing amongst the least squares and the maximum likelihood</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#introduction">12.1. Introduction</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#fit-of-binned-distributions-with-the-least-squares-method">12.1.1. Fit of binned distributions with the least squares method</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#fit-of-binned-distributions-with-the-maximum-likelihood-method">12.1.2. Fit of binned distributions with the maximum likelihood method</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#choosing-amongst-the-least-squares-and-the-maximum-likelihood">12.1.3. Choosing amongst the least squares and the maximum likelihood</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#a-regression-exercise-with-binned-data">12.3. A regression exercise with binned data</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#reading-the-data-from-a-file">12.3.1. Reading the data from a file</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#determining-the-fit-parameters">12.3.2. Determining the fit parameters</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#defining-the-statistical-model-for-the-fit">12.3.3. Defining the statistical model for the fit</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#setting-up-the-fitting-algorithm">12.3.4. Setting up the fitting algorithm</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#helping-minuit-to-find-the-right-minimum">12.3.5. Helping <em>Minuit</em> to find the right minimum</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#how-to-deal-with-one-parameter-at-a-time">12.3.6. How to deal with one parameter at a time</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#determine-the-exponential-slope">12.3.7. Determine the exponential slope</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-final-fit">12.3.8. The final fit</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#a-regression-exercise-with-binned-data">12.2. A regression exercise with binned data</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#reading-the-data-from-a-file">12.2.1. Reading the data from a file</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#determining-the-fit-parameters">12.2.2. Determining the fit parameters</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#defining-the-statistical-model-for-the-fit">12.2.3. Defining the statistical model for the fit</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#setting-up-the-fitting-algorithm">12.2.4. Setting up the fitting algorithm</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#helping-minuit-to-find-the-right-minimum">12.2.5. Helping <em>Minuit</em> to find the right minimum</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#how-to-deal-with-one-parameter-at-a-time">12.2.6. How to deal with one parameter at a time</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#determine-the-exponential-slope">12.2.7. Determine the exponential slope</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-final-fit">12.2.8. The final fit</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#analyzing-the-regression-results">12.4. Analyzing the regression results</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#study-the-fit-convergence">12.4.1. Study the fit convergence</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#parameter-values-and-uncertainty">12.4.2. Parameter values and uncertainty</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#analyzing-the-regression-results">12.3. Analyzing the regression results</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#study-the-fit-convergence">12.3.1. Study the fit convergence</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#parameter-values-and-uncertainty">12.3.2. Parameter values and uncertainty</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#unbinned-maximum-likelihood-fit">12.5. Unbinned maximum likelihood fit</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#least-squares-and-maximum-likelihood">12.6. Least squares and maximum likelihood</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#least-squares-method-for-histogram-fitting">12.6.1. Least squares method for histogram fitting</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#unbinned-maximum-likelihood-fit">12.4. Unbinned maximum likelihood fit</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#least-squares-and-maximum-likelihood">12.5. Least squares and maximum likelihood</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#least-squares-method-for-histogram-fitting">12.5.1. Least squares method for histogram fitting</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#fit-quality">12.7. Fit quality</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#fit-quality">12.6. Fit quality</a></li>
 </ul>
   </nav></div>
 
