@@ -3,7 +3,7 @@
 ## Exercise 12.1
 
 Write a program that fits the events saved in the file
-   [```dati.txt```](https://raw.githubusercontent.com/UnimibFisicaLaboratori/UnimibFisicaLabStatPython/main/book/lectures/Lecture_12/exercises/dati.txt?token=GHSAT0AAAAAACD74PL6IWYFVSGIAUFHKYISZGPJ7AA).
+   [```dati.txt```](https://drive.google.com/file/d/19Csfi4zrSz0bLREXOaPaWicIUUmstHQz/view?usp=sharing).
   * Take care to determine the range and binning of the histogram used for the fit
     based on the events themselves,
     writing appropriate algorithms to determine the minimum and maximum of the sample
