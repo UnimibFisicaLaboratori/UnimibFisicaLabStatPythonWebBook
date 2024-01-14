@@ -9,7 +9,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
-    <title>cost functions comparison: exercise 12.4 &#8212; Laboratorio di Calcolo e Statistica</title>
+    <title>12.11. cost functions comparison: exercise 12.4 &#8212; Laboratorio di Calcolo e Statistica</title>
   
   
   
@@ -67,6 +67,7 @@ const thebe_selector_output = ".output, .cell_output"
     <script>DOCUMENTATION_OPTIONS.pagename = 'lectures/Lecture_12/exercises/es_12.4_solutions';</script>
     <link rel="index" title="Index" href="../../../genindex.html" />
     <link rel="search" title="Search" href="../../../search.html" />
+    <link rel="prev" title="12.10. Binned fits solutions: exercise 12.3" href="es_12.3_solutions.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -173,7 +174,7 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1"><a class="reference internal" href="../../../prerequisites/README.html">Prerequisites of this Course</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Lectures</span></p>
-<ul class="nav bd-sidenav">
+<ul class="current nav bd-sidenav">
 <li class="toctree-l1 has-children"><a class="reference internal" href="../../Lecture_01/basics_python.html">1. Basics of Python Programming</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
 <li class="toctree-l2"><a class="reference internal" href="../../Lecture_01/EXAMPLES.html">1.10. Examples: Lecture 1</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../Lecture_01/EXERCISES.html">1.11. Exercises for Lecture 1</a></li>
@@ -240,8 +241,12 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l2"><a class="reference internal" href="../../Lecture_11/exercises/least_squares_solutions.html">11.6. Least squares solutions</a></li>
 </ul>
 </li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../fit_binned.html">12. Fit of Binned Distributions</a><input class="toctree-checkbox" id="toctree-checkbox-12" name="toctree-checkbox-12" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-12"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="../fit_binned.html">12. Fit of Binned Distributions</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-12" name="toctree-checkbox-12" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-12"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="../EXERCISES.html">12.7. Exercises for Lecture 12</a></li>
+<li class="toctree-l2"><a class="reference internal" href="es_12.1_solutions.html">12.8. Binned fits solutions: Exercise 12.1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="es_12.2_solutions.html">12.9. Binned fits solutions: Exercise 12.2</a></li>
+<li class="toctree-l2"><a class="reference internal" href="es_12.3_solutions.html">12.10. Binned fits solutions: exercise 12.3</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">12.11. cost functions comparison: exercise 12.4</a></li>
 </ul>
 </li>
 </ul>
@@ -439,11 +444,11 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-12-4">Exercise 12.4</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#binned-likelihood">binned likelihood</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#extended-binned-likelihood">extended binned likelihood</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#least-squares">least squares</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#compare-the-five-estimates">compare the five estimates</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-12-4">12.11.1. Exercise 12.4</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#binned-likelihood">12.11.1.1. binned likelihood</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#extended-binned-likelihood">12.11.1.2. extended binned likelihood</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#least-squares">12.11.1.3. least squares</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#compare-the-five-estimates">12.11.1.4. compare the five estimates</a></li>
 </ul>
 </li>
 </ul>
@@ -458,9 +463,9 @@ document.write(`
                 <article class="bd-article" role="main">
                   
   <section class="tex2jax_ignore mathjax_ignore" id="cost-functions-comparison-exercise-12-4">
-<h1>cost functions comparison: exercise 12.4<a class="headerlink" href="#cost-functions-comparison-exercise-12-4" title="Permalink to this heading">#</a></h1>
+<h1><span class="section-number">12.11. </span>cost functions comparison: exercise 12.4<a class="headerlink" href="#cost-functions-comparison-exercise-12-4" title="Permalink to this heading">#</a></h1>
 <section id="exercise-12-4">
-<h2>Exercise 12.4<a class="headerlink" href="#exercise-12-4" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">12.11.1. </span>Exercise 12.4<a class="headerlink" href="#exercise-12-4" title="Permalink to this heading">#</a></h2>
 <p>Starting from samples of pseudo-random numbers generated
 according to a Gaussian probability density function,
 using the technique of the toy experiments
@@ -492,7 +497,7 @@ for the cases of maximum likelihood, extended maximum likelihood, and least squa
 </div>
 </div>
 <section id="binned-likelihood">
-<h3>binned likelihood<a class="headerlink" href="#binned-likelihood" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">12.11.1.1. </span>binned likelihood<a class="headerlink" href="#binned-likelihood" title="Permalink to this heading">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">iminuit.cost</span> <span class="kn">import</span> <span class="n">BinnedNLL</span>
@@ -530,7 +535,7 @@ for the cases of maximum likelihood, extended maximum likelihood, and least squa
 </div>
 </section>
 <section id="extended-binned-likelihood">
-<h3>extended binned likelihood<a class="headerlink" href="#extended-binned-likelihood" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">12.11.1.2. </span>extended binned likelihood<a class="headerlink" href="#extended-binned-likelihood" title="Permalink to this heading">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">iminuit.cost</span> <span class="kn">import</span> <span class="n">ExtendedBinnedNLL</span>
@@ -600,35 +605,20 @@ for the cases of maximum likelihood, extended maximum likelihood, and least squa
 <span class="g g-Whitespace">    </span><span class="mi">601</span>     <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">verbose</span> <span class="o">&gt;=</span> <span class="mi">1</span><span class="p">:</span>
 <span class="g g-Whitespace">    </span><span class="mi">602</span>         <span class="nb">print</span><span class="p">(</span><span class="n">args</span><span class="p">,</span> <span class="s2">&quot;-&gt;&quot;</span><span class="p">,</span> <span class="n">r</span><span class="p">)</span>
 
-<span class="nn">File /opt/hostedtoolcache/Python/3.8.18/x64/lib/python3.8/site-packages/iminuit/cost.py:1686,</span> in <span class="ni">ExtendedBinnedNLL._call</span><span class="nt">(self, args)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1685</span> <span class="k">def</span> <span class="nf">_call</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">args</span><span class="p">:</span> <span class="n">Sequence</span><span class="p">[</span><span class="nb">float</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="nb">float</span><span class="p">:</span>
-<span class="ne">-&gt; </span><span class="mi">1686</span>     <span class="n">mu</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_pred</span><span class="p">(</span><span class="n">args</span><span class="p">)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1687</span>     <span class="n">ma</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">mask</span>
-<span class="g g-Whitespace">   </span><span class="mi">1688</span>     <span class="k">if</span> <span class="n">ma</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+<span class="nn">File /opt/hostedtoolcache/Python/3.8.18/x64/lib/python3.8/site-packages/iminuit/cost.py:1695,</span> in <span class="ni">ExtendedBinnedNLL._call</span><span class="nt">(self, args)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1693</span>     <span class="n">n</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_masked</span>
+<span class="g g-Whitespace">   </span><span class="mi">1694</span> <span class="c1"># assert isinstance(n, np.ndarray)</span>
+<span class="ne">-&gt; </span><span class="mi">1695</span> <span class="k">return</span> <span class="n">poisson_chi2</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">mu</span><span class="p">)</span>
 
-<span class="nn">File /opt/hostedtoolcache/Python/3.8.18/x64/lib/python3.8/site-packages/iminuit/cost.py:1252,</span> in <span class="ni">BinnedCostWithModel._pred</span><span class="nt">(self, args)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1251</span> <span class="k">def</span> <span class="nf">_pred</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">args</span><span class="p">:</span> <span class="n">Sequence</span><span class="p">[</span><span class="nb">float</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="n">NDArray</span><span class="p">:</span>
-<span class="ne">-&gt; </span><span class="mi">1252</span>     <span class="n">d</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_model</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_model_xe</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1253</span>     <span class="n">d</span> <span class="o">=</span> <span class="n">_normalize_model_output</span><span class="p">(</span><span class="n">d</span><span class="p">)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1254</span>     <span class="n">expected_shape</span> <span class="o">=</span> <span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">prod</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_xe_shape</span><span class="p">),)</span>
-
-<span class="nn">Cell In[3], line 5,</span> in <span class="ni">mod_signal_bin_ext_LL</span><span class="nt">(bin_edges, N_signal, mu, sigma)</span>
-<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="k">def</span> <span class="nf">mod_signal_bin_ext_LL</span> <span class="p">(</span><span class="n">bin_edges</span><span class="p">,</span> <span class="n">N_signal</span><span class="p">,</span> <span class="n">mu</span><span class="p">,</span> <span class="n">sigma</span><span class="p">)</span> <span class="p">:</span>
-<span class="g g-Whitespace">      </span><span class="mi">4</span><span class="w">     </span><span class="sd">&#39;&#39;&#39; fitting model for extended binned likelihood&#39;&#39;&#39;</span>
-<span class="ne">----&gt; </span><span class="mi">5</span>     <span class="k">return</span> <span class="n">N_signal</span> <span class="o">*</span> <span class="n">norm</span><span class="o">.</span><span class="n">cdf</span> <span class="p">(</span><span class="n">bin_edges</span><span class="p">,</span> <span class="n">mu</span><span class="p">,</span> <span class="n">sigma</span><span class="p">)</span>
-
-<span class="nn">File /opt/hostedtoolcache/Python/3.8.18/x64/lib/python3.8/site-packages/scipy/stats/_distn_infrastructure.py:2182,</span> in <span class="ni">rv_continuous.cdf</span><span class="nt">(self, x, *args, **kwds)</span>
-<span class="g g-Whitespace">   </span><span class="mi">2180</span> <span class="n">cond</span> <span class="o">=</span> <span class="n">cond0</span> <span class="o">&amp;</span> <span class="n">cond1</span>
-<span class="g g-Whitespace">   </span><span class="mi">2181</span> <span class="n">output</span> <span class="o">=</span> <span class="n">zeros</span><span class="p">(</span><span class="n">shape</span><span class="p">(</span><span class="n">cond</span><span class="p">),</span> <span class="n">dtyp</span><span class="p">)</span>
-<span class="ne">-&gt; </span><span class="mi">2182</span> <span class="n">place</span><span class="p">(</span><span class="n">output</span><span class="p">,</span> <span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="n">cond0</span><span class="p">)</span><span class="o">+</span><span class="n">np</span><span class="o">.</span><span class="n">isnan</span><span class="p">(</span><span class="n">x</span><span class="p">),</span> <span class="bp">self</span><span class="o">.</span><span class="n">badvalue</span><span class="p">)</span>
-<span class="g g-Whitespace">   </span><span class="mi">2183</span> <span class="n">place</span><span class="p">(</span><span class="n">output</span><span class="p">,</span> <span class="n">cond2</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">)</span>
-<span class="g g-Whitespace">   </span><span class="mi">2184</span> <span class="k">if</span> <span class="n">np</span><span class="o">.</span><span class="n">any</span><span class="p">(</span><span class="n">cond</span><span class="p">):</span>  <span class="c1"># call only if at least 1 entry</span>
-
-<span class="nn">File &lt;__array_function__ internals&gt;:180,</span> in <span class="ni">place</span><span class="nt">(*args, **kwargs)</span>
-
-<span class="nn">File /opt/hostedtoolcache/Python/3.8.18/x64/lib/python3.8/site-packages/numpy/lib/function_base.py:1910,</span> in <span class="ni">_place_dispatcher</span><span class="nt">(arr, mask, vals)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1909</span> <span class="k">def</span> <span class="nf">_place_dispatcher</span><span class="p">(</span><span class="n">arr</span><span class="p">,</span> <span class="n">mask</span><span class="p">,</span> <span class="n">vals</span><span class="p">):</span>
-<span class="ne">-&gt; </span><span class="mi">1910</span>     <span class="k">return</span> <span class="p">(</span><span class="n">arr</span><span class="p">,</span> <span class="n">mask</span><span class="p">,</span> <span class="n">vals</span><span class="p">)</span>
+<span class="nn">File /opt/hostedtoolcache/Python/3.8.18/x64/lib/python3.8/site-packages/iminuit/cost.py:287,</span> in <span class="ni">poisson_chi2</span><span class="nt">(n, mu)</span>
+<span class="g g-Whitespace">    </span><span class="mi">264</span><span class="w"> </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="g g-Whitespace">    </span><span class="mi">265</span><span class="sd"> Compute asymptotically chi2-distributed cost for Poisson-distributed data.</span>
+<span class="g g-Whitespace">    </span><span class="mi">266</span><span class="sd"> </span>
+<span class="sd">   (...)</span>
+<span class="g g-Whitespace">    </span><span class="mi">284</span><span class="sd"> which helps to maximise the numerical accuracy for Minuit.</span>
+<span class="g g-Whitespace">    </span><span class="mi">285</span><span class="sd"> &quot;&quot;&quot;</span>
+<span class="g g-Whitespace">    </span><span class="mi">286</span> <span class="n">n</span><span class="p">,</span> <span class="n">mu</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">atleast_1d</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">mu</span><span class="p">)</span>
+<span class="ne">--&gt; </span><span class="mi">287</span> <span class="k">return</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">mu</span> <span class="o">-</span> <span class="n">n</span> <span class="o">+</span> <span class="n">n</span> <span class="o">*</span> <span class="p">(</span><span class="n">_safe_log</span><span class="p">(</span><span class="n">n</span><span class="p">)</span> <span class="o">-</span> <span class="n">_safe_log</span><span class="p">(</span><span class="n">mu</span><span class="p">)))</span>
 
 <span class="ne">KeyboardInterrupt</span>: 
 </pre></div>
@@ -637,7 +627,7 @@ for the cases of maximum likelihood, extended maximum likelihood, and least squa
 </div>
 </section>
 <section id="least-squares">
-<h3>least squares<a class="headerlink" href="#least-squares" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">12.11.1.3. </span>least squares<a class="headerlink" href="#least-squares" title="Permalink to this heading">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">iminuit.cost</span> <span class="kn">import</span> <span class="n">LeastSquares</span>
@@ -678,7 +668,7 @@ for the cases of maximum likelihood, extended maximum likelihood, and least squa
 </div>
 </section>
 <section id="compare-the-five-estimates">
-<h3>compare the five estimates<a class="headerlink" href="#compare-the-five-estimates" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">12.11.1.4. </span>compare the five estimates<a class="headerlink" href="#compare-the-five-estimates" title="Permalink to this heading">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">scipy.stats</span> <span class="kn">import</span> <span class="n">chi2</span>
@@ -753,6 +743,15 @@ for the cases of maximum likelihood, extended maximum likelihood, and least squa
                 <footer class="prev-next-footer">
                   
 <div class="prev-next-area">
+    <a class="left-prev"
+       href="es_12.3_solutions.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title"><span class="section-number">12.10. </span>Binned fits solutions: exercise 12.3</p>
+      </div>
+    </a>
 </div>
                 </footer>
               
@@ -768,11 +767,11 @@ for the cases of maximum likelihood, extended maximum likelihood, and least squa
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-12-4">Exercise 12.4</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#binned-likelihood">binned likelihood</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#extended-binned-likelihood">extended binned likelihood</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#least-squares">least squares</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#compare-the-five-estimates">compare the five estimates</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-12-4">12.11.1. Exercise 12.4</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#binned-likelihood">12.11.1.1. binned likelihood</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#extended-binned-likelihood">12.11.1.2. extended binned likelihood</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#least-squares">12.11.1.3. least squares</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#compare-the-five-estimates">12.11.1.4. compare the five estimates</a></li>
 </ul>
 </li>
 </ul>

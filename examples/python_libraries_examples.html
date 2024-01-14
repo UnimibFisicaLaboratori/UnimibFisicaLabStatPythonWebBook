@@ -240,6 +240,10 @@ const thebe_selector_output = ".output, .cell_output"
 </li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../lectures/Lecture_12/fit_binned.html">12. Fit of Binned Distributions</a><input class="toctree-checkbox" id="toctree-checkbox-12" name="toctree-checkbox-12" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-12"><i class="fa-solid fa-chevron-down"></i></label><ul>
 <li class="toctree-l2"><a class="reference internal" href="../lectures/Lecture_12/EXERCISES.html">12.7. Exercises for Lecture 12</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../lectures/Lecture_12/exercises/es_12.1_solutions.html">12.8. Binned fits solutions: Exercise 12.1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../lectures/Lecture_12/exercises/es_12.2_solutions.html">12.9. Binned fits solutions: Exercise 12.2</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../lectures/Lecture_12/exercises/es_12.3_solutions.html">12.10. Binned fits solutions: exercise 12.3</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../lectures/Lecture_12/exercises/es_12.4_solutions.html">12.11. cost functions comparison: exercise 12.4</a></li>
 </ul>
 </li>
 </ul>
@@ -484,7 +488,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>It took 3.594ms (CPU: 7.171ms)
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>It took 3.514ms (CPU: 7.021ms)
 </pre></div>
 </div>
 </div>
@@ -501,7 +505,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>It took 0.851ms (CPU: 1.700ms)
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>It took 1.228ms (CPU: 2.454ms)
 </pre></div>
 </div>
 </div>
@@ -529,8 +533,8 @@ Let’s compare the timing and syntax of a term-by-term product of two arrays.</
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>lists multiplication: 1.234ms (CPU: 2.461ms)
-ndarray multiplication: 0.093ms (CPU: 0.184ms)
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>lists multiplication: 1.720ms (CPU: 3.438ms)
+ndarray multiplication: 0.108ms (CPU: 0.216ms)
 </pre></div>
 </div>
 </div>
@@ -555,8 +559,8 @@ Let’s see the performance when dealing with 1M events arrays.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>lists multiplication: 128.180ms (CPU: 128.257ms)
-ndarray multiplication: 3.325ms (CPU: 3.513ms)
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>lists multiplication: 182.271ms (CPU: 181.904ms)
+ndarray multiplication: 4.357ms (CPU: 4.758ms)
 </pre></div>
 </div>
 </div>
