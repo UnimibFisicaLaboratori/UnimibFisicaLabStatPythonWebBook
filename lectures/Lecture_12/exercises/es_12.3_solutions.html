@@ -569,7 +569,7 @@ as the number of events changes, for both types of estimators.</p></li>
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">iminuit.cost</span> <span class="kn">import</span> <span class="n">LeastSquares</span>
 
 <span class="k">def</span> <span class="nf">sturges</span> <span class="p">(</span><span class="n">N_events</span><span class="p">)</span> <span class="p">:</span>
-    <span class="k">return</span> <span class="n">ceil</span> <span class="p">(</span><span class="mi">1</span> <span class="o">+</span> <span class="mf">3.322</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">log</span> <span class="p">(</span><span class="n">N_events</span><span class="p">))</span>
+    <span class="k">return</span> <span class="n">ceil</span> <span class="p">(</span><span class="mi">1</span> <span class="o">+</span> <span class="n">np</span><span class="o">.</span><span class="n">log2</span> <span class="p">(</span><span class="n">N_events</span><span class="p">))</span>
 
 <span class="k">def</span> <span class="nf">func_approx</span> <span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">N_events</span><span class="p">,</span> <span class="n">mean</span><span class="p">,</span> <span class="n">sigma</span><span class="p">,</span> <span class="n">bin_width</span><span class="p">)</span> <span class="p">:</span>
     <span class="k">return</span> <span class="n">N_events</span> <span class="o">*</span> <span class="n">norm</span><span class="o">.</span><span class="n">pdf</span> <span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">mean</span><span class="p">,</span> <span class="n">sigma</span><span class="p">)</span> <span class="o">*</span> <span class="n">bin_width</span>
@@ -635,7 +635,7 @@ as the number of events changes, for both types of estimators.</p></li>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../../_images/e1c5d8a48514814e7bbe285be72d960d5fc86e164626724e639e4985fc0972a7.png" src="../../../_images/e1c5d8a48514814e7bbe285be72d960d5fc86e164626724e639e4985fc0972a7.png" />
+<img alt="../../../_images/9639777e94d6df1038d1567246ce2f265c65f68ced0a4a99355be737be16f406.png" src="../../../_images/9639777e94d6df1038d1567246ce2f265c65f68ced0a4a99355be737be16f406.png" />
 </div>
 </div>
 </section>

@@ -116,7 +116,7 @@
     ```py
     import numpy as np
     def sturges (N_events) :
-         return int( np.ceil( 1 + 3.322 * np.log(N_events) ) )
+         return int( np.ceil( 1 + np.log2(N_events) ) )
     ```
     which may be used as follows in the drawing instructions:
     ```py
