@@ -537,22 +537,18 @@ which need to be converted into floats for them to be used as sample elements</p
 <section id="histograms">
 <h2><span class="section-number">3.2. </span>Histograms<a class="headerlink" href="#histograms" title="Permalink to this heading">#</a></h2>
 <ul class="simple">
-<li><p><strong>Histograms</strong> are a representation of differential distributions,
-constructed from a sample of numbers,
-which we call <strong>events</strong></p></li>
-<li><p>We start with <strong>a sample of events <em>{x<sub>i</sub>}<sub>i=1,..,N</sub></em></strong></p>
-<ul>
+<li><p><strong>Histograms</strong> are a graphical representation of the distribution
+of <strong>a sample of random numbers <em>{x<sub>i</sub>}<sub>i=1,..,N</sub></em></strong>
+usually called <strong>events</strong>.</p></li>
 <li><p>An example of a sample of events
-is <strong>the set of measurements collected during an experiment</strong>,
-or a <strong>sequence of pseudo-random numbers</strong></p></li>
-</ul>
-</li>
+is <strong>the set of measurements collected during an experiment</strong>.</p></li>
 </ul>
 <section id="histogram-bins">
 <h3><span class="section-number">3.2.1. </span>Histogram Bins<a class="headerlink" href="#histogram-bins" title="Permalink to this heading">#</a></h3>
 <ul class="simple">
-<li><p>For a random variable of interest <em>x</em>, its interval of definition is divided
-into <strong>adjacent and disjoint sub-intervals</strong> delimited by <em>{x<sub>k</sub>}</em></p>
+<li><p>For a random variable of interest <em>x</em>,
+its interval of definition is divided into <strong>adjacent and disjoint sub-intervals</strong>
+delimited by <em>{x<sub>k</sub>}</em></p>
 <ul>
 <li><p>The <em>k</em>-th interval is bounded between x<sub>k</sub> and x<sub>k+1</sub></p></li>
 <li><p>Usually, these intervals are called <strong>bins</strong></p></li>
@@ -700,7 +696,7 @@ this operation is performed using a <strong>method of the <code class="docutils 
 </section>
 <section id="data-models">
 <h2><span class="section-number">3.4. </span>Data models<a class="headerlink" href="#data-models" title="Permalink to this heading">#</a></h2>
-<ul class="simple">
+<ul>
 <li><p><strong>Notable probability density function distributions</strong>
 exist in a pre-implemented form in the
 <a class="reference external" href="https://scipy.org"><code class="docutils literal notranslate"><span class="pre">SciPy</span></code></a> library,
@@ -708,9 +704,19 @@ which provides algorithms and data structures for scientific computing.</p></li>
 <li><p>The <strong>full list of available models</strong> may be found <a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/stats.html#module-scipy.stats">here</a></p></li>
 <li><p>All continuous distributions take <strong><code class="docutils literal notranslate"><span class="pre">loc</span></code> and <code class="docutils literal notranslate"><span class="pre">scale</span></code> as keyword parameters</strong>
 to adjust the location and scale of the distribution</p>
-<ul>
-<li><p>for the <strong><a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.norm.html#scipy-stats-norm">Gaussian</a> distribution</strong>, the <code class="docutils literal notranslate"><span class="pre">loc</span></code> is the mean and the <code class="docutils literal notranslate"><span class="pre">scale</span></code> is the standard deviation</p></li>
+<ul class="simple">
+<li><p>for the <strong><a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.norm.html#scipy-stats-norm">Gaussian</a> distribution</strong>,
+the <code class="docutils literal notranslate"><span class="pre">loc</span></code> is the mean and the <code class="docutils literal notranslate"><span class="pre">scale</span></code> is the standard deviation</p></li>
 </ul>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Probability density functions <em>f</em> are usually written for a <a class="reference external" href="https://www.statisticshowto.com/standardized-variables/">standardized variable</a>,
+and the <code class="docutils literal notranslate"><span class="pre">loc</span></code> and <code class="docutils literal notranslate"><span class="pre">scale</span></code> parameters are used to generalise them,
+usually with the formula:
+$<span class="math notranslate nohighlight">\(
+f(x, loc, scale) = \frac{1}{scale}f(\frac{x-loc}{scale})
+\)</span>$</p>
+</div>
 </li>
 </ul>
 <section id="using-a-continuous-probability-density-function">
@@ -739,7 +745,10 @@ as for example for the Gaussian distribution:</p>
 </ul>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>For discrete probability density functions (e.g. <em>Poisson</em>, <em>Binomial</em>), the <code class="docutils literal notranslate"><span class="pre">pmf</span></code> function is used instead of <code class="docutils literal notranslate"><span class="pre">pdf</span></code>.</p>
+<p>For discrete probability density functions (e.g. <em>Poisson</em>, <em>Binomial</em>),
+for each single value on the domain axis a probability - not a density - is associated,
+and the corresponding function is called <strong>probability mass function</strong>,
+abbreviated as <code class="docutils literal notranslate"><span class="pre">pmf</span></code>.</p>
 </div>
 </section>
 <section id="the-cumulative-density-function">
@@ -747,7 +756,7 @@ as for example for the Gaussian distribution:</p>
 <ul>
 <li><p>The function <code class="docutils literal notranslate"><span class="pre">cdf</span></code> gives access to the <strong>cumulative density function</strong> of the model,
 for example in the case of a <a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.norm.html#scipy-stats-norm">Gaussian</a> distribution:</p>
-<div class="highlight-py notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span> <span class="p">(</span><span class="s1">&#39;the value of the Gaussian distribution cumulative at its mean is: &#39;</span> <span class="o">+</span>
+<div class="highlight-py notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span> <span class="p">(</span><span class="s1">&#39;the value of the cumulative Gaussian distribution at its mean is: &#39;</span> <span class="o">+</span>
        <span class="nb">str</span> <span class="p">(</span><span class="n">norm</span><span class="o">.</span><span class="n">cdf</span> <span class="p">(</span><span class="n">mean</span><span class="p">,</span> <span class="n">mean</span><span class="p">,</span> <span class="n">sigma</span><span class="p">))</span>
        <span class="p">)</span>
 </pre></div>

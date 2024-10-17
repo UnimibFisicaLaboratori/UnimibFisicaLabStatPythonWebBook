@@ -42,18 +42,17 @@
 
 ## Histograms
 
-  * **Histograms** are a representation of differential distributions,
-    constructed from a sample of numbers,
-    which we call **events**
-  * We start with **a sample of events _{x<sub>i</sub>}<sub>i=1,..,N</sub>_**
-    * An example of a sample of events
-      is **the set of measurements collected during an experiment**,
-      or a **sequence of pseudo-random numbers**
+  * **Histograms** are a graphical representation of the distribution
+    of **a sample of random numbers _{x<sub>i</sub>}<sub>i=1,..,N</sub>_** 
+    usually called **events**.
+  * An example of a sample of events
+    is **the set of measurements collected during an experiment**.
 
 ### Histogram Bins
 
-  * For a random variable of interest *x*, its interval of definition is divided
-    into **adjacent and disjoint sub-intervals** delimited by *{x<sub>k</sub>}*
+  * For a random variable of interest *x*, 
+    its interval of definition is divided into **adjacent and disjoint sub-intervals** 
+    delimited by *{x<sub>k</sub>}*
     * The *k*-th interval is bounded between x<sub>k</sub> and x<sub>k+1</sub>
     * Usually, these intervals are called **bins**
   * An histogram is the **collection of event counts that fall within each interval**
@@ -175,7 +174,17 @@
   * The **full list of available models** may be found [here](https://docs.scipy.org/doc/scipy/reference/stats.html#module-scipy.stats)
   * All continuous distributions take **`loc` and `scale` as keyword parameters**
     to adjust the location and scale of the distribution
-    * for the **[Gaussian](https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.norm.html#scipy-stats-norm) distribution**, the `loc` is the mean and the `scale` is the standard deviation
+    * for the **[Gaussian](https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.norm.html#scipy-stats-norm) distribution**, 
+      the `loc` is the mean and the `scale` is the standard deviation
+
+    `````{note}
+    Probability density functions *f* are usually written for a [standardized variable](https://www.statisticshowto.com/standardized-variables/),
+    and the `loc` and `scale` parameters are used to generalise them,
+    usually with the formula:
+    $$
+    f(x, loc, scale) = \frac{1}{scale}f(\frac{x-loc}{scale})
+    $$
+    `````
 
 ### Using a continuous probability density function
 
@@ -198,7 +207,10 @@
     ```
 
   ```{note}
-  For discrete probability density functions (e.g. *Poisson*, *Binomial*), the `pmf` function is used instead of `pdf`.
+  For discrete probability density functions (e.g. *Poisson*, *Binomial*), 
+  for each single value on the domain axis a probability - not a density - is associated,
+  and the corresponding function is called **probability mass function**, 
+  abbreviated as `pmf`.
   ```
 
 ### The cumulative density function
@@ -206,7 +218,7 @@
   * The function `cdf` gives access to the **cumulative density function** of the model,
     for example in the case of a [Gaussian](https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.norm.html#scipy-stats-norm) distribution:
     ```py
-    print ('the value of the Gaussian distribution cumulative at its mean is: ' +
+    print ('the value of the cumulative Gaussian distribution at its mean is: ' +
            str (norm.cdf (mean, mean, sigma))
            )
     ```
