@@ -141,7 +141,9 @@
 
 ## Calculate and draw sample moments
 
-  * Given a sample, its **moments may be calculated** by replacing expectation values with sample averages, for example:
+  * Given a sample, 
+    its **moments may be calculated** by replacing expectation values 
+    with sample averages, for example:
 
     $$
     E[x] = \int_{-\infty}^\infty x\:f(x)\:dx ~ \to ~ \sum^N_{i=1} x_i / N

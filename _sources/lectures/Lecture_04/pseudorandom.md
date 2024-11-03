@@ -244,7 +244,7 @@
 ![inverse_function](../../figs/inverse_function.png)
 
   * Generate **pseudo-random numbers y<sub>i</sub> with uniform distribution** between `0` and `1` along the *y* axis.
-  * For each generated event, **calculate *x<sub>i</sub> = F <sup>-1</sup>(y<sub>i</sub>)* **
+  * For each generated event, **calculate *x<sub>i</sub> = F <sup>-1</sup>(y<sub>i</sub>)***
     and use that value as the generated random number.
   * Where *f(x)* is higher, *F(x)* is steeper,
     so the number of pseudo-random numbers generated in the two intervals
