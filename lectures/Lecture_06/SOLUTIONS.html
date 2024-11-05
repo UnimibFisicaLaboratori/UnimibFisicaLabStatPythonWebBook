@@ -756,18 +756,21 @@ document.write(`
 <span class="sd">    &#39;&#39;&#39;</span>
 
     <span class="n">r</span> <span class="o">=</span> <span class="mf">0.618</span>
-    <span class="n">x2</span> <span class="o">=</span> <span class="n">x0</span> <span class="o">+</span> <span class="n">r</span> <span class="o">*</span> <span class="p">(</span><span class="n">x1</span> <span class="o">-</span> <span class="n">x0</span><span class="p">)</span> 
+    <span class="n">x2</span> <span class="o">=</span> <span class="n">x0</span> <span class="o">+</span> <span class="n">r</span> <span class="o">*</span> <span class="p">(</span><span class="n">x1</span> <span class="o">-</span> <span class="n">x0</span><span class="p">)</span>
+    <span class="n">g_x2</span> <span class="o">=</span> <span class="n">g</span> <span class="p">(</span><span class="n">x2</span><span class="p">)</span>
     <span class="n">x3</span> <span class="o">=</span> <span class="mf">0.</span> 
     <span class="n">larghezza</span> <span class="o">=</span> <span class="nb">abs</span> <span class="p">(</span><span class="n">x1</span> <span class="o">-</span> <span class="n">x0</span><span class="p">)</span>
      
     <span class="k">while</span> <span class="p">(</span><span class="n">larghezza</span> <span class="o">&gt;</span> <span class="n">prec</span><span class="p">):</span>
-        <span class="n">x3</span> <span class="o">=</span> <span class="n">x0</span> <span class="o">+</span> <span class="p">(</span><span class="mf">1.</span> <span class="o">-</span> <span class="n">r</span><span class="p">)</span> <span class="o">*</span> <span class="p">(</span><span class="n">x1</span> <span class="o">-</span> <span class="n">x0</span><span class="p">)</span>  
-      
+
+        <span class="n">x3</span> <span class="o">=</span> <span class="n">x0</span> <span class="o">+</span> <span class="p">(</span><span class="mf">1.</span> <span class="o">-</span> <span class="n">r</span><span class="p">)</span> <span class="o">*</span> <span class="p">(</span><span class="n">x1</span> <span class="o">-</span> <span class="n">x0</span><span class="p">)</span>
+        <span class="n">g_x3</span> <span class="o">=</span> <span class="n">g</span> <span class="p">(</span><span class="n">x3</span><span class="p">)</span>
         <span class="c1"># si restringe l&#39;intervallo tenendo fisso uno dei due estremi e spostando l&#39;altro        </span>
-        <span class="k">if</span> <span class="p">(</span><span class="n">g</span> <span class="p">(</span><span class="n">x3</span><span class="p">)</span> <span class="o">&lt;</span> <span class="n">g</span> <span class="p">(</span><span class="n">x2</span><span class="p">)):</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">g_x3</span> <span class="o">&lt;</span> <span class="n">g_x2</span><span class="p">):</span>
             <span class="c1"># x0 = x0 this extreme does not change</span>
             <span class="n">x1</span> <span class="o">=</span> <span class="n">x2</span>
             <span class="n">x2</span> <span class="o">=</span> <span class="n">x3</span>
+            <span class="n">g_x2</span> <span class="o">=</span> <span class="n">g_x3</span>
         <span class="k">else</span> <span class="p">:</span>
             <span class="n">x0</span> <span class="o">=</span> <span class="n">x1</span>
             <span class="n">x1</span> <span class="o">=</span> <span class="n">x3</span>
@@ -785,7 +788,8 @@ document.write(`
     <span class="n">g</span><span class="p">,</span>              <span class="c1"># funzione di cui trovare lo zero</span>
     <span class="n">x0</span><span class="p">,</span>             <span class="c1"># estremo dell&#39;intervallo          </span>
     <span class="n">x1</span><span class="p">,</span>             <span class="c1"># altro estremo dell&#39;intervallo   </span>
-    <span class="n">x2</span><span class="p">,</span>             <span class="c1"># punto intermedio dell&#39;intervallo      </span>
+    <span class="n">x2</span><span class="p">,</span>             <span class="c1"># punto intermedio dell&#39;intervallo </span>
+    <span class="n">g_x2</span><span class="p">,</span>           <span class="c1"># valore della funzione g in x2     </span>
     <span class="n">prec</span> <span class="o">=</span> <span class="mf">0.0001</span><span class="p">):</span> <span class="c1"># precisione della funzione        </span>
 <span class="w">    </span><span class="sd">&#39;&#39;&#39;</span>
 <span class="sd">    Funzione che calcola estremanti</span>
@@ -797,11 +801,12 @@ document.write(`
 
     <span class="n">r</span> <span class="o">=</span> <span class="mf">0.618</span>
     <span class="n">x3</span> <span class="o">=</span> <span class="n">x0</span> <span class="o">+</span> <span class="p">(</span><span class="mf">1.</span> <span class="o">-</span> <span class="n">r</span><span class="p">)</span> <span class="o">*</span> <span class="p">(</span><span class="n">x1</span> <span class="o">-</span> <span class="n">x0</span><span class="p">)</span> 
+    <span class="n">g_x3</span> <span class="o">=</span> <span class="n">g</span> <span class="p">(</span><span class="n">x3</span><span class="p">)</span>
     <span class="n">larghezza</span> <span class="o">=</span> <span class="nb">abs</span> <span class="p">(</span><span class="n">x1</span> <span class="o">-</span> <span class="n">x0</span><span class="p">)</span>
 
-    <span class="k">if</span> <span class="p">(</span><span class="n">larghezza</span> <span class="o">&lt;</span> <span class="n">prec</span><span class="p">)</span>  <span class="p">:</span> <span class="k">return</span> <span class="p">(</span> <span class="n">x0</span> <span class="o">+</span> <span class="n">x1</span><span class="p">)</span> <span class="o">/</span> <span class="mf">2.</span>
-    <span class="k">elif</span> <span class="p">(</span><span class="n">g</span> <span class="p">(</span><span class="n">x3</span><span class="p">)</span> <span class="o">&lt;</span> <span class="n">g</span> <span class="p">(</span><span class="n">x2</span><span class="p">))</span> <span class="p">:</span> <span class="k">return</span> <span class="n">sezioneAureaEffMin_ricorsiva</span> <span class="p">(</span><span class="n">g</span><span class="p">,</span> <span class="n">x0</span><span class="p">,</span> <span class="n">x2</span><span class="p">,</span> <span class="n">x3</span><span class="p">,</span> <span class="n">prec</span><span class="p">)</span>
-    <span class="k">else</span>                   <span class="p">:</span> <span class="k">return</span> <span class="n">sezioneAureaEffMin_ricorsiva</span> <span class="p">(</span><span class="n">g</span><span class="p">,</span> <span class="n">x1</span><span class="p">,</span> <span class="n">x3</span><span class="p">,</span> <span class="n">x2</span><span class="p">,</span> <span class="n">prec</span><span class="p">)</span>   
+    <span class="k">if</span> <span class="p">(</span><span class="n">larghezza</span> <span class="o">&lt;</span> <span class="n">prec</span><span class="p">)</span>  <span class="p">:</span> <span class="k">return</span> <span class="p">(</span><span class="n">x0</span> <span class="o">+</span> <span class="n">x1</span><span class="p">)</span> <span class="o">/</span> <span class="mf">2.</span>
+    <span class="k">elif</span> <span class="n">g_x3</span> <span class="o">&lt;</span> <span class="n">g_x2</span> <span class="p">:</span> <span class="k">return</span> <span class="n">sezioneAureaEffMin_ricorsiva</span> <span class="p">(</span><span class="n">g</span><span class="p">,</span> <span class="n">x0</span><span class="p">,</span> <span class="n">x2</span><span class="p">,</span> <span class="n">x3</span><span class="p">,</span> <span class="n">g_x3</span><span class="p">,</span> <span class="n">prec</span><span class="p">)</span>
+    <span class="k">else</span>             <span class="p">:</span> <span class="k">return</span> <span class="n">sezioneAureaEffMin_ricorsiva</span> <span class="p">(</span><span class="n">g</span><span class="p">,</span> <span class="n">x1</span><span class="p">,</span> <span class="n">x3</span><span class="p">,</span> <span class="n">x2</span><span class="p">,</span> <span class="n">g_x2</span><span class="p">,</span> <span class="n">prec</span><span class="p">)</span>   
 
 
 <span class="c1"># ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- </span>
