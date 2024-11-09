@@ -28,7 +28,7 @@
     one can:
     * generate events according to an **exponential probability density distribution**
       with a characteristic time *t<sub>0</sub>* set to unity
-    * **count how many events fall into a specific interval $\tau$**
+    * **count how many events fall into a specific interval**
       chosen with length $\lambda$,
       where $\lambda$ is the mean of events expected from the Poisson distribution
 
