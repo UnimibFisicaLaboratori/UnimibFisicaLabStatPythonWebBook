@@ -700,21 +700,30 @@ for the cases of maximum likelihood, extended maximum likelihood, and least squa
 
 <span class="nn">File &lt;__array_function__ internals&gt;:200,</span> in <span class="ni">broadcast_arrays</span><span class="nt">(*args, **kwargs)</span>
 
-<span class="nn">File /opt/hostedtoolcache/Python/3.8.18/x64/lib/python3.8/site-packages/numpy/lib/stride_tricks.py:480,</span> in <span class="ni">broadcast_arrays</span><span class="nt">(subok, *args)</span>
-<span class="g g-Whitespace">    </span><span class="mi">476</span> <span class="k">def</span> <span class="nf">_broadcast_arrays_dispatcher</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="n">subok</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
-<span class="g g-Whitespace">    </span><span class="mi">477</span>     <span class="k">return</span> <span class="n">args</span>
-<span class="ne">--&gt; </span><span class="mi">480</span> <span class="nd">@array_function_dispatch</span><span class="p">(</span><span class="n">_broadcast_arrays_dispatcher</span><span class="p">,</span> <span class="n">module</span><span class="o">=</span><span class="s1">&#39;numpy&#39;</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">481</span> <span class="k">def</span> <span class="nf">broadcast_arrays</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="n">subok</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
-<span class="g g-Whitespace">    </span><span class="mi">482</span><span class="w">     </span><span class="sd">&quot;&quot;&quot;</span>
-<span class="g g-Whitespace">    </span><span class="mi">483</span><span class="sd">     Broadcast any number of arrays against each other.</span>
-<span class="g g-Whitespace">    </span><span class="mi">484</span><span class="sd"> </span>
-<span class="sd">   (...)</span>
-<span class="g g-Whitespace">    </span><span class="mi">531</span><span class="sd"> </span>
-<span class="g g-Whitespace">    </span><span class="mi">532</span><span class="sd">     &quot;&quot;&quot;</span>
-<span class="g g-Whitespace">    </span><span class="mi">533</span>     <span class="c1"># nditer is not used here to avoid the limit of 32 arrays.</span>
-<span class="g g-Whitespace">    </span><span class="mi">534</span>     <span class="c1"># Otherwise, something like the following one-liner would suffice:</span>
-<span class="g g-Whitespace">    </span><span class="mi">535</span>     <span class="c1"># return np.nditer(args, flags=[&#39;multi_index&#39;, &#39;zerosize_ok&#39;],</span>
-<span class="g g-Whitespace">    </span><span class="mi">536</span>     <span class="c1">#                  order=&#39;C&#39;).itviews</span>
+<span class="nn">File /opt/hostedtoolcache/Python/3.8.18/x64/lib/python3.8/site-packages/numpy/lib/stride_tricks.py:546,</span> in <span class="ni">broadcast_arrays</span><span class="nt">(subok, *args)</span>
+<span class="g g-Whitespace">    </span><span class="mi">542</span> <span class="k">if</span> <span class="nb">all</span><span class="p">(</span><span class="n">array</span><span class="o">.</span><span class="n">shape</span> <span class="o">==</span> <span class="n">shape</span> <span class="k">for</span> <span class="n">array</span> <span class="ow">in</span> <span class="n">args</span><span class="p">):</span>
+<span class="g g-Whitespace">    </span><span class="mi">543</span>     <span class="c1"># Common case where nothing needs to be broadcasted.</span>
+<span class="g g-Whitespace">    </span><span class="mi">544</span>     <span class="k">return</span> <span class="n">args</span>
+<span class="ne">--&gt; </span><span class="mi">546</span> <span class="k">return</span> <span class="p">[</span><span class="n">_broadcast_to</span><span class="p">(</span><span class="n">array</span><span class="p">,</span> <span class="n">shape</span><span class="p">,</span> <span class="n">subok</span><span class="o">=</span><span class="n">subok</span><span class="p">,</span> <span class="n">readonly</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">547</span>         <span class="k">for</span> <span class="n">array</span> <span class="ow">in</span> <span class="n">args</span><span class="p">]</span>
+
+<span class="nn">File /opt/hostedtoolcache/Python/3.8.18/x64/lib/python3.8/site-packages/numpy/lib/stride_tricks.py:546,</span> in <span class="ni">&lt;listcomp&gt;</span><span class="nt">(.0)</span>
+<span class="g g-Whitespace">    </span><span class="mi">542</span> <span class="k">if</span> <span class="nb">all</span><span class="p">(</span><span class="n">array</span><span class="o">.</span><span class="n">shape</span> <span class="o">==</span> <span class="n">shape</span> <span class="k">for</span> <span class="n">array</span> <span class="ow">in</span> <span class="n">args</span><span class="p">):</span>
+<span class="g g-Whitespace">    </span><span class="mi">543</span>     <span class="c1"># Common case where nothing needs to be broadcasted.</span>
+<span class="g g-Whitespace">    </span><span class="mi">544</span>     <span class="k">return</span> <span class="n">args</span>
+<span class="ne">--&gt; </span><span class="mi">546</span> <span class="k">return</span> <span class="p">[</span><span class="n">_broadcast_to</span><span class="p">(</span><span class="n">array</span><span class="p">,</span> <span class="n">shape</span><span class="p">,</span> <span class="n">subok</span><span class="o">=</span><span class="n">subok</span><span class="p">,</span> <span class="n">readonly</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">547</span>         <span class="k">for</span> <span class="n">array</span> <span class="ow">in</span> <span class="n">args</span><span class="p">]</span>
+
+<span class="nn">File /opt/hostedtoolcache/Python/3.8.18/x64/lib/python3.8/site-packages/numpy/lib/stride_tricks.py:349,</span> in <span class="ni">_broadcast_to</span><span class="nt">(array, shape, subok, readonly)</span>
+<span class="g g-Whitespace">    </span><span class="mi">346</span>     <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s1">&#39;all elements of broadcast shape must be non-&#39;</span>
+<span class="g g-Whitespace">    </span><span class="mi">347</span>                      <span class="s1">&#39;negative&#39;</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">348</span> <span class="n">extras</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="ne">--&gt; </span><span class="mi">349</span> <span class="n">it</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">nditer</span><span class="p">(</span>
+<span class="g g-Whitespace">    </span><span class="mi">350</span>     <span class="p">(</span><span class="n">array</span><span class="p">,),</span> <span class="n">flags</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;multi_index&#39;</span><span class="p">,</span> <span class="s1">&#39;refs_ok&#39;</span><span class="p">,</span> <span class="s1">&#39;zerosize_ok&#39;</span><span class="p">]</span> <span class="o">+</span> <span class="n">extras</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">351</span>     <span class="n">op_flags</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;readonly&#39;</span><span class="p">],</span> <span class="n">itershape</span><span class="o">=</span><span class="n">shape</span><span class="p">,</span> <span class="n">order</span><span class="o">=</span><span class="s1">&#39;C&#39;</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">352</span> <span class="k">with</span> <span class="n">it</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">353</span>     <span class="c1"># never really has writebackifcopy semantics</span>
+<span class="g g-Whitespace">    </span><span class="mi">354</span>     <span class="n">broadcast</span> <span class="o">=</span> <span class="n">it</span><span class="o">.</span><span class="n">itviews</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
 
 <span class="ne">KeyboardInterrupt</span>: 
 </pre></div>
