@@ -65,6 +65,17 @@
 
   * In this model both $N_{S}$ and $N_{B}$ are assumed to be unknown,
     therefore the fit has to be performed with an **extended Likelihood**
+    `````{admonition} Tip
+    :class: tip
+    In the extended likelihood function, the yields of each component are considered as free parameters and a Poisson distribution is assumed
+    $$
+    \begin{align}
+    \mathcal{L}(\nu,\theta) &= Pois(N; \nu)\mathcal{L}(\theta)\\
+    &=\frac{\nu^Ne^{-\nu}}{N!}\prod_{i=1}^N \frac{e^{-f(x_i,\theta)}F_i(\theta)^{n_i}}{n_i!}\\
+    &=\frac{e^{-\nu}}{N!}\prod_{i=1}^N \nu\frac{e^{-f(x_i,\theta)}F_i(\theta)^{n_i}}{n_i!}
+    \end{align}
+    $$
+    `````
   * **Graphically**, 
     the model has a decreasing trend that rises when the Gaussian term becomes significant, 
     as shown in the figure:
@@ -131,6 +142,13 @@
     print (my_minuit.valid)
     display (my_minuit)
     ```
+    `````{admonition} Tip
+    :class: tip
+    To load the `display` function in a python macro
+    ```py
+    from IPython.display import display
+    ```
+    `````
   * After the fit, the `my_minuit` object contains all the information concerning the fit results
 
 ### Helping *Minuit* to find the right minimum

@@ -563,14 +563,26 @@ consisting of an <strong>exponential background distribution added to a Gaussian
        &amp;= N_{B} \cdot \frac{1}{\theta_0} e^{-x/\theta_0} + N_{S} \cdot \frac{1}{\sqrt{2\pi}\theta_2}e^{-\frac{1}{2}\left(\frac{x-\theta_1}{\theta_2}\right)^2}
   \end{align}
   \end{split}\]</div>
-<ul class="simple">
+<ul>
 <li><p>In this model both <span class="math notranslate nohighlight">\(N_{S}\)</span> and <span class="math notranslate nohighlight">\(N_{B}\)</span> are assumed to be unknown,
-therefore the fit has to be performed with an <strong>extended Likelihood</strong></p></li>
+therefore the fit has to be performed with an <strong>extended Likelihood</strong></p>
+<div class="tip admonition">
+<p class="admonition-title">Tip</p>
+<p>In the extended likelihood function, the yields of each component are considered as free parameters and a Poisson distribution is assumed
+$<span class="math notranslate nohighlight">\(
+\begin{align}
+\mathcal{L}(\nu,\theta) &amp;= Pois(N; \nu)\mathcal{L}(\theta)\\
+&amp;=\frac{\nu^Ne^{-\nu}}{N!}\prod_{i=1}^N \frac{e^{-f(x_i,\theta)}F_i(\theta)^{n_i}}{n_i!}\\
+&amp;=\frac{e^{-\nu}}{N!}\prod_{i=1}^N \nu\frac{e^{-f(x_i,\theta)}F_i(\theta)^{n_i}}{n_i!}
+\end{align}
+\)</span>$</p>
+</div>
+</li>
 <li><p><strong>Graphically</strong>,
 the model has a decreasing trend that rises when the Gaussian term becomes significant,
 as shown in the figure:
 <img alt="model" src="../../_images/modello.png" /></p>
-<ul>
+<ul class="simple">
 <li><p>The <strong>solid line</strong> represents the total model</p></li>
 <li><p>The <strong>two dashed lines</strong> represent the two terms of the sum,
 which can be thought of as a <strong>signal peak superimposed on a slowly decreasing background</strong></p></li>
@@ -652,6 +664,13 @@ to be used in the search for the extreme</p></li>
 <span class="nb">print</span> <span class="p">(</span><span class="n">my_minuit</span><span class="o">.</span><span class="n">valid</span><span class="p">)</span>
 <span class="n">display</span> <span class="p">(</span><span class="n">my_minuit</span><span class="p">)</span>
 </pre></div>
+</div>
+<div class="tip admonition">
+<p class="admonition-title">Tip</p>
+<p>To load the <code class="docutils literal notranslate"><span class="pre">display</span></code> function in a python macro</p>
+<div class="highlight-py notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">IPython.display</span> <span class="kn">import</span> <span class="n">display</span>
+</pre></div>
+</div>
 </div>
 </li>
 <li><p>After the fit, the <code class="docutils literal notranslate"><span class="pre">my_minuit</span></code> object contains all the information concerning the fit results</p></li>
