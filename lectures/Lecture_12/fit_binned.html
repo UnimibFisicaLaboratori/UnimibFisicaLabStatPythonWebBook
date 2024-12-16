@@ -568,14 +568,15 @@ consisting of an <strong>exponential background distribution added to a Gaussian
 therefore the fit has to be performed with an <strong>extended Likelihood</strong></p>
 <div class="tip admonition">
 <p class="admonition-title">Tip</p>
-<p>In the extended likelihood function, the yields of each component are considered as free parameters and a Poisson distribution is assumed
-$<span class="math notranslate nohighlight">\(
+<p>In the extended likelihood function, the yields of each component are considered as free parameters and a Poisson distribution is assumed</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
 \begin{align}
 \mathcal{L}(\nu,\theta) &amp;= Pois(N; \nu)\mathcal{L}(\theta)\\
 &amp;=\frac{\nu^Ne^{-\nu}}{N!}\prod_{i=1}^N \frac{e^{-f(x_i,\theta)}F_i(\theta)^{n_i}}{n_i!}\\
 &amp;=\frac{e^{-\nu}}{N!}\prod_{i=1}^N \nu\frac{e^{-f(x_i,\theta)}F_i(\theta)^{n_i}}{n_i!}
 \end{align}
-\)</span>$</p>
+\end{split}\]</div>
 </div>
 </li>
 <li><p><strong>Graphically</strong>,

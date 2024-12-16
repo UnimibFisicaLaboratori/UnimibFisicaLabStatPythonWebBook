@@ -68,6 +68,7 @@
     `````{admonition} Tip
     :class: tip
     In the extended likelihood function, the yields of each component are considered as free parameters and a Poisson distribution is assumed
+    
     $$
     \begin{align}
     \mathcal{L}(\nu,\theta) &= Pois(N; \nu)\mathcal{L}(\theta)\\
