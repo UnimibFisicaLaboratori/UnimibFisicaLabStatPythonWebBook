@@ -1,13 +1,12 @@
 
-
 <!DOCTYPE html>
 
 
-<html lang="en" data-content_root="" >
+<html lang="en" data-content_root="../../" >
 
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
     <title>1. Basics of Python Programming &#8212; Laboratorio di Calcolo e Statistica</title>
   
@@ -15,53 +14,49 @@
   
   <script data-cfasync="false">
     document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
-    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
   </script>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="../../_static/styles/theme.css?digest=5b4479735964841361fd" rel="stylesheet" />
-<link href="../../_static/styles/bootstrap.css?digest=5b4479735964841361fd" rel="stylesheet" />
-<link href="../../_static/styles/pydata-sphinx-theme.css?digest=5b4479735964841361fd" rel="stylesheet" />
+  <link href="../../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
 
   
-  <link href="../../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=5b4479735964841361fd" rel="stylesheet" />
-  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+  <link href="../../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
 
-    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
-    <link rel="stylesheet" href="../../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../../_static/styles/sphinx-book-theme.css?v=eba8b062" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css?v=9c3e77be" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.11b39860a7a0cbfd473a3ad8a317855267ff0bd372690045ca344a6b62be495e.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=95c83b7e" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=5b4479735964841361fd" />
-<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=5b4479735964841361fd" />
-  <script src="../../_static/vendor/fontawesome/6.1.2/js/all.min.js?digest=5b4479735964841361fd"></script>
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
 
-    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
-    <script src="../../_static/jquery.js"></script>
-    <script src="../../_static/underscore.js"></script>
-    <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
-    <script src="../../_static/doctools.js"></script>
-    <script src="../../_static/clipboard.min.js"></script>
-    <script src="../../_static/copybutton.js"></script>
-    <script src="../../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script src="../../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../_static/copybutton.js?v=f281be69"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
-    <script src="../../_static/togglebutton.js"></script>
+    <script src="../../_static/togglebutton.js?v=b8b12719"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
-    <script src="../../_static/design-tabs.js"></script>
-    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
-const thebe_selector = ".thebe,.cell"
-const thebe_selector_input = "pre"
-const thebe_selector_output = ".output, .cell_output"
-</script>
-    <script async="async" src="../../_static/sphinx-thebe.js"></script>
+    <script src="../../_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
     <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'lectures/Lecture_01/basics_python';</script>
@@ -78,28 +73,23 @@ const thebe_selector_output = ".output, .cell_output"
 
   
   
-  <a class="skip-link" href="#main-content">Skip to main content</a>
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
   
   <div id="pst-scroll-pixel-helper"></div>
-
   
   <button type="button" class="btn rounded-pill" id="pst-back-to-top">
-    <i class="fa-solid fa-arrow-up"></i>
-    Back to top
-  </button>
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
 
   
   <input type="checkbox"
           class="sidebar-toggle"
-          name="__primary"
-          id="__primary"/>
-  <label class="overlay overlay-primary" for="__primary"></label>
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
   
   <input type="checkbox"
           class="sidebar-toggle"
-          name="__secondary"
-          id="__secondary"/>
-  <label class="overlay overlay-secondary" for="__secondary"></label>
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
   
   <div class="search-button__wrapper">
     <div class="search-button__overlay"></div>
@@ -121,12 +111,20 @@ const thebe_selector_output = ".output, .cell_output"
   <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
 </form></div>
   </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
   
-    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
-    </nav>
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
   
+
   <div class="bd-container">
     <div class="bd-container__inner bd-page-width">
+      
+      
       
       <div class="bd-sidebar-primary bd-sidebar">
         
@@ -142,6 +140,8 @@ const thebe_selector_output = ".output, .cell_output"
     <div class="sidebar-primary-items__start sidebar-primary__section">
         <div class="sidebar-primary-item">
 
+  
+    
   
 
 <a class="navbar-brand logo" href="../../intro.html">
@@ -160,7 +160,18 @@ const thebe_selector_output = ".output, .cell_output"
   
   
 </a></div>
-        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item navbar-nav active">
         
         <ul class="nav bd-sidenav bd-sidenav__home-link">
@@ -176,54 +187,54 @@ const thebe_selector_output = ".output, .cell_output"
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Lectures</span></p>
 <ul class="current nav bd-sidenav">
-<li class="toctree-l1 current active has-children"><a class="current reference internal" href="#">1. Basics of Python Programming</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l1 current active has-children"><a class="current reference internal" href="#">1. Basics of Python Programming</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="EXAMPLES.html">1.10. Examples: Lecture 1</a></li>
 <li class="toctree-l2"><a class="reference internal" href="EXERCISES.html">1.11. Exercises for Lecture 1</a></li>
 <li class="toctree-l2"><a class="reference internal" href="SOLUTIONS.html">1.12. Solutions: Lecture 1</a></li>
 </ul>
-</li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../Lecture_02/python_libraries.html">2. Notable Python Libraries</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../Lecture_02/python_libraries.html">2. Notable Python Libraries</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="../Lecture_02/EXAMPLES.html">2.4. Examples: Lecture 2</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../Lecture_02/EXERCISES.html">2.5. Exercises for Lecture 2</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../Lecture_02/SOLUTIONS.html">2.6. Solutions: Lecture 2</a></li>
 </ul>
-</li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../Lecture_03/data_visualisation.html">3. Data Visualisation with Python</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="../Lecture_03/EXAMPLES.html">3.6. Examples: Lecture 3</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../Lecture_03/EXERCISES.html">3.7. Exercises for Lecture 3</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../Lecture_03/SOLUTIONS.html">3.8. Solutions: Lecture 3</a></li>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../Lecture_03/data_visualisation.html">3. Data Visualisation with Python</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../Lecture_03/EXAMPLES.html">3.8. Examples: Lecture 3</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Lecture_03/EXERCISES.html">3.9. Exercises for Lecture 3</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Lecture_03/SOLUTIONS.html">3.10. Solutions: Lecture 3</a></li>
 </ul>
-</li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../Lecture_04/pseudorandom.html">4. Generation of Pseudo-Random Numbers</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-4"><i class="fa-solid fa-chevron-down"></i></label><ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../Lecture_04/pseudorandom.html">4. Generation of Pseudo-Random Numbers</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="../Lecture_04/EXAMPLES.html">4.6. Examples: Lecture 4</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../Lecture_04/EXERCISES.html">4.7. Exercises for Lecture 4</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../Lecture_04/SOLUTIONS.html">4.8. Solutions: Lecture 4</a></li>
 </ul>
-</li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../Lecture_05/classes_lambda.html">5. Some python insight: classes, <code class="docutils literal notranslate"><span class="pre">lambda</span></code> functions, functional programming</a><input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-5"><i class="fa-solid fa-chevron-down"></i></label><ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../Lecture_05/classes_lambda.html">5. Some python insight: classes, <code class="docutils literal notranslate"><span class="pre">lambda</span></code> functions, functional programming</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="../Lecture_05/EXAMPLES.html">5.4. Examples: Lecture 5</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../Lecture_05/EXERCISES.html">5.5. Exercises for Lecture 5</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../Lecture_05/SOLUTIONS.html">5.6. Solutions: Lecture 5</a></li>
 </ul>
-</li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../Lecture_06/zero_and_extrema.html">6. Finding Zeros and Extrema</a><input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-6"><i class="fa-solid fa-chevron-down"></i></label><ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../Lecture_06/zero_and_extrema.html">6. Finding Zeros and Extrema</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="../Lecture_06/EXAMPLES.html">6.4. Examples: Lecture 6</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../Lecture_06/EXERCISES.html">6.5. Exercises for Lecture 6</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../Lecture_06/SOLUTIONS.html">6.6. Solutions: Lecture 6</a></li>
 </ul>
-</li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../Lecture_07/poisson.html">7. The Poisson Distribution</a><input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-7"><i class="fa-solid fa-chevron-down"></i></label><ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../Lecture_07/poisson.html">7. The Poisson Distribution</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="../Lecture_07/EXERCISES.html">7.5. Exercises for Lecture 7</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../Lecture_07/SOLUTIONS.html">7.6. Solutions: Lezione 7</a></li>
 </ul>
-</li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../Lecture_08/toys_integration.html">8. Toy Experiments and Integration using Pseudorandom Numbers</a><input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-8"><i class="fa-solid fa-chevron-down"></i></label><ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../Lecture_08/toys_integration.html">8. Toy Experiments and Integration using Pseudorandom Numbers</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="../Lecture_08/EXAMPLES.html">8.3. Examples: Lecture 8</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../Lecture_08/EXERCISES.html">8.4. Exercises for Lecture 8</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../Lecture_08/SOLUTIONS.html">8.5. Solutions: Lecture 8</a></li>
 </ul>
-</li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../Lecture_09/likelihood.html">9. The likelihood</a><input class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-9"><i class="fa-solid fa-chevron-down"></i></label><ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../Lecture_09/likelihood.html">9. The likelihood</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="../Lecture_09/examples/notebook_01.html">9.7. This is a notebook example</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../Lecture_09/examples/notebook_02.html">9.8. Drawing of a function</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../Lecture_09/examples/notebook_03.html">9.9. Accessing files on disk</a></li>
@@ -231,25 +242,25 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l2"><a class="reference internal" href="../Lecture_09/exercises/likelihood_solutions.html">9.11. Likelihood exercise solutions</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../Lecture_09/solution_libraries.html">9.12. Solution Libraries</a></li>
 </ul>
-</li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../Lecture_10/likelihood_fit.html">10. Parameter Estimate using the Maximum Likelihood Method</a><input class="toctree-checkbox" id="toctree-checkbox-10" name="toctree-checkbox-10" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-10"><i class="fa-solid fa-chevron-down"></i></label><ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../Lecture_10/likelihood_fit.html">10. Parameter Estimate using the Maximum Likelihood Method</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="../Lecture_10/EXERCISES.html">10.10. Exercises for Lecture 10</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../Lecture_10/exercises/likelihood_fit_solutions.html">10.11. Maximum likelihood exercise solutions</a></li>
 </ul>
-</li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../Lecture_11/least_squares.html">11. Least-Squares Fitting</a><input class="toctree-checkbox" id="toctree-checkbox-11" name="toctree-checkbox-11" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-11"><i class="fa-solid fa-chevron-down"></i></label><ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../Lecture_11/least_squares.html">11. Least-Squares Fitting</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="../Lecture_11/EXERCISES.html">11.5. Exercises for Lecture 11</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../Lecture_11/exercises/least_squares_solutions.html">11.6. Least squares solutions</a></li>
 </ul>
-</li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../Lecture_12/fit_binned.html">12. Fit of Binned Distributions</a><input class="toctree-checkbox" id="toctree-checkbox-12" name="toctree-checkbox-12" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-12"><i class="fa-solid fa-chevron-down"></i></label><ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../Lecture_12/fit_binned.html">12. Fit of Binned Distributions</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="../Lecture_12/EXERCISES.html">12.7. Exercises for Lecture 12</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../Lecture_12/exercises/es_12.1_solutions.html">12.8. Binned fits solutions: Exercise 12.1</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../Lecture_12/exercises/es_12.2_solutions.html">12.9. Binned fits solutions: Exercise 12.2</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../Lecture_12/exercises/es_12.3_solutions.html">12.10. Binned fits solutions: exercise 12.3</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../Lecture_12/exercises/es_12.4_solutions.html">12.11. cost functions comparison: exercise 12.4</a></li>
 </ul>
-</li>
+</details></li>
 </ul>
 
     </div>
@@ -265,7 +276,7 @@ const thebe_selector_output = ".output, .cell_output"
 
       </div>
       
-      <main id="main-content" class="bd-main">
+      <main id="main-content" class="bd-main" role="main">
         
         
 
@@ -274,14 +285,14 @@ const thebe_selector_output = ".output, .cell_output"
           <div class="bd-content">
             <div class="bd-article-container">
               
-              <div class="bd-header-article">
+              <div class="bd-header-article d-print-none">
 <div class="header-article-items header-article__inner">
   
     <div class="header-article-items__start">
       
-        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
   <span class="fa-solid fa-bars"></span>
-</label></div>
+</button></div>
       
     </div>
   
@@ -406,10 +417,10 @@ const thebe_selector_output = ".output, .cell_output"
 
 <script>
 document.write(`
-  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
-    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
-    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
   </button>
 `);
 </script>
@@ -417,14 +428,14 @@ document.write(`
 
 <script>
 document.write(`
-  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
     <i class="fa-solid fa-magnifying-glass fa-lg"></i>
   </button>
 `);
 </script>
-<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
     <span class="fa-solid fa-list"></span>
-</label>
+</button>
 </div></div>
       
     </div>
@@ -502,10 +513,10 @@ document.write(`
               
                 
 <div id="searchbox"></div>
-                <article class="bd-article" role="main">
+                <article class="bd-article">
                   
   <section class="tex2jax_ignore mathjax_ignore" id="basics-of-python-programming">
-<h1><span class="section-number">1. </span>Basics of Python Programming<a class="headerlink" href="#basics-of-python-programming" title="Permalink to this heading">#</a></h1>
+<h1><span class="section-number">1. </span>Basics of Python Programming<a class="headerlink" href="#basics-of-python-programming" title="Link to this heading">#</a></h1>
 <!-- ```{note}
 List of subjects that might be useful in the future
   * list comprehensions
@@ -516,7 +527,7 @@ List of subjects that might be useful in the future
     * rerun from start
 ``` -->
 <section id="objectives-of-the-laboratory">
-<h2><span class="section-number">1.1. </span>Objectives of the laboratory<a class="headerlink" href="#objectives-of-the-laboratory" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">1.1. </span>Objectives of the laboratory<a class="headerlink" href="#objectives-of-the-laboratory" title="Link to this heading">#</a></h2>
 <ul class="simple">
 <li><p>Use a programming language and libraries available to <strong>perform probability and statistics exercises</strong></p></li>
 <li><p>The choice of the programming language and statistics tools is <strong>instrumental</strong></p></li>
@@ -529,7 +540,7 @@ List of subjects that might be useful in the future
 </ul>
 </section>
 <section id="the-python-programming-language">
-<h2><span class="section-number">1.2. </span>The <a class="reference external" href="https://www.python.org">Python</a> programming language<a class="headerlink" href="#the-python-programming-language" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">1.2. </span>The <a class="reference external" href="https://www.python.org">Python</a> programming language<a class="headerlink" href="#the-python-programming-language" title="Link to this heading">#</a></h2>
 <!-- ![PythonLogo](https://www.python.org/static/community_logos/python-logo-master-v3-TM.png) -->
 <!-- ```{epigraph}
 Python is an interpreted, object-oriented, high-level programming language with dynamic semantics. Its high-level built in data structures, combined with dynamic typing and dynamic binding, make it very attractive for Rapid Application Development, as well as for use as a scripting or glue language to connect existing components together. Python's simple, easy to learn syntax emphasizes readability and therefore reduces the cost of program maintenance. Python supports modules and packages, which encourages program modularity and code reuse. The Python interpreter and the extensive standard library are available in source or binary form without charge for all major platforms, and can be freely distributed.
@@ -546,7 +557,7 @@ like memory management</p></li>
 <li><p><strong>dynamic semantics</strong>: its variables are dynamic and can change memory size and values during execution</p></li>
 </ul>
 <section id="typical-uses">
-<h3><span class="section-number">1.2.1. </span>Typical uses<a class="headerlink" href="#typical-uses" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">1.2.1. </span>Typical uses<a class="headerlink" href="#typical-uses" title="Link to this heading">#</a></h3>
 <ul>
 <li><p><strong>Rapid Application Development</strong>: a fast development and testing of ideas and prototype,
 with less emphasis on planning;</p>
@@ -560,7 +571,7 @@ with less emphasis on planning;</p>
 </ul>
 </section>
 <section id="main-advantages">
-<h3><span class="section-number">1.2.2. </span>Main advantages<a class="headerlink" href="#main-advantages" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">1.2.2. </span>Main advantages<a class="headerlink" href="#main-advantages" title="Link to this heading">#</a></h3>
 <ul class="simple">
 <li><p>simple, easy to learn <strong>syntax</strong>, <strong>readable-friendly</strong>, with a steep learning curve
 It also provide a <strong>standard library</strong> of functions developed by the community
@@ -569,7 +580,7 @@ that covers almost all the needs of a normal user.</p></li>
 </ul>
 </section>
 <section id="the-python-prompt">
-<h3><span class="section-number">1.2.3. </span>The Python Prompt<a class="headerlink" href="#the-python-prompt" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">1.2.3. </span>The Python Prompt<a class="headerlink" href="#the-python-prompt" title="Link to this heading">#</a></h3>
 <ul>
 <li><p>Once the Python program is executed from the program shell,
 a command line is prompted on the terminal, the <strong>so-called “Python prompt”</strong></p></li>
@@ -577,7 +588,7 @@ a command line is prompted on the terminal, the <strong>so-called “Python prom
 may be <strong>directly typed there and executed</strong></p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>python
 Python<span class="w"> </span><span class="m">3</span>.11.4<span class="w"> </span><span class="o">(</span>main,<span class="w"> </span>Jun<span class="w"> </span><span class="m">20</span><span class="w"> </span><span class="m">2023</span>,<span class="w"> </span><span class="m">16</span>:59:59<span class="o">)</span><span class="w"> </span><span class="o">[</span>Clang<span class="w"> </span><span class="m">14</span>.0.3<span class="w"> </span><span class="o">(</span>clang-1403.0.22.14.1<span class="o">)]</span><span class="w"> </span>on<span class="w"> </span>darwin
-Type<span class="w"> </span><span class="s2">&quot;help&quot;</span>,<span class="w"> </span><span class="s2">&quot;copyright&quot;</span>,<span class="w"> </span><span class="s2">&quot;credits&quot;</span><span class="w"> </span>or<span class="w"> </span><span class="s2">&quot;license&quot;</span><span class="w"> </span><span class="k">for</span><span class="w"> </span>more<span class="w"> </span>information.
+Type<span class="w"> </span><span class="s2">"help"</span>,<span class="w"> </span><span class="s2">"copyright"</span>,<span class="w"> </span><span class="s2">"credits"</span><span class="w"> </span>or<span class="w"> </span><span class="s2">"license"</span><span class="w"> </span><span class="k">for</span><span class="w"> </span>more<span class="w"> </span>information.
 &gt;&gt;&gt;<span class="w"> </span>
 </pre></div>
 </div>
@@ -601,15 +612,15 @@ but it does not replace actual programming.</p>
 </ul>
 </section>
 <section id="programming-in-python">
-<h3><span class="section-number">1.2.4. </span>Programming in Python<a class="headerlink" href="#programming-in-python" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">1.2.4. </span>Programming in Python<a class="headerlink" href="#programming-in-python" title="Link to this heading">#</a></h3>
 <ul>
 <li><p>A <strong>computer program</strong> is a set of instructions meant to guide the computer hardware
 in doing calculations, by using the computing processing unit (CPU)
 and the memory</p></li>
 <li><p>A program is structured accoding to <strong>rules dictated by the programming language</strong></p></li>
 <li><p>In this brief introduction we will see the <strong>main elements</strong> to be used to build a Python program</p>
-<table class="table" id="tab-python-syntax-elements">
-<caption><span class="caption-number">Table 1.1 </span><span class="caption-text">Main Python programming elements</span><a class="headerlink" href="#tab-python-syntax-elements" title="Permalink to this table">#</a></caption>
+<div class="pst-scrollable-table-container"><table class="table" id="tab-python-syntax-elements">
+<caption><span class="caption-number">Table 1.1 </span><span class="caption-text">Main Python programming elements</span><a class="headerlink" href="#tab-python-syntax-elements" title="Link to this table">#</a></caption>
 <tbody>
 <tr class="row-odd"><td><p><strong>variables</strong></p></td>
 <td><p>write information into the computer memory and read it back</p></td>
@@ -625,17 +636,18 @@ and the memory</p></li>
 </tr>
 </tbody>
 </table>
+</div>
 </li>
 </ul>
 </section>
 </section>
 <section id="variables">
-<h2><span class="section-number">1.3. </span>Variables<a class="headerlink" href="#variables" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">1.3. </span>Variables<a class="headerlink" href="#variables" title="Link to this heading">#</a></h2>
 <ul>
 <li><p>Information needs to be <strong>handled according to its nature</strong>,
 in terms of occupied memory space and elementary operations</p>
-<table class="table" id="tab-python-types">
-<caption><span class="caption-number">Table 1.2 </span><span class="caption-text">Variable Types in Python</span><a class="headerlink" href="#tab-python-types" title="Permalink to this table">#</a></caption>
+<div class="pst-scrollable-table-container"><table class="table" id="tab-python-types">
+<caption><span class="caption-number">Table 1.2 </span><span class="caption-text">Variable Types in Python</span><a class="headerlink" href="#tab-python-types" title="Link to this table">#</a></caption>
 <thead>
 <tr class="row-odd"><th class="head"><p>variable</p></th>
 <th class="head"><p>use</p></th>
@@ -662,6 +674,7 @@ in terms of occupied memory space and elementary operations</p>
 </tr>
 </tbody>
 </table>
+</div>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>For a detailed list and description of built-in Python types see the
@@ -677,7 +690,7 @@ variables do not need to be declared before use, nor their type to be declared</
 </li>
 </ul>
 <section id="numbers">
-<h3><span class="section-number">1.3.1. </span>Numbers<a class="headerlink" href="#numbers" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">1.3.1. </span>Numbers<a class="headerlink" href="#numbers" title="Link to this heading">#</a></h3>
 <ul>
 <li><p><strong>Integers</strong> can take up to any positive or negative number in an unlimited range
 (subject to the available virtual memory).</p></li>
@@ -686,13 +699,13 @@ variables do not need to be declared before use, nor their type to be declared</
 <li><p><strong>Complex numbers</strong> have a real and imaginary part, which are a floating point number each.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">a</span> <span class="o">=</span> <span class="mi">4</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="nb">type</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
-<span class="go">&lt;class &#39;int&#39;&gt;</span>
+<span class="go">&lt;class 'int'&gt;</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">b</span> <span class="o">=</span> <span class="mf">5.</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="nb">type</span><span class="p">(</span><span class="n">b</span><span class="p">)</span>
-<span class="go">&lt;class &#39;float&#39;&gt;</span>
+<span class="go">&lt;class 'float'&gt;</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">c</span> <span class="o">=</span> <span class="mi">4</span> <span class="o">+</span> <span class="mi">5</span><span class="n">j</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="nb">type</span><span class="p">(</span><span class="n">c</span><span class="p">)</span>
-<span class="go">&lt;class &#39;complex&#39;&gt;</span>
+<span class="go">&lt;class 'complex'&gt;</span>
 </pre></div>
 </div>
 <div class="admonition note">
@@ -704,12 +717,12 @@ variables do not need to be declared before use, nor their type to be declared</
 to <strong>generate numbers of specific type</strong>.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">a</span> <span class="o">=</span> <span class="nb">complex</span> <span class="p">(</span><span class="mi">4</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="nb">type</span> <span class="p">(</span><span class="n">a</span><span class="p">)</span>
-<span class="go">&lt;class &#39;complex&#39;&gt;</span>
+<span class="go">&lt;class 'complex'&gt;</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">a</span>
 <span class="go">(4+0j)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">b</span> <span class="o">=</span> <span class="nb">int</span> <span class="p">(</span><span class="mf">5.</span><span class="p">)</span> <span class="c1"># this call operates a type conversion (casting)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="nb">type</span> <span class="p">(</span><span class="n">b</span><span class="p">)</span>
-<span class="go">&lt;class &#39;int&#39;&gt;</span>
+<span class="go">&lt;class 'int'&gt;</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">b</span>
 <span class="go">5</span>
 </pre></div>
@@ -723,19 +736,19 @@ by calling <code class="docutils literal notranslate"><span class="pre">z.real</
 <span class="gp">&gt;&gt;&gt; </span><span class="n">z</span><span class="o">.</span><span class="n">imag</span>
 <span class="go">5.0</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="nb">type</span><span class="p">(</span><span class="n">z</span><span class="o">.</span><span class="n">imag</span><span class="p">)</span>
-<span class="go">&lt;class &#39;float&#39;&gt;</span>
+<span class="go">&lt;class 'float'&gt;</span>
 </pre></div>
 </div>
 </li>
 </ul>
 </section>
 <section id="boolean">
-<h3><span class="section-number">1.3.2. </span>Boolean<a class="headerlink" href="#boolean" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">1.3.2. </span>Boolean<a class="headerlink" href="#boolean" title="Link to this heading">#</a></h3>
 <ul>
 <li><p><strong>Booleans</strong> are variables that can only take the value <code class="docutils literal notranslate"><span class="pre">True</span></code> or <code class="docutils literal notranslate"><span class="pre">False</span></code></p></li>
 <li><p>They support the <strong>logical operators</strong> <code class="docutils literal notranslate"><span class="pre">or</span></code>, <code class="docutils literal notranslate"><span class="pre">and</span></code> and <code class="docutils literal notranslate"><span class="pre">not</span></code></p>
-<table class="table" id="tab-logical-operators">
-<caption><span class="caption-number">Table 1.3 </span><span class="caption-text">Logical Operators in Python</span><a class="headerlink" href="#tab-logical-operators" title="Permalink to this table">#</a></caption>
+<div class="pst-scrollable-table-container"><table class="table" id="tab-logical-operators">
+<caption><span class="caption-number">Table 1.3 </span><span class="caption-text">Logical Operators in Python</span><a class="headerlink" href="#tab-logical-operators" title="Link to this table">#</a></caption>
 <thead>
 <tr class="row-odd"><th class="head"><p>Operation</p></th>
 <th class="head"><p>Result</p></th>
@@ -753,6 +766,7 @@ by calling <code class="docutils literal notranslate"><span class="pre">z.real</
 </tr>
 </tbody>
 </table>
+</div>
 </li>
 <li><p>the <strong>result of a comparison</strong> is a boolean</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="mi">5</span><span class="o">&gt;</span><span class="mi">3</span>
@@ -761,8 +775,8 @@ by calling <code class="docutils literal notranslate"><span class="pre">z.real</
 <span class="go">False</span>
 </pre></div>
 </div>
-<table class="table" id="tab-comparison-operators">
-<caption><span class="caption-number">Table 1.4 </span><span class="caption-text">Comparison Operators in Python</span><a class="headerlink" href="#tab-comparison-operators" title="Permalink to this table">#</a></caption>
+<div class="pst-scrollable-table-container"><table class="table" id="tab-comparison-operators">
+<caption><span class="caption-number">Table 1.4 </span><span class="caption-text">Comparison Operators in Python</span><a class="headerlink" href="#tab-comparison-operators" title="Link to this table">#</a></caption>
 <thead>
 <tr class="row-odd"><th class="head"><p>Operation</p></th>
 <th class="head"><p>Meaning</p></th>
@@ -795,6 +809,7 @@ by calling <code class="docutils literal notranslate"><span class="pre">z.real</
 </tr>
 </tbody>
 </table>
+</div>
 <ul class="simple">
 <li><p>For a full list of comparison operators, see <a class="reference internal" href="#tab-comparison-operators"><span class="std std-numref">Table 1.4</span></a></p></li>
 </ul>
@@ -815,7 +830,7 @@ so <code class="docutils literal notranslate"><span class="pre">not</span> <span
 </ul>
 </section>
 <section id="strings">
-<h3><span class="section-number">1.3.3. </span>Strings<a class="headerlink" href="#strings" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">1.3.3. </span>Strings<a class="headerlink" href="#strings" title="Link to this heading">#</a></h3>
 <ul>
 <li><p><strong>Textual data</strong> in Python is handled with <code class="docutils literal notranslate"><span class="pre">str</span></code> objects, or <em>strings</em>.
 Strings are <strong>written</strong> in a variety of ways:</p>
@@ -825,16 +840,16 @@ Strings are <strong>written</strong> in a variety of ways:</p>
 <li><p>triple quotes: <code class="docutils literal notranslate"><span class="pre">'''Three</span> <span class="pre">single</span> <span class="pre">quotes'''</span></code>, <code class="docutils literal notranslate"><span class="pre">&quot;&quot;&quot;Three</span> <span class="pre">double</span> <span class="pre">quotes&quot;&quot;&quot;</span></code>
 Triple quote strings may span multiple lines - all associated whitespaces will be included in the string literal.</p></li>
 </ul>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="s1">&#39;my single quote string&#39;</span>
-<span class="go">&#39;my single quote string&#39;</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="s2">&quot;my double quote string&quot;</span>
-<span class="go">&#39;my double quote string&#39;</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="sd">&quot;&quot;&quot;my triple quote string&quot;&quot;&quot;</span>
-<span class="go">&#39;my triple quote string&#39;</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="sd">&quot;&quot;&quot;my triple quote string</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="s1">'my single quote string'</span>
+<span class="go">'my single quote string'</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="s2">"my double quote string"</span>
+<span class="go">'my double quote string'</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="sd">"""my triple quote string"""</span>
+<span class="go">'my triple quote string'</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="sd">"""my triple quote string</span>
 <span class="gp">... </span><span class="sd">spanning multiple</span>
-<span class="gp">... </span><span class="sd">lines&quot;&quot;&quot;</span>
-<span class="go">&#39;my triple quote string\nspanning multiple\nlines&#39;</span>
+<span class="gp">... </span><span class="sd">lines"""</span>
+<span class="go">'my triple quote string\nspanning multiple\nlines'</span>
 </pre></div>
 </div>
 <div class="admonition note">
@@ -846,7 +861,7 @@ for the new line is added to the list</p>
 </ul>
 </section>
 <section id="none">
-<h3><span class="section-number">1.3.4. </span><code class="docutils literal notranslate"><span class="pre">None</span></code><a class="headerlink" href="#none" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">1.3.4. </span><code class="docutils literal notranslate"><span class="pre">None</span></code><a class="headerlink" href="#none" title="Link to this heading">#</a></h3>
 <ul>
 <li><p>It represents a <strong>null value, or no value at all</strong></p></li>
 <li><p><strong>Different from all other types</strong> (e.g. it’s not <code class="docutils literal notranslate"><span class="pre">True</span></code>, nor <code class="docutils literal notranslate"><span class="pre">False</span></code>)</p></li>
@@ -854,11 +869,11 @@ for the new line is added to the list</p>
 Any operation between an object that is <code class="docutils literal notranslate"><span class="pre">None</span></code> and another one returns into an error.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">a</span> <span class="o">=</span> <span class="kc">None</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="nb">type</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
-<span class="go">&lt;class &#39;NoneType&#39;&gt;</span>
+<span class="go">&lt;class 'NoneType'&gt;</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">a</span><span class="o">*</span><span class="mi">2</span>
 <span class="gt">Traceback (most recent call last):</span>
-  File <span class="nb">&quot;&lt;stdin&gt;&quot;</span>, line <span class="m">1</span>, in <span class="n">&lt;module&gt;</span>
-<span class="gr">TypeError</span>: <span class="n">unsupported operand type(s) for *: &#39;NoneType&#39; and &#39;int&#39;</span>
+  File <span class="nb">"&lt;stdin&gt;"</span>, line <span class="m">1</span>, in <span class="n">&lt;module&gt;</span>
+<span class="gr">TypeError</span>: <span class="n">unsupported operand type(s) for *: 'NoneType' and 'int'</span>
 </pre></div>
 </div>
 </li>
@@ -866,7 +881,7 @@ Any operation between an object that is <code class="docutils literal notranslat
 </section>
 </section>
 <section id="object-containers">
-<h2><span class="section-number">1.4. </span>Object containers<a class="headerlink" href="#object-containers" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">1.4. </span>Object containers<a class="headerlink" href="#object-containers" title="Link to this heading">#</a></h2>
 <ul>
 <li><p>Single variables may be <strong>collected in containers</strong></p></li>
 <li><p>Containers are <strong>by themselves variable types</strong></p>
@@ -876,8 +891,8 @@ Any operation between an object that is <code class="docutils literal notranslat
 </li>
 <li><p><strong>Different types</strong> of containers exist, depending on the <strong>behaviour needed</strong>
 when handling the collection of variables</p>
-<table class="table" id="tab-python-containers">
-<caption><span class="caption-number">Table 1.5 </span><span class="caption-text">Python built-in containers</span><a class="headerlink" href="#tab-python-containers" title="Permalink to this table">#</a></caption>
+<div class="pst-scrollable-table-container"><table class="table" id="tab-python-containers">
+<caption><span class="caption-number">Table 1.5 </span><span class="caption-text">Python built-in containers</span><a class="headerlink" href="#tab-python-containers" title="Link to this table">#</a></caption>
 <thead>
 <tr class="row-odd"><th class="head"><p>container</p></th>
 <th class="head"><p>use</p></th>
@@ -904,10 +919,11 @@ does not allow duplicates (of elements with the same <code class="docutils liter
 </tr>
 </tbody>
 </table>
+</div>
 </li>
 </ul>
 <section id="lists">
-<h3><span class="section-number">1.4.1. </span>Lists<a class="headerlink" href="#lists" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">1.4.1. </span>Lists<a class="headerlink" href="#lists" title="Link to this heading">#</a></h3>
 <ul>
 <li><p>Mutable <strong>sequences of objects</strong>,
 typically used to store collections of homogeneous objects,
@@ -920,12 +936,12 @@ but Python allows also inhomogeneous lists.</p></li>
 </ul>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">test_list</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">]</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="nb">type</span><span class="p">(</span><span class="n">test_list</span><span class="p">)</span>
-<span class="go">&lt;class &#39;list&#39;&gt;</span>
+<span class="go">&lt;class 'list'&gt;</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">test_list</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="nb">float</span> <span class="p">(</span><span class="mi">2</span><span class="p">),</span> <span class="nb">complex</span> <span class="p">(</span><span class="mi">3</span><span class="p">)]</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">test_list</span>
 <span class="go">[1, 2.0, (3+0j)]</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="nb">type</span> <span class="p">(</span><span class="n">test_list</span><span class="p">)</span>
-<span class="go">&lt;class &#39;list&#39;&gt;</span>
+<span class="go">&lt;class 'list'&gt;</span>
 </pre></div>
 </div>
 </li>
@@ -951,8 +967,8 @@ indicates that <strong>the function has to act on that specific list</strong></p
 </li>
 <li><p>The <strong>order of the items</strong> in the list is the same given in the assignation.</p></li>
 <li><p>There are various <strong>operations possible</strong> on the lists, as detailed in <a class="reference internal" href="#tab-list-operations"><span class="std std-numref">Table 1.6</span></a></p>
-<table class="table" id="tab-list-operations">
-<caption><span class="caption-number">Table 1.6 </span><span class="caption-text">List operations</span><a class="headerlink" href="#tab-list-operations" title="Permalink to this table">#</a></caption>
+<div class="pst-scrollable-table-container"><table class="table" id="tab-list-operations">
+<caption><span class="caption-number">Table 1.6 </span><span class="caption-text">List operations</span><a class="headerlink" href="#tab-list-operations" title="Link to this table">#</a></caption>
 <thead>
 <tr class="row-odd"><th class="head"><p>Operation</p></th>
 <th class="head"><p>Result</p></th>
@@ -1000,6 +1016,7 @@ indicates that <strong>the function has to act on that specific list</strong></p
 </tr>
 </tbody>
 </table>
+</div>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">a</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">]</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span> <span class="p">(</span><span class="n">a</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
 <span class="go">2</span>
@@ -1050,13 +1067,13 @@ which represents an <strong>immutable sequence of numbers</strong> commonly used
 </ul>
 </section>
 <section id="tuples">
-<h3><span class="section-number">1.4.2. </span>Tuples<a class="headerlink" href="#tuples" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">1.4.2. </span>Tuples<a class="headerlink" href="#tuples" title="Link to this heading">#</a></h3>
 <ul>
 <li><p>They are <strong>defined by a set of objects separated by commas</strong></p></li>
 <li><p>When printed they are <strong>shown within parentheses</strong></p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">test_tuple</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="s1">&#39;this&#39;</span><span class="p">,</span> <span class="s1">&#39;is&#39;</span><span class="p">,</span> <span class="s1">&#39;a&#39;</span><span class="p">,</span> <span class="s1">&#39;tuple&#39;</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">test_tuple</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="s1">'this'</span><span class="p">,</span> <span class="s1">'is'</span><span class="p">,</span> <span class="s1">'a'</span><span class="p">,</span> <span class="s1">'tuple'</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span> <span class="p">(</span><span class="n">test_tuple</span><span class="p">)</span>
-<span class="go">(1, 2, 3, &#39;this&#39;, &#39;is&#39;, &#39;a&#39;, &#39;tuple&#39;)</span>
+<span class="go">(1, 2, 3, 'this', 'is', 'a', 'tuple')</span>
 </pre></div>
 </div>
 </li>
@@ -1084,15 +1101,15 @@ which represents an <strong>immutable sequence of numbers</strong> commonly used
 since they are an <a class="reference external" href="https://docs.python.org/3/glossary.html#term-immutable"><strong>immutable</strong></a> type</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">t</span><span class="p">[</span><span class="mi">4</span><span class="p">]</span><span class="o">=</span> <span class="mi">0</span>
 <span class="gt">Traceback (most recent call last):</span>
-  File <span class="nb">&quot;&lt;stdin&gt;&quot;</span>, line <span class="m">1</span>, in <span class="n">&lt;module&gt;</span>
-<span class="gr">TypeError</span>: <span class="n">&#39;tuple&#39; object does not support item assignment</span>
+  File <span class="nb">"&lt;stdin&gt;"</span>, line <span class="m">1</span>, in <span class="n">&lt;module&gt;</span>
+<span class="gr">TypeError</span>: <span class="n">'tuple' object does not support item assignment</span>
 </pre></div>
 </div>
 </li>
 </ul>
 </section>
 <section id="dictionaries">
-<h3><span class="section-number">1.4.3. </span>Dictionaries<a class="headerlink" href="#dictionaries" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">1.4.3. </span>Dictionaries<a class="headerlink" href="#dictionaries" title="Link to this heading">#</a></h3>
 <ul>
 <li><p>Define an <strong>associative array</strong> object.</p></li>
 <li><p>Contain a <strong>set of <code class="docutils literal notranslate"><span class="pre">key:</span> <span class="pre">value</span></code> pairs</strong>, with the requirement that the keys are unique within each dictionary</p></li>
@@ -1100,14 +1117,14 @@ since they are an <a class="reference external" href="https://docs.python.org/3/
 <li><p>A <strong>pair of braces</strong> creates an empty dictionary: <code class="docutils literal notranslate"><span class="pre">{}</span></code>.</p></li>
 <li><p>Placing a comma-separated list of <code class="docutils literal notranslate"><span class="pre">key:</span> <span class="pre">value</span></code> pairs within the braces adds initial <code class="docutils literal notranslate"><span class="pre">key:</span> <span class="pre">value</span></code> pairs to the dictionary;
 this is also the way dictionaries are written on output.</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">test_dict</span> <span class="o">=</span> <span class="p">{</span> <span class="s1">&#39;a&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">],</span> <span class="s1">&#39;b&#39;</span><span class="p">:</span> <span class="s1">&#39;my string&#39;</span><span class="p">,</span> <span class="mi">1</span><span class="p">:</span> <span class="mi">0</span><span class="p">}</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">test_dict</span> <span class="o">=</span> <span class="p">{</span> <span class="s1">'a'</span><span class="p">:</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">],</span> <span class="s1">'b'</span><span class="p">:</span> <span class="s1">'my string'</span><span class="p">,</span> <span class="mi">1</span><span class="p">:</span> <span class="mi">0</span><span class="p">}</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span> <span class="p">(</span><span class="n">test_dict</span><span class="p">)</span>
-<span class="go">{&#39;a&#39;: [1, 2, 3], &#39;b&#39;: &#39;my string&#39;, 1: 0}</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span> <span class="p">(</span><span class="n">test_dict</span><span class="p">[</span><span class="s1">&#39;a&#39;</span><span class="p">])</span>
+<span class="go">{'a': [1, 2, 3], 'b': 'my string', 1: 0}</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span> <span class="p">(</span><span class="n">test_dict</span><span class="p">[</span><span class="s1">'a'</span><span class="p">])</span>
 <span class="go">[1, 2, 3]</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">test_dict</span><span class="p">[</span><span class="s1">&#39;test&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span><span class="o">+</span><span class="mi">3</span><span class="n">J</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">test_dict</span><span class="p">[</span><span class="s1">'test'</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span><span class="o">+</span><span class="mi">3</span><span class="n">J</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span> <span class="p">(</span><span class="n">test_dict</span><span class="p">)</span>
-<span class="go">{&#39;a&#39;: [1, 2, 3], &#39;b&#39;: &#39;my string&#39;, 1: 0, &#39;test&#39;: (1+3j)}</span>
+<span class="go">{'a': [1, 2, 3], 'b': 'my string', 1: 0, 'test': (1+3j)}</span>
 </pre></div>
 </div>
 </li>
@@ -1127,7 +1144,7 @@ this is also the way dictionaries are written on output.</p>
 </section>
 </section>
 <section id="python-memory-handling">
-<h2><span class="section-number">1.5. </span>Python memory handling<a class="headerlink" href="#python-memory-handling" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">1.5. </span>Python memory handling<a class="headerlink" href="#python-memory-handling" title="Link to this heading">#</a></h2>
 <ul>
 <li><p>When creating a new variable or assigning a value to it,
 <strong>three steps</strong> comceptually take place:</p>
@@ -1143,8 +1160,8 @@ this is also the way dictionaries are written on output.</p>
 <li><p><strong>immutable objects</strong> cannot changed in place</p></li>
 <li><p><strong>mutable objects</strong> may be changed in place</p></li>
 </ul>
-<table class="table" id="tab-python-mut-immut">
-<caption><span class="caption-number">Table 1.7 </span><span class="caption-text">Python mutable and immutable variables</span><a class="headerlink" href="#tab-python-mut-immut" title="Permalink to this table">#</a></caption>
+<div class="pst-scrollable-table-container"><table class="table" id="tab-python-mut-immut">
+<caption><span class="caption-number">Table 1.7 </span><span class="caption-text">Python mutable and immutable variables</span><a class="headerlink" href="#tab-python-mut-immut" title="Link to this table">#</a></caption>
 <thead>
 <tr class="row-odd"><th class="head"><p>mutable</p></th>
 <th class="head"><p>immutable</p></th>
@@ -1156,6 +1173,7 @@ this is also the way dictionaries are written on output.</p>
 </tr>
 </tbody>
 </table>
+</div>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>When a new value is assigned to an immutable variable,
@@ -1170,14 +1188,14 @@ modifications do not affect the variable outside the function</p></li>
 </ul>
 </section>
 <section id="python-scripts">
-<h2><span class="section-number">1.6. </span>Python scripts<a class="headerlink" href="#python-scripts" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">1.6. </span>Python scripts<a class="headerlink" href="#python-scripts" title="Link to this heading">#</a></h2>
 <ul>
 <li><p>A Python script is a <strong>sequence of instructions</strong>
 written in a text file
 to be <strong>executed by the python interpreter</strong></p></li>
 <li><p>Let the script be saved in a file called <code class="docutils literal notranslate"><span class="pre">script_01.py</span></code>,
 and have the form:</p>
-<div class="highlight-py notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span> <span class="p">(</span><span class="s1">&#39;hello world&#39;</span><span class="p">)</span>
+<div class="highlight-py notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span> <span class="p">(</span><span class="s1">'hello world'</span><span class="p">)</span>
 </pre></div>
 </div>
 </li>
@@ -1190,7 +1208,7 @@ and end the execution:</p>
 </li>
 </ul>
 <section id="interactive-running">
-<h3><span class="section-number">1.6.1. </span>Interactive running<a class="headerlink" href="#interactive-running" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">1.6.1. </span>Interactive running<a class="headerlink" href="#interactive-running" title="Link to this heading">#</a></h3>
 <ul>
 <li><p>It is sometimes useful to <strong>run a script in interactive mode</strong>,
 meaning that Python will not exit after the execution of the program.
@@ -1205,14 +1223,14 @@ For example, in the case you want to inspect the final values of the variables:<
 </section>
 </section>
 <section id="functions">
-<h2><span class="section-number">1.7. </span>Functions<a class="headerlink" href="#functions" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">1.7. </span>Functions<a class="headerlink" href="#functions" title="Link to this heading">#</a></h2>
 <ul class="simple">
 <li><p>Functions are a <strong>set of instructions grouped which may be called together</strong>,
 that produce a given output or action</p></li>
 <li><p>They are <strong>identified with a name and set of inputs</strong></p></li>
 </ul>
 <section id="an-example-the-print-function">
-<h3><span class="section-number">1.7.1. </span>an example: the <code class="docutils literal notranslate"><span class="pre">print</span></code> function<a class="headerlink" href="#an-example-the-print-function" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">1.7.1. </span>an example: the <code class="docutils literal notranslate"><span class="pre">print</span></code> function<a class="headerlink" href="#an-example-the-print-function" title="Link to this heading">#</a></h3>
 <ul>
 <li><p>The <code class="docutils literal notranslate"><span class="pre">print</span></code> function is used to <strong>print the value of a variable on the screen</strong>
 at a certain point during the execution of the program</p></li>
@@ -1226,7 +1244,7 @@ and <strong>visualises its value</strong> on the screen</p>
 </li>
 <li><p>It can also be used to print messages or any other value,
 since it interprets its argument as an input variable</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;this is a message&#39;</span><span class="p">)</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="s1">'this is a message'</span><span class="p">)</span>
 <span class="go">this is a message</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="mi">42</span><span class="p">)</span>
 <span class="go">42</span>
@@ -1236,35 +1254,35 @@ since it interprets its argument as an input variable</p>
 </ul>
 </section>
 <section id="another-example-user-input">
-<h3><span class="section-number">1.7.2. </span>another example: user input<a class="headerlink" href="#another-example-user-input" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">1.7.2. </span>another example: user input<a class="headerlink" href="#another-example-user-input" title="Link to this heading">#</a></h3>
 <ul>
 <li><p>The program can be instructed to <strong>accept an input from the user</strong>
 and store it into a variable by means of the <code class="docutils literal notranslate"><span class="pre">input</span> <span class="pre">()</span></code> function.</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">input</span></code> takes a string as argument,
 representing the message that will be printed on screen to instruct the user.</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">a</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s1">&#39;insert a number: &#39;</span><span class="p">)</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">a</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s1">'insert a number: '</span><span class="p">)</span>
 <span class="go">insert a number: 2</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span> <span class="p">(</span><span class="n">a</span><span class="p">)</span>
-<span class="go">&#39;2&#39;</span>
+<span class="go">'2'</span>
 </pre></div>
 </div>
 </li>
 <li><p>By default <strong><code class="docutils literal notranslate"><span class="pre">input</span></code> returns a string</strong>,
 and casting should be used to interpret it as a different variable</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">a</span> <span class="o">=</span> <span class="nb">int</span> <span class="p">(</span><span class="nb">input</span> <span class="p">(</span><span class="s1">&#39;insert a number:&#39;</span><span class="p">))</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">a</span> <span class="o">=</span> <span class="nb">int</span> <span class="p">(</span><span class="nb">input</span> <span class="p">(</span><span class="s1">'insert a number:'</span><span class="p">))</span>
 </pre></div>
 </div>
 </li>
 </ul>
 </section>
 <section id="user-defined-functions">
-<h3><span class="section-number">1.7.3. </span>User-defined functions<a class="headerlink" href="#user-defined-functions" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">1.7.3. </span>User-defined functions<a class="headerlink" href="#user-defined-functions" title="Link to this heading">#</a></h3>
 <ul>
 <li><p>The keyword <code class="docutils literal notranslate"><span class="pre">def</span></code> introduces a <strong>function definition</strong>
 that is used to define new functions implemented by users</p></li>
 <li><p>It must be followed by the <strong>function name</strong>,
 <strong>its arguments</strong> within parentheses and a colon (<code class="docutils literal notranslate"><span class="pre">:</span></code>)</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">squared</span> <span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="p">:</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">squared</span> <span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="p">:</span>
   <span class="k">return</span> <span class="n">x</span><span class="o">*</span><span class="n">x</span>
 </pre></div>
 </div>
@@ -1286,7 +1304,7 @@ which is a set of instructions at the same logical level</p>
 <li><p>The function may or may not <strong>return something</strong> where it has been called</p></li>
 <li><p>In case it does, it may return <strong>a single object or a sequence of them</strong>
 (interpreted as a <em>tuple</em>)</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="k">def</span> <span class="nf">first_three_powers</span> <span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="p">:</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="k">def</span><span class="w"> </span><span class="nf">first_three_powers</span> <span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="p">:</span>
 <span class="gp">... </span>  <span class="k">return</span> <span class="n">x</span><span class="p">,</span> <span class="n">x</span><span class="o">*</span><span class="n">x</span><span class="p">,</span> <span class="n">x</span><span class="o">*</span><span class="n">x</span><span class="o">*</span><span class="n">x</span>
 <span class="gp">... </span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">first_three_powers</span> <span class="p">(</span><span class="mi">2</span><span class="p">)</span>
@@ -1297,7 +1315,7 @@ which is a set of instructions at the same logical level</p>
 </ul>
 </section>
 <section id="functions-with-arbitrary-number-of-arguments">
-<h3><span class="section-number">1.7.4. </span>Functions with arbitrary number of arguments<a class="headerlink" href="#functions-with-arbitrary-number-of-arguments" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">1.7.4. </span>Functions with arbitrary number of arguments<a class="headerlink" href="#functions-with-arbitrary-number-of-arguments" title="Link to this heading">#</a></h3>
 <ul>
 <li><p>It is possible to define a function with an <strong>arbitrary number of arguments</strong>
 by using the <code class="docutils literal notranslate"><span class="pre">*args</span></code> and <code class="docutils literal notranslate"><span class="pre">**kwargs</span></code> syntax.</p></li>
@@ -1306,13 +1324,13 @@ into a function call</strong>,
 so that each element of the list is passed as a different argument to the function.</p></li>
 <li><p>Similarly,
 <strong>the <code class="docutils literal notranslate"><span class="pre">**</span></code> operator can be used to pass keyword arguments in the form of a dictionary</strong>.</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">my_function</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">my_function</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
    <span class="nb">print</span><span class="p">(</span><span class="n">args</span><span class="p">)</span>
    <span class="nb">print</span><span class="p">(</span><span class="n">kwargs</span><span class="p">)</span>
 
-<span class="n">my_function</span><span class="p">(</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">),</span> <span class="n">a</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="n">b</span> <span class="o">=</span> <span class="s1">&#39;wow&#39;</span><span class="p">,</span> <span class="n">c</span><span class="o">=</span> <span class="p">(</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">6</span><span class="p">))</span>
+<span class="n">my_function</span><span class="p">(</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">),</span> <span class="n">a</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="n">b</span> <span class="o">=</span> <span class="s1">'wow'</span><span class="p">,</span> <span class="n">c</span><span class="o">=</span> <span class="p">(</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">6</span><span class="p">))</span>
 <span class="p">((</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">),)</span>
-<span class="p">{</span><span class="s1">&#39;a&#39;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="s1">&#39;b&#39;</span><span class="p">:</span> <span class="s1">&#39;wow&#39;</span><span class="p">,</span> <span class="s1">&#39;c&#39;</span><span class="p">:</span> <span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">)}</span>
+<span class="p">{</span><span class="s1">'a'</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="s1">'b'</span><span class="p">:</span> <span class="s1">'wow'</span><span class="p">,</span> <span class="s1">'c'</span><span class="p">:</span> <span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">)}</span>
 </pre></div>
 </div>
 <div class="admonition warning">
@@ -1326,7 +1344,7 @@ should be valid for all the possible types of arguments that the function can re
 </ul>
 </section>
 <section id="functions-in-python-scripts">
-<h3><span class="section-number">1.7.5. </span>Functions in python scripts<a class="headerlink" href="#functions-in-python-scripts" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">1.7.5. </span>Functions in python scripts<a class="headerlink" href="#functions-in-python-scripts" title="Link to this heading">#</a></h3>
 <ul>
 <li><p>When a program gets some structure,
 it’s wise to <strong>write it within a script</strong>,
@@ -1335,25 +1353,25 @@ so that it can be carefully edited before execution</p></li>
 <strong>several functions may be defined</strong> in the same script</p></li>
 <li><p>To let the Python interpreter know what to do when a script is called,
 the <strong>main sequence of instructions</strong> follows the statement <code class="docutils literal notranslate"><span class="pre">if</span> <span class="pre">__name__</span> <span class="pre">==</span> <span class="pre">&quot;__main__&quot;:</span> </code></p>
-<div class="highlight-py notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">squared</span> <span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="p">:</span>
+<div class="highlight-py notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">squared</span> <span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="p">:</span>
   <span class="k">return</span> <span class="n">x</span><span class="o">*</span><span class="n">x</span>
 
-<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&quot;__main__&quot;</span><span class="p">:</span>
-  <span class="n">number</span> <span class="o">=</span> <span class="nb">float</span> <span class="p">(</span><span class="nb">input</span> <span class="p">(</span><span class="s1">&#39;insert a number:&#39;</span><span class="p">))</span>
-  <span class="nb">print</span> <span class="p">(</span><span class="s1">&#39;the square of &#39;</span> <span class="o">+</span> <span class="nb">str</span> <span class="p">(</span><span class="n">number</span><span class="p">)</span> <span class="o">+</span> <span class="s1">&#39; is: &#39;</span> <span class="o">+</span> <span class="nb">str</span> <span class="p">(</span><span class="n">squared</span> <span class="p">(</span><span class="n">number</span><span class="p">)))</span>
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">"__main__"</span><span class="p">:</span>
+  <span class="n">number</span> <span class="o">=</span> <span class="nb">float</span> <span class="p">(</span><span class="nb">input</span> <span class="p">(</span><span class="s1">'insert a number:'</span><span class="p">))</span>
+  <span class="nb">print</span> <span class="p">(</span><span class="s1">'the square of '</span> <span class="o">+</span> <span class="nb">str</span> <span class="p">(</span><span class="n">number</span><span class="p">)</span> <span class="o">+</span> <span class="s1">' is: '</span> <span class="o">+</span> <span class="nb">str</span> <span class="p">(</span><span class="n">squared</span> <span class="p">(</span><span class="n">number</span><span class="p">)))</span>
 </pre></div>
 </div>
 <div class="admonition tip">
 <p class="admonition-title">Tip</p>
 <p>When writing a script, it is advisable to <strong>define a <code class="docutils literal notranslate"><span class="pre">main</span> <span class="pre">()</span></code> function</strong>
 that will be executed when the script is called</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">main</span> <span class="p">()</span> <span class="p">:</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">main</span> <span class="p">()</span> <span class="p">:</span>
   <span class="o">&lt;</span><span class="n">your</span> <span class="n">code</span> <span class="n">statements</span> <span class="n">here</span><span class="o">&gt;</span>
   <span class="k">return</span>
 
 <span class="c1">#-------------------------------</span>
 
-<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&quot;__main__&quot;</span><span class="p">:</span>
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">"__main__"</span><span class="p">:</span>
   <span class="n">main</span> <span class="p">()</span>
 </pre></div>
 </div>
@@ -1362,13 +1380,13 @@ that will be executed when the script is called</p>
 </ul>
 </section>
 <section id="documenting-function-behaviour">
-<h3><span class="section-number">1.7.6. </span>Documenting function behaviour<a class="headerlink" href="#documenting-function-behaviour" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">1.7.6. </span>Documenting function behaviour<a class="headerlink" href="#documenting-function-behaviour" title="Link to this heading">#</a></h3>
 <ul>
 <li><p>The first statement of the function body can be a string literal,
 in which case it will be interpreted as <strong>the documentation of the function</strong>
 that can be accessed by the built-in function <code class="docutils literal notranslate"><span class="pre">help</span></code>.</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="k">def</span> <span class="nf">squared</span> <span class="p">(</span><span class="n">x</span><span class="p">):</span>
-<span class="gp">... </span><span class="w">  </span><span class="sd">&#39;&#39;&#39;calculates the square of a number&#39;&#39;&#39;</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="k">def</span><span class="w"> </span><span class="nf">squared</span> <span class="p">(</span><span class="n">x</span><span class="p">):</span>
+<span class="gp">... </span><span class="w">  </span><span class="sd">'''calculates the square of a number'''</span>
 <span class="gp">... </span>  <span class="k">return</span> <span class="n">x</span><span class="o">*</span><span class="n">x</span>
 <span class="gp">... </span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">help</span> <span class="p">(</span><span class="n">squared</span><span class="p">)</span>
@@ -1393,15 +1411,15 @@ that can be accessed by the built-in function <code class="docutils literal notr
 <strong>special care has to be put in documenting the source code</strong>:
 explain what is the purpose of the function in a concise way
 and describe the arguments with their type, as well the expected result type.</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">squared</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
-<span class="w">  </span><span class="sd">&quot;&quot;&quot;calculates the square of a number</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">squared</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+<span class="w">  </span><span class="sd">"""calculates the square of a number</span>
 <span class="sd">  </span>
 <span class="sd">  Args:</span>
 <span class="sd">    x (float): a number</span>
 <span class="sd">  </span>
 <span class="sd">  Returns:</span>
 <span class="sd">    (float): the square of x</span>
-<span class="sd">  &quot;&quot;&quot;</span>
+<span class="sd">  """</span>
   <span class="k">return</span> <span class="n">x</span><span class="o">*</span><span class="n">x</span>
 </pre></div>
 </div>
@@ -1423,11 +1441,11 @@ and describe the arguments with their type, as well the expected result type.</p
 </ul>
 </section>
 <section id="variables-inside-functions">
-<h3><span class="section-number">1.7.7. </span>Variables inside functions<a class="headerlink" href="#variables-inside-functions" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">1.7.7. </span>Variables inside functions<a class="headerlink" href="#variables-inside-functions" title="Link to this heading">#</a></h3>
 <ul>
 <li><p>Variables defined in the scope of a function, called <strong>local</strong>,
 are not visible outside it unless they are declared as <code class="docutils literal notranslate"><span class="pre">global</span></code>.</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="k">def</span> <span class="nf">test</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="k">def</span><span class="w"> </span><span class="nf">test</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
 <span class="gp">... </span>  <span class="n">y</span> <span class="o">=</span> <span class="mi">4</span>
 <span class="gp">... </span>  <span class="k">return</span> <span class="n">x</span>
 <span class="gp">... </span>
@@ -1435,9 +1453,9 @@ are not visible outside it unless they are declared as <code class="docutils lit
 <span class="go">1</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">y</span>
 <span class="gt">Traceback (most recent call last):</span>
-  File <span class="nb">&quot;&lt;stdin&gt;&quot;</span>, line <span class="m">1</span>, in <span class="n">&lt;module&gt;</span>
-<span class="gr">NameError</span>: <span class="n">name &#39;y&#39; is not defined</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="k">def</span> <span class="nf">test</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+  File <span class="nb">"&lt;stdin&gt;"</span>, line <span class="m">1</span>, in <span class="n">&lt;module&gt;</span>
+<span class="gr">NameError</span>: <span class="n">name 'y' is not defined</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="k">def</span><span class="w"> </span><span class="nf">test</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
 <span class="gp">... </span>  <span class="k">global</span> <span class="n">y</span>
 <span class="gp">... </span>  <span class="n">y</span> <span class="o">=</span> <span class="mi">4</span>
 <span class="gp">... </span>  <span class="k">return</span> <span class="n">x</span>
@@ -1453,7 +1471,7 @@ are not visible outside it unless they are declared as <code class="docutils lit
 a function <strong>may access and manipulate objects defined outside its scope</strong>
 and not passed as arguments</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">a</span> <span class="o">=</span> <span class="mi">8</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="k">def</span> <span class="nf">test</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="k">def</span><span class="w"> </span><span class="nf">test</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
 <span class="gp">... </span>  <span class="k">return</span> <span class="n">a</span><span class="o">*</span><span class="n">x</span>
 <span class="gp">... </span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">test</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
@@ -1465,7 +1483,7 @@ and not passed as arguments</p>
 with the same name as a variable outside its scope,
 <strong>it behaves as a new local variable</strong>.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">a</span> <span class="o">=</span> <span class="mi">8</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="k">def</span> <span class="nf">test</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="k">def</span><span class="w"> </span><span class="nf">test</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
 <span class="gp">... </span>  <span class="n">a</span> <span class="o">=</span> <span class="mi">4</span>
 <span class="gp">... </span>  <span class="k">return</span> <span class="n">a</span><span class="o">*</span><span class="n">x</span>
 <span class="gp">... </span>
@@ -1480,16 +1498,16 @@ with the same name as a variable outside its scope,
 </section>
 </section>
 <section id="control-flow-tools">
-<h2><span class="section-number">1.8. </span>Control Flow Tools<a class="headerlink" href="#control-flow-tools" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">1.8. </span>Control Flow Tools<a class="headerlink" href="#control-flow-tools" title="Link to this heading">#</a></h2>
 <section id="checking-conditions-if-and-else-statements">
-<h3><span class="section-number">1.8.1. </span>Checking conditions: <code class="docutils literal notranslate"><span class="pre">if</span></code> and <code class="docutils literal notranslate"><span class="pre">else</span></code> statements<a class="headerlink" href="#checking-conditions-if-and-else-statements" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">1.8.1. </span>Checking conditions: <code class="docutils literal notranslate"><span class="pre">if</span></code> and <code class="docutils literal notranslate"><span class="pre">else</span></code> statements<a class="headerlink" href="#checking-conditions-if-and-else-statements" title="Link to this heading">#</a></h3>
 <ul>
 <li><p>It is quite common in programming to let the program execute a set of commands
 <strong>only when a condition is met</strong>.
 This is possible in Python with the <code class="docutils literal notranslate"><span class="pre">if</span></code> statement.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">a</span> <span class="o">=</span> <span class="mi">3</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="k">if</span> <span class="n">a</span> <span class="o">&gt;</span> <span class="mi">0</span> <span class="p">:</span> 
-<span class="gp">... </span>  <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;a is positive&#39;</span><span class="p">)</span>
+<span class="gp">... </span>  <span class="nb">print</span><span class="p">(</span><span class="s1">'a is positive'</span><span class="p">)</span>
 <span class="gp">... </span>
 <span class="go">a is positive</span>
 <span class="gp">&gt;&gt;&gt; </span>
@@ -1505,9 +1523,9 @@ instructions following an <code class="docutils literal notranslate"><span class
 the <code class="docutils literal notranslate"><span class="pre">else</span></code> statement comes to support.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">a</span> <span class="o">=</span> <span class="o">-</span><span class="mi">3</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="k">if</span> <span class="n">a</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span> 
-<span class="gp">... </span>  <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;a is positive&#39;</span><span class="p">)</span>
+<span class="gp">... </span>  <span class="nb">print</span><span class="p">(</span><span class="s1">'a is positive'</span><span class="p">)</span>
 <span class="gp">... </span><span class="k">else</span><span class="p">:</span> 
-<span class="gp">... </span>  <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;a is negative&#39;</span><span class="p">)</span>
+<span class="gp">... </span>  <span class="nb">print</span><span class="p">(</span><span class="s1">'a is negative'</span><span class="p">)</span>
 <span class="gp">... </span>
 <span class="go">a is negative</span>
 </pre></div>
@@ -1516,11 +1534,11 @@ the <code class="docutils literal notranslate"><span class="pre">else</span></co
 <li><p><strong>Multiple cases</strong> are covered by using the <code class="docutils literal notranslate"><span class="pre">elif</span></code> statement.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">a</span> <span class="o">=</span> <span class="mi">0</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="k">if</span> <span class="n">a</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span> 
-<span class="gp">... </span>  <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;a is positive&#39;</span><span class="p">)</span>
+<span class="gp">... </span>  <span class="nb">print</span><span class="p">(</span><span class="s1">'a is positive'</span><span class="p">)</span>
 <span class="gp">... </span><span class="k">elif</span> <span class="n">a</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">:</span> 
-<span class="gp">... </span>  <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;a is negative&#39;</span><span class="p">)</span>
+<span class="gp">... </span>  <span class="nb">print</span><span class="p">(</span><span class="s1">'a is negative'</span><span class="p">)</span>
 <span class="gp">... </span><span class="k">else</span><span class="p">:</span> 
-<span class="gp">... </span>  <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;a is zero&#39;</span><span class="p">)</span>
+<span class="gp">... </span>  <span class="nb">print</span><span class="p">(</span><span class="s1">'a is zero'</span><span class="p">)</span>
 <span class="gp">... </span>
 <span class="go">a is zero</span>
 </pre></div>
@@ -1529,12 +1547,12 @@ the <code class="docutils literal notranslate"><span class="pre">else</span></co
 </ul>
 </section>
 <section id="the-for-loop">
-<h3><span class="section-number">1.8.2. </span>The <code class="docutils literal notranslate"><span class="pre">for</span></code> loop<a class="headerlink" href="#the-for-loop" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">1.8.2. </span>The <code class="docutils literal notranslate"><span class="pre">for</span></code> loop<a class="headerlink" href="#the-for-loop" title="Link to this heading">#</a></h3>
 <ul>
 <li><p><strong>Repetitive operations</strong> can be executed by means of the <code class="docutils literal notranslate"><span class="pre">for</span></code> and <code class="docutils literal notranslate"><span class="pre">while</span></code> loops.</p></li>
 <li><p>The <strong><code class="docutils literal notranslate"><span class="pre">for</span></code> loop</strong> executes the same set of instructions
 for all the elements of a list of objects</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="k">for</span> <span class="n">elem</span> <span class="ow">in</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="s1">&#39;a&#39;</span><span class="p">,</span><span class="s1">&#39;abc&#39;</span><span class="p">,</span><span class="mf">5.</span><span class="p">]</span> <span class="p">:</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="k">for</span> <span class="n">elem</span> <span class="ow">in</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="s1">'a'</span><span class="p">,</span><span class="s1">'abc'</span><span class="p">,</span><span class="mf">5.</span><span class="p">]</span> <span class="p">:</span>
 <span class="gp">... </span>  <span class="nb">print</span> <span class="p">(</span><span class="n">elem</span><span class="p">)</span>
 <span class="gp">... </span>
 <span class="go">0</span>
@@ -1550,7 +1568,7 @@ and assumes, one by one,
 the <strong>value of each element</strong> present in the list</p></li>
 <li><p>Loops <strong>over integer indices</strong> are usually performed using the <code class="docutils literal notranslate"><span class="pre">range</span></code> function:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span> <span class="p">(</span><span class="mi">3</span><span class="p">):</span>
-  <span class="nb">print</span> <span class="p">(</span><span class="s1">&#39;iteration &#39;</span> <span class="o">+</span> <span class="nb">str</span> <span class="p">(</span><span class="n">i</span><span class="p">))</span>
+  <span class="nb">print</span> <span class="p">(</span><span class="s1">'iteration '</span> <span class="o">+</span> <span class="nb">str</span> <span class="p">(</span><span class="n">i</span><span class="p">))</span>
 </pre></div>
 </div>
 </li>
@@ -1561,18 +1579,18 @@ instructions following a <code class="docutils literal notranslate"><span class=
 <li><p>This allows, for example, to <strong>uniquely identify scopes</strong> in nested loops</p></li>
 </ul>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span> <span class="p">(</span><span class="mi">3</span><span class="p">):</span>
-  <span class="nb">print</span> <span class="p">(</span><span class="s1">&#39;before the internal loop in iteration &#39;</span> <span class="o">+</span> <span class="nb">str</span> <span class="p">(</span><span class="n">i</span><span class="p">))</span>  
+  <span class="nb">print</span> <span class="p">(</span><span class="s1">'before the internal loop in iteration '</span> <span class="o">+</span> <span class="nb">str</span> <span class="p">(</span><span class="n">i</span><span class="p">))</span>  
   <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span> <span class="p">(</span><span class="mi">3</span><span class="p">):</span>
     <span class="n">number</span> <span class="o">=</span> <span class="mi">3</span> <span class="o">*</span> <span class="n">i</span> <span class="o">+</span> <span class="n">j</span>
     <span class="nb">print</span> <span class="p">(</span><span class="n">number</span><span class="p">)</span>
-  <span class="nb">print</span> <span class="p">(</span><span class="s1">&#39;end of internal loop&#39;</span><span class="p">)</span>  
+  <span class="nb">print</span> <span class="p">(</span><span class="s1">'end of internal loop'</span><span class="p">)</span>  
 </pre></div>
 </div>
 </li>
 </ul>
 </section>
 <section id="the-while-loop">
-<h3><span class="section-number">1.8.3. </span>The <code class="docutils literal notranslate"><span class="pre">while</span></code> loop<a class="headerlink" href="#the-while-loop" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">1.8.3. </span>The <code class="docutils literal notranslate"><span class="pre">while</span></code> loop<a class="headerlink" href="#the-while-loop" title="Link to this heading">#</a></h3>
 <ul>
 <li><p>The <code class="docutils literal notranslate"><span class="pre">while</span></code> loops execute a set of instructions
 <strong>as long as a condition is fulfilled</strong></p>
@@ -1590,7 +1608,7 @@ instructions following a <code class="docutils literal notranslate"><span class=
 </ul>
 </section>
 <section id="exceptional-loop-interruction-instructions">
-<h3><span class="section-number">1.8.4. </span>Exceptional loop interruction instructions<a class="headerlink" href="#exceptional-loop-interruction-instructions" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">1.8.4. </span>Exceptional loop interruction instructions<a class="headerlink" href="#exceptional-loop-interruction-instructions" title="Link to this heading">#</a></h3>
 <ul class="simple">
 <li><p>Sometimes it is useful to alter the behaviour of loops
 independently of the conditions present in the <code class="docutils literal notranslate"><span class="pre">for</span></code> or <code class="docutils literal notranslate"><span class="pre">while</span></code> statements</p></li>
@@ -1603,14 +1621,14 @@ and <strong>exits the loop</strong></p></li>
 </section>
 </section>
 <section id="modules">
-<h2><span class="section-number">1.9. </span>Modules<a class="headerlink" href="#modules" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">1.9. </span>Modules<a class="headerlink" href="#modules" title="Link to this heading">#</a></h2>
 <ul class="simple">
 <li><p>Collections of functions to be used in many programs
 may be collected in <strong>libraries or modules</strong>
 that can be imported in scripts</p></li>
 </ul>
 <section id="an-example-reading-the-command-line">
-<h3><span class="section-number">1.9.1. </span>An example: reading the command line<a class="headerlink" href="#an-example-reading-the-command-line" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">1.9.1. </span>An example: reading the command line<a class="headerlink" href="#an-example-reading-the-command-line" title="Link to this heading">#</a></h3>
 <ul>
 <li><p>When a script is executed,
 it’s <strong>very practical to provide input information</strong> in the same command line:</p>
@@ -1620,15 +1638,15 @@ the<span class="w"> </span>square<span class="w"> </span>of<span class="w"> </sp
 </div>
 </li>
 <li><p>The <em>library</em> that is used to read the input line is called <code class="docutils literal notranslate"><span class="pre">sys</span></code></p>
-<div class="highlight-py notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">sys</span>
+<div class="highlight-py notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">sys</span>
 
-<span class="k">def</span> <span class="nf">squared</span> <span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="p">:</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">squared</span> <span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="p">:</span>
   <span class="k">return</span> <span class="n">x</span><span class="o">*</span><span class="n">x</span>
 
-<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&quot;__main__&quot;</span><span class="p">:</span>
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">"__main__"</span><span class="p">:</span>
 
   <span class="n">number</span> <span class="o">=</span> <span class="nb">float</span> <span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
-  <span class="nb">print</span> <span class="p">(</span><span class="s1">&#39;the square power of &#39;</span> <span class="o">+</span> <span class="nb">str</span> <span class="p">(</span><span class="n">number</span><span class="p">)</span> <span class="o">+</span> <span class="s1">&#39; is: &#39;</span> <span class="o">+</span> <span class="nb">str</span> <span class="p">(</span><span class="n">squared</span> <span class="p">(</span><span class="n">number</span><span class="p">)))</span>
+  <span class="nb">print</span> <span class="p">(</span><span class="s1">'the square power of '</span> <span class="o">+</span> <span class="nb">str</span> <span class="p">(</span><span class="n">number</span><span class="p">)</span> <span class="o">+</span> <span class="s1">' is: '</span> <span class="o">+</span> <span class="nb">str</span> <span class="p">(</span><span class="n">squared</span> <span class="p">(</span><span class="n">number</span><span class="p">)))</span>
 </pre></div>
 </div>
 <ul class="simple">
@@ -1639,50 +1657,50 @@ the<span class="w"> </span>square<span class="w"> </span>of<span class="w"> </sp
 </ul>
 </section>
 <section id="user-defined-libraries">
-<h3><span class="section-number">1.9.2. </span>User-defined libraries<a class="headerlink" href="#user-defined-libraries" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">1.9.2. </span>User-defined libraries<a class="headerlink" href="#user-defined-libraries" title="Link to this heading">#</a></h3>
 <ul>
 <li><p>A library is a <strong>text file containing a collection of functions</strong>,
 usually placed in the same directory of the scripts which use it</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">sys</span>
-<span class="kn">from</span> <span class="nn">operations</span> <span class="kn">import</span> <span class="n">squared</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">sys</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">operations</span><span class="w"> </span><span class="kn">import</span> <span class="n">squared</span>
 
-<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&quot;__main__&quot;</span><span class="p">:</span>
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">"__main__"</span><span class="p">:</span>
 
   <span class="n">number</span> <span class="o">=</span> <span class="nb">float</span> <span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
-  <span class="nb">print</span> <span class="p">(</span><span class="s1">&#39;the square power of &#39;</span> <span class="o">+</span> <span class="nb">str</span> <span class="p">(</span><span class="n">number</span><span class="p">)</span> <span class="o">+</span> <span class="s1">&#39; is: &#39;</span> <span class="o">+</span> <span class="nb">str</span> <span class="p">(</span><span class="n">squared</span> <span class="p">(</span><span class="n">number</span><span class="p">)))</span>
+  <span class="nb">print</span> <span class="p">(</span><span class="s1">'the square power of '</span> <span class="o">+</span> <span class="nb">str</span> <span class="p">(</span><span class="n">number</span><span class="p">)</span> <span class="o">+</span> <span class="s1">' is: '</span> <span class="o">+</span> <span class="nb">str</span> <span class="p">(</span><span class="n">squared</span> <span class="p">(</span><span class="n">number</span><span class="p">)))</span>
 </pre></div>
 </div>
 </li>
 <li><p>where in this case <a class="reference download internal" download="" href="../../_downloads/ea7172e1fddfbccbeaae3d249c1323f7/operations.py"><span class="xref download myst"><code class="docutils literal notranslate"><span class="pre">operations</span></code></span></a> is</p>
-<div class="highlight-py notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">squared</span> <span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="p">:</span>
-<span class="w">  </span><span class="sd">&quot;&quot;&quot;calculates the square of a number</span>
+<div class="highlight-py notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">squared</span> <span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="p">:</span>
+<span class="w">  </span><span class="sd">"""calculates the square of a number</span>
 <span class="sd">  </span>
 <span class="sd">  Args:</span>
 <span class="sd">    x (float): a number</span>
 <span class="sd">  </span>
 <span class="sd">  Returns:</span>
 <span class="sd">    (float): the square of x</span>
-<span class="sd">  &quot;&quot;&quot;</span>
+<span class="sd">  """</span>
   <span class="k">return</span> <span class="n">x</span> <span class="o">*</span> <span class="n">x</span>
 </pre></div>
 </div>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">sys</span>
-<span class="kn">from</span> <span class="nn">operations</span> <span class="kn">import</span> <span class="n">squared</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">sys</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">operations</span><span class="w"> </span><span class="kn">import</span> <span class="n">squared</span>
 
-<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&quot;__main__&quot;</span><span class="p">:</span>
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">"__main__"</span><span class="p">:</span>
 
   <span class="n">number</span> <span class="o">=</span> <span class="nb">float</span> <span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
-  <span class="nb">print</span> <span class="p">(</span><span class="s1">&#39;the square power of &#39;</span> <span class="o">+</span> <span class="nb">str</span> <span class="p">(</span><span class="n">number</span><span class="p">)</span> <span class="o">+</span> <span class="s1">&#39; is: &#39;</span> <span class="o">+</span> <span class="nb">str</span> <span class="p">(</span><span class="n">squared</span> <span class="p">(</span><span class="n">number</span><span class="p">)))</span>
+  <span class="nb">print</span> <span class="p">(</span><span class="s1">'the square power of '</span> <span class="o">+</span> <span class="nb">str</span> <span class="p">(</span><span class="n">number</span><span class="p">)</span> <span class="o">+</span> <span class="s1">' is: '</span> <span class="o">+</span> <span class="nb">str</span> <span class="p">(</span><span class="n">squared</span> <span class="p">(</span><span class="n">number</span><span class="p">)))</span>
 </pre></div>
 </div>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>Adding the following term to the library
 allows to <strong>run the library as a script</strong> for testing purposes</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&quot;__main__&quot;</span><span class="p">:</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">"__main__"</span><span class="p">:</span>
 
   <span class="n">number</span> <span class="o">=</span> <span class="mf">3.</span>
-  <span class="nb">print</span> <span class="p">(</span><span class="s1">&#39;the square power of &#39;</span> <span class="o">+</span> <span class="nb">str</span> <span class="p">(</span><span class="n">number</span><span class="p">)</span> <span class="o">+</span> <span class="s1">&#39; is: &#39;</span> <span class="o">+</span> <span class="nb">str</span> <span class="p">(</span><span class="n">squared</span> <span class="p">(</span><span class="n">number</span><span class="p">)))</span>  
+  <span class="nb">print</span> <span class="p">(</span><span class="s1">'the square power of '</span> <span class="o">+</span> <span class="nb">str</span> <span class="p">(</span><span class="n">number</span><span class="p">)</span> <span class="o">+</span> <span class="s1">' is: '</span> <span class="o">+</span> <span class="nb">str</span> <span class="p">(</span><span class="n">squared</span> <span class="p">(</span><span class="n">number</span><span class="p">)))</span>  
 </pre></div>
 </div>
 </div>
@@ -1691,8 +1709,8 @@ allows to <strong>run the library as a script</strong> for testing purposes</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <ul class="simple">
-<li><p>The examples for the lecture may be found <a class="reference internal" href="EXAMPLES.html"><span class="doc std std-doc">here</span></a></p></li>
-<li><p>The exercises for the lecture may be found <a class="reference internal" href="EXERCISES.html"><span class="doc std std-doc">here</span></a></p></li>
+<li><p>The examples for the lecture may be found <a class="reference internal" href="EXAMPLES.html"><span class="std std-doc">here</span></a></p></li>
+<li><p>The exercises for the lecture may be found <a class="reference internal" href="EXERCISES.html"><span class="std std-doc">here</span></a></p></li>
 </ul>
 </div>
 <!-- A notebook with the examples proposed in this lecture can be found [here](../examples/basics_python_examples.ipynb) -->
@@ -1729,7 +1747,7 @@ allows to <strong>run the library as a script</strong> for testing purposes</p>
               
               
               
-                <footer class="prev-next-footer">
+                <footer class="prev-next-footer d-print-none">
                   
 <div class="prev-next-area">
     <a class="left-prev"
@@ -1758,6 +1776,7 @@ allows to <strong>run the library as a script</strong> for testing purposes</p>
             
               
                 <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
 
   <div class="sidebar-secondary-item">
   <div class="page-toc tocsection onthispage">
@@ -1837,7 +1856,7 @@ By The Jupyter Book community
 
   <p class="copyright">
     
-      © Copyright 2022.
+      © Copyright 2023.
       <br/>
     
   </p>
@@ -1861,8 +1880,8 @@ By The Jupyter Book community
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="../../_static/scripts/bootstrap.js?digest=5b4479735964841361fd"></script>
-<script src="../../_static/scripts/pydata-sphinx-theme.js?digest=5b4479735964841361fd"></script>
+  <script src="../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
 
   <footer class="bd-footer">
   </footer>

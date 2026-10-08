@@ -1,13 +1,12 @@
 
-
 <!DOCTYPE html>
 
 
-<html lang="en" data-content_root="" >
+<html lang="en" data-content_root="../../../" >
 
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
     <title>10.11. Maximum likelihood exercise solutions &#8212; Laboratorio di Calcolo e Statistica</title>
   
@@ -15,53 +14,49 @@
   
   <script data-cfasync="false">
     document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
-    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
   </script>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="../../../_static/styles/theme.css?digest=5b4479735964841361fd" rel="stylesheet" />
-<link href="../../../_static/styles/bootstrap.css?digest=5b4479735964841361fd" rel="stylesheet" />
-<link href="../../../_static/styles/pydata-sphinx-theme.css?digest=5b4479735964841361fd" rel="stylesheet" />
+  <link href="../../../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../../../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../../../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
 
   
-  <link href="../../../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=5b4479735964841361fd" rel="stylesheet" />
-  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="../../../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="../../../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+  <link href="../../../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
 
-    <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css" />
-    <link rel="stylesheet" href="../../../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
-    <link rel="stylesheet" type="text/css" href="../../../_static/togglebutton.css" />
-    <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css" />
-    <link rel="stylesheet" type="text/css" href="../../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
-    <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-thebe.css" />
-    <link rel="stylesheet" type="text/css" href="../../../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/styles/sphinx-book-theme.css?v=eba8b062" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/togglebutton.css?v=9c3e77be" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/mystnb.11b39860a7a0cbfd473a3ad8a317855267ff0bd372690045ca344a6b62be495e.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-design.min.css?v=95c83b7e" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../../../_static/scripts/bootstrap.js?digest=5b4479735964841361fd" />
-<link rel="preload" as="script" href="../../../_static/scripts/pydata-sphinx-theme.js?digest=5b4479735964841361fd" />
-  <script src="../../../_static/vendor/fontawesome/6.1.2/js/all.min.js?digest=5b4479735964841361fd"></script>
+  <link rel="preload" as="script" href="../../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../../../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
 
-    <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
-    <script src="../../../_static/jquery.js"></script>
-    <script src="../../../_static/underscore.js"></script>
-    <script src="../../../_static/_sphinx_javascript_frameworks_compat.js"></script>
-    <script src="../../../_static/doctools.js"></script>
-    <script src="../../../_static/clipboard.min.js"></script>
-    <script src="../../../_static/copybutton.js"></script>
-    <script src="../../../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script src="../../../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../../../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../../_static/copybutton.js?v=f281be69"></script>
+    <script src="../../../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
-    <script src="../../../_static/togglebutton.js"></script>
+    <script src="../../../_static/togglebutton.js?v=b8b12719"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
-    <script src="../../../_static/design-tabs.js"></script>
-    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
-const thebe_selector = ".thebe,.cell"
-const thebe_selector_input = "pre"
-const thebe_selector_output = ".output, .cell_output"
-</script>
-    <script async="async" src="../../../_static/sphinx-thebe.js"></script>
+    <script src="../../../_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../../../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
     <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'lectures/Lecture_10/exercises/likelihood_fit_solutions';</script>
@@ -78,28 +73,23 @@ const thebe_selector_output = ".output, .cell_output"
 
   
   
-  <a class="skip-link" href="#main-content">Skip to main content</a>
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
   
   <div id="pst-scroll-pixel-helper"></div>
-
   
   <button type="button" class="btn rounded-pill" id="pst-back-to-top">
-    <i class="fa-solid fa-arrow-up"></i>
-    Back to top
-  </button>
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
 
   
   <input type="checkbox"
           class="sidebar-toggle"
-          name="__primary"
-          id="__primary"/>
-  <label class="overlay overlay-primary" for="__primary"></label>
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
   
   <input type="checkbox"
           class="sidebar-toggle"
-          name="__secondary"
-          id="__secondary"/>
-  <label class="overlay overlay-secondary" for="__secondary"></label>
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
   
   <div class="search-button__wrapper">
     <div class="search-button__overlay"></div>
@@ -121,12 +111,20 @@ const thebe_selector_output = ".output, .cell_output"
   <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
 </form></div>
   </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
   
-    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
-    </nav>
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
   
+
   <div class="bd-container">
     <div class="bd-container__inner bd-page-width">
+      
+      
       
       <div class="bd-sidebar-primary bd-sidebar">
         
@@ -142,6 +140,8 @@ const thebe_selector_output = ".output, .cell_output"
     <div class="sidebar-primary-items__start sidebar-primary__section">
         <div class="sidebar-primary-item">
 
+  
+    
   
 
 <a class="navbar-brand logo" href="../../../intro.html">
@@ -160,7 +160,18 @@ const thebe_selector_output = ".output, .cell_output"
   
   
 </a></div>
-        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item navbar-nav active">
         
         <ul class="nav bd-sidenav bd-sidenav__home-link">
@@ -176,54 +187,54 @@ const thebe_selector_output = ".output, .cell_output"
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Lectures</span></p>
 <ul class="current nav bd-sidenav">
-<li class="toctree-l1 has-children"><a class="reference internal" href="../../Lecture_01/basics_python.html">1. Basics of Python Programming</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../Lecture_01/basics_python.html">1. Basics of Python Programming</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="../../Lecture_01/EXAMPLES.html">1.10. Examples: Lecture 1</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../Lecture_01/EXERCISES.html">1.11. Exercises for Lecture 1</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../Lecture_01/SOLUTIONS.html">1.12. Solutions: Lecture 1</a></li>
 </ul>
-</li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../../Lecture_02/python_libraries.html">2. Notable Python Libraries</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../Lecture_02/python_libraries.html">2. Notable Python Libraries</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="../../Lecture_02/EXAMPLES.html">2.4. Examples: Lecture 2</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../Lecture_02/EXERCISES.html">2.5. Exercises for Lecture 2</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../Lecture_02/SOLUTIONS.html">2.6. Solutions: Lecture 2</a></li>
 </ul>
-</li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../../Lecture_03/data_visualisation.html">3. Data Visualisation with Python</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="../../Lecture_03/EXAMPLES.html">3.6. Examples: Lecture 3</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../Lecture_03/EXERCISES.html">3.7. Exercises for Lecture 3</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../Lecture_03/SOLUTIONS.html">3.8. Solutions: Lecture 3</a></li>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../Lecture_03/data_visualisation.html">3. Data Visualisation with Python</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../Lecture_03/EXAMPLES.html">3.8. Examples: Lecture 3</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Lecture_03/EXERCISES.html">3.9. Exercises for Lecture 3</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Lecture_03/SOLUTIONS.html">3.10. Solutions: Lecture 3</a></li>
 </ul>
-</li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../../Lecture_04/pseudorandom.html">4. Generation of Pseudo-Random Numbers</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-4"><i class="fa-solid fa-chevron-down"></i></label><ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../Lecture_04/pseudorandom.html">4. Generation of Pseudo-Random Numbers</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="../../Lecture_04/EXAMPLES.html">4.6. Examples: Lecture 4</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../Lecture_04/EXERCISES.html">4.7. Exercises for Lecture 4</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../Lecture_04/SOLUTIONS.html">4.8. Solutions: Lecture 4</a></li>
 </ul>
-</li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../../Lecture_05/classes_lambda.html">5. Some python insight: classes, <code class="docutils literal notranslate"><span class="pre">lambda</span></code> functions, functional programming</a><input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-5"><i class="fa-solid fa-chevron-down"></i></label><ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../Lecture_05/classes_lambda.html">5. Some python insight: classes, <code class="docutils literal notranslate"><span class="pre">lambda</span></code> functions, functional programming</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="../../Lecture_05/EXAMPLES.html">5.4. Examples: Lecture 5</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../Lecture_05/EXERCISES.html">5.5. Exercises for Lecture 5</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../Lecture_05/SOLUTIONS.html">5.6. Solutions: Lecture 5</a></li>
 </ul>
-</li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../../Lecture_06/zero_and_extrema.html">6. Finding Zeros and Extrema</a><input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-6"><i class="fa-solid fa-chevron-down"></i></label><ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../Lecture_06/zero_and_extrema.html">6. Finding Zeros and Extrema</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="../../Lecture_06/EXAMPLES.html">6.4. Examples: Lecture 6</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../Lecture_06/EXERCISES.html">6.5. Exercises for Lecture 6</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../Lecture_06/SOLUTIONS.html">6.6. Solutions: Lecture 6</a></li>
 </ul>
-</li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../../Lecture_07/poisson.html">7. The Poisson Distribution</a><input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-7"><i class="fa-solid fa-chevron-down"></i></label><ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../Lecture_07/poisson.html">7. The Poisson Distribution</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="../../Lecture_07/EXERCISES.html">7.5. Exercises for Lecture 7</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../Lecture_07/SOLUTIONS.html">7.6. Solutions: Lezione 7</a></li>
 </ul>
-</li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../../Lecture_08/toys_integration.html">8. Toy Experiments and Integration using Pseudorandom Numbers</a><input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-8"><i class="fa-solid fa-chevron-down"></i></label><ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../Lecture_08/toys_integration.html">8. Toy Experiments and Integration using Pseudorandom Numbers</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="../../Lecture_08/EXAMPLES.html">8.3. Examples: Lecture 8</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../Lecture_08/EXERCISES.html">8.4. Exercises for Lecture 8</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../Lecture_08/SOLUTIONS.html">8.5. Solutions: Lecture 8</a></li>
 </ul>
-</li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../../Lecture_09/likelihood.html">9. The likelihood</a><input class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-9"><i class="fa-solid fa-chevron-down"></i></label><ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../Lecture_09/likelihood.html">9. The likelihood</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="../../Lecture_09/examples/notebook_01.html">9.7. This is a notebook example</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../Lecture_09/examples/notebook_02.html">9.8. Drawing of a function</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../Lecture_09/examples/notebook_03.html">9.9. Accessing files on disk</a></li>
@@ -231,25 +242,25 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l2"><a class="reference internal" href="../../Lecture_09/exercises/likelihood_solutions.html">9.11. Likelihood exercise solutions</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../Lecture_09/solution_libraries.html">9.12. Solution Libraries</a></li>
 </ul>
-</li>
-<li class="toctree-l1 current active has-children"><a class="reference internal" href="../likelihood_fit.html">10. Parameter Estimate using the Maximum Likelihood Method</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-10" name="toctree-checkbox-10" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-10"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
+</details></li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="../likelihood_fit.html">10. Parameter Estimate using the Maximum Likelihood Method</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="../EXERCISES.html">10.10. Exercises for Lecture 10</a></li>
 <li class="toctree-l2 current active"><a class="current reference internal" href="#">10.11. Maximum likelihood exercise solutions</a></li>
 </ul>
-</li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../../Lecture_11/least_squares.html">11. Least-Squares Fitting</a><input class="toctree-checkbox" id="toctree-checkbox-11" name="toctree-checkbox-11" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-11"><i class="fa-solid fa-chevron-down"></i></label><ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../Lecture_11/least_squares.html">11. Least-Squares Fitting</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="../../Lecture_11/EXERCISES.html">11.5. Exercises for Lecture 11</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../Lecture_11/exercises/least_squares_solutions.html">11.6. Least squares solutions</a></li>
 </ul>
-</li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../../Lecture_12/fit_binned.html">12. Fit of Binned Distributions</a><input class="toctree-checkbox" id="toctree-checkbox-12" name="toctree-checkbox-12" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-12"><i class="fa-solid fa-chevron-down"></i></label><ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../Lecture_12/fit_binned.html">12. Fit of Binned Distributions</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="../../Lecture_12/EXERCISES.html">12.7. Exercises for Lecture 12</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../Lecture_12/exercises/es_12.1_solutions.html">12.8. Binned fits solutions: Exercise 12.1</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../Lecture_12/exercises/es_12.2_solutions.html">12.9. Binned fits solutions: Exercise 12.2</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../Lecture_12/exercises/es_12.3_solutions.html">12.10. Binned fits solutions: exercise 12.3</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../Lecture_12/exercises/es_12.4_solutions.html">12.11. cost functions comparison: exercise 12.4</a></li>
 </ul>
-</li>
+</details></li>
 </ul>
 
     </div>
@@ -265,7 +276,7 @@ const thebe_selector_output = ".output, .cell_output"
 
       </div>
       
-      <main id="main-content" class="bd-main">
+      <main id="main-content" class="bd-main" role="main">
         
         
 
@@ -274,14 +285,14 @@ const thebe_selector_output = ".output, .cell_output"
           <div class="bd-content">
             <div class="bd-article-container">
               
-              <div class="bd-header-article">
+              <div class="bd-header-article d-print-none">
 <div class="header-article-items header-article__inner">
   
     <div class="header-article-items__start">
       
-        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
   <span class="fa-solid fa-bars"></span>
-</label></div>
+</button></div>
       
     </div>
   
@@ -406,10 +417,10 @@ const thebe_selector_output = ".output, .cell_output"
 
 <script>
 document.write(`
-  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
-    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
-    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
   </button>
 `);
 </script>
@@ -417,14 +428,14 @@ document.write(`
 
 <script>
 document.write(`
-  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
     <i class="fa-solid fa-magnifying-glass fa-lg"></i>
   </button>
 `);
 </script>
-<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
     <span class="fa-solid fa-list"></span>
-</label>
+</button>
 </div></div>
       
     </div>
@@ -462,12 +473,12 @@ document.write(`
               
                 
 <div id="searchbox"></div>
-                <article class="bd-article" role="main">
+                <article class="bd-article">
                   
   <section class="tex2jax_ignore mathjax_ignore" id="maximum-likelihood-exercise-solutions">
-<h1><span class="section-number">10.11. </span>Maximum likelihood exercise solutions<a class="headerlink" href="#maximum-likelihood-exercise-solutions" title="Permalink to this heading">#</a></h1>
+<h1><span class="section-number">10.11. </span>Maximum likelihood exercise solutions<a class="headerlink" href="#maximum-likelihood-exercise-solutions" title="Link to this heading">#</a></h1>
 <section id="exercise-10-1">
-<h2><span class="section-number">10.11.1. </span>Exercise 10.1<a class="headerlink" href="#exercise-10-1" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">10.11.1. </span>Exercise 10.1<a class="headerlink" href="#exercise-10-1" title="Link to this heading">#</a></h2>
 <p>Write a library of functions to determine the parameter τ of an exponential distribution
 from a list of numbers filled with pseudo-random numbers
 distributed according to an exponential probability density distribution.</p>
@@ -477,40 +488,40 @@ distributed according to an exponential probability density distribution.</p>
 </ul>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">myrand</span> <span class="kn">import</span> <span class="n">generate_exp</span>
-<span class="kn">from</span> <span class="nn">likelihood</span> <span class="kn">import</span> <span class="n">sezioneAureaMax_LL</span><span class="p">,</span> <span class="n">exp_pdf</span><span class="p">,</span> <span class="n">loglikelihood</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">myrand</span><span class="w"> </span><span class="kn">import</span> <span class="n">generate_exp</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">likelihood</span><span class="w"> </span><span class="kn">import</span> <span class="n">sezioneAureaMax_LL</span><span class="p">,</span> <span class="n">exp_pdf</span><span class="p">,</span> <span class="n">loglikelihood</span>
 
 <span class="n">tau_true</span>  <span class="o">=</span> <span class="mf">2.</span>
 <span class="n">N_evt</span>     <span class="o">=</span> <span class="mi">50</span>
 
 <span class="n">sample</span> <span class="o">=</span> <span class="n">generate_exp</span> <span class="p">(</span><span class="n">tau_true</span><span class="p">,</span> <span class="n">N_evt</span><span class="p">)</span>
 <span class="n">tau_hat</span> <span class="o">=</span> <span class="n">sezioneAureaMax_LL</span> <span class="p">(</span><span class="n">loglikelihood</span><span class="p">,</span> <span class="n">exp_pdf</span><span class="p">,</span> <span class="n">sample</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">,</span> <span class="mf">5.</span><span class="p">,</span> <span class="mf">0.0001</span><span class="p">)</span>
-<span class="nb">print</span> <span class="p">(</span><span class="s1">&#39;il valore di tau che massimizza il logaritmo della verosimiglianza è:&#39;</span><span class="p">,</span> <span class="n">tau_hat</span><span class="p">)</span>
+<span class="nb">print</span> <span class="p">(</span><span class="s1">'il valore di tau che massimizza il logaritmo della verosimiglianza è:'</span><span class="p">,</span> <span class="n">tau_hat</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>il valore di tau che massimizza il logaritmo della verosimiglianza è: 1.8939418753389432
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>il valore di tau che massimizza il logaritmo della verosimiglianza è: 2.0481933734193865
 </pre></div>
 </div>
 </div>
 </div>
 </section>
 <section id="exercise-10-2">
-<h2><span class="section-number">10.11.2. </span>Exercise 10.2<a class="headerlink" href="#exercise-10-2" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">10.11.2. </span>Exercise 10.2<a class="headerlink" href="#exercise-10-2" title="Link to this heading">#</a></h2>
 <ul class="simple">
 <li><p>Plot the profile of the likelihood function and the point identified as its maximum.</p></li>
 </ul>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">likelihood</span> <span class="kn">import</span> <span class="n">loglikelihood</span>
-<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
-<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">likelihood</span><span class="w"> </span><span class="kn">import</span> <span class="n">loglikelihood</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
 
 <span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span> <span class="p">()</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">set_title</span> <span class="p">(</span><span class="s1">&#39;Log-likelihood scan&#39;</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">14</span><span class="p">)</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span> <span class="p">(</span><span class="s1">&#39;tau&#39;</span><span class="p">)</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span> <span class="p">(</span><span class="s1">&#39;log likelihood&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_title</span> <span class="p">(</span><span class="s1">'Log-likelihood scan'</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">14</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span> <span class="p">(</span><span class="s1">'tau'</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span> <span class="p">(</span><span class="s1">'log likelihood'</span><span class="p">)</span>
 
 <span class="n">tauaxis</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span> <span class="p">(</span><span class="mf">0.5</span><span class="p">,</span> <span class="mf">5.</span><span class="p">,</span> <span class="mi">10000</span><span class="p">)</span>
 <span class="n">ll</span>      <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span> <span class="p">(</span><span class="mf">0.</span><span class="p">,</span> <span class="n">tauaxis</span><span class="o">.</span><span class="n">size</span><span class="p">)</span>
@@ -518,20 +529,20 @@ distributed according to an exponential probability density distribution.</p>
 <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span> <span class="p">(</span><span class="n">tauaxis</span><span class="o">.</span><span class="n">size</span><span class="p">)</span> <span class="p">:</span>
     <span class="n">ll</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">loglikelihood</span> <span class="p">(</span><span class="n">tauaxis</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">exp_pdf</span><span class="p">,</span> <span class="n">sample</span><span class="p">)</span>
 
-<span class="n">plt</span><span class="o">.</span><span class="n">plot</span> <span class="p">(</span><span class="n">tauaxis</span><span class="p">,</span> <span class="n">ll</span><span class="p">,</span> <span class="s1">&#39;r&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">plot</span> <span class="p">([</span><span class="n">tau_hat</span><span class="p">,</span> <span class="n">tau_hat</span><span class="p">],</span><span class="n">ax</span><span class="o">.</span><span class="n">get_ylim</span> <span class="p">(),</span> <span class="n">color</span> <span class="o">=</span> <span class="s1">&#39;blue&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">text</span> <span class="p">(</span><span class="n">tau_hat</span> <span class="o">*</span> <span class="mf">1.1</span><span class="p">,</span> <span class="n">plt</span><span class="o">.</span><span class="n">ylim</span> <span class="p">()[</span><span class="mi">0</span><span class="p">]</span> <span class="o">+</span> <span class="mf">0.1</span> <span class="o">*</span> <span class="p">(</span><span class="n">ax</span><span class="o">.</span><span class="n">get_ylim</span> <span class="p">()[</span><span class="mi">1</span><span class="p">]</span> <span class="o">-</span> <span class="n">ax</span><span class="o">.</span><span class="n">get_ylim</span> <span class="p">()[</span><span class="mi">0</span><span class="p">]),</span> <span class="s1">&#39;tau_hat =&#39;</span> <span class="o">+</span> <span class="nb">str</span> <span class="p">(</span><span class="n">tau_hat</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span> <span class="p">(</span><span class="n">tauaxis</span><span class="p">,</span> <span class="n">ll</span><span class="p">,</span> <span class="s1">'r'</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span> <span class="p">([</span><span class="n">tau_hat</span><span class="p">,</span> <span class="n">tau_hat</span><span class="p">],</span><span class="n">ax</span><span class="o">.</span><span class="n">get_ylim</span> <span class="p">(),</span> <span class="n">color</span> <span class="o">=</span> <span class="s1">'blue'</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">text</span> <span class="p">(</span><span class="n">tau_hat</span> <span class="o">*</span> <span class="mf">1.1</span><span class="p">,</span> <span class="n">plt</span><span class="o">.</span><span class="n">ylim</span> <span class="p">()[</span><span class="mi">0</span><span class="p">]</span> <span class="o">+</span> <span class="mf">0.1</span> <span class="o">*</span> <span class="p">(</span><span class="n">ax</span><span class="o">.</span><span class="n">get_ylim</span> <span class="p">()[</span><span class="mi">1</span><span class="p">]</span> <span class="o">-</span> <span class="n">ax</span><span class="o">.</span><span class="n">get_ylim</span> <span class="p">()[</span><span class="mi">0</span><span class="p">]),</span> <span class="s1">'tau_hat ='</span> <span class="o">+</span> <span class="nb">str</span> <span class="p">(</span><span class="n">tau_hat</span><span class="p">))</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span> <span class="p">()</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../../_images/56da81a68c076f55427735d81cb61978d09d98833f1663eb523ebaf9ae7b57a7.png" src="../../../_images/56da81a68c076f55427735d81cb61978d09d98833f1663eb523ebaf9ae7b57a7.png" />
+<img alt="../../../_images/722b2457a21eca7d29ac96c899bc3919571bbe4327969e89db03e4e3b4b6f5f5.png" src="../../../_images/722b2457a21eca7d29ac96c899bc3919571bbe4327969e89db03e4e3b4b6f5f5.png" />
 </div>
 </div>
 </section>
 <section id="exercise-10-3">
-<h2><span class="section-number">10.11.3. </span>Exercise 10.3<a class="headerlink" href="#exercise-10-3" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">10.11.3. </span>Exercise 10.3<a class="headerlink" href="#exercise-10-3" title="Link to this heading">#</a></h2>
 <ul class="simple">
 <li><p>Modify the <code class="docutils literal notranslate"><span class="pre">sezione_aurea_max_LL</span></code> function,
 adding the printing of the interval endpoint values at each iteration,
@@ -539,7 +550,7 @@ to observe the narrowing of the interval during program execution.</p></li>
 </ul>
 </section>
 <section id="exercise-10-4">
-<h2><span class="section-number">10.11.4. </span>Exercise 10.4<a class="headerlink" href="#exercise-10-4" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">10.11.4. </span>Exercise 10.4<a class="headerlink" href="#exercise-10-4" title="Link to this heading">#</a></h2>
 <ul class="simple">
 <li><p>Modify the <code class="docutils literal notranslate"><span class="pre">loglikelihood</span></code> function to calculate the logarithm of the product
 of the values of the probability density function, rather than the sum of individual logarithms.
@@ -547,8 +558,8 @@ How does the algorithm’s behavior change?</p></li>
 </ul>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">myrand</span> <span class="kn">import</span> <span class="n">generate_exp</span>
-<span class="kn">from</span> <span class="nn">likelihood</span> <span class="kn">import</span> <span class="n">loglikelihood_prod</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">myrand</span><span class="w"> </span><span class="kn">import</span> <span class="n">generate_exp</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">likelihood</span><span class="w"> </span><span class="kn">import</span> <span class="n">loglikelihood_prod</span>
 
 <span class="n">N_evt_big</span> <span class="o">=</span> <span class="mi">500</span>
 <span class="n">sample_big</span> <span class="o">=</span> <span class="n">generate_exp</span> <span class="p">(</span><span class="n">tau_true</span><span class="p">,</span> <span class="n">N_evt_big</span><span class="p">)</span>
@@ -565,27 +576,27 @@ How does the algorithm’s behavior change?</p></li>
     <span class="n">N_evt_test</span> <span class="o">=</span> <span class="n">N_evt_test</span> <span class="o">*</span> <span class="mi">2</span>
 
 <span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span> <span class="p">()</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">set_title</span> <span class="p">(</span><span class="s1">&#39;tau_hat estimates&#39;</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">14</span><span class="p">)</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span> <span class="p">(</span><span class="s1">&#39;number of events&#39;</span><span class="p">)</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span> <span class="p">(</span><span class="s1">&#39;tau_hat&#39;</span><span class="p">)</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">plot</span> <span class="p">(</span><span class="n">N_evt_range</span><span class="p">,</span> <span class="n">tau_hat_sums</span><span class="p">,</span> <span class="n">color</span> <span class="o">=</span> <span class="s1">&#39;red&#39;</span><span class="p">,</span> <span class="n">label</span> <span class="o">=</span> <span class="s1">&#39;sum&#39;</span><span class="p">)</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">plot</span> <span class="p">(</span><span class="n">N_evt_range</span><span class="p">,</span> <span class="n">tau_hat_pros</span><span class="p">,</span> <span class="n">color</span> <span class="o">=</span> <span class="s1">&#39;blue&#39;</span><span class="p">,</span> <span class="n">linestyle</span> <span class="o">=</span> <span class="s2">&quot;dashed&quot;</span><span class="p">,</span> <span class="n">label</span> <span class="o">=</span> <span class="s1">&#39;product&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_title</span> <span class="p">(</span><span class="s1">'tau_hat estimates'</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">14</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span> <span class="p">(</span><span class="s1">'number of events'</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span> <span class="p">(</span><span class="s1">'tau_hat'</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span> <span class="p">(</span><span class="n">N_evt_range</span><span class="p">,</span> <span class="n">tau_hat_sums</span><span class="p">,</span> <span class="n">color</span> <span class="o">=</span> <span class="s1">'red'</span><span class="p">,</span> <span class="n">label</span> <span class="o">=</span> <span class="s1">'sum'</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span> <span class="p">(</span><span class="n">N_evt_range</span><span class="p">,</span> <span class="n">tau_hat_pros</span><span class="p">,</span> <span class="n">color</span> <span class="o">=</span> <span class="s1">'blue'</span><span class="p">,</span> <span class="n">linestyle</span> <span class="o">=</span> <span class="s2">"dashed"</span><span class="p">,</span> <span class="n">label</span> <span class="o">=</span> <span class="s1">'product'</span><span class="p">)</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">legend</span> <span class="p">()</span>
 
-<span class="nb">print</span> <span class="p">(</span><span class="s1">&#39;il valore di tau che massimizza il logaritmo della verosimiglianza è:&#39;</span><span class="p">,</span> <span class="n">tau_hat</span><span class="p">)</span>
+<span class="nb">print</span> <span class="p">(</span><span class="s1">'il valore di tau che massimizza il logaritmo della verosimiglianza è:'</span><span class="p">,</span> <span class="n">tau_hat</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>il valore di tau che massimizza il logaritmo della verosimiglianza è: 1.8939418753389432
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>il valore di tau che massimizza il logaritmo della verosimiglianza è: 2.0481933734193865
 </pre></div>
 </div>
-<img alt="../../../_images/c5298f82f8e54bfb95bc536b5b46fd6fa71f907c7f253631a7b1e375442e057b.png" src="../../../_images/c5298f82f8e54bfb95bc536b5b46fd6fa71f907c7f253631a7b1e375442e057b.png" />
+<img alt="../../../_images/0bfcd18ecbbadcf94446085bcc383e222ae0173726b2db2a99ec46614542e577.png" src="../../../_images/0bfcd18ecbbadcf94446085bcc383e222ae0173726b2db2a99ec46614542e577.png" />
 </div>
 </div>
 </section>
 <section id="exercise-10-5">
-<h2><span class="section-number">10.11.5. </span>Exercise 10.5<a class="headerlink" href="#exercise-10-5" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">10.11.5. </span>Exercise 10.5<a class="headerlink" href="#exercise-10-5" title="Link to this heading">#</a></h2>
 <p>Graphically show that as the available sample size increases,
 the profile of the logarithm of the likelihood function becomes narrower.</p>
 <ul class="simple">
@@ -595,23 +606,23 @@ between the likelihood function and its maximum value:</p></li>
 <p><span class="math notranslate nohighlight">\(LLR\:(\theta) = \log \left( \dfrac{\mathcal{L}(\theta)}{\mathcal{L}(\hat{\theta})} \right)\)</span></p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">likelihood</span> <span class="kn">import</span> <span class="n">loglikelihood_ratio</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">likelihood</span><span class="w"> </span><span class="kn">import</span> <span class="n">loglikelihood_ratio</span>
 
 <span class="n">sample_size</span> <span class="o">=</span> <span class="mi">10</span>
 
 <span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span> <span class="p">()</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">set_title</span> <span class="p">(</span><span class="s1">&#39;Log-likelihood ratio scan&#39;</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">14</span><span class="p">)</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span> <span class="p">(</span><span class="s1">&#39;tau&#39;</span><span class="p">)</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span> <span class="p">(</span><span class="s1">&#39;LLR&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_title</span> <span class="p">(</span><span class="s1">'Log-likelihood ratio scan'</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">14</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span> <span class="p">(</span><span class="s1">'tau'</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span> <span class="p">(</span><span class="s1">'LLR'</span><span class="p">)</span>
 <span class="n">tauaxis</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span> <span class="p">(</span><span class="mf">0.5</span><span class="p">,</span> <span class="mf">5.</span><span class="p">,</span> <span class="mi">10000</span><span class="p">)</span>
 <span class="n">colors</span> <span class="o">=</span> <span class="p">[</span>
-          <span class="s1">&#39;thistle&#39;</span><span class="p">,</span>
-          <span class="s1">&#39;plum&#39;</span><span class="p">,</span>
-          <span class="s1">&#39;violet&#39;</span><span class="p">,</span>
-          <span class="s1">&#39;orchid&#39;</span><span class="p">,</span>
-          <span class="s1">&#39;fuchsia&#39;</span><span class="p">,</span>
-          <span class="s1">&#39;mediumpurple&#39;</span><span class="p">,</span>
-          <span class="s1">&#39;purple&#39;</span><span class="p">,</span>
+          <span class="s1">'thistle'</span><span class="p">,</span>
+          <span class="s1">'plum'</span><span class="p">,</span>
+          <span class="s1">'violet'</span><span class="p">,</span>
+          <span class="s1">'orchid'</span><span class="p">,</span>
+          <span class="s1">'fuchsia'</span><span class="p">,</span>
+          <span class="s1">'mediumpurple'</span><span class="p">,</span>
+          <span class="s1">'purple'</span><span class="p">,</span>
          <span class="p">]</span>
 <span class="n">index</span> <span class="o">=</span> <span class="mi">0</span>
 <span class="k">while</span> <span class="n">sample_size</span> <span class="o">&lt;=</span> <span class="n">N_evt</span> <span class="p">:</span>
@@ -621,7 +632,7 @@ between the likelihood function and its maximum value:</p></li>
     <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span> <span class="p">(</span><span class="n">tauaxis</span><span class="o">.</span><span class="n">size</span><span class="p">)</span> <span class="p">:</span>
         <span class="n">tau_hat</span> <span class="o">=</span> <span class="n">sezioneAureaMax_LL</span> <span class="p">(</span><span class="n">loglikelihood</span><span class="p">,</span> <span class="n">exp_pdf</span><span class="p">,</span> <span class="n">subsample</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">,</span> <span class="mf">5.</span><span class="p">,</span> <span class="mf">0.0001</span><span class="p">)</span>    
         <span class="n">llr</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">loglikelihood_ratio</span> <span class="p">(</span><span class="n">tauaxis</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">exp_pdf</span><span class="p">,</span> <span class="n">subsample</span><span class="p">,</span> <span class="n">tau_hat</span><span class="p">)</span>
-    <span class="n">plt</span><span class="o">.</span><span class="n">plot</span> <span class="p">(</span><span class="n">tauaxis</span><span class="p">,</span> <span class="n">llr</span><span class="p">,</span> <span class="n">color</span> <span class="o">=</span> <span class="n">colors</span><span class="p">[</span><span class="n">index</span><span class="p">],</span> <span class="n">label</span> <span class="o">=</span> <span class="nb">str</span> <span class="p">(</span><span class="n">sample_size</span><span class="p">)</span> <span class="o">+</span> <span class="s1">&#39; events&#39;</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">plot</span> <span class="p">(</span><span class="n">tauaxis</span><span class="p">,</span> <span class="n">llr</span><span class="p">,</span> <span class="n">color</span> <span class="o">=</span> <span class="n">colors</span><span class="p">[</span><span class="n">index</span><span class="p">],</span> <span class="n">label</span> <span class="o">=</span> <span class="nb">str</span> <span class="p">(</span><span class="n">sample_size</span><span class="p">)</span> <span class="o">+</span> <span class="s1">' events'</span><span class="p">)</span>
     <span class="n">index</span> <span class="o">=</span> <span class="n">index</span> <span class="o">+</span> <span class="mi">1</span>
     <span class="n">sample_size</span> <span class="o">=</span> <span class="n">sample_size</span> <span class="o">+</span> <span class="mi">10</span>
 
@@ -638,11 +649,11 @@ between the likelihood function and its maximum value:</p></li>
 <span class="g g-Whitespace">     </span><span class="mi">24</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span> <span class="p">(</span><span class="n">tauaxis</span><span class="o">.</span><span class="n">size</span><span class="p">)</span> <span class="p">:</span>
 <span class="ne">---&gt; </span><span class="mi">25</span>     <span class="n">tau_hat</span> <span class="o">=</span> <span class="n">sezioneAureaMax_LL</span> <span class="p">(</span><span class="n">loglikelihood</span><span class="p">,</span> <span class="n">exp_pdf</span><span class="p">,</span> <span class="n">subsample</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">,</span> <span class="mf">5.</span><span class="p">,</span> <span class="mf">0.0001</span><span class="p">)</span>    
 <span class="g g-Whitespace">     </span><span class="mi">26</span>     <span class="n">llr</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">loglikelihood_ratio</span> <span class="p">(</span><span class="n">tauaxis</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">exp_pdf</span><span class="p">,</span> <span class="n">subsample</span><span class="p">,</span> <span class="n">tau_hat</span><span class="p">)</span>
-<span class="g g-Whitespace">     </span><span class="mi">27</span> <span class="n">plt</span><span class="o">.</span><span class="n">plot</span> <span class="p">(</span><span class="n">tauaxis</span><span class="p">,</span> <span class="n">llr</span><span class="p">,</span> <span class="n">color</span> <span class="o">=</span> <span class="n">colors</span><span class="p">[</span><span class="n">index</span><span class="p">],</span> <span class="n">label</span> <span class="o">=</span> <span class="nb">str</span> <span class="p">(</span><span class="n">sample_size</span><span class="p">)</span> <span class="o">+</span> <span class="s1">&#39; events&#39;</span><span class="p">)</span>
+<span class="g g-Whitespace">     </span><span class="mi">27</span> <span class="n">plt</span><span class="o">.</span><span class="n">plot</span> <span class="p">(</span><span class="n">tauaxis</span><span class="p">,</span> <span class="n">llr</span><span class="p">,</span> <span class="n">color</span> <span class="o">=</span> <span class="n">colors</span><span class="p">[</span><span class="n">index</span><span class="p">],</span> <span class="n">label</span> <span class="o">=</span> <span class="nb">str</span> <span class="p">(</span><span class="n">sample_size</span><span class="p">)</span> <span class="o">+</span> <span class="s1">' events'</span><span class="p">)</span>
 
 <span class="nn">File ~/work/UnimibFisicaLabStatPython/UnimibFisicaLabStatPython/book/lectures/Lecture_10/exercises/likelihood.py:81,</span> in <span class="ni">sezioneAureaMax_LL</span><span class="nt">(g, pdf, sample, x0, x1, prec)</span>
 <span class="g g-Whitespace">     </span><span class="mi">78</span> <span class="n">x3</span> <span class="o">=</span> <span class="n">x0</span> <span class="o">+</span> <span class="p">(</span><span class="mf">1.</span> <span class="o">-</span> <span class="n">r</span><span class="p">)</span> <span class="o">*</span> <span class="p">(</span><span class="n">x1</span> <span class="o">-</span> <span class="n">x0</span><span class="p">)</span>  
-<span class="g g-Whitespace">     </span><span class="mi">80</span> <span class="c1"># si restringe l&#39;intervallo tenendo fisso uno dei due estremi e spostando l&#39;altro        </span>
+<span class="g g-Whitespace">     </span><span class="mi">80</span> <span class="c1"># si restringe l'intervallo tenendo fisso uno dei due estremi e spostando l'altro        </span>
 <span class="ne">---&gt; </span><span class="mi">81</span> <span class="k">if</span> <span class="p">(</span><span class="n">g</span> <span class="p">(</span><span class="n">x3</span><span class="p">,</span> <span class="n">pdf</span><span class="p">,</span> <span class="n">sample</span><span class="p">)</span> <span class="o">&lt;</span> <span class="n">g</span> <span class="p">(</span><span class="n">x2</span><span class="p">,</span> <span class="n">pdf</span><span class="p">,</span> <span class="n">sample</span><span class="p">)):</span> 
 <span class="g g-Whitespace">     </span><span class="mi">82</span>     <span class="n">x0</span> <span class="o">=</span> <span class="n">x3</span>
 <span class="g g-Whitespace">     </span><span class="mi">83</span>     <span class="n">x1</span> <span class="o">=</span> <span class="n">x1</span>         
@@ -653,15 +664,24 @@ between the likelihood function and its maximum value:</p></li>
 <span class="ne">---&gt; </span><span class="mi">39</span>     <span class="k">if</span> <span class="p">(</span><span class="n">pdf</span> <span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">theta</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mf">0.</span><span class="p">)</span> <span class="p">:</span> <span class="n">risultato</span> <span class="o">=</span> <span class="n">risultato</span> <span class="o">+</span> <span class="n">log</span> <span class="p">(</span><span class="n">pdf</span> <span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">theta</span><span class="p">))</span>    
 <span class="g g-Whitespace">     </span><span class="mi">40</span> <span class="k">return</span> <span class="n">risultato</span>
 
+<span class="nn">File ~/work/UnimibFisicaLabStatPython/UnimibFisicaLabStatPython/book/lectures/Lecture_10/exercises/likelihood.py:5,</span> in <span class="ni">exp_pdf</span><span class="nt">(x, tau)</span>
+<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="c1">#!/usr/bin/python</span>
+<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="kn">from</span><span class="w"> </span><span class="nn">math</span><span class="w"> </span><span class="kn">import</span> <span class="n">exp</span><span class="p">,</span> <span class="n">log</span>
+<span class="ne">----&gt; </span><span class="mi">5</span> <span class="k">def</span><span class="w"> </span><span class="nf">exp_pdf</span> <span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">tau</span><span class="p">)</span> <span class="p">:</span>
+<span class="g g-Whitespace">      </span><span class="mi">6</span><span class="w">     </span><span class="sd">'''</span>
+<span class="g g-Whitespace">      </span><span class="mi">7</span><span class="sd">     the exponential probability density function</span>
+<span class="g g-Whitespace">      </span><span class="mi">8</span><span class="sd">     '''</span>
+<span class="g g-Whitespace">      </span><span class="mi">9</span>     <span class="k">return</span> <span class="n">exp</span> <span class="p">(</span><span class="o">-</span><span class="mi">1</span> <span class="o">*</span> <span class="n">x</span> <span class="o">/</span> <span class="n">tau</span><span class="p">)</span> <span class="o">/</span> <span class="n">tau</span>
+
 <span class="ne">KeyboardInterrupt</span>: 
 </pre></div>
 </div>
-<img alt="../../../_images/11f6652ab9be5a24ad686efb1a726f3317ba5d79cd37f771f377f646a720a134.png" src="../../../_images/11f6652ab9be5a24ad686efb1a726f3317ba5d79cd37f771f377f646a720a134.png" />
+<img alt="../../../_images/26f2fac8c5fbe7682b77cae843f2b11089bccf5f38d7a9cb00fb37b98e56d3ae.png" src="../../../_images/26f2fac8c5fbe7682b77cae843f2b11089bccf5f38d7a9cb00fb37b98e56d3ae.png" />
 </div>
 </div>
 </section>
 <section id="exercise-10-6">
-<h2><span class="section-number">10.11.6. </span>Exercise 10.6<a class="headerlink" href="#exercise-10-6" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">10.11.6. </span>Exercise 10.6<a class="headerlink" href="#exercise-10-6" title="Link to this heading">#</a></h2>
 <p>Use the bisection method to find the two points
 <em>τ - σ<sub>τ</sub></em> and <em>τ + σ<sub>τ</sub></em>
 related to Exercise 1.</p>
@@ -671,16 +691,16 @@ along with the horizontal segment used for its determination.</p></li>
 </ul>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">likelihood</span> <span class="kn">import</span> <span class="n">intersect_LLR</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">likelihood</span><span class="w"> </span><span class="kn">import</span> <span class="n">intersect_LLR</span>
 
 <span class="n">tau_hat</span> <span class="o">=</span> <span class="n">sezioneAureaMax_LL</span> <span class="p">(</span><span class="n">loglikelihood</span><span class="p">,</span> <span class="n">exp_pdf</span><span class="p">,</span> <span class="n">sample</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">,</span> <span class="mf">5.</span><span class="p">,</span> <span class="mf">0.0001</span><span class="p">)</span>    
 <span class="n">tau_hat_minusS</span> <span class="o">=</span> <span class="n">intersect_LLR</span> <span class="p">(</span><span class="n">loglikelihood_ratio</span><span class="p">,</span> <span class="n">exp_pdf</span><span class="p">,</span> <span class="n">sample</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">,</span> <span class="n">tau_hat</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">tau_hat</span><span class="p">)</span>
 <span class="n">tau_hat_plusS</span> <span class="o">=</span> <span class="n">intersect_LLR</span> <span class="p">(</span><span class="n">loglikelihood_ratio</span><span class="p">,</span> <span class="n">exp_pdf</span><span class="p">,</span> <span class="n">sample</span><span class="p">,</span> <span class="n">tau_hat</span><span class="p">,</span> <span class="mf">5.</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">tau_hat</span><span class="p">)</span>
 
 <span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span> <span class="p">()</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">set_title</span> <span class="p">(</span><span class="s1">&#39;Log-likelihood scan&#39;</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">14</span><span class="p">)</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span> <span class="p">(</span><span class="s1">&#39;tau&#39;</span><span class="p">)</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span> <span class="p">(</span><span class="s1">&#39;log likelihood&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_title</span> <span class="p">(</span><span class="s1">'Log-likelihood scan'</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">14</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span> <span class="p">(</span><span class="s1">'tau'</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span> <span class="p">(</span><span class="s1">'log likelihood'</span><span class="p">)</span>
 
 <span class="c1"># choose a reasonable range around tau_hat, measured in terms of the confidence interval</span>
 <span class="n">xMin</span> <span class="o">=</span> <span class="n">tau_hat_minusS</span> <span class="o">-</span> <span class="p">(</span><span class="n">tau_hat</span> <span class="o">-</span> <span class="n">tau_hat_minusS</span><span class="p">)</span>
@@ -691,12 +711,12 @@ along with the horizontal segment used for its determination.</p></li>
 <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span> <span class="p">(</span><span class="n">tauaxis</span><span class="o">.</span><span class="n">size</span><span class="p">)</span> <span class="p">:</span>
     <span class="n">llr</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">loglikelihood_ratio</span> <span class="p">(</span><span class="n">tauaxis</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">exp_pdf</span><span class="p">,</span> <span class="n">sample</span><span class="p">,</span> <span class="n">tau_hat</span><span class="p">)</span>
 
-<span class="n">plt</span><span class="o">.</span><span class="n">plot</span> <span class="p">(</span><span class="n">tauaxis</span><span class="p">,</span> <span class="n">llr</span><span class="p">,</span> <span class="s1">&#39;r&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span> <span class="p">(</span><span class="n">tauaxis</span><span class="p">,</span> <span class="n">llr</span><span class="p">,</span> <span class="s1">'r'</span><span class="p">)</span>
 <span class="n">limits</span> <span class="o">=</span> <span class="n">ax</span><span class="o">.</span><span class="n">get_ylim</span> <span class="p">()</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">plot</span> <span class="p">([</span><span class="n">tau_hat</span><span class="p">,</span> <span class="n">tau_hat</span><span class="p">],</span> <span class="n">limits</span><span class="p">,</span> <span class="n">color</span> <span class="o">=</span> <span class="s1">&#39;blue&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">plot</span> <span class="p">([</span><span class="n">tau_hat_minusS</span><span class="p">,</span> <span class="n">tau_hat_minusS</span><span class="p">],</span> <span class="n">limits</span><span class="p">,</span> <span class="n">color</span> <span class="o">=</span> <span class="s1">&#39;blue&#39;</span><span class="p">,</span> <span class="n">linestyle</span> <span class="o">=</span> <span class="s1">&#39;dashed&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">plot</span> <span class="p">([</span><span class="n">tau_hat_plusS</span><span class="p">,</span> <span class="n">tau_hat_plusS</span><span class="p">],</span> <span class="n">limits</span><span class="p">,</span> <span class="n">color</span> <span class="o">=</span> <span class="s1">&#39;blue&#39;</span><span class="p">,</span> <span class="n">linestyle</span> <span class="o">=</span> <span class="s1">&#39;dashed&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">plot</span> <span class="p">(</span><span class="n">plt</span><span class="o">.</span><span class="n">xlim</span> <span class="p">(),</span> <span class="p">[</span><span class="o">-</span><span class="mf">0.5</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.5</span><span class="p">],</span> <span class="n">color</span> <span class="o">=</span> <span class="s1">&#39;gray&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span> <span class="p">([</span><span class="n">tau_hat</span><span class="p">,</span> <span class="n">tau_hat</span><span class="p">],</span> <span class="n">limits</span><span class="p">,</span> <span class="n">color</span> <span class="o">=</span> <span class="s1">'blue'</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span> <span class="p">([</span><span class="n">tau_hat_minusS</span><span class="p">,</span> <span class="n">tau_hat_minusS</span><span class="p">],</span> <span class="n">limits</span><span class="p">,</span> <span class="n">color</span> <span class="o">=</span> <span class="s1">'blue'</span><span class="p">,</span> <span class="n">linestyle</span> <span class="o">=</span> <span class="s1">'dashed'</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span> <span class="p">([</span><span class="n">tau_hat_plusS</span><span class="p">,</span> <span class="n">tau_hat_plusS</span><span class="p">],</span> <span class="n">limits</span><span class="p">,</span> <span class="n">color</span> <span class="o">=</span> <span class="s1">'blue'</span><span class="p">,</span> <span class="n">linestyle</span> <span class="o">=</span> <span class="s1">'dashed'</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span> <span class="p">(</span><span class="n">plt</span><span class="o">.</span><span class="n">xlim</span> <span class="p">(),</span> <span class="p">[</span><span class="o">-</span><span class="mf">0.5</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.5</span><span class="p">],</span> <span class="n">color</span> <span class="o">=</span> <span class="s1">'gray'</span><span class="p">)</span>
 
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span> <span class="p">()</span>
 </pre></div>
@@ -708,7 +728,7 @@ along with the horizontal segment used for its determination.</p></li>
 </div>
 </section>
 <section id="exercise-10-7">
-<h2><span class="section-number">10.11.7. </span>Exercise 10.7<a class="headerlink" href="#exercise-10-7" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">10.11.7. </span>Exercise 10.7<a class="headerlink" href="#exercise-10-7" title="Link to this heading">#</a></h2>
 <p>Using the toy experiments technique,
 plot the probability distribution of the τ estimator.</p>
 <ul class="simple">
@@ -719,8 +739,8 @@ with the one calculated from the distribution of the numbers saved in the list.<
 </ul>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">math</span> <span class="kn">import</span> <span class="n">floor</span>
-<span class="kn">from</span> <span class="nn">stats</span> <span class="kn">import</span> <span class="n">stats</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">math</span><span class="w"> </span><span class="kn">import</span> <span class="n">floor</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">stats</span><span class="w"> </span><span class="kn">import</span> <span class="n">stats</span>
     
 <span class="c1">#tau_true = 2.</span>
 <span class="n">N_evt</span>    <span class="o">=</span> <span class="mi">50</span>
@@ -738,22 +758,22 @@ with the one calculated from the distribution of the numbers saved in the list.<
 <span class="n">bin_edges</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span> <span class="p">(</span><span class="n">xMin</span><span class="p">,</span> <span class="n">xMax</span><span class="p">,</span> <span class="n">floor</span> <span class="p">(</span><span class="n">N_toys</span><span class="o">/</span><span class="mi">20</span><span class="p">))</span>   <span class="c1"># edges o the histogram bins</span>
 
 <span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span> <span class="p">()</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">set_title</span> <span class="p">(</span><span class="s1">&#39;Tau_hat expected distribution&#39;</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">14</span><span class="p">)</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;tau_hat&#39;</span><span class="p">)</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;events in bin&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_title</span> <span class="p">(</span><span class="s1">'Tau_hat expected distribution'</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">14</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">'tau_hat'</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">'events in bin'</span><span class="p">)</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">hist</span> <span class="p">(</span><span class="n">tau_hats</span><span class="p">,</span>
          <span class="n">bins</span> <span class="o">=</span> <span class="n">bin_edges</span><span class="p">,</span>
-         <span class="n">color</span> <span class="o">=</span> <span class="s1">&#39;orange&#39;</span><span class="p">,</span>
+         <span class="n">color</span> <span class="o">=</span> <span class="s1">'orange'</span><span class="p">,</span>
         <span class="p">)</span>
 
 <span class="n">limits</span> <span class="o">=</span> <span class="n">ax</span><span class="o">.</span><span class="n">get_ylim</span> <span class="p">()</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">plot</span> <span class="p">([</span><span class="n">tau_hat</span><span class="p">,</span> <span class="n">tau_hat</span><span class="p">],</span> <span class="n">limits</span><span class="p">,</span> <span class="n">color</span> <span class="o">=</span> <span class="s1">&#39;blue&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">plot</span> <span class="p">([</span><span class="n">tau_hat_minusS</span><span class="p">,</span> <span class="n">tau_hat_minusS</span><span class="p">],</span> <span class="n">limits</span><span class="p">,</span> <span class="n">color</span> <span class="o">=</span> <span class="s1">&#39;blue&#39;</span><span class="p">,</span> <span class="n">linestyle</span> <span class="o">=</span> <span class="s1">&#39;dashed&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">plot</span> <span class="p">([</span><span class="n">tau_hat_plusS</span><span class="p">,</span> <span class="n">tau_hat_plusS</span><span class="p">],</span> <span class="n">limits</span><span class="p">,</span> <span class="n">color</span> <span class="o">=</span> <span class="s1">&#39;blue&#39;</span><span class="p">,</span> <span class="n">linestyle</span> <span class="o">=</span> <span class="s1">&#39;dashed&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span> <span class="p">([</span><span class="n">tau_hat</span><span class="p">,</span> <span class="n">tau_hat</span><span class="p">],</span> <span class="n">limits</span><span class="p">,</span> <span class="n">color</span> <span class="o">=</span> <span class="s1">'blue'</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span> <span class="p">([</span><span class="n">tau_hat_minusS</span><span class="p">,</span> <span class="n">tau_hat_minusS</span><span class="p">],</span> <span class="n">limits</span><span class="p">,</span> <span class="n">color</span> <span class="o">=</span> <span class="s1">'blue'</span><span class="p">,</span> <span class="n">linestyle</span> <span class="o">=</span> <span class="s1">'dashed'</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span> <span class="p">([</span><span class="n">tau_hat_plusS</span><span class="p">,</span> <span class="n">tau_hat_plusS</span><span class="p">],</span> <span class="n">limits</span><span class="p">,</span> <span class="n">color</span> <span class="o">=</span> <span class="s1">'blue'</span><span class="p">,</span> <span class="n">linestyle</span> <span class="o">=</span> <span class="s1">'dashed'</span><span class="p">)</span>
 
 <span class="n">toy_stats</span> <span class="o">=</span> <span class="n">stats</span> <span class="p">(</span><span class="n">tau_hats</span><span class="p">)</span>
-<span class="nb">print</span> <span class="p">(</span><span class="s1">&#39;sigma ricavata dai toy:      &#39;</span><span class="p">,</span> <span class="n">toy_stats</span><span class="o">.</span><span class="n">sigma</span> <span class="p">())</span>
-<span class="nb">print</span> <span class="p">(</span><span class="s1">&#39;sigma con il metodo grafico: &#39;</span><span class="p">,</span> <span class="mf">0.5</span> <span class="o">*</span> <span class="p">(</span><span class="n">tau_hat_plusS</span> <span class="o">-</span> <span class="n">tau_hat_minusS</span><span class="p">))</span>
+<span class="nb">print</span> <span class="p">(</span><span class="s1">'sigma ricavata dai toy:      '</span><span class="p">,</span> <span class="n">toy_stats</span><span class="o">.</span><span class="n">sigma</span> <span class="p">())</span>
+<span class="nb">print</span> <span class="p">(</span><span class="s1">'sigma con il metodo grafico: '</span><span class="p">,</span> <span class="mf">0.5</span> <span class="o">*</span> <span class="p">(</span><span class="n">tau_hat_plusS</span> <span class="o">-</span> <span class="n">tau_hat_minusS</span><span class="p">))</span>
 
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span> <span class="p">()</span>
 </pre></div>
@@ -769,7 +789,7 @@ sigma con il metodo grafico:  0.30647450558155054
 </div>
 </section>
 <section id="exercise-10-8">
-<h2><span class="section-number">10.11.8. </span>Exercise 10.8<a class="headerlink" href="#exercise-10-8" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">10.11.8. </span>Exercise 10.8<a class="headerlink" href="#exercise-10-8" title="Link to this heading">#</a></h2>
 <p>In the asymptotic regime,
 the distribution of the differences <em>(τ - τ<sub>true</sub>) / σ<sub>τ</sub></em>
 follows a Normal distribution.</p>
@@ -803,9 +823,9 @@ and the parameter value on the vertical axis.</p></li>
     <span class="n">sample_size</span> <span class="o">=</span> <span class="n">sample_size</span> <span class="o">*</span> <span class="mi">2</span>
 
 <span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span> <span class="p">()</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">set_title</span> <span class="p">(</span><span class="s1">&#39;average deviations&#39;</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">14</span><span class="p">)</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span> <span class="p">(</span><span class="s1">&#39;number of events&#39;</span><span class="p">)</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span> <span class="p">(</span><span class="s1">&#39;average deviation&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_title</span> <span class="p">(</span><span class="s1">'average deviations'</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">14</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span> <span class="p">(</span><span class="s1">'number of events'</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span> <span class="p">(</span><span class="s1">'average deviation'</span><span class="p">)</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">errorbar</span> <span class="p">(</span><span class="n">N_events</span><span class="p">,</span> <span class="n">deviations</span><span class="p">,</span> <span class="n">xerr</span> <span class="o">=</span> <span class="mf">0.0</span><span class="p">,</span> <span class="n">yerr</span> <span class="o">=</span> <span class="n">sigmas</span><span class="p">)</span> 
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span> <span class="p">()</span>
 </pre></div>
@@ -845,7 +865,7 @@ and the parameter value on the vertical axis.</p></li>
               
               
               
-                <footer class="prev-next-footer">
+                <footer class="prev-next-footer d-print-none">
                   
 <div class="prev-next-area">
     <a class="left-prev"
@@ -874,6 +894,7 @@ and the parameter value on the vertical axis.</p></li>
             
               
                 <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
 
   <div class="sidebar-secondary-item">
   <div class="page-toc tocsection onthispage">
@@ -913,7 +934,7 @@ By The Jupyter Book community
 
   <p class="copyright">
     
-      © Copyright 2022.
+      © Copyright 2023.
       <br/>
     
   </p>
@@ -937,8 +958,8 @@ By The Jupyter Book community
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="../../../_static/scripts/bootstrap.js?digest=5b4479735964841361fd"></script>
-<script src="../../../_static/scripts/pydata-sphinx-theme.js?digest=5b4479735964841361fd"></script>
+  <script src="../../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
 
   <footer class="bd-footer">
   </footer>

@@ -22,7 +22,7 @@ Exercise 5.3
 Exercise 5.4
 ------------
 * `fraction.py`
-.. literalinclude:: exercises/ex_5.5.py
+.. literalinclude:: exercises/ex_5.4.py
   :language: py
 
 Exercise 5.5

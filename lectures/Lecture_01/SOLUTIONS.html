@@ -1,13 +1,12 @@
 
-
 <!DOCTYPE html>
 
 
-<html lang="en" data-content_root="" >
+<html lang="en" data-content_root="../../" >
 
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
     <title>1.12. Solutions: Lecture 1 &#8212; Laboratorio di Calcolo e Statistica</title>
   
@@ -15,53 +14,49 @@
   
   <script data-cfasync="false">
     document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
-    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
   </script>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="../../_static/styles/theme.css?digest=5b4479735964841361fd" rel="stylesheet" />
-<link href="../../_static/styles/bootstrap.css?digest=5b4479735964841361fd" rel="stylesheet" />
-<link href="../../_static/styles/pydata-sphinx-theme.css?digest=5b4479735964841361fd" rel="stylesheet" />
+  <link href="../../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
 
   
-  <link href="../../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=5b4479735964841361fd" rel="stylesheet" />
-  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+  <link href="../../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
 
-    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
-    <link rel="stylesheet" href="../../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../../_static/styles/sphinx-book-theme.css?v=eba8b062" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css?v=9c3e77be" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.11b39860a7a0cbfd473a3ad8a317855267ff0bd372690045ca344a6b62be495e.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=95c83b7e" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=5b4479735964841361fd" />
-<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=5b4479735964841361fd" />
-  <script src="../../_static/vendor/fontawesome/6.1.2/js/all.min.js?digest=5b4479735964841361fd"></script>
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
 
-    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
-    <script src="../../_static/jquery.js"></script>
-    <script src="../../_static/underscore.js"></script>
-    <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
-    <script src="../../_static/doctools.js"></script>
-    <script src="../../_static/clipboard.min.js"></script>
-    <script src="../../_static/copybutton.js"></script>
-    <script src="../../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script src="../../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../_static/copybutton.js?v=f281be69"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
-    <script src="../../_static/togglebutton.js"></script>
+    <script src="../../_static/togglebutton.js?v=b8b12719"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
-    <script src="../../_static/design-tabs.js"></script>
-    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
-const thebe_selector = ".thebe,.cell"
-const thebe_selector_input = "pre"
-const thebe_selector_output = ".output, .cell_output"
-</script>
-    <script async="async" src="../../_static/sphinx-thebe.js"></script>
+    <script src="../../_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'lectures/Lecture_01/SOLUTIONS';</script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
@@ -76,28 +71,23 @@ const thebe_selector_output = ".output, .cell_output"
 
   
   
-  <a class="skip-link" href="#main-content">Skip to main content</a>
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
   
   <div id="pst-scroll-pixel-helper"></div>
-
   
   <button type="button" class="btn rounded-pill" id="pst-back-to-top">
-    <i class="fa-solid fa-arrow-up"></i>
-    Back to top
-  </button>
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
 
   
   <input type="checkbox"
           class="sidebar-toggle"
-          name="__primary"
-          id="__primary"/>
-  <label class="overlay overlay-primary" for="__primary"></label>
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
   
   <input type="checkbox"
           class="sidebar-toggle"
-          name="__secondary"
-          id="__secondary"/>
-  <label class="overlay overlay-secondary" for="__secondary"></label>
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
   
   <div class="search-button__wrapper">
     <div class="search-button__overlay"></div>
@@ -119,12 +109,20 @@ const thebe_selector_output = ".output, .cell_output"
   <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
 </form></div>
   </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
   
-    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
-    </nav>
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
   
+
   <div class="bd-container">
     <div class="bd-container__inner bd-page-width">
+      
+      
       
       <div class="bd-sidebar-primary bd-sidebar">
         
@@ -140,6 +138,8 @@ const thebe_selector_output = ".output, .cell_output"
     <div class="sidebar-primary-items__start sidebar-primary__section">
         <div class="sidebar-primary-item">
 
+  
+    
   
 
 <a class="navbar-brand logo" href="../../intro.html">
@@ -158,7 +158,18 @@ const thebe_selector_output = ".output, .cell_output"
   
   
 </a></div>
-        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item navbar-nav active">
         
         <ul class="nav bd-sidenav bd-sidenav__home-link">
@@ -174,54 +185,54 @@ const thebe_selector_output = ".output, .cell_output"
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Lectures</span></p>
 <ul class="current nav bd-sidenav">
-<li class="toctree-l1 current active has-children"><a class="reference internal" href="basics_python.html">1. Basics of Python Programming</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="basics_python.html">1. Basics of Python Programming</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="EXAMPLES.html">1.10. Examples: Lecture 1</a></li>
 <li class="toctree-l2"><a class="reference internal" href="EXERCISES.html">1.11. Exercises for Lecture 1</a></li>
 <li class="toctree-l2 current active"><a class="current reference internal" href="#">1.12. Solutions: Lecture 1</a></li>
 </ul>
-</li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../Lecture_02/python_libraries.html">2. Notable Python Libraries</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../Lecture_02/python_libraries.html">2. Notable Python Libraries</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="../Lecture_02/EXAMPLES.html">2.4. Examples: Lecture 2</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../Lecture_02/EXERCISES.html">2.5. Exercises for Lecture 2</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../Lecture_02/SOLUTIONS.html">2.6. Solutions: Lecture 2</a></li>
 </ul>
-</li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../Lecture_03/data_visualisation.html">3. Data Visualisation with Python</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="../Lecture_03/EXAMPLES.html">3.6. Examples: Lecture 3</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../Lecture_03/EXERCISES.html">3.7. Exercises for Lecture 3</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../Lecture_03/SOLUTIONS.html">3.8. Solutions: Lecture 3</a></li>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../Lecture_03/data_visualisation.html">3. Data Visualisation with Python</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../Lecture_03/EXAMPLES.html">3.8. Examples: Lecture 3</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Lecture_03/EXERCISES.html">3.9. Exercises for Lecture 3</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Lecture_03/SOLUTIONS.html">3.10. Solutions: Lecture 3</a></li>
 </ul>
-</li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../Lecture_04/pseudorandom.html">4. Generation of Pseudo-Random Numbers</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-4"><i class="fa-solid fa-chevron-down"></i></label><ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../Lecture_04/pseudorandom.html">4. Generation of Pseudo-Random Numbers</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="../Lecture_04/EXAMPLES.html">4.6. Examples: Lecture 4</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../Lecture_04/EXERCISES.html">4.7. Exercises for Lecture 4</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../Lecture_04/SOLUTIONS.html">4.8. Solutions: Lecture 4</a></li>
 </ul>
-</li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../Lecture_05/classes_lambda.html">5. Some python insight: classes, <code class="docutils literal notranslate"><span class="pre">lambda</span></code> functions, functional programming</a><input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-5"><i class="fa-solid fa-chevron-down"></i></label><ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../Lecture_05/classes_lambda.html">5. Some python insight: classes, <code class="docutils literal notranslate"><span class="pre">lambda</span></code> functions, functional programming</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="../Lecture_05/EXAMPLES.html">5.4. Examples: Lecture 5</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../Lecture_05/EXERCISES.html">5.5. Exercises for Lecture 5</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../Lecture_05/SOLUTIONS.html">5.6. Solutions: Lecture 5</a></li>
 </ul>
-</li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../Lecture_06/zero_and_extrema.html">6. Finding Zeros and Extrema</a><input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-6"><i class="fa-solid fa-chevron-down"></i></label><ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../Lecture_06/zero_and_extrema.html">6. Finding Zeros and Extrema</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="../Lecture_06/EXAMPLES.html">6.4. Examples: Lecture 6</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../Lecture_06/EXERCISES.html">6.5. Exercises for Lecture 6</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../Lecture_06/SOLUTIONS.html">6.6. Solutions: Lecture 6</a></li>
 </ul>
-</li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../Lecture_07/poisson.html">7. The Poisson Distribution</a><input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-7"><i class="fa-solid fa-chevron-down"></i></label><ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../Lecture_07/poisson.html">7. The Poisson Distribution</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="../Lecture_07/EXERCISES.html">7.5. Exercises for Lecture 7</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../Lecture_07/SOLUTIONS.html">7.6. Solutions: Lezione 7</a></li>
 </ul>
-</li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../Lecture_08/toys_integration.html">8. Toy Experiments and Integration using Pseudorandom Numbers</a><input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-8"><i class="fa-solid fa-chevron-down"></i></label><ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../Lecture_08/toys_integration.html">8. Toy Experiments and Integration using Pseudorandom Numbers</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="../Lecture_08/EXAMPLES.html">8.3. Examples: Lecture 8</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../Lecture_08/EXERCISES.html">8.4. Exercises for Lecture 8</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../Lecture_08/SOLUTIONS.html">8.5. Solutions: Lecture 8</a></li>
 </ul>
-</li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../Lecture_09/likelihood.html">9. The likelihood</a><input class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-9"><i class="fa-solid fa-chevron-down"></i></label><ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../Lecture_09/likelihood.html">9. The likelihood</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="../Lecture_09/examples/notebook_01.html">9.7. This is a notebook example</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../Lecture_09/examples/notebook_02.html">9.8. Drawing of a function</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../Lecture_09/examples/notebook_03.html">9.9. Accessing files on disk</a></li>
@@ -229,25 +240,25 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l2"><a class="reference internal" href="../Lecture_09/exercises/likelihood_solutions.html">9.11. Likelihood exercise solutions</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../Lecture_09/solution_libraries.html">9.12. Solution Libraries</a></li>
 </ul>
-</li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../Lecture_10/likelihood_fit.html">10. Parameter Estimate using the Maximum Likelihood Method</a><input class="toctree-checkbox" id="toctree-checkbox-10" name="toctree-checkbox-10" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-10"><i class="fa-solid fa-chevron-down"></i></label><ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../Lecture_10/likelihood_fit.html">10. Parameter Estimate using the Maximum Likelihood Method</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="../Lecture_10/EXERCISES.html">10.10. Exercises for Lecture 10</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../Lecture_10/exercises/likelihood_fit_solutions.html">10.11. Maximum likelihood exercise solutions</a></li>
 </ul>
-</li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../Lecture_11/least_squares.html">11. Least-Squares Fitting</a><input class="toctree-checkbox" id="toctree-checkbox-11" name="toctree-checkbox-11" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-11"><i class="fa-solid fa-chevron-down"></i></label><ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../Lecture_11/least_squares.html">11. Least-Squares Fitting</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="../Lecture_11/EXERCISES.html">11.5. Exercises for Lecture 11</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../Lecture_11/exercises/least_squares_solutions.html">11.6. Least squares solutions</a></li>
 </ul>
-</li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../Lecture_12/fit_binned.html">12. Fit of Binned Distributions</a><input class="toctree-checkbox" id="toctree-checkbox-12" name="toctree-checkbox-12" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-12"><i class="fa-solid fa-chevron-down"></i></label><ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../Lecture_12/fit_binned.html">12. Fit of Binned Distributions</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="../Lecture_12/EXERCISES.html">12.7. Exercises for Lecture 12</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../Lecture_12/exercises/es_12.1_solutions.html">12.8. Binned fits solutions: Exercise 12.1</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../Lecture_12/exercises/es_12.2_solutions.html">12.9. Binned fits solutions: Exercise 12.2</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../Lecture_12/exercises/es_12.3_solutions.html">12.10. Binned fits solutions: exercise 12.3</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../Lecture_12/exercises/es_12.4_solutions.html">12.11. cost functions comparison: exercise 12.4</a></li>
 </ul>
-</li>
+</details></li>
 </ul>
 
     </div>
@@ -263,7 +274,7 @@ const thebe_selector_output = ".output, .cell_output"
 
       </div>
       
-      <main id="main-content" class="bd-main">
+      <main id="main-content" class="bd-main" role="main">
         
         
 
@@ -272,14 +283,14 @@ const thebe_selector_output = ".output, .cell_output"
           <div class="bd-content">
             <div class="bd-article-container">
               
-              <div class="bd-header-article">
+              <div class="bd-header-article d-print-none">
 <div class="header-article-items header-article__inner">
   
     <div class="header-article-items__start">
       
-        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
   <span class="fa-solid fa-bars"></span>
-</label></div>
+</button></div>
       
     </div>
   
@@ -404,10 +415,10 @@ const thebe_selector_output = ".output, .cell_output"
 
 <script>
 document.write(`
-  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
-    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
-    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
   </button>
 `);
 </script>
@@ -415,14 +426,14 @@ document.write(`
 
 <script>
 document.write(`
-  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
     <i class="fa-solid fa-magnifying-glass fa-lg"></i>
   </button>
 `);
 </script>
-<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
     <span class="fa-solid fa-list"></span>
-</label>
+</button>
 </div></div>
       
     </div>
@@ -461,117 +472,128 @@ document.write(`
               
                 
 <div id="searchbox"></div>
-                <article class="bd-article" role="main">
+                <article class="bd-article">
                   
   <section id="solutions-lecture-1">
-<h1><span class="section-number">1.12. </span>Solutions: Lecture 1<a class="headerlink" href="#solutions-lecture-1" title="Permalink to this heading">#</a></h1>
+<h1><span class="section-number">1.12. </span>Solutions: Lecture 1<a class="headerlink" href="#solutions-lecture-1" title="Link to this heading">#</a></h1>
 <section id="exercise-1-1">
-<h2><span class="section-number">1.12.1. </span>Exercise 1.1<a class="headerlink" href="#exercise-1-1" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">1.12.1. </span>Exercise 1.1<a class="headerlink" href="#exercise-1-1" title="Link to this heading">#</a></h2>
 <ul class="simple">
 <li><p><cite>ex_1.1.py</cite></p></li>
 </ul>
 <div class="highlight-py notranslate"><div class="highlight"><pre><span></span><span class="ch">#!/usr/bin/python</span>
-<span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">'''</span>
 <span class="sd">  * Write a program that reads an integer given as input from the user </span>
 <span class="sd">    and determines whether it is divisible by 2, 3, 5, or 7.</span>
 <span class="sd">  * Encapsulate the check into a function taking as input two numbers,</span>
 <span class="sd">    and write a program that asks the user to insert two numbers </span>
 <span class="sd">    and checks whether the first is divisible by the other one (and vice-versa).</span>
-<span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">'''</span>
 
-<span class="k">def</span> <span class="nf">check_ratio</span> <span class="p">(</span><span class="n">numerator</span><span class="p">,</span> <span class="n">denominator</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">check_ratio</span> <span class="p">(</span><span class="n">numerator</span><span class="p">,</span> <span class="n">denominator</span><span class="p">):</span>
   <span class="k">return</span> <span class="p">(</span><span class="n">numerator</span> <span class="o">%</span> <span class="n">denominator</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span>
 
 
 <span class="c1"># ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- </span>
 
 
-<span class="k">def</span> <span class="nf">main</span> <span class="p">()</span> <span class="p">:</span>
-<span class="w">    </span><span class="sd">&#39;&#39;&#39;</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">main</span> <span class="p">()</span> <span class="p">:</span>
+<span class="w">    </span><span class="sd">'''</span>
 <span class="sd">    Funzione che implementa il programma principale</span>
-<span class="sd">    &#39;&#39;&#39;</span>
+<span class="sd">    '''</span>
 
-    <span class="n">number</span> <span class="o">=</span> <span class="nb">int</span> <span class="p">(</span><span class="nb">input</span> <span class="p">(</span><span class="s1">&#39;insert a number: &#39;</span><span class="p">))</span>
+    <span class="n">number</span> <span class="o">=</span> <span class="nb">int</span> <span class="p">(</span><span class="nb">input</span> <span class="p">(</span><span class="s1">'insert a number: '</span><span class="p">))</span>
     <span class="n">dividers</span> <span class="o">=</span> <span class="p">[</span><span class="mf">2.</span><span class="p">,</span> <span class="mf">3.</span><span class="p">,</span> <span class="mf">5.</span><span class="p">,</span> <span class="mf">7.</span><span class="p">]</span>
     <span class="k">for</span> <span class="n">div</span> <span class="ow">in</span> <span class="n">dividers</span> <span class="p">:</span>
       <span class="k">if</span> <span class="p">(</span><span class="n">check_ratio</span> <span class="p">(</span><span class="n">number</span><span class="p">,</span> <span class="n">div</span><span class="p">))</span> <span class="p">:</span> 
-        <span class="nb">print</span> <span class="p">(</span><span class="nb">str</span> <span class="p">(</span><span class="n">number</span><span class="p">)</span> <span class="o">+</span> <span class="s1">&#39; is divisible by &#39;</span> <span class="o">+</span> <span class="nb">str</span> <span class="p">(</span><span class="n">div</span><span class="p">))</span>
+        <span class="nb">print</span> <span class="p">(</span><span class="nb">str</span> <span class="p">(</span><span class="n">number</span><span class="p">)</span> <span class="o">+</span> <span class="s1">' is divisible by '</span> <span class="o">+</span> <span class="nb">str</span> <span class="p">(</span><span class="n">div</span><span class="p">))</span>
       <span class="k">else</span> <span class="p">:</span>  
-        <span class="nb">print</span> <span class="p">(</span><span class="nb">str</span> <span class="p">(</span><span class="n">number</span><span class="p">)</span> <span class="o">+</span> <span class="s1">&#39; is NOT divisible by &#39;</span> <span class="o">+</span> <span class="nb">str</span> <span class="p">(</span><span class="n">div</span><span class="p">))</span>
+        <span class="nb">print</span> <span class="p">(</span><span class="nb">str</span> <span class="p">(</span><span class="n">number</span><span class="p">)</span> <span class="o">+</span> <span class="s1">' is NOT divisible by '</span> <span class="o">+</span> <span class="nb">str</span> <span class="p">(</span><span class="n">div</span><span class="p">))</span>
 
 
-    <span class="n">number</span> <span class="o">=</span> <span class="nb">int</span> <span class="p">(</span><span class="nb">input</span> <span class="p">(</span><span class="s1">&#39;insert a numerator: &#39;</span><span class="p">))</span>
-    <span class="n">diviser</span> <span class="o">=</span> <span class="nb">int</span> <span class="p">(</span><span class="nb">input</span> <span class="p">(</span><span class="s1">&#39;insert a denominator: &#39;</span><span class="p">))</span>
+    <span class="n">number</span> <span class="o">=</span> <span class="nb">int</span> <span class="p">(</span><span class="nb">input</span> <span class="p">(</span><span class="s1">'insert a numerator: '</span><span class="p">))</span>
+    <span class="n">diviser</span> <span class="o">=</span> <span class="nb">int</span> <span class="p">(</span><span class="nb">input</span> <span class="p">(</span><span class="s1">'insert a denominator: '</span><span class="p">))</span>
     <span class="k">if</span> <span class="p">(</span><span class="n">check_ratio</span> <span class="p">(</span><span class="n">number</span><span class="p">,</span> <span class="n">diviser</span><span class="p">))</span> <span class="p">:</span> 
-      <span class="nb">print</span> <span class="p">(</span><span class="nb">str</span> <span class="p">(</span><span class="n">number</span><span class="p">)</span> <span class="o">+</span> <span class="s1">&#39; is divisible by &#39;</span> <span class="o">+</span> <span class="nb">str</span> <span class="p">(</span><span class="n">diviser</span><span class="p">))</span>
+      <span class="nb">print</span> <span class="p">(</span><span class="nb">str</span> <span class="p">(</span><span class="n">number</span><span class="p">)</span> <span class="o">+</span> <span class="s1">' is divisible by '</span> <span class="o">+</span> <span class="nb">str</span> <span class="p">(</span><span class="n">diviser</span><span class="p">))</span>
     <span class="k">else</span> <span class="p">:</span>  
-      <span class="nb">print</span> <span class="p">(</span><span class="nb">str</span> <span class="p">(</span><span class="n">number</span><span class="p">)</span> <span class="o">+</span> <span class="s1">&#39; is NOT divisible by &#39;</span> <span class="o">+</span> <span class="nb">str</span> <span class="p">(</span><span class="n">diviser</span><span class="p">))</span>
+      <span class="nb">print</span> <span class="p">(</span><span class="nb">str</span> <span class="p">(</span><span class="n">number</span><span class="p">)</span> <span class="o">+</span> <span class="s1">' is NOT divisible by '</span> <span class="o">+</span> <span class="nb">str</span> <span class="p">(</span><span class="n">diviser</span><span class="p">))</span>
 
 
 <span class="c1"># ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- </span>
 
 
-<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&quot;__main__&quot;</span><span class="p">:</span>
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">"__main__"</span><span class="p">:</span>
     <span class="n">main</span> <span class="p">()</span>
 
 </pre></div>
 </div>
 </section>
 <section id="exercise-1-2">
-<h2><span class="section-number">1.12.2. </span>Exercise 1.2<a class="headerlink" href="#exercise-1-2" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">1.12.2. </span>Exercise 1.2<a class="headerlink" href="#exercise-1-2" title="Link to this heading">#</a></h2>
 <ul class="simple">
 <li><p><cite>ex_1.2.py</cite></p></li>
 </ul>
 <div class="highlight-py notranslate"><div class="highlight"><pre><span></span><span class="ch">#!/usr/bin/python</span>
-<span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">'''</span>
 <span class="sd">  * Write a program that, given the three sides of a triangle, </span>
 <span class="sd">    determines whether the triangle is acute-angled, rectangular-angled or obtuse-angled.</span>
-<span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">'''</span>
 
-<span class="k">def</span> <span class="nf">main</span> <span class="p">()</span> <span class="p">:</span>
-<span class="w">    </span><span class="sd">&#39;&#39;&#39;</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">sys</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">main</span> <span class="p">()</span> <span class="p">:</span>
+<span class="w">    </span><span class="sd">'''</span>
 <span class="sd">    Funzione che implementa il programma principale</span>
-<span class="sd">    &#39;&#39;&#39;</span>
+<span class="sd">    '''</span>
     <span class="n">sides</span> <span class="o">=</span> <span class="p">[]</span>
-    <span class="n">sides</span><span class="o">.</span><span class="n">append</span> <span class="p">(</span><span class="nb">float</span> <span class="p">(</span><span class="nb">input</span> <span class="p">(</span><span class="s1">&#39;insert the first side size: &#39;</span><span class="p">)))</span>
-    <span class="n">sides</span><span class="o">.</span><span class="n">append</span> <span class="p">(</span><span class="nb">float</span> <span class="p">(</span><span class="nb">input</span> <span class="p">(</span><span class="s1">&#39;insert the second side size: &#39;</span><span class="p">)))</span>
-    <span class="n">sides</span><span class="o">.</span><span class="n">append</span> <span class="p">(</span><span class="nb">float</span> <span class="p">(</span><span class="nb">input</span> <span class="p">(</span><span class="s1">&#39;insert the third side size: &#39;</span><span class="p">)))</span>
+    <span class="n">sides</span><span class="o">.</span><span class="n">append</span> <span class="p">(</span><span class="nb">float</span> <span class="p">(</span><span class="nb">input</span> <span class="p">(</span><span class="s1">'insert the first side size: '</span><span class="p">)))</span>
+    <span class="n">sides</span><span class="o">.</span><span class="n">append</span> <span class="p">(</span><span class="nb">float</span> <span class="p">(</span><span class="nb">input</span> <span class="p">(</span><span class="s1">'insert the second side size: '</span><span class="p">)))</span>
+    <span class="n">sides</span><span class="o">.</span><span class="n">append</span> <span class="p">(</span><span class="nb">float</span> <span class="p">(</span><span class="nb">input</span> <span class="p">(</span><span class="s1">'insert the third side size: '</span><span class="p">)))</span>
     <span class="n">sides</span><span class="o">.</span><span class="n">sort</span> <span class="p">()</span>
-    <span class="nb">print</span> <span class="p">(</span><span class="s1">&#39;I lati inseriti sono i seguenti:&#39;</span><span class="p">)</span>
+    <span class="nb">print</span> <span class="p">(</span><span class="s1">'I lati inseriti sono i seguenti:'</span><span class="p">)</span>
     <span class="nb">print</span> <span class="p">(</span><span class="n">sides</span><span class="p">)</span>
 
-    <span class="k">if</span> <span class="p">(</span><span class="n">sides</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="n">sides</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">**</span><span class="mi">2</span> <span class="o">&lt;</span> <span class="n">sides</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>   <span class="p">:</span> <span class="nb">print</span> <span class="p">(</span><span class="s1">&#39;obtuse-angled&#39;</span><span class="p">)</span> 
-    <span class="k">elif</span> <span class="p">(</span><span class="n">sides</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="n">sides</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">**</span><span class="mi">2</span> <span class="o">&gt;</span> <span class="n">sides</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span> <span class="p">:</span> <span class="nb">print</span> <span class="p">(</span><span class="s1">&#39;acute-angled&#39;</span><span class="p">)</span>
-    <span class="k">else</span>                                           <span class="p">:</span> <span class="nb">print</span> <span class="p">(</span><span class="s1">&#39;rectangular-angled&#39;</span><span class="p">)</span>
+    <span class="c1"># controllo consistenza del triangolo </span>
+    <span class="k">if</span> <span class="p">(</span>
+        <span class="p">(</span><span class="n">sides</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">&gt;</span> <span class="n">sides</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="n">sides</span><span class="p">[</span><span class="mi">2</span><span class="p">])</span> <span class="ow">or</span>
+        <span class="p">(</span><span class="n">sides</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">&gt;</span> <span class="n">sides</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">+</span> <span class="n">sides</span><span class="p">[</span><span class="mi">2</span><span class="p">])</span> <span class="ow">or</span>
+        <span class="p">(</span><span class="n">sides</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">&gt;</span> <span class="n">sides</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">+</span> <span class="n">sides</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span> 
+       <span class="p">):</span>
+       <span class="nb">print</span> <span class="p">(</span><span class="s1">'I tre numeri inseriti non corrispondono ai lati di un triangolo'</span><span class="p">)</span>
+       <span class="n">sys</span><span class="o">.</span><span class="n">exit</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span> 
+
+    <span class="k">if</span> <span class="p">(</span><span class="n">sides</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="n">sides</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">**</span><span class="mi">2</span> <span class="o">&lt;</span> <span class="n">sides</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>   <span class="p">:</span> <span class="nb">print</span> <span class="p">(</span><span class="s1">'obtuse-angled'</span><span class="p">)</span> 
+    <span class="k">elif</span> <span class="p">(</span><span class="n">sides</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="n">sides</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">**</span><span class="mi">2</span> <span class="o">&gt;</span> <span class="n">sides</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span> <span class="p">:</span> <span class="nb">print</span> <span class="p">(</span><span class="s1">'acute-angled'</span><span class="p">)</span>
+    <span class="k">else</span>                                           <span class="p">:</span> <span class="nb">print</span> <span class="p">(</span><span class="s1">'rectangular-angled'</span><span class="p">)</span>
 
 
 <span class="c1"># ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- </span>
 
 
-<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&quot;__main__&quot;</span><span class="p">:</span>
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">"__main__"</span><span class="p">:</span>
     <span class="n">main</span> <span class="p">()</span>
 
 </pre></div>
 </div>
 </section>
 <section id="exercise-1-3">
-<h2><span class="section-number">1.12.3. </span>Exercise 1.3<a class="headerlink" href="#exercise-1-3" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">1.12.3. </span>Exercise 1.3<a class="headerlink" href="#exercise-1-3" title="Link to this heading">#</a></h2>
 <ul class="simple">
 <li><p><cite>ex_1.1.py</cite></p></li>
 </ul>
 <div class="highlight-py notranslate"><div class="highlight"><pre><span></span><span class="ch">#!/usr/bin/python</span>
-<span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">'''</span>
 <span class="sd">  * Write a program that, by using a `while` loop, </span>
 <span class="sd">    returns the Fibonacci sequence up to the n-th term</span>
 <span class="sd">    and stores it in a python `list`.</span>
-<span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">'''</span>
 
 
-<span class="k">def</span> <span class="nf">main</span> <span class="p">()</span> <span class="p">:</span>
-<span class="w">    </span><span class="sd">&#39;&#39;&#39;</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">main</span> <span class="p">()</span> <span class="p">:</span>
+<span class="w">    </span><span class="sd">'''</span>
 <span class="sd">    Funzione che implementa il programma principale</span>
-<span class="sd">    &#39;&#39;&#39;</span>
-    <span class="n">elements_num</span> <span class="o">=</span> <span class="nb">int</span> <span class="p">(</span><span class="nb">input</span> <span class="p">(</span><span class="s1">&#39;number of elements to calculate: &#39;</span><span class="p">))</span>
+<span class="sd">    '''</span>
+    <span class="n">elements_num</span> <span class="o">=</span> <span class="nb">int</span> <span class="p">(</span><span class="nb">input</span> <span class="p">(</span><span class="s1">'number of elements to calculate: '</span><span class="p">))</span>
 
     <span class="n">fibonacci</span> <span class="o">=</span> <span class="p">[</span><span class="nb">int</span> <span class="p">(</span><span class="mi">0</span><span class="p">),</span> <span class="nb">int</span> <span class="p">(</span><span class="mi">1</span><span class="p">)]</span>
     <span class="k">if</span> <span class="n">elements_num</span> <span class="o">&lt;</span> <span class="mi">2</span> <span class="p">:</span>
@@ -586,43 +608,43 @@ document.write(`
 <span class="c1"># ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- </span>
 
 
-<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&quot;__main__&quot;</span><span class="p">:</span>
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">"__main__"</span><span class="p">:</span>
     <span class="n">main</span> <span class="p">()</span>
 
 </pre></div>
 </div>
 </section>
 <section id="exercise-1-4">
-<h2><span class="section-number">1.12.4. </span>Exercise 1.4<a class="headerlink" href="#exercise-1-4" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">1.12.4. </span>Exercise 1.4<a class="headerlink" href="#exercise-1-4" title="Link to this heading">#</a></h2>
 <ul class="simple">
 <li><p><cite>ex_1.1.py</cite></p></li>
 </ul>
 <div class="highlight-py notranslate"><div class="highlight"><pre><span></span><span class="ch">#!/usr/bin/python</span>
-<span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">'''</span>
 <span class="sd">  * Write a program that, by using a `for` loop, </span>
 <span class="sd">    returns the Fibonacci sequence up to the n-th term</span>
 <span class="sd">    and stores it in a python `dictionary`, </span>
 <span class="sd">    where the `key` represents the index of each element</span>
 <span class="sd">    and `value` its actual value.</span>
-<span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">'''</span>
 
 
-<span class="k">def</span> <span class="nf">main</span> <span class="p">()</span> <span class="p">:</span>
-<span class="w">    </span><span class="sd">&#39;&#39;&#39;</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">main</span> <span class="p">()</span> <span class="p">:</span>
+<span class="w">    </span><span class="sd">'''</span>
 <span class="sd">    Funzione che implementa il programma principale</span>
-<span class="sd">    &#39;&#39;&#39;</span>
+<span class="sd">    '''</span>
 
     <span class="n">fibonacci</span> <span class="o">=</span> <span class="p">{}</span>
     <span class="n">fibonacci</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="nb">int</span> <span class="p">(</span><span class="mi">0</span><span class="p">)</span>
     <span class="n">fibonacci</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="nb">int</span> <span class="p">(</span><span class="mi">1</span><span class="p">)</span>
 
-    <span class="n">elements_num</span> <span class="o">=</span> <span class="nb">int</span> <span class="p">(</span><span class="nb">input</span> <span class="p">(</span><span class="s1">&#39;number of elements to calculate: &#39;</span><span class="p">))</span>
+    <span class="n">elements_num</span> <span class="o">=</span> <span class="nb">int</span> <span class="p">(</span><span class="nb">input</span> <span class="p">(</span><span class="s1">'number of elements to calculate: '</span><span class="p">))</span>
 
     <span class="c1"># the module itertools would allow to do this in a more compact way</span>
     <span class="c1"># https://docs.python.org/3/library/itertools.html</span>
     <span class="k">if</span> <span class="n">elements_num</span> <span class="o">&lt;</span> <span class="mi">3</span> <span class="p">:</span>
       <span class="k">for</span> <span class="n">key</span> <span class="ow">in</span> <span class="n">fibonacci</span><span class="o">.</span><span class="n">keys</span> <span class="p">()</span> <span class="p">:</span>
-        <span class="nb">print</span> <span class="p">(</span><span class="s1">&#39;element&#39;</span><span class="p">,</span> <span class="n">key</span><span class="p">,</span> <span class="s1">&#39; : &#39;</span><span class="p">,</span> <span class="n">fibonacci</span><span class="p">[</span><span class="n">key</span><span class="p">])</span>
+        <span class="nb">print</span> <span class="p">(</span><span class="s1">'element'</span><span class="p">,</span> <span class="n">key</span><span class="p">,</span> <span class="s1">' : '</span><span class="p">,</span> <span class="n">fibonacci</span><span class="p">[</span><span class="n">key</span><span class="p">])</span>
         <span class="n">elements_num</span> <span class="o">-=</span> <span class="mi">1</span>
         <span class="k">if</span> <span class="n">elements_num</span> <span class="o">==</span> <span class="mi">0</span> <span class="p">:</span> <span class="k">break</span>
 
@@ -630,25 +652,25 @@ document.write(`
       <span class="n">fibonacci</span><span class="p">[</span><span class="n">key</span><span class="p">]</span> <span class="o">=</span> <span class="n">fibonacci</span><span class="p">[</span><span class="n">key</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="n">fibonacci</span><span class="p">[</span><span class="n">key</span><span class="o">-</span><span class="mi">2</span><span class="p">]</span>
 
     <span class="k">for</span> <span class="n">key</span> <span class="ow">in</span> <span class="n">fibonacci</span><span class="o">.</span><span class="n">keys</span> <span class="p">()</span> <span class="p">:</span>
-      <span class="nb">print</span> <span class="p">(</span><span class="s1">&#39;element&#39;</span><span class="p">,</span> <span class="n">key</span><span class="p">,</span> <span class="s1">&#39; : &#39;</span><span class="p">,</span> <span class="n">fibonacci</span><span class="p">[</span><span class="n">key</span><span class="p">])</span>
+      <span class="nb">print</span> <span class="p">(</span><span class="s1">'element'</span><span class="p">,</span> <span class="n">key</span><span class="p">,</span> <span class="s1">' : '</span><span class="p">,</span> <span class="n">fibonacci</span><span class="p">[</span><span class="n">key</span><span class="p">])</span>
 
 
 <span class="c1"># ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- </span>
 
 
-<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&quot;__main__&quot;</span><span class="p">:</span>
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">"__main__"</span><span class="p">:</span>
     <span class="n">main</span> <span class="p">()</span>
 
 </pre></div>
 </div>
 </section>
 <section id="exercise-1-5">
-<h2><span class="section-number">1.12.5. </span>Exercise 1.5<a class="headerlink" href="#exercise-1-5" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">1.12.5. </span>Exercise 1.5<a class="headerlink" href="#exercise-1-5" title="Link to this heading">#</a></h2>
 <ul class="simple">
 <li><p><cite>ex_1.5.py</cite></p></li>
 </ul>
 <div class="highlight-py notranslate"><div class="highlight"><pre><span></span><span class="ch">#!/usr/bin/python</span>
-<span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">'''</span>
 <span class="sd">  * Define a function that returns the Fibonacci sequence up to the n-th term.</span>
 
 <span class="sd">    `````{hint}</span>
@@ -656,14 +678,14 @@ document.write(`
 
 <span class="sd">    ```python</span>
 <span class="sd">    def fibonacci (n) :</span>
-<span class="sd">        &quot;&quot;&quot;A function that calculates the Fibonacci sequence up to the n-th term</span>
+<span class="sd">        """A function that calculates the Fibonacci sequence up to the n-th term</span>
 
 <span class="sd">        Args:</span>
 <span class="sd">            n (int): the n-th term of the sequence</span>
 
 <span class="sd">        Returns:</span>
 <span class="sd">            list: a list with the Fibonacci sequence</span>
-<span class="sd">        &quot;&quot;&quot;</span>
+<span class="sd">        """</span>
 <span class="sd">    ```</span>
 <span class="sd">    `````</span>
 <span class="sd">  * Test the function with a `main` program,</span>
@@ -671,20 +693,20 @@ document.write(`
 <span class="sd">  * Create a new list containing only the elements with even index in the `list`.  </span>
 <span class="sd">  * Create a new list containing only the elements with odd index in the `list`.</span>
 <span class="sd">  * Move the function in a library and import it in the main program.</span>
-<span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">'''</span>
 
-<span class="kn">from</span> <span class="nn">fibonacci</span> <span class="kn">import</span> <span class="n">fibonacci</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">fibonacci</span><span class="w"> </span><span class="kn">import</span> <span class="n">fibonacci</span>
 
 
 <span class="c1"># ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- </span>
 
 
-<span class="k">def</span> <span class="nf">main</span> <span class="p">()</span> <span class="p">:</span>
-<span class="w">    </span><span class="sd">&#39;&#39;&#39;</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">main</span> <span class="p">()</span> <span class="p">:</span>
+<span class="w">    </span><span class="sd">'''</span>
 <span class="sd">    Funzione che implementa il programma principale</span>
-<span class="sd">    &#39;&#39;&#39;</span>
+<span class="sd">    '''</span>
 
-    <span class="n">elements_num</span> <span class="o">=</span> <span class="nb">int</span> <span class="p">(</span><span class="nb">input</span> <span class="p">(</span><span class="s1">&#39;number of elements to calculate: &#39;</span><span class="p">))</span>
+    <span class="n">elements_num</span> <span class="o">=</span> <span class="nb">int</span> <span class="p">(</span><span class="nb">input</span> <span class="p">(</span><span class="s1">'number of elements to calculate: '</span><span class="p">))</span>
     <span class="n">l_fibo</span> <span class="o">=</span> <span class="n">fibonacci</span> <span class="p">(</span><span class="n">elements_num</span><span class="p">)</span>
     <span class="nb">print</span> <span class="p">(</span><span class="n">l_fibo</span><span class="p">)</span>
     <span class="n">l_fibo_even</span> <span class="o">=</span> <span class="n">l_fibo</span><span class="p">[::</span><span class="mi">2</span><span class="p">]</span> <span class="c1"># slice from beginning to end with step 2</span>
@@ -696,7 +718,7 @@ document.write(`
 <span class="c1"># ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- </span>
 
 
-<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&quot;__main__&quot;</span><span class="p">:</span>
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">"__main__"</span><span class="p">:</span>
     <span class="n">main</span> <span class="p">()</span>
 
 </pre></div>
@@ -704,15 +726,15 @@ document.write(`
 <ul class="simple">
 <li><p><cite>fibonacci.py</cite></p></li>
 </ul>
-<div class="highlight-py notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">fibonacci</span> <span class="p">(</span><span class="n">elements_num</span><span class="p">)</span> <span class="p">:</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;A function that calculates the Fibonacci sequence up to the n-th term</span>
+<div class="highlight-py notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">fibonacci</span> <span class="p">(</span><span class="n">elements_num</span><span class="p">)</span> <span class="p">:</span>
+<span class="w">    </span><span class="sd">"""A function that calculates the Fibonacci sequence up to the n-th term</span>
 
 <span class="sd">    Args:</span>
 <span class="sd">        n (int): the n-th term of the sequence</span>
 
 <span class="sd">    Returns:</span>
 <span class="sd">        list: a list with the Fibonacci sequence</span>
-<span class="sd">    &quot;&quot;&quot;</span>
+<span class="sd">    """</span>
     <span class="n">fibonacci</span> <span class="o">=</span> <span class="p">[</span><span class="nb">int</span> <span class="p">(</span><span class="mi">0</span><span class="p">),</span> <span class="nb">int</span> <span class="p">(</span><span class="mi">1</span><span class="p">)]</span>
     <span class="k">if</span> <span class="n">elements_num</span> <span class="o">&lt;</span> <span class="mi">2</span> <span class="p">:</span>
       <span class="k">return</span> <span class="n">fibonacci</span><span class="p">[:</span><span class="n">elements_num</span><span class="p">]</span>
@@ -725,44 +747,44 @@ document.write(`
 </div>
 </section>
 <section id="exercise-1-6">
-<h2><span class="section-number">1.12.6. </span>Exercise 1.6<a class="headerlink" href="#exercise-1-6" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">1.12.6. </span>Exercise 1.6<a class="headerlink" href="#exercise-1-6" title="Link to this heading">#</a></h2>
 <ul class="simple">
 <li><p><cite>ex_1.6.py</cite></p></li>
 </ul>
 <div class="highlight-py notranslate"><div class="highlight"><pre><span></span><span class="ch">#!/usr/bin/python</span>
-<span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">'''</span>
 <span class="sd">  * By writing a suitable program and functions,</span>
 <span class="sd">    verify whether the value of variables passed to a function</span>
 <span class="sd">    get modified in the main program, </span>
 <span class="sd">    if they are changed inside the function.</span>
 <span class="sd">  * Perform the check for the various types described during the lecture.</span>
-<span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">'''</span>
 
-<span class="k">def</span> <span class="nf">double_it</span> <span class="p">(</span><span class="n">number</span><span class="p">)</span> <span class="p">:</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">double_it</span> <span class="p">(</span><span class="n">number</span><span class="p">)</span> <span class="p">:</span>
     <span class="n">number</span> <span class="o">*=</span> <span class="mi">2</span>
-    <span class="nb">print</span> <span class="p">(</span><span class="s1">&#39;inside&#39;</span><span class="p">,</span> <span class="n">number</span><span class="p">)</span>
+    <span class="nb">print</span> <span class="p">(</span><span class="s1">'inside'</span><span class="p">,</span> <span class="n">number</span><span class="p">)</span>
 
 
 <span class="c1"># ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- </span>
 
 
-<span class="k">def</span> <span class="nf">add_element</span> <span class="p">(</span><span class="n">input_list</span><span class="p">)</span> <span class="p">:</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">add_element</span> <span class="p">(</span><span class="n">input_list</span><span class="p">)</span> <span class="p">:</span>
     <span class="n">input_list</span><span class="o">.</span><span class="n">append</span> <span class="p">(</span><span class="n">input_list</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span>
 
 
 <span class="c1"># ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- </span>
 
 
-<span class="k">def</span> <span class="nf">main</span> <span class="p">()</span> <span class="p">:</span>
-<span class="w">    </span><span class="sd">&#39;&#39;&#39;</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">main</span> <span class="p">()</span> <span class="p">:</span>
+<span class="w">    </span><span class="sd">'''</span>
 <span class="sd">    Funzione che implementa il programma principale</span>
-<span class="sd">    &#39;&#39;&#39;</span>
+<span class="sd">    '''</span>
 
 
     <span class="n">m_number</span> <span class="o">=</span> <span class="mf">3.</span>
-    <span class="nb">print</span> <span class="p">(</span><span class="s1">&#39;outside before&#39;</span><span class="p">,</span> <span class="n">m_number</span><span class="p">)</span>
+    <span class="nb">print</span> <span class="p">(</span><span class="s1">'outside before'</span><span class="p">,</span> <span class="n">m_number</span><span class="p">)</span>
     <span class="n">double_it</span> <span class="p">(</span><span class="n">m_number</span><span class="p">)</span>
-    <span class="nb">print</span> <span class="p">(</span><span class="s1">&#39;outside after&#39;</span><span class="p">,</span> <span class="n">m_number</span><span class="p">)</span>
+    <span class="nb">print</span> <span class="p">(</span><span class="s1">'outside after'</span><span class="p">,</span> <span class="n">m_number</span><span class="p">)</span>
 
     <span class="n">test_list</span> <span class="o">=</span> <span class="p">[</span><span class="mi">3</span><span class="p">]</span>
     <span class="n">add_element</span> <span class="p">(</span><span class="n">test_list</span><span class="p">)</span>
@@ -772,89 +794,89 @@ document.write(`
 <span class="c1"># ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- </span>
 
 
-<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&quot;__main__&quot;</span><span class="p">:</span>
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">"__main__"</span><span class="p">:</span>
     <span class="n">main</span> <span class="p">()</span>
 
 </pre></div>
 </div>
 </section>
 <section id="exercise-1-7">
-<h2><span class="section-number">1.12.7. </span>Exercise 1.7<a class="headerlink" href="#exercise-1-7" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">1.12.7. </span>Exercise 1.7<a class="headerlink" href="#exercise-1-7" title="Link to this heading">#</a></h2>
 <ul class="simple">
 <li><p><cite>ex_1.7.py</cite></p></li>
 </ul>
 <div class="highlight-py notranslate"><div class="highlight"><pre><span></span><span class="ch">#!/usr/bin/python</span>
-<span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">'''</span>
 <span class="sd">  * Write a python program that determines the solution of second-order</span>
 <span class="sd">    equations</span>
-<span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">'''</span>
 
-<span class="kn">from</span> <span class="nn">math</span> <span class="kn">import</span> <span class="n">sqrt</span>
-<span class="kn">import</span> <span class="nn">sys</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">math</span><span class="w"> </span><span class="kn">import</span> <span class="n">sqrt</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">sys</span>
 
 
-<span class="k">def</span> <span class="nf">main</span> <span class="p">()</span> <span class="p">:</span>
-<span class="w">    </span><span class="sd">&#39;&#39;&#39;</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">main</span> <span class="p">()</span> <span class="p">:</span>
+<span class="w">    </span><span class="sd">'''</span>
 <span class="sd">    Funzione che implementa il programma principale</span>
-<span class="sd">    &#39;&#39;&#39;</span>
-    <span class="nb">print</span> <span class="p">(</span><span class="s1">&#39;starting from the equation ax^2 + bx +c = 0 in the real domain&#39;</span><span class="p">)</span>
-    <span class="n">param_a</span> <span class="o">=</span> <span class="nb">float</span> <span class="p">(</span><span class="nb">input</span> <span class="p">(</span><span class="s1">&#39;insert the value of a: &#39;</span><span class="p">))</span>
-    <span class="n">param_b</span> <span class="o">=</span> <span class="nb">float</span> <span class="p">(</span><span class="nb">input</span> <span class="p">(</span><span class="s1">&#39;insert the value of b: &#39;</span><span class="p">))</span>
-    <span class="n">param_c</span> <span class="o">=</span> <span class="nb">float</span> <span class="p">(</span><span class="nb">input</span> <span class="p">(</span><span class="s1">&#39;insert the value of c: &#39;</span><span class="p">))</span>
-    <span class="nb">print</span> <span class="p">(</span><span class="s1">&#39;solving equation :&#39;</span><span class="p">)</span>
-    <span class="nb">print</span> <span class="p">(</span><span class="nb">str</span> <span class="p">(</span><span class="n">param_a</span><span class="p">)</span> <span class="o">+</span> <span class="s1">&#39;x^2 + &#39;</span> <span class="o">+</span> <span class="nb">str</span> <span class="p">(</span><span class="n">param_b</span><span class="p">)</span> <span class="o">+</span> <span class="s1">&#39;x + &#39;</span> <span class="o">+</span> <span class="nb">str</span> <span class="p">(</span><span class="n">param_c</span><span class="p">)</span> <span class="o">+</span> <span class="s1">&#39; = 0&#39;</span><span class="p">)</span>
+<span class="sd">    '''</span>
+    <span class="nb">print</span> <span class="p">(</span><span class="s1">'starting from the equation ax^2 + bx +c = 0 in the real domain'</span><span class="p">)</span>
+    <span class="n">param_a</span> <span class="o">=</span> <span class="nb">float</span> <span class="p">(</span><span class="nb">input</span> <span class="p">(</span><span class="s1">'insert the value of a: '</span><span class="p">))</span>
+    <span class="n">param_b</span> <span class="o">=</span> <span class="nb">float</span> <span class="p">(</span><span class="nb">input</span> <span class="p">(</span><span class="s1">'insert the value of b: '</span><span class="p">))</span>
+    <span class="n">param_c</span> <span class="o">=</span> <span class="nb">float</span> <span class="p">(</span><span class="nb">input</span> <span class="p">(</span><span class="s1">'insert the value of c: '</span><span class="p">))</span>
+    <span class="nb">print</span> <span class="p">(</span><span class="s1">'solving equation :'</span><span class="p">)</span>
+    <span class="nb">print</span> <span class="p">(</span><span class="nb">str</span> <span class="p">(</span><span class="n">param_a</span><span class="p">)</span> <span class="o">+</span> <span class="s1">'x^2 + '</span> <span class="o">+</span> <span class="nb">str</span> <span class="p">(</span><span class="n">param_b</span><span class="p">)</span> <span class="o">+</span> <span class="s1">'x + '</span> <span class="o">+</span> <span class="nb">str</span> <span class="p">(</span><span class="n">param_c</span><span class="p">)</span> <span class="o">+</span> <span class="s1">' = 0'</span><span class="p">)</span>
     <span class="n">delta</span> <span class="o">=</span> <span class="n">param_b</span> <span class="o">**</span> <span class="mi">2</span> <span class="o">-</span> <span class="mi">4</span> <span class="o">*</span> <span class="n">param_a</span> <span class="o">*</span> <span class="n">param_c</span>
     <span class="k">if</span> <span class="p">(</span><span class="n">delta</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">)</span> <span class="p">:</span> 
-        <span class="nb">print</span> <span class="p">(</span><span class="s1">&#39;no real solutions exist&#39;</span><span class="p">)</span>
+        <span class="nb">print</span> <span class="p">(</span><span class="s1">'no real solutions exist'</span><span class="p">)</span>
         <span class="n">sys</span><span class="o">.</span><span class="n">exit</span> <span class="p">(</span><span class="mi">1</span><span class="p">)</span>
     <span class="n">x_1</span> <span class="o">=</span>  <span class="p">(</span><span class="o">-</span><span class="mi">1</span> <span class="o">*</span> <span class="n">param_b</span> <span class="o">-</span> <span class="n">sqrt</span> <span class="p">(</span><span class="n">delta</span><span class="p">))</span> <span class="o">/</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">param_a</span>
     <span class="n">x_2</span> <span class="o">=</span>  <span class="p">(</span><span class="o">-</span><span class="mi">1</span> <span class="o">*</span> <span class="n">param_b</span> <span class="o">+</span> <span class="n">sqrt</span> <span class="p">(</span><span class="n">delta</span><span class="p">))</span> <span class="o">/</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">param_a</span>
-    <span class="nb">print</span> <span class="p">(</span><span class="s1">&#39;x1 = &#39;</span> <span class="o">+</span> <span class="nb">str</span> <span class="p">(</span><span class="n">x_1</span><span class="p">))</span>
-    <span class="nb">print</span> <span class="p">(</span><span class="s1">&#39;x2 = &#39;</span> <span class="o">+</span> <span class="nb">str</span> <span class="p">(</span><span class="n">x_2</span><span class="p">))</span>
-    <span class="n">message</span> <span class="o">=</span> <span class="nb">str</span> <span class="p">(</span><span class="n">param_a</span><span class="p">)</span> <span class="o">+</span> <span class="s1">&#39;x^2 + &#39;</span> <span class="o">+</span> <span class="nb">str</span> <span class="p">(</span><span class="n">param_b</span><span class="p">)</span> <span class="o">+</span> <span class="s1">&#39;x + &#39;</span> <span class="o">+</span> <span class="nb">str</span> <span class="p">(</span><span class="n">param_c</span><span class="p">)</span> <span class="o">+</span> <span class="s1">&#39; = &#39;</span>
-    <span class="k">if</span> <span class="p">(</span><span class="n">x_1</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">)</span> <span class="p">:</span> <span class="n">message</span> <span class="o">+=</span> <span class="s1">&#39;(x+&#39;</span> <span class="o">+</span> <span class="nb">str</span> <span class="p">(</span><span class="o">-</span><span class="n">x_1</span><span class="p">)</span> <span class="o">+</span> <span class="s1">&#39;)&#39;</span>
-    <span class="k">else</span>         <span class="p">:</span> <span class="n">message</span> <span class="o">+=</span> <span class="s1">&#39;(x&#39;</span> <span class="o">+</span> <span class="nb">str</span> <span class="p">(</span><span class="o">-</span><span class="n">x_1</span><span class="p">)</span> <span class="o">+</span> <span class="s1">&#39;)&#39;</span>
-    <span class="k">if</span> <span class="p">(</span><span class="n">x_2</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">)</span> <span class="p">:</span> <span class="n">message</span> <span class="o">+=</span> <span class="s1">&#39;(x+&#39;</span> <span class="o">+</span> <span class="nb">str</span> <span class="p">(</span><span class="o">-</span><span class="n">x_2</span><span class="p">)</span> <span class="o">+</span> <span class="s1">&#39;)&#39;</span>
-    <span class="k">else</span>         <span class="p">:</span> <span class="n">message</span> <span class="o">+=</span> <span class="s1">&#39;(x&#39;</span> <span class="o">+</span> <span class="nb">str</span> <span class="p">(</span><span class="o">-</span><span class="n">x_2</span><span class="p">)</span> <span class="o">+</span> <span class="s1">&#39;)&#39;</span>
+    <span class="nb">print</span> <span class="p">(</span><span class="s1">'x1 = '</span> <span class="o">+</span> <span class="nb">str</span> <span class="p">(</span><span class="n">x_1</span><span class="p">))</span>
+    <span class="nb">print</span> <span class="p">(</span><span class="s1">'x2 = '</span> <span class="o">+</span> <span class="nb">str</span> <span class="p">(</span><span class="n">x_2</span><span class="p">))</span>
+    <span class="n">message</span> <span class="o">=</span> <span class="nb">str</span> <span class="p">(</span><span class="n">param_a</span><span class="p">)</span> <span class="o">+</span> <span class="s1">'x^2 + '</span> <span class="o">+</span> <span class="nb">str</span> <span class="p">(</span><span class="n">param_b</span><span class="p">)</span> <span class="o">+</span> <span class="s1">'x + '</span> <span class="o">+</span> <span class="nb">str</span> <span class="p">(</span><span class="n">param_c</span><span class="p">)</span> <span class="o">+</span> <span class="s1">' = '</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">x_1</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">)</span> <span class="p">:</span> <span class="n">message</span> <span class="o">+=</span> <span class="s1">'(x+'</span> <span class="o">+</span> <span class="nb">str</span> <span class="p">(</span><span class="o">-</span><span class="n">x_1</span><span class="p">)</span> <span class="o">+</span> <span class="s1">')'</span>
+    <span class="k">else</span>         <span class="p">:</span> <span class="n">message</span> <span class="o">+=</span> <span class="s1">'(x'</span> <span class="o">+</span> <span class="nb">str</span> <span class="p">(</span><span class="o">-</span><span class="n">x_1</span><span class="p">)</span> <span class="o">+</span> <span class="s1">')'</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">x_2</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">)</span> <span class="p">:</span> <span class="n">message</span> <span class="o">+=</span> <span class="s1">'(x+'</span> <span class="o">+</span> <span class="nb">str</span> <span class="p">(</span><span class="o">-</span><span class="n">x_2</span><span class="p">)</span> <span class="o">+</span> <span class="s1">')'</span>
+    <span class="k">else</span>         <span class="p">:</span> <span class="n">message</span> <span class="o">+=</span> <span class="s1">'(x'</span> <span class="o">+</span> <span class="nb">str</span> <span class="p">(</span><span class="o">-</span><span class="n">x_2</span><span class="p">)</span> <span class="o">+</span> <span class="s1">')'</span>
     <span class="nb">print</span> <span class="p">(</span><span class="n">message</span><span class="p">)</span>
 
 
 <span class="c1"># ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- </span>
 
 
-<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&quot;__main__&quot;</span><span class="p">:</span>
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">"__main__"</span><span class="p">:</span>
     <span class="n">main</span> <span class="p">()</span>
 
 </pre></div>
 </div>
 </section>
 <section id="exercise-1-8">
-<h2><span class="section-number">1.12.8. </span>Exercise 1.8<a class="headerlink" href="#exercise-1-8" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">1.12.8. </span>Exercise 1.8<a class="headerlink" href="#exercise-1-8" title="Link to this heading">#</a></h2>
 <ul class="simple">
 <li><p><cite>ex_1.8.py</cite></p></li>
 </ul>
 <div class="highlight-py notranslate"><div class="highlight"><pre><span></span><span class="ch">#!/usr/bin/python</span>
-<span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">'''</span>
 <span class="sd">  * Write a python program that finds the list of prime integer numbers</span>
 <span class="sd">    smaller than 100, starting by knowing that 2 is a prime number</span>
-<span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">'''</span>
 
-<span class="kn">from</span> <span class="nn">math</span> <span class="kn">import</span> <span class="n">sqrt</span>
-<span class="kn">import</span> <span class="nn">sys</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">math</span><span class="w"> </span><span class="kn">import</span> <span class="n">sqrt</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">sys</span>
 
 
 
-<span class="k">def</span> <span class="nf">check_ratio</span> <span class="p">(</span><span class="n">numerator</span><span class="p">,</span> <span class="n">denominator</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">check_ratio</span> <span class="p">(</span><span class="n">numerator</span><span class="p">,</span> <span class="n">denominator</span><span class="p">):</span>
     <span class="k">return</span> <span class="p">(</span><span class="n">numerator</span> <span class="o">%</span> <span class="n">denominator</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span>
 
 
 <span class="c1"># ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- </span>
 
 
-<span class="k">def</span> <span class="nf">main</span> <span class="p">()</span> <span class="p">:</span>
-<span class="w">    </span><span class="sd">&#39;&#39;&#39;</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">main</span> <span class="p">()</span> <span class="p">:</span>
+<span class="w">    </span><span class="sd">'''</span>
 <span class="sd">    Funzione che implementa il programma principale</span>
-<span class="sd">    &#39;&#39;&#39;</span>
+<span class="sd">    '''</span>
     <span class="n">l_primes</span> <span class="o">=</span> <span class="p">[</span><span class="mi">2</span><span class="p">]</span>
     <span class="k">for</span> <span class="n">num</span> <span class="ow">in</span> <span class="nb">range</span> <span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="mi">100</span><span class="p">)</span> <span class="p">:</span>
         <span class="n">is_prime</span> <span class="o">=</span> <span class="kc">True</span>
@@ -869,47 +891,47 @@ document.write(`
 <span class="c1"># ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- </span>
 
 
-<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&quot;__main__&quot;</span><span class="p">:</span>
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">"__main__"</span><span class="p">:</span>
     <span class="n">main</span> <span class="p">()</span>
 
 </pre></div>
 </div>
 </section>
 <section id="exercise-1-9">
-<h2><span class="section-number">1.12.9. </span>Exercise 1.9<a class="headerlink" href="#exercise-1-9" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">1.12.9. </span>Exercise 1.9<a class="headerlink" href="#exercise-1-9" title="Link to this heading">#</a></h2>
 <ul class="simple">
 <li><p><cite>ex_1.9.py</cite></p></li>
 </ul>
 <div class="highlight-py notranslate"><div class="highlight"><pre><span></span><span class="ch">#!/usr/bin/python</span>
-<span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">'''</span>
 <span class="sd">  * Write a python program that finds the decomposition in prime factors</span>
 <span class="sd">    of a positive integer number, implementing the algorithm </span>
 <span class="sd">    in a function encapsulated in a python module</span>
 <span class="sd">  * Write a test function, in the library, </span>
 <span class="sd">    that checks the correctness of the procedure for all numbers </span>
 <span class="sd">    from 1 to 100  </span>
-<span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">'''</span>
 
-<span class="kn">from</span> <span class="nn">primes</span> <span class="kn">import</span> <span class="n">check_ratio</span><span class="p">,</span> <span class="n">decompose</span>
-<span class="kn">from</span> <span class="nn">math</span> <span class="kn">import</span> <span class="n">sqrt</span>
-<span class="kn">import</span> <span class="nn">sys</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">primes</span><span class="w"> </span><span class="kn">import</span> <span class="n">check_ratio</span><span class="p">,</span> <span class="n">decompose</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">math</span><span class="w"> </span><span class="kn">import</span> <span class="n">sqrt</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">sys</span>
 
 
 
-<span class="k">def</span> <span class="nf">check_ratio</span> <span class="p">(</span><span class="n">numerator</span><span class="p">,</span> <span class="n">denominator</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">check_ratio</span> <span class="p">(</span><span class="n">numerator</span><span class="p">,</span> <span class="n">denominator</span><span class="p">):</span>
     <span class="k">return</span> <span class="p">(</span><span class="n">numerator</span> <span class="o">%</span> <span class="n">denominator</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span>
 
 
 <span class="c1"># ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- </span>
 
 
-<span class="k">def</span> <span class="nf">main</span> <span class="p">()</span> <span class="p">:</span>
-<span class="w">    </span><span class="sd">&#39;&#39;&#39;</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">main</span> <span class="p">()</span> <span class="p">:</span>
+<span class="w">    </span><span class="sd">'''</span>
 <span class="sd">    Funzione che implementa il programma principale</span>
-<span class="sd">    &#39;&#39;&#39;</span>
+<span class="sd">    '''</span>
     <span class="n">number</span> <span class="o">=</span> <span class="mi">1</span>
     <span class="k">while</span> <span class="n">number</span> <span class="o">&gt;</span> <span class="mi">0</span> <span class="p">:</span>
-        <span class="n">number</span> <span class="o">=</span> <span class="nb">int</span> <span class="p">(</span><span class="nb">input</span> <span class="p">(</span><span class="s1">&#39;insert an integer number (-1 to quit): &#39;</span><span class="p">))</span>
+        <span class="n">number</span> <span class="o">=</span> <span class="nb">int</span> <span class="p">(</span><span class="nb">input</span> <span class="p">(</span><span class="s1">'insert an integer number (-1 to quit): '</span><span class="p">))</span>
         <span class="k">if</span> <span class="n">number</span> <span class="o">&lt;</span> <span class="mi">0</span> <span class="p">:</span> <span class="k">break</span>
         <span class="n">decomposition</span> <span class="o">=</span> <span class="n">decompose</span> <span class="p">(</span><span class="n">number</span><span class="p">)</span>
         <span class="nb">print</span> <span class="p">(</span><span class="n">decomposition</span><span class="p">)</span>
@@ -918,7 +940,7 @@ document.write(`
 <span class="c1"># ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- </span>
 
 
-<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&quot;__main__&quot;</span><span class="p">:</span>
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">"__main__"</span><span class="p">:</span>
     <span class="n">main</span> <span class="p">()</span>
 
 </pre></div>
@@ -953,7 +975,7 @@ document.write(`
               
               
               
-                <footer class="prev-next-footer">
+                <footer class="prev-next-footer d-print-none">
                   
 <div class="prev-next-area">
     <a class="left-prev"
@@ -982,6 +1004,7 @@ document.write(`
             
               
                 <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
 
   <div class="sidebar-secondary-item">
   <div class="page-toc tocsection onthispage">
@@ -1022,7 +1045,7 @@ By The Jupyter Book community
 
   <p class="copyright">
     
-      © Copyright 2022.
+      © Copyright 2023.
       <br/>
     
   </p>
@@ -1046,8 +1069,8 @@ By The Jupyter Book community
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="../../_static/scripts/bootstrap.js?digest=5b4479735964841361fd"></script>
-<script src="../../_static/scripts/pydata-sphinx-theme.js?digest=5b4479735964841361fd"></script>
+  <script src="../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
 
   <footer class="bd-footer">
   </footer>

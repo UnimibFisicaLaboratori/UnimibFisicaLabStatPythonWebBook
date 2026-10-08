@@ -1,13 +1,12 @@
 
-
 <!DOCTYPE html>
 
 
-<html lang="en" data-content_root="" >
+<html lang="en" data-content_root="../../../" >
 
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
     <title>11.6. Least squares solutions &#8212; Laboratorio di Calcolo e Statistica</title>
   
@@ -15,53 +14,49 @@
   
   <script data-cfasync="false">
     document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
-    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
   </script>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="../../../_static/styles/theme.css?digest=5b4479735964841361fd" rel="stylesheet" />
-<link href="../../../_static/styles/bootstrap.css?digest=5b4479735964841361fd" rel="stylesheet" />
-<link href="../../../_static/styles/pydata-sphinx-theme.css?digest=5b4479735964841361fd" rel="stylesheet" />
+  <link href="../../../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../../../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../../../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
 
   
-  <link href="../../../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=5b4479735964841361fd" rel="stylesheet" />
-  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="../../../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="../../../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+  <link href="../../../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
 
-    <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css" />
-    <link rel="stylesheet" href="../../../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
-    <link rel="stylesheet" type="text/css" href="../../../_static/togglebutton.css" />
-    <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css" />
-    <link rel="stylesheet" type="text/css" href="../../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
-    <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-thebe.css" />
-    <link rel="stylesheet" type="text/css" href="../../../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/styles/sphinx-book-theme.css?v=eba8b062" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/togglebutton.css?v=9c3e77be" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/mystnb.11b39860a7a0cbfd473a3ad8a317855267ff0bd372690045ca344a6b62be495e.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-design.min.css?v=95c83b7e" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../../../_static/scripts/bootstrap.js?digest=5b4479735964841361fd" />
-<link rel="preload" as="script" href="../../../_static/scripts/pydata-sphinx-theme.js?digest=5b4479735964841361fd" />
-  <script src="../../../_static/vendor/fontawesome/6.1.2/js/all.min.js?digest=5b4479735964841361fd"></script>
+  <link rel="preload" as="script" href="../../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../../../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
 
-    <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
-    <script src="../../../_static/jquery.js"></script>
-    <script src="../../../_static/underscore.js"></script>
-    <script src="../../../_static/_sphinx_javascript_frameworks_compat.js"></script>
-    <script src="../../../_static/doctools.js"></script>
-    <script src="../../../_static/clipboard.min.js"></script>
-    <script src="../../../_static/copybutton.js"></script>
-    <script src="../../../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script src="../../../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../../../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../../_static/copybutton.js?v=f281be69"></script>
+    <script src="../../../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
-    <script src="../../../_static/togglebutton.js"></script>
+    <script src="../../../_static/togglebutton.js?v=b8b12719"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
-    <script src="../../../_static/design-tabs.js"></script>
-    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
-const thebe_selector = ".thebe,.cell"
-const thebe_selector_input = "pre"
-const thebe_selector_output = ".output, .cell_output"
-</script>
-    <script async="async" src="../../../_static/sphinx-thebe.js"></script>
+    <script src="../../../_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../../../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
     <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'lectures/Lecture_11/exercises/least_squares_solutions';</script>
@@ -78,28 +73,23 @@ const thebe_selector_output = ".output, .cell_output"
 
   
   
-  <a class="skip-link" href="#main-content">Skip to main content</a>
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
   
   <div id="pst-scroll-pixel-helper"></div>
-
   
   <button type="button" class="btn rounded-pill" id="pst-back-to-top">
-    <i class="fa-solid fa-arrow-up"></i>
-    Back to top
-  </button>
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
 
   
   <input type="checkbox"
           class="sidebar-toggle"
-          name="__primary"
-          id="__primary"/>
-  <label class="overlay overlay-primary" for="__primary"></label>
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
   
   <input type="checkbox"
           class="sidebar-toggle"
-          name="__secondary"
-          id="__secondary"/>
-  <label class="overlay overlay-secondary" for="__secondary"></label>
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
   
   <div class="search-button__wrapper">
     <div class="search-button__overlay"></div>
@@ -121,12 +111,20 @@ const thebe_selector_output = ".output, .cell_output"
   <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
 </form></div>
   </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
   
-    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
-    </nav>
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
   
+
   <div class="bd-container">
     <div class="bd-container__inner bd-page-width">
+      
+      
       
       <div class="bd-sidebar-primary bd-sidebar">
         
@@ -142,6 +140,8 @@ const thebe_selector_output = ".output, .cell_output"
     <div class="sidebar-primary-items__start sidebar-primary__section">
         <div class="sidebar-primary-item">
 
+  
+    
   
 
 <a class="navbar-brand logo" href="../../../intro.html">
@@ -160,7 +160,18 @@ const thebe_selector_output = ".output, .cell_output"
   
   
 </a></div>
-        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item navbar-nav active">
         
         <ul class="nav bd-sidenav bd-sidenav__home-link">
@@ -176,54 +187,54 @@ const thebe_selector_output = ".output, .cell_output"
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Lectures</span></p>
 <ul class="current nav bd-sidenav">
-<li class="toctree-l1 has-children"><a class="reference internal" href="../../Lecture_01/basics_python.html">1. Basics of Python Programming</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../Lecture_01/basics_python.html">1. Basics of Python Programming</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="../../Lecture_01/EXAMPLES.html">1.10. Examples: Lecture 1</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../Lecture_01/EXERCISES.html">1.11. Exercises for Lecture 1</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../Lecture_01/SOLUTIONS.html">1.12. Solutions: Lecture 1</a></li>
 </ul>
-</li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../../Lecture_02/python_libraries.html">2. Notable Python Libraries</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../Lecture_02/python_libraries.html">2. Notable Python Libraries</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="../../Lecture_02/EXAMPLES.html">2.4. Examples: Lecture 2</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../Lecture_02/EXERCISES.html">2.5. Exercises for Lecture 2</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../Lecture_02/SOLUTIONS.html">2.6. Solutions: Lecture 2</a></li>
 </ul>
-</li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../../Lecture_03/data_visualisation.html">3. Data Visualisation with Python</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="../../Lecture_03/EXAMPLES.html">3.6. Examples: Lecture 3</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../Lecture_03/EXERCISES.html">3.7. Exercises for Lecture 3</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../Lecture_03/SOLUTIONS.html">3.8. Solutions: Lecture 3</a></li>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../Lecture_03/data_visualisation.html">3. Data Visualisation with Python</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../Lecture_03/EXAMPLES.html">3.8. Examples: Lecture 3</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Lecture_03/EXERCISES.html">3.9. Exercises for Lecture 3</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Lecture_03/SOLUTIONS.html">3.10. Solutions: Lecture 3</a></li>
 </ul>
-</li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../../Lecture_04/pseudorandom.html">4. Generation of Pseudo-Random Numbers</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-4"><i class="fa-solid fa-chevron-down"></i></label><ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../Lecture_04/pseudorandom.html">4. Generation of Pseudo-Random Numbers</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="../../Lecture_04/EXAMPLES.html">4.6. Examples: Lecture 4</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../Lecture_04/EXERCISES.html">4.7. Exercises for Lecture 4</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../Lecture_04/SOLUTIONS.html">4.8. Solutions: Lecture 4</a></li>
 </ul>
-</li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../../Lecture_05/classes_lambda.html">5. Some python insight: classes, <code class="docutils literal notranslate"><span class="pre">lambda</span></code> functions, functional programming</a><input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-5"><i class="fa-solid fa-chevron-down"></i></label><ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../Lecture_05/classes_lambda.html">5. Some python insight: classes, <code class="docutils literal notranslate"><span class="pre">lambda</span></code> functions, functional programming</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="../../Lecture_05/EXAMPLES.html">5.4. Examples: Lecture 5</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../Lecture_05/EXERCISES.html">5.5. Exercises for Lecture 5</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../Lecture_05/SOLUTIONS.html">5.6. Solutions: Lecture 5</a></li>
 </ul>
-</li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../../Lecture_06/zero_and_extrema.html">6. Finding Zeros and Extrema</a><input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-6"><i class="fa-solid fa-chevron-down"></i></label><ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../Lecture_06/zero_and_extrema.html">6. Finding Zeros and Extrema</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="../../Lecture_06/EXAMPLES.html">6.4. Examples: Lecture 6</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../Lecture_06/EXERCISES.html">6.5. Exercises for Lecture 6</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../Lecture_06/SOLUTIONS.html">6.6. Solutions: Lecture 6</a></li>
 </ul>
-</li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../../Lecture_07/poisson.html">7. The Poisson Distribution</a><input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-7"><i class="fa-solid fa-chevron-down"></i></label><ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../Lecture_07/poisson.html">7. The Poisson Distribution</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="../../Lecture_07/EXERCISES.html">7.5. Exercises for Lecture 7</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../Lecture_07/SOLUTIONS.html">7.6. Solutions: Lezione 7</a></li>
 </ul>
-</li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../../Lecture_08/toys_integration.html">8. Toy Experiments and Integration using Pseudorandom Numbers</a><input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-8"><i class="fa-solid fa-chevron-down"></i></label><ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../Lecture_08/toys_integration.html">8. Toy Experiments and Integration using Pseudorandom Numbers</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="../../Lecture_08/EXAMPLES.html">8.3. Examples: Lecture 8</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../Lecture_08/EXERCISES.html">8.4. Exercises for Lecture 8</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../Lecture_08/SOLUTIONS.html">8.5. Solutions: Lecture 8</a></li>
 </ul>
-</li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../../Lecture_09/likelihood.html">9. The likelihood</a><input class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-9"><i class="fa-solid fa-chevron-down"></i></label><ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../Lecture_09/likelihood.html">9. The likelihood</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="../../Lecture_09/examples/notebook_01.html">9.7. This is a notebook example</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../Lecture_09/examples/notebook_02.html">9.8. Drawing of a function</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../Lecture_09/examples/notebook_03.html">9.9. Accessing files on disk</a></li>
@@ -231,25 +242,25 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l2"><a class="reference internal" href="../../Lecture_09/exercises/likelihood_solutions.html">9.11. Likelihood exercise solutions</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../Lecture_09/solution_libraries.html">9.12. Solution Libraries</a></li>
 </ul>
-</li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../../Lecture_10/likelihood_fit.html">10. Parameter Estimate using the Maximum Likelihood Method</a><input class="toctree-checkbox" id="toctree-checkbox-10" name="toctree-checkbox-10" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-10"><i class="fa-solid fa-chevron-down"></i></label><ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../Lecture_10/likelihood_fit.html">10. Parameter Estimate using the Maximum Likelihood Method</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="../../Lecture_10/EXERCISES.html">10.10. Exercises for Lecture 10</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../Lecture_10/exercises/likelihood_fit_solutions.html">10.11. Maximum likelihood exercise solutions</a></li>
 </ul>
-</li>
-<li class="toctree-l1 current active has-children"><a class="reference internal" href="../least_squares.html">11. Least-Squares Fitting</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-11" name="toctree-checkbox-11" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-11"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
+</details></li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="../least_squares.html">11. Least-Squares Fitting</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="../EXERCISES.html">11.5. Exercises for Lecture 11</a></li>
 <li class="toctree-l2 current active"><a class="current reference internal" href="#">11.6. Least squares solutions</a></li>
 </ul>
-</li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../../Lecture_12/fit_binned.html">12. Fit of Binned Distributions</a><input class="toctree-checkbox" id="toctree-checkbox-12" name="toctree-checkbox-12" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-12"><i class="fa-solid fa-chevron-down"></i></label><ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../Lecture_12/fit_binned.html">12. Fit of Binned Distributions</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="../../Lecture_12/EXERCISES.html">12.7. Exercises for Lecture 12</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../Lecture_12/exercises/es_12.1_solutions.html">12.8. Binned fits solutions: Exercise 12.1</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../Lecture_12/exercises/es_12.2_solutions.html">12.9. Binned fits solutions: Exercise 12.2</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../Lecture_12/exercises/es_12.3_solutions.html">12.10. Binned fits solutions: exercise 12.3</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../Lecture_12/exercises/es_12.4_solutions.html">12.11. cost functions comparison: exercise 12.4</a></li>
 </ul>
-</li>
+</details></li>
 </ul>
 
     </div>
@@ -265,7 +276,7 @@ const thebe_selector_output = ".output, .cell_output"
 
       </div>
       
-      <main id="main-content" class="bd-main">
+      <main id="main-content" class="bd-main" role="main">
         
         
 
@@ -274,14 +285,14 @@ const thebe_selector_output = ".output, .cell_output"
           <div class="bd-content">
             <div class="bd-article-container">
               
-              <div class="bd-header-article">
+              <div class="bd-header-article d-print-none">
 <div class="header-article-items header-article__inner">
   
     <div class="header-article-items__start">
       
-        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
   <span class="fa-solid fa-bars"></span>
-</label></div>
+</button></div>
       
     </div>
   
@@ -406,10 +417,10 @@ const thebe_selector_output = ".output, .cell_output"
 
 <script>
 document.write(`
-  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
-    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
-    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
   </button>
 `);
 </script>
@@ -417,14 +428,14 @@ document.write(`
 
 <script>
 document.write(`
-  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
     <i class="fa-solid fa-magnifying-glass fa-lg"></i>
   </button>
 `);
 </script>
-<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
     <span class="fa-solid fa-list"></span>
-</label>
+</button>
 </div></div>
       
     </div>
@@ -461,16 +472,16 @@ document.write(`
               
                 
 <div id="searchbox"></div>
-                <article class="bd-article" role="main">
+                <article class="bd-article">
                   
   <section class="tex2jax_ignore mathjax_ignore" id="least-squares-solutions">
-<h1><span class="section-number">11.6. </span>Least squares solutions<a class="headerlink" href="#least-squares-solutions" title="Permalink to this heading">#</a></h1>
+<h1><span class="section-number">11.6. </span>Least squares solutions<a class="headerlink" href="#least-squares-solutions" title="Link to this heading">#</a></h1>
 <ul class="simple">
 <li><p><a class="github reference external" href="https://github.com/scikit-hep/iminuit">scikit-hep/iminuit</a></p></li>
 <li><p><a class="reference external" href="https://iminuit.readthedocs.io/en/stable/notebooks/basic.html">https://iminuit.readthedocs.io/en/stable/notebooks/basic.html</a></p></li>
 </ul>
 <section id="exercise-11-1">
-<h2><span class="section-number">11.6.1. </span>Exercise 11.1<a class="headerlink" href="#exercise-11-1" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">11.6.1. </span>Exercise 11.1<a class="headerlink" href="#exercise-11-1" title="Link to this heading">#</a></h2>
 <p>After defining, in a dedicated library,
 a linear function <span class="math notranslate nohighlight">\(\phi(x, \theta)\)</span> with two parameters <span class="math notranslate nohighlight">\(\theta\)</span>:</p>
 <ul class="simple">
@@ -483,10 +494,10 @@ between 0 and 10, and the points <span class="math notranslate nohighlight">\(y_
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># the model to be used for the exercise</span>
 
-<span class="k">def</span> <span class="nf">func</span> <span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">m</span><span class="p">,</span> <span class="n">q</span><span class="p">)</span> <span class="p">:</span>
-<span class="w">    </span><span class="sd">&#39;&#39;&#39;</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">func</span> <span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">m</span><span class="p">,</span> <span class="n">q</span><span class="p">)</span> <span class="p">:</span>
+<span class="w">    </span><span class="sd">'''</span>
 <span class="sd">    reference model to be fitted</span>
-<span class="sd">    &#39;&#39;&#39;</span>
+<span class="sd">    '''</span>
     <span class="k">return</span> <span class="n">m</span> <span class="o">*</span> <span class="n">x</span> <span class="o">+</span> <span class="n">q</span>
 
 <span class="c1"># initial parameters of the problem</span>
@@ -500,9 +511,9 @@ between 0 and 10, and the points <span class="math notranslate nohighlight">\(y_
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">matplotlib</span> <span class="kn">import</span> <span class="n">pyplot</span> <span class="k">as</span> <span class="n">plt</span>
-<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="kn">from</span> <span class="nn">myrand</span> <span class="kn">import</span> <span class="n">generate_TCL_ms</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">matplotlib</span><span class="w"> </span><span class="kn">import</span> <span class="n">pyplot</span> <span class="k">as</span> <span class="n">plt</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">myrand</span><span class="w"> </span><span class="kn">import</span> <span class="n">generate_TCL_ms</span>
 
 <span class="n">epsilons</span> <span class="o">=</span> <span class="n">generate_TCL_ms</span> <span class="p">(</span><span class="mf">0.</span><span class="p">,</span> <span class="n">epsilon_sigma</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span>
 
@@ -514,21 +525,21 @@ between 0 and 10, and the points <span class="math notranslate nohighlight">\(y_
 <span class="n">sigma_y</span> <span class="o">=</span> <span class="n">epsilon_sigma</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">ones</span> <span class="p">(</span><span class="nb">len</span> <span class="p">(</span><span class="n">y_coord</span><span class="p">))</span>
     
 <span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span> <span class="p">()</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">set_title</span> <span class="p">(</span><span class="s1">&#39;linear model&#39;</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">14</span><span class="p">)</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span> <span class="p">(</span><span class="s1">&#39;x&#39;</span><span class="p">)</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span> <span class="p">(</span><span class="s1">&#39;y&#39;</span><span class="p">)</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">errorbar</span> <span class="p">(</span><span class="n">x_coord</span><span class="p">,</span> <span class="n">y_coord</span><span class="p">,</span> <span class="n">xerr</span> <span class="o">=</span> <span class="mf">0.0</span><span class="p">,</span> <span class="n">yerr</span> <span class="o">=</span> <span class="n">sigma_y</span><span class="p">,</span> <span class="n">linestyle</span> <span class="o">=</span> <span class="s1">&#39;None&#39;</span><span class="p">,</span> <span class="n">marker</span> <span class="o">=</span> <span class="s1">&#39;o&#39;</span><span class="p">)</span> 
+<span class="n">ax</span><span class="o">.</span><span class="n">set_title</span> <span class="p">(</span><span class="s1">'linear model'</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">14</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span> <span class="p">(</span><span class="s1">'x'</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span> <span class="p">(</span><span class="s1">'y'</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">errorbar</span> <span class="p">(</span><span class="n">x_coord</span><span class="p">,</span> <span class="n">y_coord</span><span class="p">,</span> <span class="n">xerr</span> <span class="o">=</span> <span class="mf">0.0</span><span class="p">,</span> <span class="n">yerr</span> <span class="o">=</span> <span class="n">sigma_y</span><span class="p">,</span> <span class="n">linestyle</span> <span class="o">=</span> <span class="s1">'None'</span><span class="p">,</span> <span class="n">marker</span> <span class="o">=</span> <span class="s1">'o'</span><span class="p">)</span> 
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span> <span class="p">()</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../../_images/d7738612105549f9848978662541b9b9dda4bb2dc3fbc505dee3b80976402c87.png" src="../../../_images/d7738612105549f9848978662541b9b9dda4bb2dc3fbc505dee3b80976402c87.png" />
+<img alt="../../../_images/70c7045176969f39a28180e00f595469f6451b4ee64354030d28e17878511db2.png" src="../../../_images/70c7045176969f39a28180e00f595469f6451b4ee64354030d28e17878511db2.png" />
 </div>
 </div>
 </section>
 <section id="exercise-11-2">
-<h2><span class="section-number">11.6.2. </span>Exercise 11.2<a class="headerlink" href="#exercise-11-2" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">11.6.2. </span>Exercise 11.2<a class="headerlink" href="#exercise-11-2" title="Link to this heading">#</a></h2>
 <p>Use the <code class="docutils literal notranslate"><span class="pre">iMinuit</span></code> library to perform a fit on the simulated sample.</p>
 <ul class="simple">
 <li><p>Check if the fit was successful.</p></li>
@@ -536,8 +547,8 @@ between 0 and 10, and the points <span class="math notranslate nohighlight">\(y_
 </ul>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">iminuit</span> <span class="kn">import</span> <span class="n">Minuit</span>
-<span class="kn">from</span> <span class="nn">iminuit.cost</span> <span class="kn">import</span> <span class="n">LeastSquares</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">iminuit</span><span class="w"> </span><span class="kn">import</span> <span class="n">Minuit</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">iminuit.cost</span><span class="w"> </span><span class="kn">import</span> <span class="n">LeastSquares</span>
 
 <span class="c1"># generate a least-squares cost function</span>
 <span class="n">least_squares</span> <span class="o">=</span> <span class="n">LeastSquares</span> <span class="p">(</span><span class="n">x_coord</span><span class="p">,</span> <span class="n">y_coord</span><span class="p">,</span> <span class="n">sigma_y</span><span class="p">,</span> <span class="n">func</span><span class="p">)</span>
@@ -554,11 +565,11 @@ between 0 and 10, and the points <span class="math notranslate nohighlight">\(y_
         <th colspan="2" style="text-align:center" title="Minimizer"> Migrad </th>
     </tr>
     <tr>
-        <td style="text-align:left" title="Minimum value of function"> FCN = 10.67 (χ²/ndof = 1.3) </td>
+        <td style="text-align:left" title="Minimum value of function"> FCN = 7.111 (χ²/ndof = 0.9) </td>
         <td style="text-align:center" title="Total number of function and (optional) gradient evaluations"> Nfcn = 40 </td>
     </tr>
     <tr>
-        <td style="text-align:left" title="Estimated distance to minimum and goal"> EDM = 2.69e-21 (Goal: 0.0002) </td>
+        <td style="text-align:left" title="Estimated distance to minimum and goal"> EDM = 6.46e-23 (Goal: 0.0002) </td>
         <td style="text-align:center" title="Total run time of algorithms">  </td>
     </tr>
     <tr>
@@ -588,7 +599,7 @@ between 0 and 10, and the points <span class="math notranslate nohighlight">\(y_
     <tr>
         <th> 0 </th>
         <td> m </td>
-        <td> 0.467 </td>
+        <td> 0.437 </td>
         <td> 0.033 </td>
         <td>  </td>
         <td>  </td>
@@ -599,7 +610,7 @@ between 0 and 10, and the points <span class="math notranslate nohighlight">\(y_
     <tr>
         <th> 1 </th>
         <td> q </td>
-        <td> 1.12 </td>
+        <td> 1.42 </td>
         <td> 0.18 </td>
         <td>  </td>
         <td>  </td>
@@ -631,11 +642,11 @@ between 0 and 10, and the points <span class="math notranslate nohighlight">\(y_
   <rdf:RDF xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:cc="http://creativecommons.org/ns#" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
    <cc:Work>
     <dc:type rdf:resource="http://purl.org/dc/dcmitype/StillImage"/>
-    <dc:date>2024-12-16T06:44:07.847984</dc:date>
+    <dc:date>2026-10-08T11:32:28.579496</dc:date>
     <dc:format>image/svg+xml</dc:format>
     <dc:creator>
      <cc:Agent>
-      <dc:title>Matplotlib v3.7.5, https://matplotlib.org/</dc:title>
+      <dc:title>Matplotlib v3.10.9, https://matplotlib.org/</dc:title>
      </cc:Agent>
     </dc:creator>
    </cc:Work>
@@ -657,8 +668,8 @@ z
    <g id="patch_2">
     <path d="M 16.36274 268.321635 
 L 356.99976 268.321635 
-L 356.99976 4.405603 
-L 16.36274 4.405603 
+L 356.99976 3.00024 
+L 16.36274 3.00024 
 z
 " style="fill: #ffffff"/>
    </g>
@@ -666,12 +677,12 @@ z
     <g id="xtick_1">
      <g id="line2d_1">
       <defs>
-       <path id="m9695a4c800" d="M 0 0 
+       <path id="m1018f691b3" d="M 0 0 
 L 0 3.5 
 " style="stroke: #000000; stroke-width: 0.8"/>
       </defs>
       <g>
-       <use xlink:href="#m9695a4c800" x="31.846241" y="268.321635" style="stroke: #000000; stroke-width: 0.8"/>
+       <use xlink:href="#m1018f691b3" x="31.846241" y="268.321635" style="stroke: #000000; stroke-width: 0.8"/>
       </g>
      </g>
      <g id="text_1">
@@ -707,7 +718,7 @@ z
     <g id="xtick_2">
      <g id="line2d_2">
       <g>
-       <use xlink:href="#m9695a4c800" x="100.661801" y="268.321635" style="stroke: #000000; stroke-width: 0.8"/>
+       <use xlink:href="#m1018f691b3" x="100.661801" y="268.321635" style="stroke: #000000; stroke-width: 0.8"/>
       </g>
      </g>
      <g id="text_2">
@@ -746,7 +757,7 @@ z
     <g id="xtick_3">
      <g id="line2d_3">
       <g>
-       <use xlink:href="#m9695a4c800" x="169.47736" y="268.321635" style="stroke: #000000; stroke-width: 0.8"/>
+       <use xlink:href="#m1018f691b3" x="169.47736" y="268.321635" style="stroke: #000000; stroke-width: 0.8"/>
       </g>
      </g>
      <g id="text_3">
@@ -780,7 +791,7 @@ z
     <g id="xtick_4">
      <g id="line2d_4">
       <g>
-       <use xlink:href="#m9695a4c800" x="238.29292" y="268.321635" style="stroke: #000000; stroke-width: 0.8"/>
+       <use xlink:href="#m1018f691b3" x="238.29292" y="268.321635" style="stroke: #000000; stroke-width: 0.8"/>
       </g>
      </g>
      <g id="text_4">
@@ -825,7 +836,7 @@ z
     <g id="xtick_5">
      <g id="line2d_5">
       <g>
-       <use xlink:href="#m9695a4c800" x="307.108479" y="268.321635" style="stroke: #000000; stroke-width: 0.8"/>
+       <use xlink:href="#m1018f691b3" x="307.108479" y="268.321635" style="stroke: #000000; stroke-width: 0.8"/>
       </g>
      </g>
      <g id="text_5">
@@ -881,59 +892,30 @@ z
     <g id="ytick_1">
      <g id="line2d_6">
       <defs>
-       <path id="m2372f6e04c" d="M 0 0 
+       <path id="m98c130bc17" d="M 0 0 
 L -3.5 0 
 " style="stroke: #000000; stroke-width: 0.8"/>
       </defs>
       <g>
-       <use xlink:href="#m2372f6e04c" x="16.36274" y="247.952325" style="stroke: #000000; stroke-width: 0.8"/>
+       <use xlink:href="#m98c130bc17" x="16.36274" y="214.078896" style="stroke: #000000; stroke-width: 0.8"/>
       </g>
      </g>
      <g id="text_6">
-      <!-- 1 -->
-      <g transform="translate(3.00024 251.751543) scale(0.1 -0.1)">
-       <defs>
-        <path id="DejaVuSans-31" d="M 794 531 
-L 1825 531 
-L 1825 4091 
-L 703 3866 
-L 703 4441 
-L 1819 4666 
-L 2450 4666 
-L 2450 531 
-L 3481 531 
-L 3481 0 
-L 794 0 
-L 794 531 
-z
-" transform="scale(0.015625)"/>
-       </defs>
-       <use xlink:href="#DejaVuSans-31"/>
+      <!-- 2 -->
+      <g transform="translate(3.00024 217.878115) scale(0.1 -0.1)">
+       <use xlink:href="#DejaVuSans-32"/>
       </g>
      </g>
     </g>
     <g id="ytick_2">
      <g id="line2d_7">
       <g>
-       <use xlink:href="#m2372f6e04c" x="16.36274" y="199.722441" style="stroke: #000000; stroke-width: 0.8"/>
+       <use xlink:href="#m98c130bc17" x="16.36274" y="158.476604" style="stroke: #000000; stroke-width: 0.8"/>
       </g>
      </g>
      <g id="text_7">
-      <!-- 2 -->
-      <g transform="translate(3.00024 203.52166) scale(0.1 -0.1)">
-       <use xlink:href="#DejaVuSans-32"/>
-      </g>
-     </g>
-    </g>
-    <g id="ytick_3">
-     <g id="line2d_8">
-      <g>
-       <use xlink:href="#m2372f6e04c" x="16.36274" y="151.492557" style="stroke: #000000; stroke-width: 0.8"/>
-      </g>
-     </g>
-     <g id="text_8">
       <!-- 3 -->
-      <g transform="translate(3.00024 155.291776) scale(0.1 -0.1)">
+      <g transform="translate(3.00024 162.275823) scale(0.1 -0.1)">
        <defs>
         <path id="DejaVuSans-33" d="M 2597 2516 
 Q 3050 2419 3304 2112 
@@ -972,28 +954,28 @@ z
       </g>
      </g>
     </g>
-    <g id="ytick_4">
-     <g id="line2d_9">
+    <g id="ytick_3">
+     <g id="line2d_8">
       <g>
-       <use xlink:href="#m2372f6e04c" x="16.36274" y="103.262673" style="stroke: #000000; stroke-width: 0.8"/>
+       <use xlink:href="#m98c130bc17" x="16.36274" y="102.874313" style="stroke: #000000; stroke-width: 0.8"/>
       </g>
      </g>
-     <g id="text_9">
+     <g id="text_8">
       <!-- 4 -->
-      <g transform="translate(3.00024 107.061892) scale(0.1 -0.1)">
+      <g transform="translate(3.00024 106.673532) scale(0.1 -0.1)">
        <use xlink:href="#DejaVuSans-34"/>
       </g>
      </g>
     </g>
-    <g id="ytick_5">
-     <g id="line2d_10">
+    <g id="ytick_4">
+     <g id="line2d_9">
       <g>
-       <use xlink:href="#m2372f6e04c" x="16.36274" y="55.03279" style="stroke: #000000; stroke-width: 0.8"/>
+       <use xlink:href="#m98c130bc17" x="16.36274" y="47.272021" style="stroke: #000000; stroke-width: 0.8"/>
       </g>
      </g>
-     <g id="text_10">
+     <g id="text_9">
       <!-- 5 -->
-      <g transform="translate(3.00024 58.832008) scale(0.1 -0.1)">
+      <g transform="translate(3.00024 51.07124) scale(0.1 -0.1)">
        <defs>
         <path id="DejaVuSans-35" d="M 691 4666 
 L 3169 4666 
@@ -1025,67 +1007,84 @@ z
       </g>
      </g>
     </g>
-    <g id="ytick_6">
-     <g id="line2d_11">
-      <g>
-       <use xlink:href="#m2372f6e04c" x="16.36274" y="6.802906" style="stroke: #000000; stroke-width: 0.8"/>
-      </g>
-     </g>
-     <g id="text_11">
-      <!-- 6 -->
-      <g transform="translate(3.00024 10.602125) scale(0.1 -0.1)">
-       <use xlink:href="#DejaVuSans-36"/>
-      </g>
-     </g>
-    </g>
    </g>
    <g id="LineCollection_1">
-    <path d="M 31.846241 243.198118 
-L 31.846241 214.260187 
-" clip-path="url(#p45ff223f44)" style="fill: none; stroke: #000000; stroke-width: 1.5"/>
-    <path d="M 66.254021 256.325452 
-L 66.254021 227.387521 
-" clip-path="url(#p45ff223f44)" style="fill: none; stroke: #000000; stroke-width: 1.5"/>
-    <path d="M 100.661801 182.552737 
-L 100.661801 153.614807 
-" clip-path="url(#p45ff223f44)" style="fill: none; stroke: #000000; stroke-width: 1.5"/>
-    <path d="M 135.06958 196.605438 
-L 135.06958 167.667508 
-" clip-path="url(#p45ff223f44)" style="fill: none; stroke: #000000; stroke-width: 1.5"/>
-    <path d="M 169.47736 184.946929 
-L 169.47736 156.008998 
-" clip-path="url(#p45ff223f44)" style="fill: none; stroke: #000000; stroke-width: 1.5"/>
-    <path d="M 203.88514 151.4896 
-L 203.88514 122.55167 
-" clip-path="url(#p45ff223f44)" style="fill: none; stroke: #000000; stroke-width: 1.5"/>
-    <path d="M 238.29292 112.98784 
-L 238.29292 84.04991 
-" clip-path="url(#p45ff223f44)" style="fill: none; stroke: #000000; stroke-width: 1.5"/>
-    <path d="M 272.700699 92.210291 
-L 272.700699 63.272361 
-" clip-path="url(#p45ff223f44)" style="fill: none; stroke: #000000; stroke-width: 1.5"/>
-    <path d="M 307.108479 84.986953 
-L 307.108479 56.049023 
-" clip-path="url(#p45ff223f44)" style="fill: none; stroke: #000000; stroke-width: 1.5"/>
-    <path d="M 341.516259 45.339717 
-L 341.516259 16.401787 
-" clip-path="url(#p45ff223f44)" style="fill: none; stroke: #000000; stroke-width: 1.5"/>
+    <path d="M 31.846241 256.261572 
+L 31.846241 222.900197 
+" clip-path="url(#pc0a4d46513)" style="fill: none; stroke: #000000; stroke-width: 1.5"/>
+    <path d="M 66.254021 230.229328 
+L 66.254021 196.867953 
+" clip-path="url(#pc0a4d46513)" style="fill: none; stroke: #000000; stroke-width: 1.5"/>
+    <path d="M 100.661801 245.492605 
+L 100.661801 212.13123 
+" clip-path="url(#pc0a4d46513)" style="fill: none; stroke: #000000; stroke-width: 1.5"/>
+    <path d="M 135.06958 201.867161 
+L 135.06958 168.505786 
+" clip-path="url(#pc0a4d46513)" style="fill: none; stroke: #000000; stroke-width: 1.5"/>
+    <path d="M 169.47736 146.228457 
+L 169.47736 112.867082 
+" clip-path="url(#pc0a4d46513)" style="fill: none; stroke: #000000; stroke-width: 1.5"/>
+    <path d="M 203.88514 128.79554 
+L 203.88514 95.434164 
+" clip-path="url(#pc0a4d46513)" style="fill: none; stroke: #000000; stroke-width: 1.5"/>
+    <path d="M 238.29292 118.248038 
+L 238.29292 84.886663 
+" clip-path="url(#pc0a4d46513)" style="fill: none; stroke: #000000; stroke-width: 1.5"/>
+    <path d="M 272.700699 83.766131 
+L 272.700699 50.404756 
+" clip-path="url(#pc0a4d46513)" style="fill: none; stroke: #000000; stroke-width: 1.5"/>
+    <path d="M 307.108479 79.12588 
+L 307.108479 45.764505 
+" clip-path="url(#pc0a4d46513)" style="fill: none; stroke: #000000; stroke-width: 1.5"/>
+    <path d="M 341.516259 48.421678 
+L 341.516259 15.060303 
+" clip-path="url(#pc0a4d46513)" style="fill: none; stroke: #000000; stroke-width: 1.5"/>
    </g>
-   <g id="line2d_12">
-    <path d="M 31.846241 241.944 
-L 70.554993 216.606835 
-L 109.263745 191.269671 
-L 147.972498 165.932507 
-L 186.68125 140.595342 
-L 225.390002 115.258178 
-L 264.098755 89.921013 
-L 302.807507 64.583849 
-L 341.516259 39.246685 
-" clip-path="url(#p45ff223f44)" style="fill: none; stroke: #1f77b4; stroke-width: 1.5; stroke-linecap: square"/>
+   <g id="line2d_10">
+    <path d="M 31.846241 246.395838 
+L 39.995452 240.646738 
+L 48.144663 234.897639 
+L 56.293874 229.14854 
+L 64.443085 223.399441 
+L 72.592296 217.650341 
+L 80.741507 211.901242 
+L 88.890718 206.152143 
+L 97.039929 200.403043 
+L 105.18914 194.653944 
+L 113.338351 188.904845 
+L 121.487562 183.155746 
+L 129.636773 177.406646 
+L 137.785984 171.657547 
+L 145.935195 165.908448 
+L 154.084406 160.159348 
+L 162.233617 154.410249 
+L 170.382828 148.66115 
+L 178.532039 142.912051 
+L 186.68125 137.162951 
+L 194.830461 131.413852 
+L 202.979672 125.664753 
+L 211.128883 119.915654 
+L 219.278094 114.166554 
+L 227.427305 108.417455 
+L 235.576516 102.668356 
+L 243.725727 96.919256 
+L 251.874938 91.170157 
+L 260.024149 85.421058 
+L 268.17336 79.671959 
+L 276.322571 73.922859 
+L 284.471782 68.17376 
+L 292.620993 62.424661 
+L 300.770204 56.675561 
+L 308.919415 50.926462 
+L 317.068626 45.177363 
+L 325.217837 39.428264 
+L 333.367048 33.679164 
+L 341.516259 27.930065 
+" clip-path="url(#pc0a4d46513)" style="fill: none; stroke: #1f77b4; stroke-width: 1.5; stroke-linecap: square"/>
    </g>
-   <g id="line2d_13">
+   <g id="line2d_11">
     <defs>
-     <path id="mdc5a440259" d="M 0 3 
+     <path id="md07099dcb9" d="M 0 3 
 C 0.795609 3 1.55874 2.683901 2.12132 2.12132 
 C 2.683901 1.55874 3 0.795609 3 0 
 C 3 -0.795609 2.683901 -1.55874 2.12132 -2.12132 
@@ -1097,27 +1096,27 @@ C -1.55874 2.683901 -0.795609 3 0 3
 z
 " style="stroke: #000000"/>
     </defs>
-    <g clip-path="url(#p45ff223f44)">
-     <use xlink:href="#mdc5a440259" x="31.846241" y="228.729152" style="stroke: #000000"/>
-     <use xlink:href="#mdc5a440259" x="66.254021" y="241.856487" style="stroke: #000000"/>
-     <use xlink:href="#mdc5a440259" x="100.661801" y="168.083772" style="stroke: #000000"/>
-     <use xlink:href="#mdc5a440259" x="135.06958" y="182.136473" style="stroke: #000000"/>
-     <use xlink:href="#mdc5a440259" x="169.47736" y="170.477963" style="stroke: #000000"/>
-     <use xlink:href="#mdc5a440259" x="203.88514" y="137.020635" style="stroke: #000000"/>
-     <use xlink:href="#mdc5a440259" x="238.29292" y="98.518875" style="stroke: #000000"/>
-     <use xlink:href="#mdc5a440259" x="272.700699" y="77.741326" style="stroke: #000000"/>
-     <use xlink:href="#mdc5a440259" x="307.108479" y="70.517988" style="stroke: #000000"/>
-     <use xlink:href="#mdc5a440259" x="341.516259" y="30.870752" style="stroke: #000000"/>
+    <g clip-path="url(#pc0a4d46513)">
+     <use xlink:href="#md07099dcb9" x="31.846241" y="239.580884" style="stroke: #000000"/>
+     <use xlink:href="#md07099dcb9" x="66.254021" y="213.54864" style="stroke: #000000"/>
+     <use xlink:href="#md07099dcb9" x="100.661801" y="228.811917" style="stroke: #000000"/>
+     <use xlink:href="#md07099dcb9" x="135.06958" y="185.186473" style="stroke: #000000"/>
+     <use xlink:href="#md07099dcb9" x="169.47736" y="129.54777" style="stroke: #000000"/>
+     <use xlink:href="#md07099dcb9" x="203.88514" y="112.114852" style="stroke: #000000"/>
+     <use xlink:href="#md07099dcb9" x="238.29292" y="101.56735" style="stroke: #000000"/>
+     <use xlink:href="#md07099dcb9" x="272.700699" y="67.085443" style="stroke: #000000"/>
+     <use xlink:href="#md07099dcb9" x="307.108479" y="62.445193" style="stroke: #000000"/>
+     <use xlink:href="#md07099dcb9" x="341.516259" y="31.740991" style="stroke: #000000"/>
     </g>
    </g>
    <g id="patch_3">
     <path d="M 16.36274 268.321635 
-L 16.36274 4.405603 
+L 16.36274 3.00024 
 " style="fill: none; stroke: #000000; stroke-width: 0.8; stroke-linejoin: miter; stroke-linecap: square"/>
    </g>
    <g id="patch_4">
     <path d="M 356.99976 268.321635 
-L 356.99976 4.405603 
+L 356.99976 3.00024 
 " style="fill: none; stroke: #000000; stroke-width: 0.8; stroke-linejoin: miter; stroke-linecap: square"/>
    </g>
    <g id="patch_5">
@@ -1126,15 +1125,15 @@ L 356.99976 268.321635
 " style="fill: none; stroke: #000000; stroke-width: 0.8; stroke-linejoin: miter; stroke-linecap: square"/>
    </g>
    <g id="patch_6">
-    <path d="M 16.36274 4.405603 
-L 356.99976 4.405603 
+    <path d="M 16.36274 3.00024 
+L 356.99976 3.00024 
 " style="fill: none; stroke: #000000; stroke-width: 0.8; stroke-linejoin: miter; stroke-linecap: square"/>
    </g>
   </g>
  </g>
  <defs>
-  <clipPath id="p45ff223f44">
-   <rect x="16.36274" y="4.405603" width="340.63702" height="263.916032"/>
+  <clipPath id="pc0a4d46513">
+   <rect x="16.36274" y="3.00024" width="340.63702" height="265.321395"/>
   </clipPath>
  </defs>
 </svg>
@@ -1153,11 +1152,11 @@ L 356.99976 4.405603
         <th colspan="2" style="text-align:center" title="Minimizer"> Migrad </th>
     </tr>
     <tr>
-        <td style="text-align:left" title="Minimum value of function"> FCN = 10.67 (χ²/ndof = 1.3) </td>
+        <td style="text-align:left" title="Minimum value of function"> FCN = 7.111 (χ²/ndof = 0.9) </td>
         <td style="text-align:center" title="Total number of function and (optional) gradient evaluations"> Nfcn = 40 </td>
     </tr>
     <tr>
-        <td style="text-align:left" title="Estimated distance to minimum and goal"> EDM = 2.69e-21 (Goal: 0.0002) </td>
+        <td style="text-align:left" title="Estimated distance to minimum and goal"> EDM = 6.46e-23 (Goal: 0.0002) </td>
         <td style="text-align:center" title="Total run time of algorithms">  </td>
     </tr>
     <tr>
@@ -1178,7 +1177,7 @@ L 356.99976 4.405603
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># global characteristics of the fit</span>
 <span class="n">is_valid</span> <span class="o">=</span> <span class="n">my_minuit</span><span class="o">.</span><span class="n">valid</span>
-<span class="nb">print</span> <span class="p">(</span><span class="s1">&#39;success of the fit: &#39;</span><span class="p">,</span> <span class="n">is_valid</span><span class="p">)</span>
+<span class="nb">print</span> <span class="p">(</span><span class="s1">'success of the fit: '</span><span class="p">,</span> <span class="n">is_valid</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1192,7 +1191,7 @@ L 356.99976 4.405603
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># fit parameters</span>
 <span class="k">for</span> <span class="n">par</span><span class="p">,</span> <span class="n">val</span><span class="p">,</span> <span class="n">err</span> <span class="ow">in</span> <span class="nb">zip</span> <span class="p">(</span><span class="n">my_minuit</span><span class="o">.</span><span class="n">parameters</span><span class="p">,</span> <span class="n">my_minuit</span><span class="o">.</span><span class="n">values</span><span class="p">,</span> <span class="n">my_minuit</span><span class="o">.</span><span class="n">errors</span><span class="p">)</span> <span class="p">:</span>
-    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">par</span><span class="si">}</span><span class="s1"> = </span><span class="si">{</span><span class="n">val</span><span class="si">:</span><span class="s1">.3f</span><span class="si">}</span><span class="s1"> +/- </span><span class="si">{</span><span class="n">err</span><span class="si">:</span><span class="s1">.3f</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span> <span class="c1"># formatted output</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">'</span><span class="si">{</span><span class="n">par</span><span class="si">}</span><span class="s1"> = </span><span class="si">{</span><span class="n">val</span><span class="si">:</span><span class="s1">.3f</span><span class="si">}</span><span class="s1"> +/- </span><span class="si">{</span><span class="n">err</span><span class="si">:</span><span class="s1">.3f</span><span class="si">}</span><span class="s1">'</span><span class="p">)</span> <span class="c1"># formatted output</span>
     
 <span class="n">m_fit</span> <span class="o">=</span> <span class="n">my_minuit</span><span class="o">.</span><span class="n">values</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
 <span class="n">q_fit</span> <span class="o">=</span> <span class="n">my_minuit</span><span class="o">.</span><span class="n">values</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
@@ -1200,15 +1199,15 @@ L 356.99976 4.405603
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>m = 0.467 +/- 0.033
-q = 1.125 +/- 0.176
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>m = 0.437 +/- 0.033
+q = 1.419 +/- 0.176
 </pre></div>
 </div>
 </div>
 </div>
 </section>
 <section id="exercise-11-3">
-<h2><span class="section-number">11.6.3. </span>Exercise 11.3<a class="headerlink" href="#exercise-11-3" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">11.6.3. </span>Exercise 11.3<a class="headerlink" href="#exercise-11-3" title="Link to this heading">#</a></h2>
 <ul class="simple">
 <li><p>Calculate the value of <span class="math notranslate nohighlight">\(Q^2\)</span> using the points and the fitted function
 obtained in the previous exercise.</p></li>
@@ -1218,14 +1217,14 @@ obtained in the previous exercise.</p></li>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Q_squared</span> <span class="o">=</span> <span class="n">my_minuit</span><span class="o">.</span><span class="n">fval</span>
-<span class="nb">print</span> <span class="p">(</span><span class="s1">&#39;value of the fit Q-squared&#39;</span><span class="p">,</span> <span class="n">Q_squared</span><span class="p">)</span>
+<span class="nb">print</span> <span class="p">(</span><span class="s1">'value of the fit Q-squared'</span><span class="p">,</span> <span class="n">Q_squared</span><span class="p">)</span>
 <span class="n">N_dof</span> <span class="o">=</span> <span class="n">my_minuit</span><span class="o">.</span><span class="n">ndof</span>
-<span class="nb">print</span> <span class="p">(</span><span class="s1">&#39;value of the number of degrees of freedom&#39;</span><span class="p">,</span> <span class="n">N_dof</span><span class="p">)</span>
+<span class="nb">print</span> <span class="p">(</span><span class="s1">'value of the number of degrees of freedom'</span><span class="p">,</span> <span class="n">N_dof</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>value of the fit Q-squared 10.66504489575817
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>value of the fit Q-squared 7.111353599230525
 value of the number of degrees of freedom 8.0
 </pre></div>
 </div>
@@ -1236,19 +1235,19 @@ value of the number of degrees of freedom 8.0
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Q_squared_calc</span> <span class="o">=</span> <span class="mf">0.</span>
 <span class="k">for</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">ey</span> <span class="ow">in</span> <span class="nb">zip</span> <span class="p">(</span><span class="n">x_coord</span><span class="p">,</span> <span class="n">y_coord</span><span class="p">,</span> <span class="n">sigma_y</span><span class="p">)</span> <span class="p">:</span>
     <span class="n">Q_squared_calc</span> <span class="o">=</span> <span class="n">Q_squared_calc</span> <span class="o">+</span> <span class="nb">pow</span> <span class="p">(</span> <span class="p">(</span><span class="n">y</span> <span class="o">-</span> <span class="n">func</span> <span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">m_fit</span><span class="p">,</span> <span class="n">q_fit</span><span class="p">))</span> <span class="o">/</span><span class="n">ey</span> <span class="p">,</span> <span class="mi">2</span> <span class="p">)</span>  
-<span class="nb">print</span> <span class="p">(</span><span class="s1">&#39;Difference between Q-squared values:&#39;</span><span class="p">,</span> <span class="n">Q_squared_calc</span> <span class="o">-</span> <span class="n">Q_squared</span><span class="p">)</span> 
+<span class="nb">print</span> <span class="p">(</span><span class="s1">'Difference between Q-squared values:'</span><span class="p">,</span> <span class="n">Q_squared_calc</span> <span class="o">-</span> <span class="n">Q_squared</span><span class="p">)</span> 
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Difference between Q-squared values: -1.7763568394002505e-15
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Difference between Q-squared values: 8.881784197001252e-16
 </pre></div>
 </div>
 </div>
 </div>
 </section>
 <section id="exercise-11-4">
-<h2><span class="section-number">11.6.4. </span>Exercise 11.4<a class="headerlink" href="#exercise-11-4" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">11.6.4. </span>Exercise 11.4<a class="headerlink" href="#exercise-11-4" title="Link to this heading">#</a></h2>
 <p>Using the toy experiments technique,
 generate 10,000 fit experiments with the model studied in the previous exercises
 and fill a histogram with the obtained values of <span class="math notranslate nohighlight">\(Q^2\)</span>.</p>
@@ -1258,8 +1257,8 @@ with the degrees of freedom of the problem.</p></li>
 </ul>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">math</span> <span class="kn">import</span> <span class="n">floor</span>
-<span class="kn">from</span> <span class="nn">stats</span> <span class="kn">import</span> <span class="n">stats</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">math</span><span class="w"> </span><span class="kn">import</span> <span class="n">floor</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">stats</span><span class="w"> </span><span class="kn">import</span> <span class="n">stats</span>
 
 <span class="n">N_toys</span> <span class="o">=</span> <span class="mi">10000</span>
 <span class="n">Q_squares</span> <span class="o">=</span> <span class="p">[]</span>
@@ -1278,39 +1277,39 @@ with the degrees of freedom of the problem.</p></li>
         <span class="n">Q_squares</span><span class="o">.</span><span class="n">append</span> <span class="p">(</span><span class="n">my_minuit_toy</span><span class="o">.</span><span class="n">fval</span><span class="p">)</span>
 
 <span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span> <span class="p">()</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">set_title</span> <span class="p">(</span><span class="s1">&#39;Q-squared distribution&#39;</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">14</span><span class="p">)</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;q_squared&#39;</span><span class="p">)</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;events in bin&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_title</span> <span class="p">(</span><span class="s1">'Q-squared distribution'</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">14</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">'q_squared'</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">'events in bin'</span><span class="p">)</span>
 <span class="n">bin_edges</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">4</span> <span class="o">*</span> <span class="n">N_dof</span><span class="p">,</span> <span class="n">floor</span> <span class="p">(</span><span class="n">N_toys</span><span class="o">/</span><span class="mi">100</span><span class="p">))</span>   <span class="c1"># edges o the histogram bins</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">hist</span> <span class="p">(</span><span class="n">Q_squares</span><span class="p">,</span>
          <span class="n">bins</span> <span class="o">=</span> <span class="n">bin_edges</span><span class="p">,</span>
-         <span class="n">color</span> <span class="o">=</span> <span class="s1">&#39;orange&#39;</span><span class="p">,</span>
+         <span class="n">color</span> <span class="o">=</span> <span class="s1">'orange'</span><span class="p">,</span>
         <span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span> <span class="p">()</span>
 
 <span class="n">Q_squares_stats</span> <span class="o">=</span> <span class="n">stats</span> <span class="p">(</span><span class="n">Q_squares</span><span class="p">)</span>
-<span class="nb">print</span> <span class="p">(</span><span class="s1">&#39;average Q_squared expected value:&#39;</span><span class="p">,</span> <span class="n">Q_squares_stats</span><span class="o">.</span><span class="n">mean</span> <span class="p">())</span>
+<span class="nb">print</span> <span class="p">(</span><span class="s1">'average Q_squared expected value:'</span><span class="p">,</span> <span class="n">Q_squares_stats</span><span class="o">.</span><span class="n">mean</span> <span class="p">())</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../../_images/31ff60f878c421a881e87edf457f49875ddf09037e07a02b74093d6f801da148.png" src="../../../_images/31ff60f878c421a881e87edf457f49875ddf09037e07a02b74093d6f801da148.png" />
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>average Q_squared expected value: 7.968485056644232
+<img alt="../../../_images/39f1a895876f5e8a98722d3498f75ea640f405a53fa053b03a9630055966f30d.png" src="../../../_images/39f1a895876f5e8a98722d3498f75ea640f405a53fa053b03a9630055966f30d.png" />
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>average Q_squared expected value: 8.014692915871862
 </pre></div>
 </div>
 </div>
 </div>
 </section>
 <section id="exercise-11-5">
-<h2><span class="section-number">11.6.5. </span>Exercise 11.5<a class="headerlink" href="#exercise-11-5" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">11.6.5. </span>Exercise 11.5<a class="headerlink" href="#exercise-11-5" title="Link to this heading">#</a></h2>
 <p>Modify the previous program by deliberately changing the experimental uncertainty
 associated with the points <span class="math notranslate nohighlight">\(y_i\)</span> in the sample and verify that it’s possible to recover the
 uncertainty used in generating the points
 through the expected value of the variable <span class="math notranslate nohighlight">\(Q^2\)</span>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">math</span> <span class="kn">import</span> <span class="n">floor</span><span class="p">,</span> <span class="n">sqrt</span>
-<span class="kn">from</span> <span class="nn">stats</span> <span class="kn">import</span> <span class="n">stats</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">math</span><span class="w"> </span><span class="kn">import</span> <span class="n">floor</span><span class="p">,</span> <span class="n">sqrt</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">stats</span><span class="w"> </span><span class="kn">import</span> <span class="n">stats</span>
 
 <span class="n">N_toys</span> <span class="o">=</span> <span class="mi">10000</span>
 <span class="n">Q_squares_mod</span> <span class="o">=</span> <span class="p">[]</span>
@@ -1330,23 +1329,23 @@ through the expected value of the variable <span class="math notranslate nohighl
         <span class="n">Q_squares_mod</span><span class="o">.</span><span class="n">append</span> <span class="p">(</span><span class="n">my_minuit_toy</span><span class="o">.</span><span class="n">fval</span><span class="p">)</span>
 
 <span class="n">Q_squares_mod_stats</span> <span class="o">=</span> <span class="n">stats</span> <span class="p">(</span><span class="n">Q_squares_mod</span><span class="p">)</span>
-<span class="nb">print</span> <span class="p">(</span><span class="s1">&#39;average Q_squared expected value:&#39;</span><span class="p">,</span> <span class="n">Q_squares_mod_stats</span><span class="o">.</span><span class="n">mean</span> <span class="p">())</span>
-<span class="nb">print</span> <span class="p">(</span><span class="s1">&#39;sigma scale factor:&#39;</span><span class="p">,</span> <span class="n">sqrt</span> <span class="p">(</span><span class="n">Q_squares_mod_stats</span><span class="o">.</span><span class="n">mean</span> <span class="p">()</span> <span class="o">/</span> <span class="n">N_dof</span><span class="p">))</span>
-<span class="nb">print</span> <span class="p">(</span><span class="s1">&#39;sigma:&#39;</span><span class="p">,</span> <span class="n">epsilon_sigma_mod</span> <span class="o">/</span> <span class="n">sqrt</span> <span class="p">(</span><span class="n">Q_squares_mod_stats</span><span class="o">.</span><span class="n">mean</span> <span class="p">()</span> <span class="o">/</span> <span class="n">N_dof</span><span class="p">))</span>
+<span class="nb">print</span> <span class="p">(</span><span class="s1">'average Q_squared expected value:'</span><span class="p">,</span> <span class="n">Q_squares_mod_stats</span><span class="o">.</span><span class="n">mean</span> <span class="p">())</span>
+<span class="nb">print</span> <span class="p">(</span><span class="s1">'sigma scale factor:'</span><span class="p">,</span> <span class="n">sqrt</span> <span class="p">(</span><span class="n">Q_squares_mod_stats</span><span class="o">.</span><span class="n">mean</span> <span class="p">()</span> <span class="o">/</span> <span class="n">N_dof</span><span class="p">))</span>
+<span class="nb">print</span> <span class="p">(</span><span class="s1">'sigma:'</span><span class="p">,</span> <span class="n">epsilon_sigma_mod</span> <span class="o">/</span> <span class="n">sqrt</span> <span class="p">(</span><span class="n">Q_squares_mod_stats</span><span class="o">.</span><span class="n">mean</span> <span class="p">()</span> <span class="o">/</span> <span class="n">N_dof</span><span class="p">))</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>average Q_squared expected value: 1.282655199900555
-sigma scale factor: 0.40041466005575943
-sigma: 0.29968932701737117
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>average Q_squared expected value: 1.2808061966579498
+sigma scale factor: 0.40012594839905563
+sigma: 0.2999055684344695
 </pre></div>
 </div>
 </div>
 </div>
 </section>
 <section id="exercise-11-6">
-<h2><span class="section-number">11.6.6. </span>Exercise 11.6<a class="headerlink" href="#exercise-11-6" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">11.6.6. </span>Exercise 11.6<a class="headerlink" href="#exercise-11-6" title="Link to this heading">#</a></h2>
 <p>Add to Exercise 11.3 the screen printout of the entire covariance matrix
 of the fit parameters.</p>
 <div class="cell docutils container">
@@ -1368,30 +1367,30 @@ of the fit parameters.</p>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span> <span class="p">(</span><span class="s1">&#39;variance of the first parameter (m):&#39;</span><span class="p">,</span> <span class="n">my_minuit</span><span class="o">.</span><span class="n">covariance</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">])</span>
-<span class="nb">print</span> <span class="p">(</span><span class="s1">&#39;variance of the second parameter (q):&#39;</span><span class="p">,</span> <span class="n">my_minuit</span><span class="o">.</span><span class="n">covariance</span><span class="p">[</span><span class="mi">1</span><span class="p">][</span><span class="mi">1</span><span class="p">])</span>
-<span class="nb">print</span> <span class="p">(</span><span class="s1">&#39;covariance of the two parameters:&#39;</span><span class="p">,</span> <span class="n">my_minuit</span><span class="o">.</span><span class="n">covariance</span><span class="p">[</span><span class="mi">1</span><span class="p">][</span><span class="mi">0</span><span class="p">])</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span> <span class="p">(</span><span class="s1">'variance of the first parameter (m):'</span><span class="p">,</span> <span class="n">my_minuit</span><span class="o">.</span><span class="n">covariance</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">])</span>
+<span class="nb">print</span> <span class="p">(</span><span class="s1">'variance of the second parameter (q):'</span><span class="p">,</span> <span class="n">my_minuit</span><span class="o">.</span><span class="n">covariance</span><span class="p">[</span><span class="mi">1</span><span class="p">][</span><span class="mi">1</span><span class="p">])</span>
+<span class="nb">print</span> <span class="p">(</span><span class="s1">'covariance of the two parameters:'</span><span class="p">,</span> <span class="n">my_minuit</span><span class="o">.</span><span class="n">covariance</span><span class="p">[</span><span class="mi">1</span><span class="p">][</span><span class="mi">0</span><span class="p">])</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>variance of the first parameter (m): 0.0010909088206825265
-variance of the second parameter (q): 0.03109090126527661
-covariance of the two parameters: -0.004909089438271051
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>variance of the first parameter (m): 0.001090909054962159
+variance of the second parameter (q): 0.031090907667311214
+covariance of the two parameters: -0.004909090684541248
 </pre></div>
 </div>
 </div>
 </div>
 </section>
 <section id="exercise-11-7">
-<h2><span class="section-number">11.6.7. </span>Exercise 11.7<a class="headerlink" href="#exercise-11-7" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">11.6.7. </span>Exercise 11.7<a class="headerlink" href="#exercise-11-7" title="Link to this heading">#</a></h2>
 <p>Repeat the fitting exercise for a parabolic trend.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">para</span> <span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">c</span><span class="p">)</span> <span class="p">:</span>
-<span class="w">    </span><span class="sd">&#39;&#39;&#39;</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">para</span> <span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">c</span><span class="p">)</span> <span class="p">:</span>
+<span class="w">    </span><span class="sd">'''</span>
 <span class="sd">    reference model to be fitted</span>
-<span class="sd">    &#39;&#39;&#39;</span>
+<span class="sd">    '''</span>
     <span class="k">return</span> <span class="n">a</span> <span class="o">+</span> <span class="n">b</span> <span class="o">*</span> <span class="n">x</span> <span class="o">+</span> <span class="n">c</span> <span class="o">*</span> <span class="n">x</span> <span class="o">*</span> <span class="n">x</span>
 
 <span class="c1"># initial parameters of the problem</span>
@@ -1429,11 +1428,11 @@ covariance of the two parameters: -0.004909089438271051
         <th colspan="2" style="text-align:center" title="Minimizer"> Migrad </th>
     </tr>
     <tr>
-        <td style="text-align:left" title="Minimum value of function"> FCN = 6.668 (χ²/ndof = 1.0) </td>
+        <td style="text-align:left" title="Minimum value of function"> FCN = 16.87 (χ²/ndof = 2.4) </td>
         <td style="text-align:center" title="Total number of function and (optional) gradient evaluations"> Nfcn = 70 </td>
     </tr>
     <tr>
-        <td style="text-align:left" title="Estimated distance to minimum and goal"> EDM = 1.78e-19 (Goal: 0.0002) </td>
+        <td style="text-align:left" title="Estimated distance to minimum and goal"> EDM = 4.8e-19 (Goal: 0.0002) </td>
         <td style="text-align:center" title="Total run time of algorithms">  </td>
     </tr>
     <tr>
@@ -1463,7 +1462,7 @@ covariance of the two parameters: -0.004909089438271051
     <tr>
         <th> 0 </th>
         <td> a </td>
-        <td> -1.9 </td>
+        <td> -2.0 </td>
         <td> 1.2 </td>
         <td>  </td>
         <td>  </td>
@@ -1474,7 +1473,7 @@ covariance of the two parameters: -0.004909089438271051
     <tr>
         <th> 1 </th>
         <td> b </td>
-        <td> 1.2 </td>
+        <td> 1.1 </td>
         <td> 0.6 </td>
         <td>  </td>
         <td>  </td>
@@ -1485,7 +1484,7 @@ covariance of the two parameters: -0.004909089438271051
     <tr>
         <th> 2 </th>
         <td> c </td>
-        <td> 0.26 </td>
+        <td> 0.24 </td>
         <td> 0.07 </td>
         <td>  </td>
         <td>  </td>
@@ -1526,11 +1525,11 @@ covariance of the two parameters: -0.004909089438271051
   <rdf:RDF xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:cc="http://creativecommons.org/ns#" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
    <cc:Work>
     <dc:type rdf:resource="http://purl.org/dc/dcmitype/StillImage"/>
-    <dc:date>2024-12-16T06:44:28.093666</dc:date>
+    <dc:date>2026-10-08T11:32:39.986021</dc:date>
     <dc:format>image/svg+xml</dc:format>
     <dc:creator>
      <cc:Agent>
-      <dc:title>Matplotlib v3.7.5, https://matplotlib.org/</dc:title>
+      <dc:title>Matplotlib v3.10.9, https://matplotlib.org/</dc:title>
      </cc:Agent>
     </dc:creator>
    </cc:Work>
@@ -1561,12 +1560,12 @@ z
     <g id="xtick_1">
      <g id="line2d_1">
       <defs>
-       <path id="m842d5503a9" d="M 0 0 
+       <path id="ma68ca4f575" d="M 0 0 
 L 0 3.5 
 " style="stroke: #000000; stroke-width: 0.8"/>
       </defs>
       <g>
-       <use xlink:href="#m842d5503a9" x="37.919536" y="268.321635" style="stroke: #000000; stroke-width: 0.8"/>
+       <use xlink:href="#ma68ca4f575" x="37.919536" y="268.321635" style="stroke: #000000; stroke-width: 0.8"/>
       </g>
      </g>
      <g id="text_1">
@@ -1602,7 +1601,7 @@ z
     <g id="xtick_2">
      <g id="line2d_2">
       <g>
-       <use xlink:href="#m842d5503a9" x="105.449742" y="268.321635" style="stroke: #000000; stroke-width: 0.8"/>
+       <use xlink:href="#ma68ca4f575" x="105.449742" y="268.321635" style="stroke: #000000; stroke-width: 0.8"/>
       </g>
      </g>
      <g id="text_2">
@@ -1641,7 +1640,7 @@ z
     <g id="xtick_3">
      <g id="line2d_3">
       <g>
-       <use xlink:href="#m842d5503a9" x="172.979948" y="268.321635" style="stroke: #000000; stroke-width: 0.8"/>
+       <use xlink:href="#ma68ca4f575" x="172.979948" y="268.321635" style="stroke: #000000; stroke-width: 0.8"/>
       </g>
      </g>
      <g id="text_3">
@@ -1675,7 +1674,7 @@ z
     <g id="xtick_4">
      <g id="line2d_4">
       <g>
-       <use xlink:href="#m842d5503a9" x="240.510155" y="268.321635" style="stroke: #000000; stroke-width: 0.8"/>
+       <use xlink:href="#ma68ca4f575" x="240.510155" y="268.321635" style="stroke: #000000; stroke-width: 0.8"/>
       </g>
      </g>
      <g id="text_4">
@@ -1720,7 +1719,7 @@ z
     <g id="xtick_5">
      <g id="line2d_5">
       <g>
-       <use xlink:href="#m842d5503a9" x="308.040361" y="268.321635" style="stroke: #000000; stroke-width: 0.8"/>
+       <use xlink:href="#ma68ca4f575" x="308.040361" y="268.321635" style="stroke: #000000; stroke-width: 0.8"/>
       </g>
      </g>
      <g id="text_5">
@@ -1776,17 +1775,17 @@ z
     <g id="ytick_1">
      <g id="line2d_6">
       <defs>
-       <path id="ma41d6adc29" d="M 0 0 
+       <path id="m238c8dd145" d="M 0 0 
 L -3.5 0 
 " style="stroke: #000000; stroke-width: 0.8"/>
       </defs>
       <g>
-       <use xlink:href="#ma41d6adc29" x="22.72524" y="236.801975" style="stroke: #000000; stroke-width: 0.8"/>
+       <use xlink:href="#m238c8dd145" x="22.72524" y="234.505755" style="stroke: #000000; stroke-width: 0.8"/>
       </g>
      </g>
      <g id="text_6">
       <!-- 0 -->
-      <g transform="translate(9.36274 240.601194) scale(0.1 -0.1)">
+      <g transform="translate(9.36274 238.304974) scale(0.1 -0.1)">
        <use xlink:href="#DejaVuSans-30"/>
       </g>
      </g>
@@ -1794,12 +1793,12 @@ L -3.5 0
     <g id="ytick_2">
      <g id="line2d_7">
       <g>
-       <use xlink:href="#ma41d6adc29" x="22.72524" y="200.551361" style="stroke: #000000; stroke-width: 0.8"/>
+       <use xlink:href="#m238c8dd145" x="22.72524" y="198.093486" style="stroke: #000000; stroke-width: 0.8"/>
       </g>
      </g>
      <g id="text_7">
       <!-- 5 -->
-      <g transform="translate(9.36274 204.35058) scale(0.1 -0.1)">
+      <g transform="translate(9.36274 201.892704) scale(0.1 -0.1)">
        <defs>
         <path id="DejaVuSans-35" d="M 691 4666 
 L 3169 4666 
@@ -1834,12 +1833,12 @@ z
     <g id="ytick_3">
      <g id="line2d_8">
       <g>
-       <use xlink:href="#ma41d6adc29" x="22.72524" y="164.300748" style="stroke: #000000; stroke-width: 0.8"/>
+       <use xlink:href="#m238c8dd145" x="22.72524" y="161.681216" style="stroke: #000000; stroke-width: 0.8"/>
       </g>
      </g>
      <g id="text_8">
       <!-- 10 -->
-      <g transform="translate(3.00024 168.099966) scale(0.1 -0.1)">
+      <g transform="translate(3.00024 165.480435) scale(0.1 -0.1)">
        <defs>
         <path id="DejaVuSans-31" d="M 794 531 
 L 1825 531 
@@ -1857,61 +1856,61 @@ z
 " transform="scale(0.015625)"/>
        </defs>
        <use xlink:href="#DejaVuSans-31"/>
-       <use xlink:href="#DejaVuSans-30" x="63.623047"/>
+       <use xlink:href="#DejaVuSans-30" transform="translate(63.623047 0)"/>
       </g>
      </g>
     </g>
     <g id="ytick_4">
      <g id="line2d_9">
       <g>
-       <use xlink:href="#ma41d6adc29" x="22.72524" y="128.050134" style="stroke: #000000; stroke-width: 0.8"/>
+       <use xlink:href="#m238c8dd145" x="22.72524" y="125.268946" style="stroke: #000000; stroke-width: 0.8"/>
       </g>
      </g>
      <g id="text_9">
       <!-- 15 -->
-      <g transform="translate(3.00024 131.849353) scale(0.1 -0.1)">
+      <g transform="translate(3.00024 129.068165) scale(0.1 -0.1)">
        <use xlink:href="#DejaVuSans-31"/>
-       <use xlink:href="#DejaVuSans-35" x="63.623047"/>
+       <use xlink:href="#DejaVuSans-35" transform="translate(63.623047 0)"/>
       </g>
      </g>
     </g>
     <g id="ytick_5">
      <g id="line2d_10">
       <g>
-       <use xlink:href="#ma41d6adc29" x="22.72524" y="91.79952" style="stroke: #000000; stroke-width: 0.8"/>
+       <use xlink:href="#m238c8dd145" x="22.72524" y="88.856677" style="stroke: #000000; stroke-width: 0.8"/>
       </g>
      </g>
      <g id="text_10">
       <!-- 20 -->
-      <g transform="translate(3.00024 95.598739) scale(0.1 -0.1)">
+      <g transform="translate(3.00024 92.655895) scale(0.1 -0.1)">
        <use xlink:href="#DejaVuSans-32"/>
-       <use xlink:href="#DejaVuSans-30" x="63.623047"/>
+       <use xlink:href="#DejaVuSans-30" transform="translate(63.623047 0)"/>
       </g>
      </g>
     </g>
     <g id="ytick_6">
      <g id="line2d_11">
       <g>
-       <use xlink:href="#ma41d6adc29" x="22.72524" y="55.548907" style="stroke: #000000; stroke-width: 0.8"/>
+       <use xlink:href="#m238c8dd145" x="22.72524" y="52.444407" style="stroke: #000000; stroke-width: 0.8"/>
       </g>
      </g>
      <g id="text_11">
       <!-- 25 -->
-      <g transform="translate(3.00024 59.348126) scale(0.1 -0.1)">
+      <g transform="translate(3.00024 56.243626) scale(0.1 -0.1)">
        <use xlink:href="#DejaVuSans-32"/>
-       <use xlink:href="#DejaVuSans-35" x="63.623047"/>
+       <use xlink:href="#DejaVuSans-35" transform="translate(63.623047 0)"/>
       </g>
      </g>
     </g>
     <g id="ytick_7">
      <g id="line2d_12">
       <g>
-       <use xlink:href="#ma41d6adc29" x="22.72524" y="19.298293" style="stroke: #000000; stroke-width: 0.8"/>
+       <use xlink:href="#m238c8dd145" x="22.72524" y="16.032137" style="stroke: #000000; stroke-width: 0.8"/>
       </g>
      </g>
      <g id="text_12">
       <!-- 30 -->
-      <g transform="translate(3.00024 23.097512) scale(0.1 -0.1)">
+      <g transform="translate(3.00024 19.831356) scale(0.1 -0.1)">
        <defs>
         <path id="DejaVuSans-33" d="M 2597 2516 
 Q 3050 2419 3304 2112 
@@ -1947,66 +1946,88 @@ z
 " transform="scale(0.015625)"/>
        </defs>
        <use xlink:href="#DejaVuSans-33"/>
-       <use xlink:href="#DejaVuSans-30" x="63.623047"/>
+       <use xlink:href="#DejaVuSans-30" transform="translate(63.623047 0)"/>
       </g>
      </g>
     </g>
    </g>
    <g id="LineCollection_1">
-    <path d="M 37.919536 250.170477 
-L 37.919536 228.420109 
-" clip-path="url(#p82130ad3d1)" style="fill: none; stroke: #000000; stroke-width: 1.5"/>
-    <path d="M 71.684639 256.261572 
-L 71.684639 234.511203 
-" clip-path="url(#p82130ad3d1)" style="fill: none; stroke: #000000; stroke-width: 1.5"/>
-    <path d="M 105.449742 243.038653 
-L 105.449742 221.288285 
-" clip-path="url(#p82130ad3d1)" style="fill: none; stroke: #000000; stroke-width: 1.5"/>
-    <path d="M 139.214845 222.780219 
-L 139.214845 201.029851 
-" clip-path="url(#p82130ad3d1)" style="fill: none; stroke: #000000; stroke-width: 1.5"/>
-    <path d="M 172.979948 204.678648 
-L 172.979948 182.92828 
-" clip-path="url(#p82130ad3d1)" style="fill: none; stroke: #000000; stroke-width: 1.5"/>
-    <path d="M 206.745052 159.283369 
-L 206.745052 137.533001 
-" clip-path="url(#p82130ad3d1)" style="fill: none; stroke: #000000; stroke-width: 1.5"/>
-    <path d="M 240.510155 131.987633 
-L 240.510155 110.237265 
-" clip-path="url(#p82130ad3d1)" style="fill: none; stroke: #000000; stroke-width: 1.5"/>
-    <path d="M 274.275258 103.389522 
-L 274.275258 81.639154 
-" clip-path="url(#p82130ad3d1)" style="fill: none; stroke: #000000; stroke-width: 1.5"/>
-    <path d="M 308.040361 55.77191 
-L 308.040361 34.021542 
-" clip-path="url(#p82130ad3d1)" style="fill: none; stroke: #000000; stroke-width: 1.5"/>
-    <path d="M 341.805464 39.298725 
-L 341.805464 17.548357 
-" clip-path="url(#p82130ad3d1)" style="fill: none; stroke: #000000; stroke-width: 1.5"/>
+    <path d="M 37.919536 255.168439 
+L 37.919536 233.321078 
+" clip-path="url(#p63c2798877)" style="fill: none; stroke: #000000; stroke-width: 1.5"/>
+    <path d="M 71.684639 250.383992 
+L 71.684639 228.53663 
+" clip-path="url(#p63c2798877)" style="fill: none; stroke: #000000; stroke-width: 1.5"/>
+    <path d="M 105.449742 256.261572 
+L 105.449742 234.41421 
+" clip-path="url(#p63c2798877)" style="fill: none; stroke: #000000; stroke-width: 1.5"/>
+    <path d="M 139.214845 220.999238 
+L 139.214845 199.151877 
+" clip-path="url(#p63c2798877)" style="fill: none; stroke: #000000; stroke-width: 1.5"/>
+    <path d="M 172.979948 165.105537 
+L 172.979948 143.258175 
+" clip-path="url(#p63c2798877)" style="fill: none; stroke: #000000; stroke-width: 1.5"/>
+    <path d="M 206.745052 187.202467 
+L 206.745052 165.355106 
+" clip-path="url(#p63c2798877)" style="fill: none; stroke: #000000; stroke-width: 1.5"/>
+    <path d="M 240.510155 145.620092 
+L 240.510155 123.77273 
+" clip-path="url(#p63c2798877)" style="fill: none; stroke: #000000; stroke-width: 1.5"/>
+    <path d="M 274.275258 131.228714 
+L 274.275258 109.381353 
+" clip-path="url(#p63c2798877)" style="fill: none; stroke: #000000; stroke-width: 1.5"/>
+    <path d="M 308.040361 87.963245 
+L 308.040361 66.115884 
+" clip-path="url(#p63c2798877)" style="fill: none; stroke: #000000; stroke-width: 1.5"/>
+    <path d="M 341.805464 36.907665 
+L 341.805464 15.060303 
+" clip-path="url(#p63c2798877)" style="fill: none; stroke: #000000; stroke-width: 1.5"/>
    </g>
    <g id="line2d_13">
-    <path d="M 37.919536 250.548963 
-L 56.912407 244.922165 
-L 75.905277 238.083202 
-L 94.898148 230.032073 
-L 113.891018 220.768778 
-L 132.883889 210.293317 
-L 151.876759 198.60569 
-L 170.86963 185.705898 
-L 189.8625 171.59394 
-L 208.85537 156.269815 
-L 227.848241 139.733526 
-L 246.841111 121.98507 
-L 265.833982 103.024448 
-L 284.826852 82.851661 
-L 303.819723 61.466707 
-L 322.812593 38.869588 
-L 341.805464 15.060303 
-" clip-path="url(#p82130ad3d1)" style="fill: none; stroke: #1f77b4; stroke-width: 1.5; stroke-linecap: square"/>
+    <path d="M 37.919536 248.709006 
+L 45.916534 246.741926 
+L 53.913533 244.576208 
+L 61.910531 242.211854 
+L 69.907529 239.648862 
+L 77.904527 236.887234 
+L 85.901525 233.92697 
+L 93.898523 230.768068 
+L 101.895521 227.41053 
+L 109.892519 223.854354 
+L 117.889517 220.099542 
+L 125.886515 216.146093 
+L 133.883513 211.994008 
+L 141.880511 207.643285 
+L 149.87751 203.093926 
+L 157.874508 198.34593 
+L 165.871506 193.399297 
+L 173.868504 188.254027 
+L 181.865502 182.910121 
+L 189.8625 177.367578 
+L 197.859498 171.626397 
+L 205.856496 165.686581 
+L 213.853494 159.548127 
+L 221.850492 153.211036 
+L 229.84749 146.675309 
+L 237.844489 139.940945 
+L 245.841487 133.007944 
+L 253.838485 125.876306 
+L 261.835483 118.546032 
+L 269.832481 111.01712 
+L 277.829479 103.289572 
+L 285.826477 95.363387 
+L 293.823475 87.238565 
+L 301.820473 78.915107 
+L 309.817471 70.393011 
+L 317.814469 61.672279 
+L 325.811467 52.75291 
+L 333.808466 43.634904 
+L 341.805464 34.318262 
+" clip-path="url(#p63c2798877)" style="fill: none; stroke: #1f77b4; stroke-width: 1.5; stroke-linecap: square"/>
    </g>
    <g id="line2d_14">
     <defs>
-     <path id="m891ccdc418" d="M 0 3 
+     <path id="m8d58cd0a96" d="M 0 3 
 C 0.795609 3 1.55874 2.683901 2.12132 2.12132 
 C 2.683901 1.55874 3 0.795609 3 0 
 C 3 -0.795609 2.683901 -1.55874 2.12132 -2.12132 
@@ -2018,17 +2039,17 @@ C -1.55874 2.683901 -0.795609 3 0 3
 z
 " style="stroke: #000000"/>
     </defs>
-    <g clip-path="url(#p82130ad3d1)">
-     <use xlink:href="#m891ccdc418" x="37.919536" y="239.295293" style="stroke: #000000"/>
-     <use xlink:href="#m891ccdc418" x="71.684639" y="245.386388" style="stroke: #000000"/>
-     <use xlink:href="#m891ccdc418" x="105.449742" y="232.163469" style="stroke: #000000"/>
-     <use xlink:href="#m891ccdc418" x="139.214845" y="211.905035" style="stroke: #000000"/>
-     <use xlink:href="#m891ccdc418" x="172.979948" y="193.803464" style="stroke: #000000"/>
-     <use xlink:href="#m891ccdc418" x="206.745052" y="148.408185" style="stroke: #000000"/>
-     <use xlink:href="#m891ccdc418" x="240.510155" y="121.112449" style="stroke: #000000"/>
-     <use xlink:href="#m891ccdc418" x="274.275258" y="92.514338" style="stroke: #000000"/>
-     <use xlink:href="#m891ccdc418" x="308.040361" y="44.896726" style="stroke: #000000"/>
-     <use xlink:href="#m891ccdc418" x="341.805464" y="28.423541" style="stroke: #000000"/>
+    <g clip-path="url(#p63c2798877)">
+     <use xlink:href="#m8d58cd0a96" x="37.919536" y="244.244759" style="stroke: #000000"/>
+     <use xlink:href="#m8d58cd0a96" x="71.684639" y="239.460311" style="stroke: #000000"/>
+     <use xlink:href="#m8d58cd0a96" x="105.449742" y="245.337891" style="stroke: #000000"/>
+     <use xlink:href="#m8d58cd0a96" x="139.214845" y="210.075558" style="stroke: #000000"/>
+     <use xlink:href="#m8d58cd0a96" x="172.979948" y="154.181856" style="stroke: #000000"/>
+     <use xlink:href="#m8d58cd0a96" x="206.745052" y="176.278787" style="stroke: #000000"/>
+     <use xlink:href="#m8d58cd0a96" x="240.510155" y="134.696411" style="stroke: #000000"/>
+     <use xlink:href="#m8d58cd0a96" x="274.275258" y="120.305034" style="stroke: #000000"/>
+     <use xlink:href="#m8d58cd0a96" x="308.040361" y="77.039565" style="stroke: #000000"/>
+     <use xlink:href="#m8d58cd0a96" x="341.805464" y="25.983984" style="stroke: #000000"/>
     </g>
    </g>
    <g id="patch_3">
@@ -2054,7 +2075,7 @@ L 356.99976 3.00024
   </g>
  </g>
  <defs>
-  <clipPath id="p82130ad3d1">
+  <clipPath id="p63c2798877">
    <rect x="22.72524" y="3.00024" width="334.27452" height="265.321395"/>
   </clipPath>
  </defs>
@@ -2071,12 +2092,12 @@ L 356.99976 3.00024
 <div class="cell_output docutils container">
 <div class="output text_html"></div><div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(&lt;Figure size 640x480 with 9 Axes&gt;,
  array([[&lt;Axes: &gt;, &lt;Axes: &gt;, &lt;Axes: &gt;],
-        [&lt;Axes: ylabel=&#39;b&#39;&gt;, &lt;Axes: &gt;, &lt;Axes: &gt;],
-        [&lt;Axes: xlabel=&#39;a&#39;, ylabel=&#39;c&#39;&gt;, &lt;Axes: xlabel=&#39;b&#39;&gt;,
-         &lt;Axes: xlabel=&#39;c&#39;&gt;]], dtype=object))
+        [&lt;Axes: ylabel='b'&gt;, &lt;Axes: &gt;, &lt;Axes: &gt;],
+        [&lt;Axes: xlabel='a', ylabel='c'&gt;, &lt;Axes: xlabel='b'&gt;,
+         &lt;Axes: xlabel='c'&gt;]], dtype=object))
 </pre></div>
 </div>
-<img alt="../../../_images/59d23e8b067f6a762aeccce0b12a003d05e000cdc1dbfc02c14f2db40b2d6699.png" src="../../../_images/59d23e8b067f6a762aeccce0b12a003d05e000cdc1dbfc02c14f2db40b2d6699.png" />
+<img alt="../../../_images/137a8719f61206a87c2bf6c32037491c9d10f0e7ef0b670e63cb115934a8b202.png" src="../../../_images/137a8719f61206a87c2bf6c32037491c9d10f0e7ef0b670e63cb115934a8b202.png" />
 </div>
 </div>
 </section>
@@ -2109,7 +2130,7 @@ L 356.99976 3.00024
               
               
               
-                <footer class="prev-next-footer">
+                <footer class="prev-next-footer d-print-none">
                   
 <div class="prev-next-area">
     <a class="left-prev"
@@ -2138,6 +2159,7 @@ L 356.99976 3.00024
             
               
                 <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
 
   <div class="sidebar-secondary-item">
   <div class="page-toc tocsection onthispage">
@@ -2176,7 +2198,7 @@ By The Jupyter Book community
 
   <p class="copyright">
     
-      © Copyright 2022.
+      © Copyright 2023.
       <br/>
     
   </p>
@@ -2200,8 +2222,8 @@ By The Jupyter Book community
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="../../../_static/scripts/bootstrap.js?digest=5b4479735964841361fd"></script>
-<script src="../../../_static/scripts/pydata-sphinx-theme.js?digest=5b4479735964841361fd"></script>
+  <script src="../../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
 
   <footer class="bd-footer">
   </footer>

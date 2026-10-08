@@ -8,6 +8,11 @@
     either to avoid inserting them one by one during a script execution,
     or to have them saved in a separate place with respect to the script source code.
 
+  * **GOOD PRACTICE:** data you produce/record are better **saved on disk** for a later use
+    1. Generate once, process multiple times
+    2. Avoid hard-coded values
+  * Multiple file formats are available (binary formats, structured methods,...) **for this course we will look at txt files**
+
 ### Writing information on txt files
 
   * The **writing procedure** may be done in the following way:
@@ -20,6 +25,22 @@
     * The ```sample``` variable is an existing collection of numbers
     * the printout adds a carriage return symbol ```\n```, 
       so to ensure that the numbers are saved in different lines
+
+  ::::{important}
+    | Advantages |
+    | ---------- |
+
+    * easy: you can read it independently
+    * language agnostic
+    * easy to check the reading program correctness
+
+    | Disadvantages |
+    | ------------- |
+
+    * slow
+    * inefficient for large amount of data
+    * may require type conversion, as the writing and reading is through strings
+  ::::
 
 ### Reading information from txt files
 
@@ -267,3 +288,101 @@
   * The examples for the lecture may be found [here](EXAMPLES.rst)
   * The exercises for the lecture may be found [here](EXERCISES.md)
 ```
+
+## Reading and writing data with `numpy`
+
+  * `numpy` offers an alternative way to read data from text files 
+     and store them in arrays with a single command:
+     ``` py
+     sample = np.loadtxt ('sample.txt')
+     ```
+
+  ::::{important}
+    | Advantages |
+    | ---------- |
+
+    * The syntax is compact
+    * The type conversion is automatic
+
+    | Disadvantages |
+    | ------------- |
+
+    * Assumes one value per line
+    * Assumes the same type for all values
+  ::::
+
+
+## Reading and writing data with `pandas`
+
+  * [Pandas - Python](https://pandas.pydata.org/), the Python Data Analysis library, 
+    is designed to handle **multidimensional datasets**,
+    where each measurement contains several different readings
+  * A sample of measurements is saved in an object called **DataFrame**
+  * Is is **represented as a table** with one measurement per raw
+ 
+     | Data index | Variable_1 | Variable_2 | ... | Variable_N |
+     | ---------- | ---------- | ---------- | --- | ---------- |
+     | 0          | x          | y          | ..  | z          |
+     | 1          | xx         | yy         | ..  | zz         |
+     | ...        |            |            |     |            |
+     | M          | x_M        | y_M        |     | z_M        |
+ 
+    * each `Variable_i` can have a specific type
+    * In each **row** there's a measurement
+    * Each **column** corresponds to a specific reading (value, date, time, ...)
+
+### Creating a DataFrame
+
+  * To **create a `DataFrame`** a list of dictionaries must be provided 
+    with the column variables as keys: 
+    ```python
+    import pandas as pd 
+    # Collect data 
+    data = [] 
+    for i in range(5): 
+      data.append({'Name': f'User_{i}', 'Age': 20 + i}) 
+    # Create DataFrame 
+    df = pd.DataFrame(data)
+    ```
+  * Or **add the elements row by row** after declaring the columns:
+    ```python
+    import pandas as pd 
+    # Create empty DataFrame with defined columns 
+    df = pd.DataFrame(columns=['Name', 'Age', 'City']) 
+    # Fill row-by-row 
+    for name, age, city in [('Alice', 25, 'NYC'), ('Bob', 30, 'LA')]: 
+      df.loc[len(df)] = [name, age, city]
+    ```
+
+### Reading a Dataframe
+ 
+  * Information in Dataframe `df` can be accessed as:
+    ```py
+    # extract the named column as a list
+    Column_as_List = df['column_name'].values()
+    # extract the named column as a numpy array
+    Column_as_Array = df['column_name'].to_numpy()
+    ```
+
+### Filtering a Dataframe
+
+  * During the data analysis,
+    sometimes only **part of the dataset** is of interest
+  * Only some columns of a ```DataFrame``` may be retained,
+    by [filtering the entries](https://pandas.pydata.org/docs/getting_started/intro_tutorials/03_subset_data.html)
+    ```py
+    df_subset = df[["variable_X","variable_Y"]]
+    ```
+  * Only some rows of a ```DataFrame``` may be retained:
+    ```python
+    df_singleRow = df[df['filter_column_name'] == value]
+    # and then extract the values
+    SingleRowValue = df_singleRow['column_name'].to_numpy()
+    ```
+  * Complex selections may be operated:
+    ```python
+    df_MultiCondition = df[(df['filter_column_name'] > valueMin) & (df['filter_column_name'] < valueMax)]
+    ```
+
+
+
