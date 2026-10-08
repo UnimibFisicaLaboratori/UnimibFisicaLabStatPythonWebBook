@@ -284,11 +284,6 @@
     area = quad (expon, 0, np.inf)
     ```
 
-```{note}
-  * The examples for the lecture may be found [here](EXAMPLES.rst)
-  * The exercises for the lecture may be found [here](EXERCISES.md)
-```
-
 ## Reading and writing data with `numpy`
 
   * `numpy` offers an alternative way to read data from text files 
@@ -384,5 +379,10 @@
     df_MultiCondition = df[(df['filter_column_name'] > valueMin) & (df['filter_column_name'] < valueMax)]
     ```
 
+
+```{note}
+  * The examples for the lecture may be found [here](EXAMPLES.rst)
+  * The exercises for the lecture may be found [here](EXERCISES.md)
+```
 
 
